@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		
+	</style>
+</head>
+<body>
+		<table border=1>
+			<tr>
+				<td>td标签1</td>
+				<td>td标签2</td>
+				<td>td标签3</td>
+			</tr>
+			<tr id='twoFr'>
+				<td>td标签1</td>
+				<td>td标签2</td>
+				<td>td标签3</td>
+			</tr>
+			<tr>
+				<td>td标签1</td>
+				<td>td标签2</td>
+				<td>td标签3</td>
+			</tr>
+		</table>
+	
+	<script type="text/javascript">
+		window.onload=function(){
+			// 问题说明：ie8、9  firefox以及其它浏览器对于 table 标签的操作都各不相同，在ie中不允许对table和tr的innerHTML赋值，使用js增加一个tr时，使用appendChild方法也不管用。
+			var twoFr=document.getElementById('twoFr');
+			var table=document.getElementsByTagName('table')[0];
+			var ele=document.createElement('tr');
+			ele.innerHTML='创建的tr';
+			table.appendChild(ele);
+			
+			twoFr.innerHTML+='<td>js添加的<td>';
+
+
+
+		}		
+
+
+	</script>
+</body>
+</html>

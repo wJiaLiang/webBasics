@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+            props 种组件通信的方式只适合直接的父子组件，也就是如果父组件A下面有子组件B，组件B下面有组件C，
+            这时如果组件A直接想传递数据给组件C那就行不通了！ 只能是组件A通过 props 将数据传给组件B，
+            然后组件B获取到组件A 传递过来的数据后再通过 props 将数据传给组件C。当然这种方式是非常复杂的，
+            无关组件中的逻辑业务一种增多了，代码维护也没变得困难，再加上如果嵌套的层级越多逻辑也复杂，无关代码越多！
+
+            vm.$attrs
+            包含了父作用域中不作为 prop 被识别 (且获取) 的 attribute 绑定 (class 和 style 除外)。
+            当一个组件没有声明任何 prop 时，这里会包含所有父作用域的绑定 (class 和 style 除外)，
+            并且可以通过 v-bind="$attrs" 传入内部组件——在创建高级别的组件时非常有用。
+        
+            vm.$listeners
+            包含了父作用域中的 (不含 .native 修饰器的) v-on 事件监听器。
+            它可以通过 v-on="$listeners" 传入内部组件——在创建更高层次的组件时非常有用。
+
+
+        */ 
+
+        // 父组件
+        Vue.component('A',{
+            data(){
+                return{
+                    message:'hello',    // 传递给b组件的数据
+                    messagec:'hello-C'  // 传递个c组件的数据
+                }
+            },
+            template:`
+                <div style="border-top:1px solid black">
+                    <p> this is A 组件 </p>
+                    <B :message="message"  :messagec="messagec" @getData="getData" @getDatac="getDatac"> </B>
+                </div>
+            `,
+            methods:{
+                // B组件触发事件
+                getData(val){
+                    console.log(`来自B组件的数据${val}`);
+                },
+                // c组件触发数据
+                getDatac(val){
+                    console.log(`来自C组件的数据${val}`);
+                }
+            }
+        })
+
+        // 子组件 B
+        Vue.component('B',{
+            data(){
+                return {
+                    mymessage:this.message
+                }
+            },
+            template:`
+                <div style="border-top:1px solid red">
+                    <p> this is B 组件 </p>
+                    <input style="font-size:26px;" type="text" v-model="mymessage" @input="passData(mymessage)"> 
+                    <div> 
+                        <C v-bind="$attrs" v-on="$listeners" > </C>
+                    </div>
+                </div>
+            `,
+            props: ['message'],  // 这里如果获取了，这个字段就不会传递到下个组件了
+            methods:{
+                passData(val){
+                    this.$emit("getData",val);
+                }
+            }
+        })
+        // 子组件 C
+        Vue.component('C',{
+            data(){
+                return {
+                    
+                }
+            },
+            template:`
+                <div style="border-top:1px solid blue">
+                    <p> this is C 组件 </p>
+                    <input style="fontSize:20px;" type="text" v-model="$attrs.messagec" @input="passData($attrs.messagec)">
+                </div>
+            `,
+            mounted(){
+                // 获取传递进来的数据;
+                console.log(this.$attrs,this.$listeners)
+            },
+            methods:{
+                passData(val){
+                    var that = this;
+                    this.$emit("getDatac",val)
+                }
+            }
+        })
+
+
+    new Vue({
+        el:'#app',
+        data:{
+
+        },
+        template:'<A></A>',
+        methods:{
+
+        },
+        beforeMount() {
+
+        },
+        mounted () {
+
+        },
+        computed: {
+
+        },
+        watch: {
+
+        },
+
+    })
+
+</script>
+</html>

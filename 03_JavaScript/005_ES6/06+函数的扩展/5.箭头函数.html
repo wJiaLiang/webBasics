@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<body>
+    <script type="text/javascript">
+/* 
+    ES6 允许使用“箭头”（=>）定义函数 如果只有一个参数,并且函数体只有一条一句;
+*/
+    var f = v => 2000 + v + Math.abs(~200);
+    console.log( f(5) ); //2000;
+    // 等同于
+    var f1 = function(v){
+        return v;
+    }
+
+
+
+/*
+    2.如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分。
+ */ 
+    var f2 = ()=>5;
+    console.log( f2() );        //5;
+
+    var sum = (n1,n2)=> n1+n2;
+    console.log(sum(1,9))       //10;
+
+
+/*
+    3.如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来
+    并且使用return语句返回。
+ */ 
+    var sum = (n1,n2)=>{return n1+n2};
+
+
+/*
+    4.由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，
+    必须在对象外面加上括号，否则会报错。
+ */
+
+    // 报错;
+    // let getTemp = id => {id:id,name:"Temp"};
+    //  不报错;
+    let getTempitme = id =>( {id:id,name:"Temp"} );
+
+
+/*
+    5.箭头函数可以与变量解构结合使用。
+ */ 
+    const full1=( {first,last} )=> first+' '+last;
+    // 等同于
+    function full2(person){
+        return person.first+" "+person.last;
+    }
+
+
+
+//下面是 rest 参数与箭头函数结合的例子。
+    const number= (...vue)=> vue;
+    console.log( number(1,2,3,4,6) ); //[1,2,3,4,6];
+    
+    
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var $=jQuery=function(){
+			return new $.fn.init();
+		}
+		$.fn=$.prototype={
+			init:function(){
+				this.hello='tom',
+				this.show=function(){
+					console.log(this.hello);
+				}
+				console.log(this);
+
+			},
+			length:123,
+			size:function(){
+				console.log(this.length);
+			}
+		}
+		var let=$(); //实例化jq对象后prototype改变后无效的;
+		// let.show();
+		// console.dir(let);
+		$.fn.init.prototype=$.fn; 
+		let.size();
+
+	</script>
+</body>
+</html>

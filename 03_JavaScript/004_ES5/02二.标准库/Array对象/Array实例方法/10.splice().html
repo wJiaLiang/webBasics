@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+        // splice方法用于删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，
+        // 返回值是被删除的元素。注意，该方法会改变原数组。
+
+        //splice的第一个参数是删除的起始位置(下标，包含该位置元素)，第二个参数是被删除的元素个数。如果后面还有更多的参数，则表示这些就是要被插入数组的新元素。
+        
+        // 表示代码从原数组4号位置，删除了两个数组成员。
+        var a = ['a', 'b', 'c', 'd', 'e', 'f'];
+        a.splice(4, 2) // ["e", "f"]
+        a // ["a", "b", "c", "d"]
+
+        var b = ['a', 'b', 'c', 'd', 'e', 'f'];
+        b.splice(4, 2, 1, 2) // ["e", "f"]
+        b // ["a", "b", "c", "d", 1, 2]
+        
+        //负数表示倒着开始数; 数2个数;
+        var c=['a', 'b', 'c', 'd', 'e', 'f'];
+        c.splice(-4,2); //['c','d'];
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" style="width: 100%;height: 30px;">
+    <input type="checkbox" name="" value="复选框">
+    <div id="el" style="width: 100px;height: 100px;background-color: red;" >div test</div>
+    <script type="text/javascript">
+    window.onload=function(){
+        var inp = document.querySelector('input[type="checkbox"]');
+        var text = document.querySelector('input[type="text"]');
+        // 设置栏复选框无法选择;
+        inp.addEventListener('click',function(e){
+                e.preventDefault();
+        },false);
+
+        // 设置一个input框无法输入,
+        text.addEventListener("keypress",function(e){
+
+            e.preventDefault()
+        },false)
+
+        // 面函数设为文本框的keypress监听函数后，将只能输入小写字母，否则输入事件的默认事件（写入文本框）将被取消
+        function checkName(e) {
+            if (e.charCode < 97 || e.charCode > 122) {
+                e.preventDefault();
+            }
+        }
+
+        //detail属性返回一个数值，表示事件的某种信息。具体含义与事件类型有关，对于鼠标事件，表示鼠标按键在某个位置按下的次数
+        function giveDetails(e) {
+            this.textContent = e.detail;
+        }
+        var el =document.querySelector('#el');
+        el.onclick = giveDetails;
+
+
+    }
+
+
+
+    </script>
+</body>
+</html>

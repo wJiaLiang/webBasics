@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul {
+            text-decoration: none;
+            list-style: none;
+            height: 45px;
+            line-height: 45px;
+            background-color: #ccc;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+
+        ul>li {
+            float: left;
+            width: 33.33%;
+            text-align: center;
+        }
+
+        .main {
+            width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+
+        .conte {
+            min-height: 200px;
+            border: 1px dotted red;
+            border-top: none;
+        }
+
+        .active {
+            background-color: white;
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="main">
+            <ul>
+                <li v-for="item,index in datalist" 
+                v-bind:class="{active:index===curentindex}" 
+                v-on:click="tableHandle(index)"
+                v-bind:style="{cursor:index!==curentindex?'pointer':'cell'}"
+                >
+                {{item.title}}
+            </li>
+            </ul>
+            <div class="conte">
+                <div v-for="item,index in datalist" 
+                v-bind:style="{display:index===curentindex?'block':'none'}"
+               
+                >
+                <p v-for="opt,i of item.clist"> {{opt + i}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+        var datalist = [{
+                title: '语文',
+                clist: ['语文1', '语文2', '语文3']
+            },
+            {
+                title: '数学',
+                clist: ['数学1', '数学2', '数学3']
+            },
+            {
+                title: '英语',
+                clist: ['英语1', '英语2', '英语3']
+            }
+        ]
+
+        new Vue({
+            el: '#app',
+            data: {
+                datalist,
+                curentindex: 0,
+            },
+            methods: {
+                tableHandle:function(index){
+                    this.curentindex = index;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

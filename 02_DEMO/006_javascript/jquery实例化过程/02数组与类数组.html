@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    /*
+    ※数组的独有特征：
+    1、当有新元素添加到列表中时，自动更新length
+    2、设置length为一个较小值会截断数组
+    3、从Array.prototype中继承一些有用的方法
+    4、其类型为“Array”
+    ※类数组：拥有一个数值length属性和对应的非负整数属性
+    */
+    // 判断是否为类数组
+    function isArrayLike(o){
+        if(o &&//o非null、undefined
+           typeof o === 'object' &&//o是对象
+           isFinite(o.length) &&//o.length是有限数
+           o.length >= 0 &&//o.length为非负值
+           o.length === Math.floor(o.length) &&//o.length是整数
+           o.length < 4294967296){//o.length<2^32 一个字节（Byte）8个二进制位bit
+           return true;
+        }else{
+           return false;
+        }
+    }
+
+
+    // console.dir(window);
+    // var arr = [123,12,21,34,34,3434];
+    // arr.length = 3;
+    // console.dir(arr);
+    // console.log(arr instanceof Array);
+
+    var obj = {0:'a',1:'b',2:'c',length:3};
+    console.log(isArrayLike(obj));
+    // obj[3] = 'd';
+    // obj.length = 4;
+    //把类数组转成数组
+    // var arr = [].slice.call(obj);
+    // var arr2 = [].slice.apply(obj);
+    // var arr1 = Array.prototype.slice.apply(obj);
+    // console.log(arr1);
+
+    // console.log(obj instanceof Array);
+    // console.dir(obj);
+    var result = [];
+    // result.push(123,12212,23423);
+    // result.push(obj);
+    // [].push.call(result,obj);
+    //用如下的方式添加到数组中的元素可以是类数组
+    // [].push.apply(result,obj);
+    // result.push.apply(result,obj);
+    // Array.prototype.push.apply(result,obj);
+
+    // console.log(result);
+
+    function foo(){
+        console.dir(arguments);
+    }
+    foo(12,23,43,435);
+    window.onload = function(){
+        var aDiv = document.getElementsByTagName('div');
+        console.dir(aDiv);
+    }
+    //数组的本质是对象（无序的键值对）
+    var arr = [12,32,34];
+    arr.name = 'zhangsan';
+    arr.info = 'hello';
+    arr.showInfo = function(){
+
+    }
+    console.dir(arr);
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

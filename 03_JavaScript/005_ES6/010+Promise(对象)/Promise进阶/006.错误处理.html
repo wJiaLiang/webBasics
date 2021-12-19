@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+        promise 会自动捕获异常，并交给rejected 响应函数;
+
+
+     */ 
+
+    console.log('start');
+    new Promise( (resolve,reject)=>{
+        // 在执行器函数中发生了错误就会将状态设置为reject;
+        setTimeout(()=>{
+            reject('bye');
+        },2000)
+    })
+    .then(value=>{
+        console.log(value+'world');
+    })
+    // 在catch 可以捕获之前的所有的错误; 上面 then里面的也可以;
+    .catch(value=>{
+        console.log(value);  // bye
+    })
+
+
+
+
+
+
+    </script>
+</body>
+</html>

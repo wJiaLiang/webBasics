@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>概述</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+    同源:
+        协议相同
+        域名相同
+        端口相同
+    
+    “同源政策”越来越严格。目前，如果非同源，共有三种行为受到限制。
+        （1） Cookie、LocalStorage 和 IndexedDB 无法读取。
+        （2） DOM 无法获得。
+        （3） AJAX 请求无效（可以发送，但浏览器会拒绝接受响应）。
+    
+    */ 
+    /*
+      如何规避上面三种限制。
+      Cookie
+        两个网页一级域名相同，只是二级域名不同，浏览器允许通过设置document.domain共享 Cookie。
+        
+      iframe
+      iframe元素可以在当前网页之中，嵌入其他网页。每个iframe元素形成自己的窗口，即有自己的window对象。iframe窗口之中的脚本，可以获得父窗口和子窗口。但是，只有在同源的情况下，父窗口和子窗口才能通信；如果跨域，就无法拿到对方的DOM。
+    */
+   /*
+    对于完全不同源的网站，目前有两种方法，可以解决跨域窗口的通信问题。
+    1。片段识别符（fragment identifier）
+        片段标识符（fragment identifier）指的是，URL的#号后面的部分;
+        子窗口通过监听hashchange事件得到通知。
+    2。跨文档通信API（Cross-document messaging）
+        window.postMessage
+    
+
+    */ 
+    /*
+    同源政策规定，AJAX请求只能发给同源的网址，否则就报错。
+    除了架设服务器代理（浏览器请求同源服务器，再由后者请求外部服务），有三种方法规避这个限制。
+    
+    
+    
+    1。JSONP
+        JSONP是服务器与客户端跨源通信的常用方法。最大特点就是简单适用，老式浏览器全部支持，服务器改造非常小。它的基本思想是，网页通过添加一个<script>元素，向服务器请求JSON数据，这种做法不受同源政策限制；服务器收到请求后，将数据放在一个指定名字的回调函数里传回来。
+    
+    2。WebSocket
+        WebSocket是一种通信协议，使用ws://（非加密）和wss://（加密）作为协议前缀。该协议不实行同源政策，只要服务器支持，就可以通过它进行跨源通信。
+    3。CORS    
+        CORS是跨源资源分享（Cross-Origin Resource Sharing）的缩写。它是W3C标准，是跨源AJAX请求的根本解决方法。相比JSONP只能发GET请求，CORS允许任何类型的请求。
+
+
+     */
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ProgressEvent对象</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    //进度事件使用ProgressEvent对象表示。ProgressEvent实例有以下属性。
+/*
+lengthComputable：返回一个布尔值，表示当前进度是否具有可计算的长度。如果为false，就表示当前进度无法测量。
+total：返回一个数值，表示当前进度的总长度。如果是通过HTTP下载某个资源，表示内容本身的长度，不含HTTP头部的长度。如果lengthComputable属性为false，则total属性就无法取得正确的值。
+loaded：返回一个数值，表示当前进度已经完成的数量。该属性除以total属性，就可以得到目前进度的百分比。
+
+*/ 
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("progress", updateProgress, false);
+    xhr.addEventListener("load", transferComplete, false);
+    xhr.addEventListener("error", transferFailed, false);
+    xhr.addEventListener("abort", transferCanceled, false);
+
+    xhr.open();
+
+    function updateProgress (e) {
+        if (e.lengthComputable) {
+            var percentComplete = e.loaded / e.total;
+        } else {
+            console.log('不能计算进度');
+        }
+    }
+
+    function transferComplete(e) {
+        console.log('传输结束');
+    }
+
+    function transferFailed(evt) {
+        console.log('传输过程中发生错误');
+    }
+
+    function transferCanceled(evt) {
+        console.log('用户取消了传输');
+    }
+
+// loadend事件的监听函数，可以用来取代abort事件/load事件/error事件的监听函数。
+    req.addEventListener("loadend", loadEnd, false);
+    function loadEnd(e) {
+      console.log('传输结束，成功失败未知');
+    }
+// loadend事件本身不提供关于进度结束的原因，但可以用它来做所有进度结束场景都需要做的一些操作。
+
+
+/*
+    另外，上面是下载过程的进度事件，还存在上传过程的进度事件。
+    这时所有监听函数都要放在XMLHttpRequest.upload对象上面
+        var xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener("progress", updateProgress, false);
+        xhr.upload.addEventListener("load", transferComplete, false);
+        xhr.upload.addEventListener("error", transferFailed, false);
+        xhr.upload.addEventListener("abort", transferCanceled, false);
+
+        xhr.open();
+    
+
+ */ 
+
+// 浏览器提供一个ProgressEvent构造函数，用来生成进度事件的实例。
+    progressEvent = new ProgressEvent(type, {
+        lengthComputable: aBooleanValue,
+        loaded: aNumber,
+        total: aNumber
+    });
+    
+//上面代码中，ProgressEvent构造函数的第一个参数是事件类型（字符串），第二个参数是配置对象，用来指定lengthComputable属性（默认值为false）、loaded属性（默认值为0）、total属性（默认值为0）
+
+
+
+
+
+
+
+
+</script>
+    
+</body>
+</html>

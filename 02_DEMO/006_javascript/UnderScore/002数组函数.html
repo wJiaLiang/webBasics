@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/base.css" />
+    </head>
+
+    <body>
+        <div id="app"></div>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./Underscore_v1.91.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                list: [1, 2, 3, 4, 5, 6],
+                list2: [
+                    { a: 1 },
+                    { b: 2 },
+                    { c: 3 },
+                    { d: 4 },
+                    { e: 5 },
+                    { f: 6 },
+                ],
+                list3: [1, [2, 3, [4]], [5, 6]],
+            },
+            beforeMount() {
+                this.init();
+            },
+            methods: {
+                init() {
+                    var value = _.first(this.list, 2);
+                    console.log(value);
+
+                    // 返回数组中除了最后一个元素外的其他全部元素 排除数组后面的 n 个元素
+                    var value1 = _.initial(this.list, 2);
+                    console.log(value1);
+
+                    // 返回数组里的后面的n个元素
+                    var value2 = _.last(this.list, 2);
+                    console.log(value2);
+
+                    var value3 = _.rest(this.list, 1);
+                    console.log(value3);
+
+                    // 嵌套可以是任何层数)转换为只有一层的数组。
+                    var value4 = _.flatten(this.list3);
+                    console.log(value4);
+
+                    // union  多个数组合并并去重 类似求病集;
+                    var value5 = _.union([1, 2, 3, 6, 1], [100, 6, 7]);
+                    console.log(value5);
+
+                    // intersection,求多个数组的交集
+                    _.intersection([3, 4, 6], [1, 3, 666, 22]);
+
+                    // difference  返回第一数组中值，没有在第二个数组的值;
+                    _.difference([1, 2, 3], [55, 66, 2]); //[1,3]
+
+                    // 按照顺序每个数组相同的位置 元素组成一个新数组;
+                    _.zip([1, 2, 3], ["a", "b", "c"], [55, 66, 77]);
+
+                    // 返回 匹配该数组中的 下标;
+                    _.indexOf([44, 555, 777, 88], 555); //1
+
+                    // 创建一个灵活的列表; 按规则，生成一组数据;
+					_.range(0, 100, 2);
+					
+
+                },
+            },
+        });
+    </script>
+</html>

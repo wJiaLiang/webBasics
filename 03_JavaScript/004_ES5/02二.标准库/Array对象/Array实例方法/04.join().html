@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        // join方法以参数作为分隔符，将所有数组成员组成一个字符串返回。如果不提供参数，默认用逗号分隔。
+        var a = [1, 2, 3, 4];
+
+        a.join(' ')     // '1 2 3 4'
+        a.join(' | ')   // "1 | 2 | 3 | 4"
+        a.join()        // "1,2,3,4"
+
+        // 如果数组成员是undefined或null或空位，会被转成空字符串。
+
+        [undefined, null].join('#')
+        // '#'
+
+        ['a',, 'b'].join('-')
+        // 'a--b'
+
+
+        // 通过call方法，这个方法也可以用于字符串。
+        Array.prototype.join.call('hello', '-')
+        // "h-e-l-l-o"
+
+        // join方法也可以用于类似数组的对象。
+        var obj = { 0: 'a', 1: 'b', length: 2 };
+        Array.prototype.join.call(obj, '-')
+        // 'a-b'
+        
+
+
+    </script>
+</body>
+</html>

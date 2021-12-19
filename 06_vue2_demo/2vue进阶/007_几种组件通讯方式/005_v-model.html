@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/base.css" />
+        <style></style>
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        /*
+        这种方式和前面讲到的 props 有点类型，但是既然单独提出来说了，那肯定也有其独特之处
+
+        在 parent 组件中，我们给自定义的 child 组件实现了 v-model 绑定了 message 属性。
+        此时相当于给 child 组件传递了 value 属性和绑定了 input 事件。(v-model 双向数据绑定的原理也就是绑定change事件完成双向绑定)
+
+
+        顺理成章，在定义的 child 组件中，可以通过 props 获取 value 属性，根据 props 单向数据流的原则，
+        又将 value 缓存在了 data 里面的 mymessage 上，再在 input 上通过 v-model 绑定了 mymessage 属性和一个 change 事件。
+        当 input 值变化时，就会触发 change 事件，处理 parent 组件通过 v-model 给 child 组件绑定的 input 事件，
+        触发 parent 组件中 message 属性值的变化，完成 child 子组件改变 parent 组件的属性值。
+
+        
+        */ 
+        // 定义 parent 组件
+        Vue.component("parent", {
+            template: `
+                <div>
+                    <p>this is parent component!</p>
+                    <p>{{message}}</p>
+                    <child v-model="message"></child>
+                </div>
+            `,
+            data() {
+                return {
+                    message: "hello",
+                };
+            },
+        });
+
+        // 定义 child 组件
+        Vue.component("child", {
+            template: `
+                <div>
+                    <input type="text" v-model="mymessage" @change="changeValue"> 
+                </div>
+            `,
+            props: {
+                value: String, // v-model 会自动传递一个字段为 value 的 props 属性
+            },
+            data() {
+                return {
+                    mymessage: this.value,
+                };
+            },
+            methods: {
+                changeValue() {
+                    this.$emit("input", this.mymessage); //通过如此调用可以改变父组件上 v-model 绑定的值
+                },
+            },
+        });
+
+        const app = new Vue({
+            el: "#app",
+            template: `
+                <div>
+                <parent />
+                </div>
+            `,
+        });
+
+
+    </script>
+</html>

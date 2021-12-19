@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+    </head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <body>
+    	<div id="app">  </div>
+        
+        
+        <script type="text/javascript">
+			
+			// 箭头函数内部没有 arguments 就无法知道实参数个数;就用 res函数参数了;
+			// 用来替换匿名函数;
+			let fn2 = (...args)=>{
+				console.log(args instanceof Array); // true;
+				console.log(args) // [5,6,7,'s',Object]
+			}
+			
+			
+			fn2(5,6,7,'s',{name:'666',password:'123'});
+			
+			// 箭头函数的特点:
+				
+			var p = {
+				name:'123456',
+				// 箭头函数的表示方式;
+				run:()=>{
+					setTimeout(()=>{
+						console.log('run',this); // window;
+					},100)
+				},
+
+				run1:()=>{
+					console.log('run1',this);  // window;
+				},
+
+				// es6中函数的简写形式:
+				say:function(){
+					console.log('say',this); //p对象
+				}
+			}
+			p.run()
+			p.run1()
+			p.say();
+
+        </script>
+    </body>
+</html>

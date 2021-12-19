@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			/* box-sizing: border-box; */
+			padding: 10px;
+			border: 10px solid red;
+			margin: 10px;
+			width: 100px;height: 100px;background-color: dodgerblue;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		box
+	</div>
+	<script src="jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+		var width=$('div').width();
+		var widthinner=$('div').innerWidth();
+		var outerWidth=$('div').outerWidth(true);
+		console.log("内容宽度"+width+"<br>");
+		console.log('widthinner'+widthinner+"<br>");
+		console.log("outerWidth"+outerWidth);
+
+		
+	</script>
+</body>
+</html>

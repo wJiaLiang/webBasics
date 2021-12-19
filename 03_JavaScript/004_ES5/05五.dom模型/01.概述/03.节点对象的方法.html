@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点对象的方法</title>
+</head>
+<body>
+
+    <div class="main">
+        <div class="childbox">子节点</div>
+
+    </div>
+    <section> </section>
+
+    <script type="text/javascript">
+/* 
+1. Node.appendChild方法接受一个节点对象作为参数，将其作为最后一个子节点，插入当前节点。
+2. Node.hasChildNodes方法返回一个布尔值，表示当前节点是否有子节点。
+3, Node.cloneNode方法用于克隆一个节点。它接受一个布尔值作为参数，表示是否同时克隆子节点，默认是false，即不克隆子节点。
+4. insertBefore方法用于将某个节点插入当前节点内部的指定位置。它接受两个参数，第一个参数是所要插入的节点，第二个参数是当前节点内部的一个子节点，新的节点将插在这个子节点的前面。该方法返回被插入的新节点。
+5. Node.removeChild方法接受一个子节点作为参数，用于从当前节点移除该子节点。它返回被移除的子节点。
+
+6. Node.replaceChild方法用于将一个新的节点，替换当前节点的某一个子节点。它接受两个参数，第一个参数是用来替换的新节点，第二个参数将要被替换走的子节点。它返回被替换走的那个节点。
+
+7. Node.contains方法接受一个节点作为参数，返回一个布尔值，表示参数节点是否为当前节点的后代节点。
+
+8. isEqualNode方法返回一个布尔值，用于检查两个节点是否相等。所谓相等的节点，指的是两个节点的类型相同、属性相同、子节点相同。
+9. normailize方法用于清理当前节点内部的所有Text节点。它会去除空的文本节点，并且将毗邻的文本节点合并成一个。
+
+
+
+
+
+*/
+let a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,u,v,w,x,y,z;
+var ele= document.querySelector('.main');
+
+a= document.createElement('span');
+ele.appendChild(a);
+cons.log(ele.hasChildNodes());
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冒泡排序</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var array=[23,45,67,86,21,33,234];
+		document.write("<h2>"+array+"</h2>");
+
+		for(var j=0;j<array.length-1;j++)
+		{
+			//内层的for循环选出了最小的一个数反在后面；
+			for(var i=0;i<array.length-1;i++)
+			{
+				if(array[i]<array[i+1])
+				{
+					var x=array[i];
+					array[i]=array[i+1];
+					array[i+1]=x;
+				}
+			}
+
+		}
+
+		document.write("<h2>"+array+"</h2>");
+
+
+	</script>
+</body>
+</html>

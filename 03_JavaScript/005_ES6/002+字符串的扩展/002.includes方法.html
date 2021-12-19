@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title></title>
+    </head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <body>
+        <div id="app"></div>
+
+        <script type="text/javascript">
+/*
+   indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。如果没找到返回-1;
+	1.  includes()：返回布尔值，表示是否找到了参数字符串。
+		startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。
+		endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
+*/
+    let a = "一个苹果";
+    let to = "我这里有一个苹果"; 
+    let flag = to.includes(a);
+    console.log(flag); 	// true;
+
+
+
+/*
+	2. repeat()
+   		repeat方法返回一个新字符串，表示将原字符串重复n次。
+**/
+
+  	let n = "wei".repeat(5);
+  	console.log(n); // weiweiweiweiwei
+
+
+/*
+	3. 如果某个字符串不够指定长度，会在头部或尾部补全。
+		padStart()用于头部补全，padEnd()用于尾部补全。
+		如果原字符串的长度，等于或大于最大长度，则字符串补全不生效，返回原字符串。
+*/
+
+	"x".padStart(5, "ab"); // 'ababx'
+	"x".padStart(4, "ab"); // 'abax'
+
+
+/*
+	4.	trimStart()，trimEnd()
+		它们的行为与trim()一致，trimStart()消除字符串头部的空格，trimEnd()消除尾部的空格。
+		它们返回的都是新字符串，不会修改原始字符串。
+*/
+
+    let sd = "	a   bc    ";
+    sd.trim(); // 去两端;
+    sd.trimStart(); // 去头部;
+	sd.trimEnd(); // 去尾部;
+	
+
+
+		</script>
+		
+
+
+    </body>
+</html>

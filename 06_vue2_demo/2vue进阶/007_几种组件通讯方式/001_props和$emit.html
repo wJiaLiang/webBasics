@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style> </style>
+</head>
+<body>
+        <div id="app">
+
+        </div>
+</body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+            所有的 prop 都使得其父子 prop 之间形成了一个单向下行绑定：父级 prop 的更新会向下流动到子组件中，但是反过来则不行
+        
+        */ 
+
+ // 父组件
+    Vue.component('parent',{
+            template:`
+            <div>
+                <p> this is parent components </p>
+                <child :abc="message" @divHand="parentHand" ></child>
+                <div> {{newMess}} </div>
+            </div>
+            `,
+            data(){
+                return{
+                    message:2,
+                    newMess:0
+                }
+            },
+            methods:{
+                parentHand(opt){
+                    console.log(opt*this.message);
+                    this.newMess = opt * this.message
+                }
+            }
+
+
+        })
+
+    // 子组件
+        Vue.component('child',{
+            template:`
+                <div>
+                    <input type="text"  v-model="myMessage" > <button @click="Hand" style="cursor: pointer" > $emmit </button>
+                </div>
+            `,
+            props: ["abc","divHand"],
+            data(){
+                return {
+                    myMessage:this.abc,
+                    num:1,
+                }
+            },
+            methods:{
+                Hand(){
+                    this.num = this.num+1;
+                    this.$emit('divHand', this.num)
+                }
+            }
+
+        })
+
+    new Vue({
+        el:'#app',
+        data:{
+
+        },
+        template:' <parent> </parent>',
+        methods:{
+
+        },
+        
+
+    })
+    
+   
+
+
+
+
+
+</script>
+</html>

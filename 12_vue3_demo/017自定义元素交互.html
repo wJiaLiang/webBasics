@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+
+        <!--  如果不设置的话 vue就会认为这个 vue的组件
+            会提示警告：Failed to resolve component: plastic-button 
+        -->
+        <plastic-button> 不是组件 </plastic-button>
+
+        <!-- 
+            vue2 会把 plastic-button 解析成组件
+            vue3 在保留的 <component> tag 上使用时，它的行为将与 2.x 中完全相同；
+                 在普通组件上使用时，它的行为将类似于普通 prop 作为原生 attribute 渲染，
+         -->
+
+         <component is="plastic-mytest"> </component> 
+
+         <div is="plastic-mytest">点击我！</div>
+
+         <mytab is="plastic-mytest">  </mytab>
+
+         
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+/*
+
+一、自主定制元素
+    如果我们想添加在 Vue 外部定义的自定义元素 (例如使用 Web 组件 API)，我们需要“指示”Vue 将其视为自定义元素。让我们以下面的模板为例。
+
+    如果使用动态模板编译，请通过 app.config.isCustomElement 传递
+    const app = Vue.createApp({})
+    app.config.isCustomElement = tag => tag === 'plastic-button'
+
+    需要注意的是，运行时配置只会影响运行时模板编译——它不会影响预编译的模板。
+
+
+二、定制内置元素
+    自定义元素规范提供了一种将自定义元素用作自定义内置模板的方法，方法是向内置元素添加 is 属性：
+
+
+*/ 
+const app =Vue.createApp({
+    data(){
+        return{
+
+        }
+    },
+    methods:{
+        
+    }
+})
+
+
+//指示”Vue 认为 plastic-button 为自定义元素;
+app.config.isCustomElement = tag => tag === 'plastic-button'
+
+app.component("mytab",{
+    data(){
+        return{
+            a:123
+        }
+    },
+    props:{
+        value:String
+    },
+    methods:{
+
+    },
+    template:`
+        <div> mytab  ele {{a}} {{value}}</div>
+    `
+})
+app.component('plastic-mytest',{
+    data(){
+        return{
+            list:[1,2,3,4,5,6]
+        }
+    },
+    methods:{
+
+    },
+    template:`
+        <table>
+           <tbody>
+                <tr> 
+                    <td v-for="item,key in list"> {{item}} </td>
+                </tr>
+           </tbody>
+        </table>
+    `
+})
+
+app.mount("#app")
+
+</script>
+</html>

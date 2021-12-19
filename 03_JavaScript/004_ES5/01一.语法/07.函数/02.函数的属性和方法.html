@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的属性和方法</title>
+</head>
+<body>
+    <script type="text/javascript">
+    // 函数的name属性返回紧跟在function关键字之后的那个函数名。
+
+    function f1() {}
+    f1.name // 'f1'
+
+    var f2 = function () {};
+    f2.name // ''
+
+    var f3 = function myName() {};
+    f3.name // 'myName'
+
+    //函数的name属性总是返回紧跟在function关键字之后的那个函数名。对于f2来说，返回空字符串，匿名函数的name属性总是为空字符串；对于f3来说，返回函数表达式的名字
+
+// length 属性*********************;
+//函数的length属性返回函数预期传入的参数个数，即函数定义之中的参数个数。
+    function f(a, b) {}
+    f.length // 2
+
+
+// toString()****************************************
+// 函数的toString方法返回一个字符串，内容是函数的源码。内部注释也可以返回;
+    function f() {
+      a();
+    }
+    f.toString() //  function f() {
+                 //   a();
+                 //  }
+                 
+                 
+
+
+
+
+
+    </script>
+</body>
+</html>

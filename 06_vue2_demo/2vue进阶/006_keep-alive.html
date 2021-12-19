@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style> </style>
+</head>
+<body>
+<div id="app">
+
+</div>
+</body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+            1.keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态，避免重新渲染 ，其有以下特性：
+                (1)   一般结合路由和动态组件一起使用，用于缓存组件；
+
+                (2)   提供 include 和 exclude 属性，两者都支持字符串或正则表达式， 
+                include 表示只有名称匹配的组件会被缓存，exclude 表示任何名称匹配的组件都不会被缓存 ，其中 exclude 的优先级比 include 高
+
+                (3)  对应两个钩子函数 activated 和 deactivated ，当组件被激活时，触发钩子函数 activated，
+                当组件被移除时，触发钩子函数 deactivated。
+
+
+            2.组件中 data 为什么是一个函数？
+                因为组件是用来复用的，且 JS 里对象是引用关系，如果组件中 data 是一个对象，
+                那么这样作用域没有隔离，子组件中的 data 属性值会相互影响，如果组件中 data 选项是一个函数，
+                那么每个实例可以维护一份被返回对象的独立的拷贝，组件实例之间的 data 属性值不会互相影响；
+                而 new Vue 的实例，是不会被复用的，因此不存在引用对象的问题。
+
+
+            4. v-model 的原理？
+                我们在 vue 项目中主要使用 v-model 指令在表单 input、textarea、select 等元素上创建双向数据绑定，
+                我们知道 v-model 本质上不过是语法糖，v-model 在内部为不同的输入元素使用不同的属性并抛出不同的事件：
+                    (1) text 和 textarea 元素使用 value 属性和 input 事件；
+                    (2) checkbox 和 radio 使用 checked 属性和 change 事件；
+                    (3) select 字段将 value 作为 prop 并将 change 作为事件。
+            
+
+
+
+        
+        */
+
+
+    new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+
+        },
+        beforeMount() {
+
+        },
+        mounted () {
+
+        },
+        computed: {
+
+        },
+        watch: {
+
+        },
+
+    })
+
+</script>
+</html>

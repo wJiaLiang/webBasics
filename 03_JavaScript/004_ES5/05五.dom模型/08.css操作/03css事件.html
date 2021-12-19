@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .box1{width: 60px;height: 30px;
+            background-color: green;
+            transition: all 3s;
+        }
+        .box2{
+            margin-top: 100px;
+            width: 100px;height: 100px;
+            background-color: deepskyblue;
+            animation: donghua 2s ease-in infinite;
+        }
+        @keyframes donghua{
+            0%{transform: scale(1);}
+            100%{transform: scale(1.5);}
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box1">过度事件监测</div>
+    <div class="box2"> animtaion动画 结束事件监测</div>
+    <script type="text/javascript">
+    /*
+        transitionEnd事件
+    CSS的过渡效果（transition）结束后，触发transitionEnd事件。
+
+    */ 
+    var box1 = document.querySelector('.box1');
+   
+    box1.addEventListener('transitionend',transit,false);
+
+    function transit(){
+        console.log('transition-end');
+        this.style.transition="none"; //取消过度;
+        this.style.borderRadius = '20px';
+        this.style.backgroundColor = 'red';
+    }
+
+    box1.onclick=function(){
+        this.setAttribute('style','height:500px;width:400px;');
+    }
+
+    /*
+    animationstart事件，animationend事件，animationiteration事件
+
+    animationstart事件：动画开始时触发。
+    animationend事件：动画结束时触发。
+    animationiteration事件：开始新一轮动画循环时触发。如果animation-iteration-count属性等于1，该事件不触发，即只播放一轮的CSS动画，不会触发animationiteration事件。
+
+
+
+
+    */ 
+    var box2 = document.querySelector('.box2');
+    box2.addEventListener('animationend',function(){
+        console.log('动画结束事件');
+    },false)
+
+    box2.addEventListener('animationiteration',function(){
+        console.log('连续动画开始第二次执行的时候触发');
+    },false)
+
+    // animation-play-state属性可以控制动画的状态（暂停/播放），该属性需求加上浏览器前缀。
+    box2.addEventListener('click',function(){
+        if(box2.style.webkitAnimationPlayState == "paused" ){
+            box2.style.webkitAnimationPlayState = "running";
+        }else{
+            box2.style.webkitAnimationPlayState = "paused";
+        }
+
+    },false)
+
+
+    </script>
+</body>
+</html>

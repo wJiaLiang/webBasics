@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab 标签</title>
+
+	<style>
+			.one{
+				 height: 300px;
+				 width: 300px;
+				 background: green;
+			}
+
+
+	</style>
+
+</head>
+<body>
+
+	<div class="one"></div>
+
+	<input type="button" value="class 操作" id="buttonId">
+    <script>
+
+			document.getElementById("buttonId").onclick=function(){
+				 /*
+				 * 必须先要得到这个属性，然后对这个样式进行操作
+				 * add  追加一个样式.
+				 * remove  移除样式.
+				 * toggle 切换演示.
+				 * contain
+				 * */
+				//在当前元素上面添加一个class
+				/* document.querySelector("div").classList.add("one");*/
+				//移除一个class
+				/* document.querySelector("div").classList.remove("one");*/
+				//切换一个class
+				/*document.querySelector("div").classList.toggle("one");*/
+				//判断当前元素是否存在一个class
+				var flag=document.querySelector("div").classList.contains("one");
+				alert(flag);
+			};
+	</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="objs.money.cn" />
+
+            <hr />
+            <input type="text" v-model="objs.age" />
+            <hr>
+
+            <p> 监控b </p>
+            <input type="text" v-model="b">
+
+            <p>  监控c </p>
+            <input type="text" v-model="c.d">
+
+        </div>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let {watch} = Vue
+        /*
+            组件 watch 选项和实例方法 $watch 不再支持点分隔字符串路径，请改用计算函数作为参数   
+            和 vue2 一样
+
+            $watch只能将顶层的 data、prop 或 computed property 名作为字符串传递。对于更复杂的表达式，用一个函数取代。
+
+        */ 
+        const app = Vue.createApp({
+            data() {
+                return {
+                    a:1,
+                    b:2,
+                    c: {
+                        d: 4
+                    },
+                    e: 'test',
+                    objs: {
+                        name: "李四",
+                        age: 24,
+                        money: {
+                            cn: 888,
+                            us: 777,
+                        },
+                    },
+                };
+            },
+            setup() {
+
+            },
+        
+            // Vue 实例将会在实例化时调用 watch()，遍历 watch 对象的每一个 property。
+            watch: {
+                "objs.money.cn": function (newv, old) {
+                    console.log(newv, old);
+                },
+
+                // objs:{
+                //     handler:function(newvalue,oldvalue){
+                //         console.log(newvalue)
+                //     },
+                //     deep: true
+                // }
+
+                b: 'someMethod', 
+
+
+
+
+            },
+
+            // 计算属性
+            computed: {},
+
+            // 方法;
+            methods: {
+                someMethod(newVaue,oldValue){
+                    console.log(newVaue,oldValue)
+                }
+            },
+
+            // 在实例创建完成后被立即调用。
+            created() {
+                this.$watch(()=>this.c.d, (new1,old1)=>{
+                    console.log(new1,old1)
+                })
+            },
+
+            // 在挂载开始之前被调用：相关的 render 函数首次被调用。
+            beforeMount() {},
+
+            // 实例被挂载后调用
+            mounted() {},
+
+        });
+        // 组件
+        app.component({});
+
+        app.mount("#app");
+    </script>
+</html>

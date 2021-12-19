@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id='app'>
+
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+
+        /*
+            响应式原理;
+            使用数据是 首先应该劫持 使用的是 Object.defineProperty 劫持数据
+        */ 
+        var data ={
+            title:'新闻'
+        }
+        let vm = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods: {
+                
+            },
+            computed: {
+                
+            }
+        
+        })
+        Object.defineProperty(data)
+
+    </script>
+</body>
+
+</html>

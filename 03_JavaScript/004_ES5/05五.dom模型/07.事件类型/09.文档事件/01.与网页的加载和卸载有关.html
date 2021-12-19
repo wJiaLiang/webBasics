@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+/*
+    beforeunload事件，unload事件，load事件，error事件，pageshow事件，pagehide事件
+    
+    (1) beforeunload事件
+    beforeunload事件在窗口将要关闭，或者网页（即document对象）将要卸载时触发。它可以用来防止用户不小心关闭网页。
+    (2) unload事件在窗口关闭或者document对象将要卸载时触发,UI互动（window.open、alert、confirm方法等）全部无效 如果在window对象上定义了该事件，网页就不会被浏览器缓存。
+    (3) load事件在页面加载成功时触发，error事件在页面加载失败时触发。注意，页面从浏览器缓存加载，并不会触发load事件
+    (4) pageshow事件，pagehide事件 默认情况下，浏览器会在当前会话（session）缓存页面，当用户点击“前进/后退”按钮时，浏览器就会从缓存中加载页面。
+    
+
+ */ 
+     window.addEventListener('unload',function(event){
+            console.log('xiezai');
+
+     },false)
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 2D转换</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+		.translate {
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			transition: all 1s linear;
+		}
+
+		.translate:hover{
+				/*
+						第一个参数
+							如果是正数
+							沿着x 轴水平向右移动.
+							如果是负数
+							沿着x 轴水平向左移动
+							这个里面的值还可以传递百分比
+							还可以是负的百分比
+						第二个参数
+						    如果是正数
+						    沿着y轴垂直向下移动.
+						    如果是负数
+						    沿着y轴垂直向上移动
+				*/
+				transform: translate(-100%,100%);
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="translate"></div>
+</body>
+</html>

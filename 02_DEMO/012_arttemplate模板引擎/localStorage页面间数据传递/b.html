@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+    <a href="a.html">返回a页面</a>
+    <h1></h1>
+    <input id="car" type="text" placeholder=" "> <input type="button" value="设置值">
+</body>
+    <script type="text/javascript">
+    $(function(){
+        $(function(){
+            console.log( parseQueryString(location.search).id);
+            $(document).on('click','input[type="button"]',function(){
+                var pai = $("#car").val();
+                localStorage.setItem("chepai",pai);
+                var c= localStorage.getItem('chepai');
+                console.log(c);
+            })
+
+     
+        })
+        // 获取URL查询参数;
+        function parseQueryString(url) {
+            var obj = {};
+            var keyvalue = [];
+            var key = "",
+                value = "";
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            for (var i in paraString) {
+                keyvalue = paraString[i].split("=");
+                key = keyvalue[0];
+                value = keyvalue[1];
+                obj[key] = value;
+            }
+            return obj;
+        }
+
+
+
+    })
+
+    </script>
+
+</html>

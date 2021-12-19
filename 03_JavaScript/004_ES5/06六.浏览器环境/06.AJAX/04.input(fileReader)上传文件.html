@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0px;padding: 0px;}
+        .btn{padding: 10px;text-align: center;margin-top: 20px; border: 1px dashed red;}
+        .btn span{background-color: blue;color: white;height: 30px;
+            border-radius: 15px;line-height: 30px;padding: 5px 15px;
+        }
+        #imgdom{width: 120px;height: 120px; padding:30px;}
+        #imgdom img{width: 100%;height: 100%;}
+        #progressbox{width: 100%; position: relative;left: 0;top: 0; height: 20px;border-radius: 10px;background-color: white;margin-top: 30px;padding-bottom: 10px;}
+        #progressbox p{position:absolute;left: 0;top: 0; height: 20px; background-color:red;border-radius: 10px;}
+    </style>
+</head>
+<body>
+    <div id="imgdom">
+        <img src="">
+    </div>
+    <div style="padding: 10px;" onclick="delet()">
+        <input id="delet" type="button" value="删除">
+    </div>
+    <input id="input_select" type="file" name="">
+    
+    <div id="progressbox">
+        <p style="">  </p>
+    </div>
+    <div class="btn">
+        <span onclick="getImage()">获取图片</span>
+    </div>
+
+
+    <script type="text/javascript" src="../jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+    var reader=null;
+
+// ***********点击上传按钮;
+        function getImage(){
+            var filedom = document.querySelector('#input_select').files[0];
+            //读取文件;
+            var reader = new FileReader();
+            var imgfile;
+            //文件读取成功设置事件；
+            reader.onload=function(e){
+                alert('文件读取成功');
+                imgfile = e.target.result;
+                console.log(imgfile);
+                $('#imgdom img').attr('src',imgfile);
+            }
+
+        }
+
+        function delet(){
+            $('#imgdom img').attr('src','');
+            console.log(reader.result);
+            reader.result=' ';
+            console.log(reader.result);
+        }
+
+//**************上上传文件按钮点击触发;
+        (function updateimg(){
+            var filedom = $('#input_select');
+            filedom.change(function(){
+                let file=document.querySelector('#input_select').files[0];
+                console.log("file.size："+file.size + "\n" +"file.type："+file.type);
+
+                reader = new FileReader();
+                reader.readAsDataURL(file); //转换成data:url格式的字符串;就是bese64;
+                // 读取进度事件;
+                reader.onprogress=function(e){
+                    let progress = Math.round(e.loaded/e.total*100)+'%';
+                    let html = "已完成"+ Math.round(e.loaded/e.total*100)+'%';
+                    $('#progressbox p').text(progress).width(progress);
+                };
+                // 完成事件 读取成功时触发;会返回调用
+                reader.onload=function(e){
+                    // alert(1);
+                    let dataURL= reader.result;
+                    // let data=reader.readAsDataURL(file);
+                     $('#imgdom img').attr('src',dataURL);
+                    // console.log(dataURL);
+                }
+
+            })
+
+
+
+        })()
+
+
+
+
+
+    
+
+
+
+    </script>
+</body>
+</html>

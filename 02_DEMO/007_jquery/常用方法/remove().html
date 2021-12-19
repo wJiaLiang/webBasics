@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src='jquery-1.11.1.js'>
+	
+</script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").remove(".italic"); //删除p标签中有这个类的；
+  });
+});
+</script>
+</head>
+
+<body>
+
+<p>This is a paragraph in the div.</p>
+<p class="italic"><i>This is another paragraph in the div.</i></p>
+<p class="italic"><i>This is another paragraph in the div.</i></p>
+<button>删除 class="italic" 的所有 p 元素</button>
+
+</body>
+</html>
+淡入

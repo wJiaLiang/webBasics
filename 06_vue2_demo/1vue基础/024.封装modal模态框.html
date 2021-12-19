@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .m_cont {
+            width: 400px;
+            height: auto;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 4px #ccc;
+            margin-top: 20px;
+        }
+
+        .title {
+            border-bottom: 1px solid seagreen;
+            text-align: center;
+        }
+
+        .m_center {
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+            min-height: 200px;
+            padding: 10px;
+        }
+
+        .fr {
+            float: right;
+            padding-right: 10px;
+        }
+
+        .btn2 {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .show{
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <m_modal modlue-title="模特" @ok="setValue" v-bind:class="{show:index==i}">    </m_modal>
+        <m_modal > 
+            <ul slot="conts">
+                <li v-for="item of list"> {{item}} </li>
+            </ul>
+        </m_modal>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+        Vue.component('m_modal', {
+            props: {
+                modlueTitle: {
+                    type: String,
+                    default: '这是一个模态框'
+                }
+            },
+            template: ` <div class="m_cont">
+            <div class="title">
+                <h4> {{modlueTitle}} </h4>
+            </div>
+            <div class="m_center">
+                <slot name="conts">  
+                    <p>提示类容数据</p>
+                </slot>
+            </div>
+            <div style='height:45px;'>
+                <p class="fr">
+                    <button class="btn1" @click="handle"> 确定 </button>
+                    <button classs="btn2"> 取消 </button>
+                </p>
+            </div>
+        </div>`,
+        methods: {
+            handle(){
+                this.$emit('ok','');
+            }
+        }
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                list:[...'我爱你中国'],
+                index:1,
+                i:0,
+            },
+            methods:{
+                setValue(){
+                    alert('确定要影藏？');
+                    this.i = this.index;
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

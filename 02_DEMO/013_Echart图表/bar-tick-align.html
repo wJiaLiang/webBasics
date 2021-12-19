@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%">    </div>
+
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+
+
+
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+app.title = '坐标轴刻度与标签对齐';
+
+option = null;
+
+var datas = [10, 52, 200, 0, 200, 330, 220];
+var i = null;
+    datas.forEach(function(el,index,all){
+            if(el ==200){
+                i = index;
+            }
+    })
+console.log(i);
+
+option = {
+    color: ['#3398DB'],
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow',       // 默认为直线，可选为：'line' | 'shadow'
+            lineStyle: {
+                color: 'red',
+                width: 5,
+                type: 'solid'
+            },
+        }
+    },
+    toolbox:{
+        backgroundColor:"rgba(0,0,0,1)",
+        borderColor:"red"
+    },
+
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            axisTick: {
+                alignWithLabel: true
+            }
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value'
+        }
+    ],
+    series : [
+        {
+            name:'柱状图',
+            type:'bar',
+            barWidth: '60%',
+            data:datas,
+            // 标注特殊值,的一个异常值;
+            // value代表的是 气泡中显示的值,coord为数组表示为
+            markPoint:{
+                data:[
+                    {value:2200,name:'警戒值',coord:[2,200] },
+                    {value:200,name:'警戒值',coord:[4,200] }
+                ]
+            }
+        },
+        {
+            name:'折线图',
+            type:'line',
+            data:[10, 52, 200, 260, 190, 330, 220]
+        },
+        
+    ],
+};
+;
+
+
+
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

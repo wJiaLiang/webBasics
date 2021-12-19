@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+            body{
+                margin: 0;
+                padding: 0;
+                background: url("bg.jpg");
+            }
+            ul{
+                width: 600px;
+                height: 600px;
+                position: relative;
+                list-style: none;
+                margin: 40px auto;
+            }
+
+            li
+            {
+                 position: absolute;
+                 display: block;
+                 left: 50%;
+                 top:50%;
+                 transform: translate(-50%,-50%);
+                 border-radius: 50%;
+                 border: 2px solid #394057;
+            }
+            li span{
+                 display: block;
+                 width: 12px;
+                 height: 12px;
+                 border-radius: 50%;
+                 position: absolute;
+                 background-color: yellow;
+                 top:48%;
+            }
+
+            /*获取到span的父元素下面的第二个资源，这个子元素必须是span*/
+            li:nth-child(3) span{
+                 background-color: green;
+            }
+            li:nth-child(4) span{
+                background-color: hotpink;
+            }
+            li:nth-child(1){
+                 width: 60px;
+                 height: 60px;
+                 background-color: yellow;
+                 box-shadow: 0px 0px 50px yellow;
+                 animation: mystar 1s linear infinite;
+            }
+            li:nth-child(2){
+                 width: 120px;
+                 height: 120px;
+                animation: mystar 3s linear infinite;
+            }
+            li:nth-child(3){
+                width: 180px;
+                height: 180px;
+                animation: mystar 4s linear infinite;
+            }
+            li:nth-child(4){
+                width: 240px;
+                height: 240px;
+                animation: mystar 6s linear infinite;
+            }
+            li:nth-child(5){
+                background: url("asteroids_meteorids.png") no-repeat center center;
+                background-size: cover;
+                width: 300px;
+                height: 300px;
+                animation: mystar 8s linear infinite;
+            }
+            li:nth-child(6){
+                width: 360px;
+                height: 360px;
+                animation: mystar 9s linear infinite;
+            }
+            li:nth-child(7){
+                width: 420px;
+                height: 420px;
+                animation: mystar 11s linear infinite;
+            }
+            li:nth-child(8){
+                width: 480px;
+                height: 480px;
+                animation: mystar 13s linear infinite;
+            }
+            li:nth-child(9){
+                width: 540px;
+                height: 540px;
+                animation: mystar 16s linear infinite;
+            }
+            li:nth-child(10){
+                width: 600px;
+                height: 600px;
+                animation: mystar 26s linear infinite;
+            }
+
+
+            @keyframes mystar {
+                 from{
+                     transform:  translate(-50%,-50%) rotate(0deg);
+                 }
+                 to{
+                     transform: translate(-50%,-50%) rotate(360deg);
+                 }
+            }
+    </style>
+</head>
+<body>
+
+        <ul>
+                <li></li>
+                <li>
+                    <span></span>
+                </li>
+                <li> <span></span></li>
+                <li> <span></span></li>
+                <li> <span></span></li>
+                <li> <span></span></li>
+                <li> <span></span></li>
+                <li> <span></span></li>
+                <li> <span></span></li>
+                <li> <span></span></li>
+        </ul>
+</body>
+</html>

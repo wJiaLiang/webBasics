@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+<!-- 与Cookie一样，它们也受同域限制。某个网页存入的数据，只有同域下的网页才能读取。 -->
+    
+
+    <input type="text" value="">
+    <input type="button" value="点击去b页面">
+    <br><br>
+    <button>清空localStorage</button>
+</body>
+    <script type="text/javascript">
+        // localStorage.setItem('key',val);
+        // localStorage.getItem('key');
+        // localStorage.removeItem('key');
+        // localStorage.clear();
+
+        $(function(){
+            $("input[type='text']").val( localStorage.getItem('chepai')||'');
+            $(document).on("click","input[type='button']",function(){
+                location.href="b.html?id='wei'&token='urerse'";
+            })
+
+            $('button').click(function(){
+                localStorage.clear();
+
+
+            })
+        })
+
+
+
+
+
+    </script>
+</html>

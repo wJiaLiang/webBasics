@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取元素</title>
+	<style>
+		/*CSS3的一个选择器，下次课会详讲*/
+/*		li:last-child a {
+			color: red;
+		}
+
+		a {
+			color: yellow;
+		}*/
+		.first {
+			color: pink;
+		}
+		#second {
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<ul class=="one">
+		<li><a href="javascript:;" class="first">国内新闻</a></li>
+		<li><a href="javascript:;" id="second">国际新闻</a></li>
+		<li><a href="javascript:;">体育新闻</a></li>
+		<li><a href="javascript:;">娱乐新闻</a></li>
+	</ul>
+	<script>
+			//获取符合.one>li 选择器选中的元素里面的第一个.
+		   var lis=document.querySelector(".one>li");
+		   console.log(lis);
+	</script>
+</body>
+</html>

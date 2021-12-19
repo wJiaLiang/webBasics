@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    .myclass{
+        border: solid 5px red;
+    }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+    <script type="text/javascript">
+    /*
+    jQueryDOM操作
+    增删该查
+    查：选择器非常强大
+
+    样式操作 css
+    属性操作 attr
+    事件
+    动画 animate
+    ajax $.ajax();
+
+    Sizzle
+    */
+
+    /*
+    1、$(String expr)：根据给定的CSS选择符查找匹配的元素，如$("div>p")；
+       #id  .className  div  div>p  div p  div,span,p  div:first   form:input  form:checkbox  input[name='username']
+　　2、$(Element elem)：将给定的DOM元素对象转换为jQuery对象，如$(document).find("div>p")；
+       var div = document.getElementById('div');
+       $(div).css();
+　　3、$(Array<Element> elems)：参数为DOM原生集合，如$(myForm.elements).hide()；
+       var aDiv = document.getElementsByTagName('div');
+       $(aDiv);
+　　4、$(Function fn)：是$(document).ready()的简写模式，如：$( function fn(){ ... } )；
+       $(function(){
+       });
+　　5、$(jQuery obj)：参数为jQuery对象，如：var div = $("div");   $(div).find("p")；
+       var div = document.getElementById('div');
+       $($(div)).css();
+　　6、$(String expr, Element context)：在context中查找expr，如：$("div", xml.responseXML)；
+       $('.active','#div1');
+       var parent = document.getElementById('div1');
+       var span = parent.getElementsByClassName('active');
+    */
+    $(function(){
+       // var len = $('div span.active').size();
+       // console.log(len);
+       // $.each()
+       // $().each()
+       // 隐式迭代
+       // $('div p').css({"width":"100px","height":"100px","background":"green"}).addClass('myclass').html('测试数据');
+       // 大部分jQuery函数返回值都是jQuery对象 --- 链式操作
+
+       // $('#mydiv').on('abc',function(){
+       //      alert($(this).html());
+       // }).trigger('abc');
+       // $('#mydiv').click(function(){
+       //      alert($(this).html());
+       // });
+       // $('input').on('click',function(){
+       //      // alert($(this).val());
+       //      $('#mydiv').trigger('abc');
+       // });
+       $('#mydiv').on({
+           click : function(){
+               console.log(789);
+           },
+           dblclick : function(){
+               console.log(123);
+           },
+           mouseout : function(){
+               console.log(456);
+           }
+       });
+
+    });
+    </script>
+</head>
+<body>
+    <div id="mydiv" style="width: 200px;height: 200px;border: solid 1px red;">
+        hello tom 
+    </div>
+    <input type="button" value="点击">
+    <div id="div1">
+        <span></span>
+        <span></span>
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <p>
+            <span></span>
+            <span></span>
+        </p>
+        <p></p>
+    </div>
+    <span></span>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+    网页URL的合法字符分成两类:
+    URL元字符：分号（;），逗号（’,’），
+    斜杠（/），问号（?），冒号（:），at（@），&，等号（=），加号（+），美元符号（$），井号（#）
+
+    语义字符：a-z，A-Z，0-9，连词号（-），下划线（_），点（.），
+    感叹号（!），波浪线（~），星号（*），单引号（\），圆括号（()`）
+
+    除了以上字符，其他字符出现在URL之中都必须转义，规则是根据操作系统的默认编码，将每个字节转为百分号（%）加上两个大写的十六进制字母。比如，UTF-8的操作系统上，http://www.example.com/q=春节这个URL之中，汉字“春节”不是URL的合法字符，所以被浏览器自动转成http://www.example.com/q=%E6%98%A5%E8%8A%82。其中，“春”转成了%E6%98%A5，“节”转成了“%E8%8A%82”。这是因为“春”和”节“的UTF-8编码分别是E6 98 A5和E8 8A 82，将每个字节前面加上百分号，就构成了URL编码。
+    
+    JavaScript提供四个URL的编码/解码方法。
+    encodeURI()
+    encodeURIComponent()
+    decodeURI()
+    decodeURIComponent()
+    
+
+    */
+    // encodeURI 方法的参数是一个字符串，代表整个URL。它会将元字符和语义字符之外的字符，都进行转义。
+    
+    // encodeURIComponent只转除了语义字符之外的字符，元字符也会被转义。因此，它的参数通常是URL的路径或参数值，而不是整个URL。
+    
+    // decodeURI用于还原转义后的URL。它是encodeURI方法的逆运算。
+
+    // decodeURIComponent用于还原转义后的URL片段。它是encodeURIComponent方法的逆运算。
+     console.log(decodeURI(window.location.href));
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

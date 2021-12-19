@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>垂直居中利用tablle</title>
+	<style type="text/css">
+		div.box1{
+			width:300px;
+			height:300px;
+			border:1px solid green;
+			display: table-cell;
+			vertical-align: middle;
+		}
+		span{
+			font-size: 20px;
+			color:red;
+			vertical-align: middle;
+		}
+		img{
+			border:1px solid red;
+			vertical-align:middle;
+		}
+		#box2{width: 200px;height: 200px;background-color: red;display: inline-block}
+	</style>
+</head>
+<body>
+	<div class='box1'>
+		<img src="111.png">
+		<span>垂直居中的元素</span>
+		
+	</div>
+	<div id='box2'> </div>
+	<!-- 此方法兼容到IE8 -->
+	<!-- 该属性定义行内元素的基线相对于该元素所在行的基线的垂直对齐。允许指定负长度值和百分比值。这会使元素降低而不是升高。在表单元格中，这个属性会设置单元格框中的单元格内容的对齐方式。 -->
+</body>
+</html>

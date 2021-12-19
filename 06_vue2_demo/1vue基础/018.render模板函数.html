@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .fs40 {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- html 模板 -->
+        <p v-bind:constid="id"> 自定义属性 </p>
+        <p class="fs40" :class="{red:addclass}"> {{text}} </p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+
+    <script>
+        // 直接提换掉 el"#app"绑定的元素;        
+        let str = "<div> hello vue  {{text}}</div>"; //外层只能有一个标签,不能写成兄弟标签的形式;
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                text: 'template 模板',
+                da: '直接提到js中,写成模板引擎的形式'
+            },
+            render: function (createElement, context) {
+                return createElement(
+                    'div', {
+                        class: {red:true,fs40:true},
+                        style:{border:'1px solid bule'},
+                        attrs:{}, // 自定义属性
+                        // dom 属性 优先级要高于 
+                        domProps:{
+                            innerHTML:'<ul> dom 属性</ul>'
+                        }
+                    },
+                    // 创建 虚拟节点
+                    [createElement('li', '这是第一个标签'), createElement('li', '这是第二个标签')])
+            }
+        })
+    </script>
+</body>
+
+</html>

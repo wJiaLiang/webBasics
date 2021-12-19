@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+</head>
+<body>
+<div id="app">
+
+</div>
+</body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./Underscore_v1.91.js"></script>
+    <script>
+    new Vue({
+        el:'#app',
+        data:{
+            Obj:{a:1,b:2,c:3,d:4,e:5,f:6},
+            oj:{a:1,b:2,c:3,d:4,e:5,f:6}
+        },
+        beforeMount() {
+            this.init();
+        },
+        methods:{
+            init(){
+                // 检索object拥有的所有可枚举属性的名称。
+                var a = _.keys(this.Obj)
+                console.log(a);
+
+                //  返回object对象所有的属性值
+                var b = _.values(this.Obj);
+                console.log(b)
+
+                // 把一个对象转变为一个[key, value]形式的数组。object 逆向函数。
+                var c = _.pairs(this.Obj);
+                console.log(c);
+
+                
+                // 返回一个副本 使其键（keys）和值（values）对换
+                var d =  _.invert(this.Obj);
+                console.log("invert",d);
+
+                // 去除莫某个属性,返回对象的副本
+                var d1 = _.omit(this.Obj,"f","e")
+                console.log('d1',d1);
+
+
+                // 对象是否包含给定的键吗？等同于object.hasOwnProperty(key)
+                var e = _.has(this.Obj,"a");
+                console.log(e); // true
+
+                // isEqual 执行两个对象之间的优化深度比较，确定他们是否应被视为相等。 
+                var f = _.isEqual(this.Obj,this.oj);
+                console.log(f);  // true; 不是比较的内存地址;
+
+                //
+               var g =  _.isMatch(this.Obj,{a:1});
+               var g1 = _.isEmpty(this.Obj);
+
+               console.log('g',g,g1) // 是否包含在集合中
+
+               _.isArray(this.Obj)
+               _.isObject(this.Obj)
+
+               _.isArguments(this.Obj)
+               _.isFunction(this.Obj)
+               _.isString(this.Obj)
+               _.isNumber(this.Obj)
+               _.isBoolean(this.Obj)
+               _.isDate(this.Obj)
+               _.isRegExp(this.Obj)
+               _.isMap(this.Obj)
+               _.isNaN(this.Obj)
+               _.isNull(this.Obj)
+               _.isUndefined(this.Obj)
+
+
+               console.log( _.random(23,100) ); //返回两个数之间的随机数
+                
+               // 转义字符串
+               console.log( _.escape("abc,《》<>!@#$$%^&()BN") );
+               // 反转义
+               console.log(_.unescape("abc,《》&lt;&gt;!@#$$%^&amp;()BN"))
+
+
+            }
+        }
+
+    })
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>表单事件</title>
+</head>
+<body>
+    <!-- 1. -->
+    <input id="test" type="text" name="s" >
+    <!-- 2 -->
+    <textarea id="test2" style="margin-top: 20px;"> </textarea>
+    <!-- 3 -->
+    <select size="1" onchange="opchange(event)">
+        <option>hello</option>
+        <option>world</option>
+        <option>hehe</option>
+    </select><br>
+        <label for="a">
+            <input id="a" class="cbox" type="checkbox" name="" value="xs">
+            <span> 选择1 </span>
+        </label>
+        <br>
+        <label for="b">
+            <input id="b" class="cbox" type="checkbox" name="" value="xs">
+            <span>选择2</span>
+        </label>
+    <script type="text/javascript">
+        // Input事件，select事件，change事件
+        // （1）input事件
+        /*
+        input事件当<input>、<textarea>的值发生变化时触发。此外，打开contenteditable属性的元素，只要值发生变化，也会触发input事件。
+
+        input事件的一个特点，就是会连续触发，比如用户每次按下一次按键，就会触发一次input事件。
+
+        */
+       /*
+        （2）select事件
+            select事件当在<input>、<textarea>中选中文本时触发。
+       
+        */
+        /*
+         （3）Change事件   
+        Change事件当<input>、<select>、<textarea>的值发生变化时触发。它与input事件的最大不同，就是不会连续触发，只有当全部修改完成时才会触发，而且input事件必然会引发change事件。具体来说，分成以下几种情况。
+            
+        激活单选框（radio）或复选框（checkbox）时触发。
+        用户提交时触发。比如，从下列列表（select）完成选择，在日期或文件输入框完成选择。
+        当文本框或textarea元素的值发生改变，并且丧失焦点时触发。
+
+         */ 
+         // 输入过程中每次输入一个字符都会触发;
+         var f1 = document.querySelector('#test');
+         f1.addEventListener('input',function(){
+            console.log(this.value);
+
+         },false)
+
+         // 输入完成后失去光标才会触发;
+         var f2 = document.querySelector('#test2');
+         f2.addEventListener('change',function(){
+            console.log(this.value);
+
+         },false)
+         // 获取选择后的值;
+         function opchange(e){
+            console.log(e.target.value);
+         }
+         // 复选框; 获取是否选中;
+         var cbox = document.querySelectorAll('.cbox');
+         for(let i=0;i<cbox.length;i++){
+             cbox[i].addEventListener('change',function(){
+                console.log(this.checked);
+             },false)
+         }
+
+// reset事件，submit事件
+
+    // （1）reset事件
+    // reset事件当表单重置（所有表单成员变回默认值）时触发。
+
+    // （2）submit事件  
+    // submit事件当表单数据向服务器提交时触发。注意，submit事件的发生对象是form元素，而不是button元素（即使它的类型是submit），因为提交的是表单，而不是按钮
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简洁语法</title>
+    <script type="text/javascript" src="template-web.js"></script>
+</head>
+<body>
+    <div id="mainbox">
+
+    </div>
+
+    <script id="demo1" type="text/html">
+        <h1>{{time}}</h1>
+        <ul>
+            <!-- 原文输出不对内容进行处理 -->
+            <li>{{@html }}</li>
+            {{each arr}}
+            <!--循环arr 这样直接拿到 数组或对象的key 和 value -->
+            <li>{{$index}}=>{{$value}}</li>
+            {{/each}}
+        </ul>
+        <ol>
+        {{if flag ==1}}
+            <li>ol li 标签 1</li>
+        {{else if flag ==2}}
+            <li>ol li 标签 2</li>
+        {{else if flag ==3}}
+            <li>ol li 标签 3</li>
+        {{else flag !==1||2||3||}}
+            <li>ol li 标签 4</li>
+        {{/if}}
+        </ol>
+        <!-- 导入demo2模板 -->
+        {{include 'demo2'}}
+    </script>
+    <!-- 值模板 模板继承 -->
+    <script id="demo2" type="text/html">
+        {{each arr2}}
+        <h2>{{$value}}</h2>
+        {{/each}}
+
+    </script>
+
+
+
+<script type="text/javascript">
+    var data1={
+        time:new Date(),
+        html:"<i> 合伙人</i>",
+        arr:['apple','banana','orange'],
+        flag:3,
+        arr2:[1,2,3,4]
+    }
+
+    var shtml=template("demo1",data1);
+    var mb=document.getElementById('mainbox');
+    mb.innerHTML=shtml;
+
+
+</script>
+</body>
+</html>

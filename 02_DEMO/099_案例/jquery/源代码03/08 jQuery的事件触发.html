@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+
+
+                $("#btnButton1").on("click",function(){
+                        //点击这个按钮，触发到<input type="text" id="txt"/><span></span>
+                        //焦点事件..
+                        //jQuery 给我们提供了两个方法..
+                         /*trigger 触发的意思*/
+                        //trigger 会触发浏览器的行为..
+                         $("#txt").trigger("focus");
+                });
+
+                $("#btnButton2").on("click",function(){
+                    //triggerHandler触发 事件响应方法，不触发浏览器行为
+                    $("#txt").triggerHandler("focus");
+                });
+                /*给input type=text 添加一个事件..
+
+                    我现在为txt 添加了一个焦点事件
+                    我要在这个点击btnButton1 触发
+                     txt 的焦点事件..
+                * */
+                $("#txt").focus(function(){
+                    $("#txt").after($("<div>焦点事件被触发..</div>"));
+                })
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="按钮1" id="btnButton1"/>
+<input type="button" value="按钮2" id="btnButton2"/>
+<hr/>
+<input type="button" value="按钮2" id="btnFocus"/>
+<input type="text" id="txt"/><span></span>
+</body>
+</html>

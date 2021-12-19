@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+        then()里面有then();
+        因为返回的还是Promise实例；会等里面的then()执行完;在执行外面的;
+        最好将其展开，会更好阅读;
+
+     */ 
+
+     /*
+     console.log('start');
+     new Promise(resolve=>{
+        setTimeout(()=>{
+            console.log('1');
+            resolve(111111)
+        },1000)
+     })
+     .then(value=>{
+        return new Promise(resolve=>{
+            console.log('1-1');
+            setTimeout(()=>{
+                resolve(222222);
+            },1000)
+        })
+        .then(value=>{
+            console.log('1-2');
+            return value;
+        })
+        .then(value=>{
+            console.log('1-3');
+            return value;
+        })
+
+     })
+     // 这里 的promise 第一个then()中新返回的;
+     .then(value=>{
+        console.log(value);
+        console.log('2')
+     })
+
+    */ 
+
+
+// 对上面代码进行改造;
+    
+    console.log('start');
+    new Promise(resolve=>{
+        setTimeout(()=>{
+            console.log('1');
+            resolve(111111)
+        },1000)
+    })
+     .then(value=>{
+        return new Promise(resolve=>{
+            console.log('1-1');
+            setTimeout(()=>{
+                resolve(222222);
+            },1000)
+        })
+    })
+    .then(value=>{
+        console.log('1-2');
+        return value;
+        })
+    
+    .then(value=>{
+        console.log('1-3');
+        return value;
+    })   
+     
+    .then(value=>{
+        console.log(value);
+        console.log('2')
+    })
+
+
+
+
+
+
+    </script>
+</body>
+</html>

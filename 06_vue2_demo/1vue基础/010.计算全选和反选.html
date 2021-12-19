@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{width: 600px;border-collapse: collapse}
+        th,td{text-align: center;line-height: 45px;}
+        .warp{width: 600px;margin-left:auto;margin-right: auto;margin-top: 66px; }
+        .tfooter{width:600px;line-height: 45px;}
+        .tfooter span {display: inline-block;width: 33%;float: left; text-align: center}
+        .thColor{background-color: darkcyan;color: white;}
+    </style>
+</head>
+
+<body>
+    <section id="app">
+        <div class="warp">
+            <table border="1">
+                <thead>
+                    <tr class="thColor">
+                        <th> <input type="checkbox" v-model="isChecedAll"> </th>
+                        <th> 歌曲 </th>
+                        <th> 作者 </th>
+                        <th> 专辑 </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item,index in songList">
+                        <td> <input type="checkbox" v-model="item.checked"> </td>
+                        <td> {{item.song}} </td>
+                        <td> {{item.name}}</td>
+                        <td> {{item.ablum}}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+            <div class="tfooter">
+                <span> 统计: {{}} </span>
+                <span> 选择的歌手有：{{selectsong}} </span>
+                <span> 专辑有：{{ablum}}</span>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+        let result = [{
+                id: Math.random,
+                song: '泡沫',
+                name: "邓紫棋",
+                checked: true,
+                ablum: 8
+            },
+            {
+                id: Math.random,
+                song: '飞得更高',
+                name: '汪峰',
+                checked: false,
+                ablum: 9
+            },
+            {
+                id: Math.random,
+                song: '演员',
+                name: '薛之谦',
+                checked: false,
+                ablum: 10
+            },
+        ]
+
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                songList: result
+            },
+            methods: {
+
+            },
+            // 计算属性，里面放的也是函数;
+            computed: {
+                /*
+                    计算属性  只给计算属性一个函数，默认就是在取值的时候触发; v-model双向数据绑定;
+                    取值   get()
+                    赋值   set()
+                */
+                isChecedAll: {
+                    get() {
+                        return this.songList.every(function (param) {
+                            return param.checked == true
+                        })
+                    },
+                    set(newValue) {
+                        console.log('点击变化后的值',newValue)
+                        return this.songList.forEach(element => {
+                           return element.checked = newValue;
+                        });
+                    }
+                },
+                // 那些选中 长度是多少;
+                selectsong() {
+                    return this.songList.filter(item => {
+                        return item.checked;
+                    }).length;
+                },
+                // 统计专辑：
+                ablum() {
+                    return this.songList.reduce(function (a, b) {
+                        return a + b.ablum;
+                    }, 0)
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		table{width: 500px;height: 40px; text-align:center;cursor: pointer;}
+		body{
+			transform: translate(30px, 39px)
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		this is one box;
+	</div>
+		<table border=1;>
+			<tbody>
+				<tr id='trs'>
+					<td colspan="" rowspan="" headers="">01</td>
+					<td colspan="" rowspan="" headers="">02</td>
+					<td colspan="" rowspan="" headers="">03</td>
+					<td colspan="" rowspan="" headers="">04</td>
+					<td colspan="" rowspan="" headers="">05</td>
+					<td colspan="" rowspan="" headers="">06</td>
+				</tr>
+			</tbody>
+		</table>
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.box').append('<p>p标签</p>');
+
+			//在选择元素上绑定一个或多个事件的事件处理函数。
+			//事件委派又叫事件代理;	
+			//支持动态创建;
+			$('table').on('click','td',function(){
+				var ss=$(this).attr('id');
+				var exp=/tdbox/ig;
+
+				if(exp.test(ss)){
+					alert("这个元素是动态创建出来的"+$(this).text());	
+				}else{
+					alert($(this).text());
+				}
+			})
+			for (var i =10; i<=20; i++) {
+				if(i!=14){
+					$('#trs').append("<td id='tdbox"+i+"' colspan='' rowspan=''>"+i+"</td>");
+				}
+			}
+			$('td[id^="tdbox"]').css('color','red');
+		})
+
+		
+	</script>
+
+</body>
+</html>

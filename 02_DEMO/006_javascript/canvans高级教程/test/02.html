@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+      .main {
+        width: 300px;
+        height: 300px;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+        position: absolute;
+        left: 5%;
+        top: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main"></div>
+
+    <script type="text/javascript">
+      let box = document.querySelector(".main");
+      box.addEventListener("mousemove", function (e) {
+        console.log(`x轴：${e.screenX}y轴：${e.screenY}`);
+      });
+
+      // 结构赋值;
+      var obj = { a: 55, b: 29 };
+      function get(obj) {
+        var s = [];
+        (function se(obj) {
+          let { a, b } = obj;
+          s.push(a, b);
+        })(obj);
+        return s;
+      }
+      console.log(get(obj));
+
+      
+    </script>
+  </body>
+</html>

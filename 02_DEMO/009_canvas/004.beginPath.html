@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas id="canvas"> </canvas>
+    <script type="text/javascript">
+    let canvas = document.querySelector("#canvas");
+    // 用css设置canvas的宽高的时候只会把画布放大或缩小; 默认为300*150;
+    canvas.width=300;
+    canvas.height=300;
+    canvas.style.border="1px solid #111";
+    var ctx = canvas.getContext('2d');
+
+    ctx.beginPath();
+    ctx.moveTo(100,100);
+    ctx.lineTo(200,100);
+    ctx.strokeStyle="red";
+    ctx.lineWidth=10;
+    ctx.stroke();
+
+    // 表示重新开始绘制;表示设置到上下文对象上的相关的设置都无效;重新开始;
+    ctx.beginPath()
+    ctx.moveTo(100,200);
+    ctx.lineTo(200,200);
+    ctx.lineWidth=10;
+    ctx.strokeStyle="green";
+    ctx.stroke();
+    
+    
+
+
+    </script>
+</body>
+</html>

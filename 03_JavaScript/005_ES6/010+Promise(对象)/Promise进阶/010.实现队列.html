@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+        /*
+        Promise.resolve()方法允许调用时不带参数，直接返回一个resolved状态的 Promise 对象
+        有时候我们不希望所有动作一起发生，而是按照一定的顺序，逐个进行;
+        需要注意的是，立即resolve()的 Promise 对象，是在本轮“事件循环”（event loop）的结束时执行，而不是在下一轮“事件循环”的开始时。
+
+        */
+            setTimeout(function () {
+                console.log("three");
+            }, 0);
+
+            Promise.resolve().then(function () {
+                console.log("two");
+            });
+
+            console.log("one");
+
+            // one
+            // two
+            // three
+
+
+
+        </script>
+    </body>
+</html>

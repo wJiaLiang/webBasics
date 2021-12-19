@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="content">
+		<p>index1</p>
+		<p>index2</p>
+		<p>index3</p>	
+	</div>
+	<div class="box" style="border:1px solid red">
+		<ul>
+			<li>index1</li>
+			<li>index2</li>
+			<li>index3</li>
+		</ul>
+	</div>
+	<p>sdlfjlsdfjl</p>
+
+
+	<div class="clone">
+		<button type="button">提交按钮</button>
+	</div>
+	<script src='../jquery-1.11.1.js'></script>
+	<script>
+		$(function(){
+			//删除匹配的元素集合中所有的子节点。
+			$('.content').empty(); 
+			//从DOM中删除所有匹配的元素。这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素。
+			$('.box').remove(); //将.box元素删除;
+			//从DOM中删除所有匹配的元素。
+			//这个方法不会把匹配的元素从jQuery对象中删除，因而可以在将来再使用这些匹配的元素
+			$('p').detach();
+
+
+			//克隆匹配的DOM元素并且选中这些克隆的副本。在想把DOM文档中元素的副本添加到其他位置时这个函数非常有用。true表示事件也复制;
+			$('button').click(function(){
+				$(this).clone(true).insertBefore('button');
+
+			})
+
+		})
+
+
+	</script>
+</body>
+</html>

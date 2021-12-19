@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<!-- 问题说明：IE8及下input.type属性为只读；但是Firefox下input.type属性为读写。
+		解决办法：不修改input.type属性。如果必须要修改，可以先隐藏原来的input，然后在同样的位置再插入一个新的input元素。 -->
+		文本框：<input type="text" id='userText'>
+		<button>更换input的type属性</button>
+	<script type="text/javascript">
+		window.onload=function(){
+			var ut=document.getElementById('userText');
+			var bt=document.getElementsByTagName('button')[0];
+			bt.onclick=function(){
+				ut.type='password';
+				console.log(12);
+			}
+
+
+
+		}
+
+	</script>
+</body>
+</html>

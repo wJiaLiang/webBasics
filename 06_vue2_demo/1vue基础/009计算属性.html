@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性</title>
+</head>
+<body>
+    <section id="app">
+        <p> {{message}}</p>
+        <p> {{message.split('')}}</p>
+        <p> {{split}} </p>
+        <p> {{split}} </p>
+        <p> {{split}} </p>
+        <p> {{split}} </p>
+        <input type="text" v-model='message' value="">
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">  </script>
+    <script>
+        /*
+        计算属性：作用就是把处理数据的逻辑抽离在计算属性中，使得模板更加轻量易读;
+        */ 
+
+        
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                message:'weijialiang',
+            },
+            methods: {
+                
+            },
+            // 计算属性，里面放的也是函数;
+            computed: {
+                // 计算属性中函数的this都指向实例;
+                split(){
+                    return this.message.split('').reverse().join('');
+                }
+            }
+
+        })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

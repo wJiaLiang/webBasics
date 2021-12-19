@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    // var foo = function(){
+    //     this[0] = {};
+    //     this[1] = {};
+    //     this[2] = {};
+    //     this[3] = {};
+    //     this.length = 4;
+    // }
+    // var f = new foo();
+    // console.dir(f);
+
+    var obj = {};
+    obj.info = 123;
+    //属性的复制（拷贝）
+    obj.extend = function(param){
+        for(var key in param){
+            this[key] = param[key];
+        }
+    };
+    console.dir(obj);
+    obj.extend({info:456,message:'hi'})
+    // console.dir(obj);
+
+    $.extend(o1,o2);
+
+    function extend(o1,o2){
+        for(var key in o2){
+            o1[key] = o2[key];
+        }
+    }
+    // var o = {
+    //     name : 'zhagnsan',
+    //     age : 12,
+    //     sex : 1
+    // }
+    // for(var key in o){
+    //     console.log(key,o[key]);
+    // }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

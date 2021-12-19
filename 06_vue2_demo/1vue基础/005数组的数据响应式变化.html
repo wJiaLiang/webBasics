@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="font-size: 28px;" id="app">
+        <p>{{msg}}</p>
+        <p>{{list}}</p>
+        
+        <section v-if="true"> 88888888888 </section>
+        <section>
+            <p v-if="checked"> v-if 显示语隐藏切换</p>
+            <p v-show="checked"> v-show 显示语隐藏切换</p>
+            <button v-on:click="myshowbtn">点击切换</button>
+        </section>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello',
+                list: [1,2,3,4,5],
+                checked:true,
+            },
+            methods: {
+                myshowbtn:function(){
+                    this.checked = false;
+                }
+            }
+        })
+
+        /*
+            提供了观察数组的变异方法，使用这些犯法将会触发视图更新；
+            push()  pop() shift(); unshift(); splice();sort();reverse()
+            会改变原数组;
+        */ 
+        vm.list.push(100);
+        vm.list.splice(0,1,'vvv');
+        vm.list.length = 1; // 是不会改变原数组的，但是调用上面的这些方法后就会生效;
+
+        // 条件判断;
+
+
+
+
+    </script>
+</body>
+
+</html>

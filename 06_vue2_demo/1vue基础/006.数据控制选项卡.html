@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app{
+            width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+        .fs{font-size: 30px;}
+        ul{
+            padding-left: 0px;
+            list-style: none;
+        }
+        #contBox{border: 1px solid darkgreen;}
+        .s {
+            background-color: deeppink;
+           color:white;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="app">
+        <div class="fs">
+            <input class="fs" type="button" 
+            v-for="item,i in tableData" 
+            v-bind:value="item.title" 
+            v-bind:class="{s:i==curent}"
+            v-on:click="tabHandle(i)"
+            > </input>
+        </div>
+        <section id="contBox">
+            <div v-for="item,j in tableData"  v-bind:style="{display: j == curent? 'block':'none'}">
+                <ul>
+                    <li v-for="list in item.list">{{list.test}}</li>
+                </ul>
+            </div>
+        </section>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let tableData = [{
+                title: '新闻',
+                list: [{
+                        test: '内蒙古三名厅级官员被双开'
+                    },
+                    {
+                        test: '内蒙古三名厅级官员被双开'
+                    },
+                    {
+                        test: '内蒙古三名厅级官员被双开'
+                    },
+                ]
+            },
+            {
+                title: '娱乐',
+                list: [{
+                        test: '骨朵数据推出“全网热度指数,多维度衡量作品价值'
+                    },
+                    {
+                        test: '骨朵数据推出“全网热度指数,多维度衡量作品价值'
+                    },
+                    {
+                        test: '骨朵数据推出“全网热度指数,多维度衡量作品价值'
+                    },
+                ]
+            },
+            {
+                title: '体育',
+                list: [{
+                        test: '郎平率中国女排备战世锦赛 球迷热烈欢迎'
+                    },
+                    {
+                        test: '郎平率中国女排备战世锦赛 球迷热烈欢迎'
+                    },
+                    {
+                        test: '郎平率中国女排备战世锦赛 球迷热烈欢迎'
+                    },
+                ]
+            },
+        ]
+
+        /*
+            事件， 语法 v-on:事件名 = '事件处理函数'
+        */ 
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                tableData,
+                curent:0  // 
+
+            },
+            methods: {
+                tabHandle:function(i){
+                    this.curent = i;
+                }
+            }
+
+        })
+    </script>
+
+
+</body>
+
+</html>

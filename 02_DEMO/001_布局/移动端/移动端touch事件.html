@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>touch事件</title>
+	<style type="text/css">
+		body,html{
+			margin:0;
+			padding:0;
+			font-size: 100px;
+		}
+		.content{
+			width:300px;
+			height: 500px;
+			margin:50px auto 0px;
+			background-color: green;
+		}
+		p{
+			font-size: 20px;
+		}
+		.changes{
+
+			background-color: goldenrod;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		
+	</div>
+	<p>
+		哈哈
+	</p>
+	<script type="text/javascript">
+		var box=document.querySelector('.content');
+			var startx=0;
+			var movex=0;
+			var result=0;
+			var widths=box.offsetWidth;
+		box.addEventListener('touchstart',function(e){
+
+			console.log(widths);
+			//触摸点的一个数组；e.touches
+			console.log("clientX:"+e.touches[0].clientX)
+			// console.log("clientY:"+e.touches[0].clientY)
+			// console.log("pagX:"+e.touches[0].pageX);
+			// console.log("pagY:"+e.touches[0].pageY);
+			// console.log("screenX:"+e.touches[0].screenX);
+			// console.log("screenY:"+e.touches[0].screenY);
+
+			startx=e.touches[0].clientX;
+		})
+		box.addEventListener('touchmove',function(e){
+			movex=e.touches[0].clientX;
+			result=movex-startx;
+			
+			if(Math.abs(result)>widths/3)
+			{
+				console.log('滑动的距离为：'+result);
+				// box.setAttribute('class', 'changes');
+				box.style.backgroundColor='goldenrod';
+			}
+			
+		})
+			box.addEventListener('touchend',function(e){
+			
+
+		})
+		
+
+	</script>
+</body>
+</html>

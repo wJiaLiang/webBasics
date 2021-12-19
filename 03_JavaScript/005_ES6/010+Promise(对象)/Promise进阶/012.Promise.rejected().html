@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+        返回一个rejected的Promise实例;
+
+
+     */ 
+     let promise = Promise.reject('something wrong');
+     promise
+     .then(()=>{
+        console.log('it,s,ok');
+     })
+     .catch(()=>{
+        console.log('no ok');
+        // 正Promise对象表示没有处理;
+        return Promise.reject({
+            then(){
+                console.log('it will be ok');
+            },
+            catch(){
+                console.log('not yet');
+            }
+        })
+     })
+
+
+
+
+
+    </script>
+</body>
+</html>

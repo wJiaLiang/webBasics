@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		.content{width:300px;height:300px;border:1px solid red;}
+	</style>
+</head>
+<body>
+	<div class="content">
+		
+	</div>
+	<span>frist-span标签</span>
+	<s>添加到content容器后面的</s>
+
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			//在每个匹配的元素之后插入内容。
+			$('.content').after('<p>添加到content容器的后面的p标签;</p>');
+			//在每个匹配的元素之前插入内容。
+			$('.content').before($('span'));
+
+
+			//把所有匹配的元素插入到另一个、指定的元素元素集合的后面。
+			$('s').insertAfter('.content');
+			//把所有匹配的元素插入到另一个、指定的元素元素集合的前面
+			$('s').insertBefore('.content');
+			
+		})
+
+
+	</script>
+</body>
+</html>

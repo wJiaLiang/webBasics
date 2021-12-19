@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>null和undefined的区别</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// null 1.做为函数的参数，表示该函数的参数不是一个对象；
+			// 2.作为原型链的终结；
+
+
+
+
+
+//1.调用函数时候，应该提供的参数没有提供，该参数旧等于undefined；
+		function fu(x){
+			console.log(x);
+		}
+		fu();  //undefined;
+//2.对象没有赋值的属性；默认返回undefined；
+		var o=new Object();	
+		console.log(o.p)  //undefined;
+
+//3.声明了变量但是没有赋值就是undefined；
+		var i;
+		console.log(i);
+//4.函数没有返回值时默认返回undefined；
+		function text(){console.log(1+1)}
+		var f=text();
+		console.log(f);
+	</script>
+</body>
+</html>

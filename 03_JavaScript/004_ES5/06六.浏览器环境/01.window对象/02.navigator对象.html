@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // window对象的navigator属性，指向一个包含浏览器信息的对象。
+        console.log(navigator.userAgent.toLowerCase());
+        var se=navigator.userAgent.toLowerCase();
+        if(/mobi/i.test(se)){
+            alert('手机')
+        }else{
+            alert('非手机');
+        }
+        /*
+        navigator.plugins属性返回一个类似数组的对象，成员是浏览器安装的插件，比如Flash、ActiveX等。
+        返回浏览器插件，没有什么用;
+        */
+        console.log(navigator.plugins);
+
+        // navigator.platform 属性返回用户的操作系统信息。
+        console.log( navigator.platform );
+
+        // navigator.geolocation返回一个Geolocation对象，包含用户地理位置的信息。
+
+        console.log(navigator.geolocation);
+
+        /*
+        screen.height和screen.width两个属性，一般用来了解设备的分辨率。
+        screen.availHeight和screen.availWidth属性返回屏幕可用的高度和宽度，单位为像素。它们的值为屏幕的实际大小减去操作系统某些功能占据的空间，比如系统的任务栏。
+         */ 
+        console.log("屏幕高："+screen.height+"屏幕宽："+screen.width);
+        console.log("高："+screen.availHeight+"宽："+screen.availWidth);
+
+
+
+    </script>
+</body>
+</html>

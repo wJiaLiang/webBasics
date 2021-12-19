@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //  Number.prototype.toString()
+        //  Number对象部署了自己的toString方法，用来将一个数值转为字符串形式。
+        (10).toString() // "10"
+
+
+        //toString方法可以接受一个参数，表示输出的进制。如果省略这个参数，默认将数值先转为十进制，再输出字符串；否则，就根据参数指定的进制，将一个数字转化成某个进制的字符串。
+
+        (10).toString(2) // "1010"
+        (10).toString(8) // "12"
+        (10).toString(16) // "a"
+
+
+        // Number.prototype.toFixed()
+        //toFixed方法用于将一个数转为指定位数的小数，返回这个小数对应的字符串。
+        (10).toFixed(2) // "10.00"
+        10.005.toFixed(2) // "10.01"
+
+        //Number.prototype.toExponential()
+        //toExponential方法用于将一个数转为科学计数法形式。
+
+
+    </script>
+</body>
+</html>

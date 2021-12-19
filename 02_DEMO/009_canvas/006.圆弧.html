@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas id="canvas"> </canvas>
+    <script type="text/javascript">
+    let canvas = document.querySelector("#canvas");
+    // 用css设置canvas的宽高的时候只会把画布放大或缩小; 默认为300*150;
+    canvas.width=300;
+    canvas.height=300;
+    canvas.style.border="1px solid #111";
+    var ctx = canvas.getContext('2d');
+
+    ctx.moveTo(50,50);
+   ctx.arc(
+        50, //圆心坐标;x
+        50,  //圆心坐标y;
+        40,  //圆弧的半径;
+        0,   //开始的弧度；弧度制;
+        90*Math.PI/180,  //结束的弧度; 弧度制;
+        false  // 顺时针为false,逆时针为true;
+    );
+
+   ctx.closePath();
+   ctx.stroke();
+    
+    
+
+
+
+
+
+
+    </script>
+</body>
+</html>

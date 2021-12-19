@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{background-color: pink;color: black;}
+        ul,ol{list-style: none;margin: 0px;padding: 0px;}
+        .box1{width: 100px;height: 100px;
+            background-color: white;
+            padding: 10px;
+            overflow: hidden;
+        }
+        .box2{margin-left: 20px;width: 80px;height: 80px;
+            background-color: red;
+            border-left: 10px solid blueviolet;
+        }
+        .box3{
+            width: 100px;
+            height: 600px;
+            padding: 20px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box1">
+   
+    </div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <script type="text/javascript">
+    /*
+    Element.clientHeight属性返回元素节点可见部分的高度，
+    Element.clientWidth属性返回元素节点可见部分的宽度。
+    所谓“可见部分”，指的是不包括溢出（overflow）的大小，只返回该元素在容器中占据的大小，对于有滚动条的元素来说，它们等于滚动条围起来的区域大小。这两个属性的值包括Padding、但不包括滚动条、边框和Margin，单位为像素。这两个属性可以计算得到，等于元素的CSS高度（或宽度）加上CSS的Padding，减去滚动条（如果存在）。
+     */ 
+     var box1 = document.getElementsByClassName('box1');
+     console.log( "宽:"+box1[0].clientWidth+"高:"+box1[0].clientHeight );
+     /*
+     Element.clientLeft属性等于元素节点左边框（left border）的宽度，
+     Element.clientTop属性等于网页元素顶部边框的宽度，单位为像素。
+     获得是边框的宽度;
+
+      */ 
+      var box2 = document.querySelector('.box2');
+      console.log( 'left:'+box2.clientLeft +'top:'+box2.clientTop);
+
+    /*
+    Element.scrollHeight属性返回某个网页元素的总高度，Element.scrollWidth属性返回总宽度，可以理解成元素在垂直和水平两个方向上可以滚动的距离。它们都包括由于溢出容器而无法显示在网页上的那部分高度或宽度。这两个属性是只读属性
+    
+
+     */
+    var box3 = document.querySelector('.box3');
+    console.log( box3.scrollHeight );
+    console.log( document.documentElement.scrollHeight); //网页的总高度;
+
+    /*
+    Element.scrollLeft属性表示网页元素的水平滚动条向右侧滚动的像素数量，Element.scrollTop属性表示网页元素的垂直滚动条向下滚动的像素数量。对于那些没有滚动条的网页元素，这两个属性总是等于0。
+    document.documentElement.scrollLeft
+    document.documentElement.scrollTop 滚动条距离顶部的距离;
+
+     */ 
+    // 如果要查看整张网页的水平的和垂直的滚动距离
+    console.log(document.documentElement.scrollTop);
+
+    /*
+    Element.offsetHeight属性返回元素的垂直高度，
+    Element.offsetWidth属性返回水平宽度。
+     */ 
+     console.log("宽度:"+box3.offsetWidth+"高度:"+box3.offsetHeight);
+     console.log('left:'+box3.offsetLeft+'top:'+box3.offsetTop);
+     console.log('节点可见部分得高度'+box3.clientHeight)
+     
+
+
+
+    </script>
+</body>
+</html>

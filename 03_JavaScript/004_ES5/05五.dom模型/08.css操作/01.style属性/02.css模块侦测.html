@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box1">  </div>
+    <script type="text/javascript">
+    /*
+    CSS的规格发展太快，新的模块层出不穷。不同浏览器的不同版本，对CSS模块的支持情况都不一样。有时候，需要知道当前浏览器是否支持某个模块，这就叫做“CSS模块的侦测”。
+
+    一个比较普遍适用的方法是，判断某个DOM元素的style对象的某个属性值是否为字符串。
+
+     */ 
+
+    // 一个比较普遍适用的方法是，判断某个DOM元素的style对象的某个属性值是否为字符串。
+    var box1 = document.querySelector('.box1');
+    console.log( typeof box1.style.transform ==='string' ); //true;
+    // 如果该CSS属性确实存在，会返回一个字符串。即使该属性实际上并未设置，也会返回一个空字符串。如果该属性不存在，则会返回undefined。
+    console.log(document.body.style['maxWidth']); 
+
+
+
+
+    </script>
+</body>
+</html>

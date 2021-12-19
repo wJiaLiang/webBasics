@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    //类型转换时，Date对象的实例如果转为数值，则等于对应的毫秒数；
+    //如果转为字符串，则等于对应的日期字符串。所以，
+    //两个日期对象进行减法运算，返回的就是它们间隔的毫秒数；进行加法运算，返回的就是连接后的两个字符串。
+    var d1 = new Date('2017, 7, 1 00:00:00');
+    var d2 = new Date('2017, 8, 1 00:00:00');
+
+    console.log(d2 - d1) // //2678400000 两个时间点之前的差(毫秒数);
+
+    var d3 = d2-d1; 
+
+    var totals=0,day=0, s=0,m=0,h=0;
+
+    totals = d3/1000;
+    day=totals/(60*60*24); //31;
+    console.log(day);
+
+
+
+    </script>
+</body>
+</html>

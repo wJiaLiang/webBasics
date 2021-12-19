@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画</title>
+	<style type="text/css">
+		
+		.box{
+			width:100px;
+			height:100px;
+			background-color: red;
+			/*使用动画,分别是动画名称,持续时间 过度类型 循环次数 是否反向运动*/
+			animation: animate 3s ease-out 10 reverse;
+		}
+		/*在这里定义一个动画 中间的过程一个可用百分比*/
+		@keyframes animate{
+				form{
+					width:100px;
+					height:100px;
+					opacity:1;
+				}
+				to{
+					/*同时执行这两个x方向移动600px 在2d的平面内顺时针旋转360度	*/
+					transform: translate(600px,0) rotate(-360deg);
+					opacity:0.2;
+				}
+		}
+		/*给这个盒子设置线性渐变,从左边开始*/
+		.linear-gradient{
+			margin-top: 100px;
+			width:650px;
+			height:100px;
+			line-height: 100px;
+			text-align: center;
+			background-color: red;
+			background: linear-gradient(
+				to left,
+				red,
+				green
+			);
+		}
+		.radial-gradient{
+			width:600px;
+			height:100px;
+			margin-top: 100px;
+			text-align: center;
+			line-height:180px;
+			/*background-color: red*/
+			background: radial-gradient(
+					/*100px是四周环绕的半径,后面是位置,*/
+					100px at center top,
+					black,
+					yellow			
+			  );
+		}
+		.rotate{
+			width:300px;
+			height:100px;
+			margin-top:100px;
+			background-color:green;
+			line-height: 100px;
+			text-align: center;
+			font-size: 25px;
+			color:white;	
+		}
+		.rotate:hover{
+			cursor: pointer;
+		}
+		.rotates{
+			transition:all 2s ease-out;
+			/*实现翻转*/
+			transform:rotateY(360deg) translate(500px,-300px);
+		}
+		.rotates_two{
+			transition:all 1s ease-in;
+			transform: rotateY(360deg) translate(10px, -300px);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		这是要执行动画的一个盒子;
+	</div>
+
+	<div class="linear-gradient">
+		这个是线性渐变的盒子;
+	</div>
+
+	<div class="radial-gradient">
+		这个盒子做的径向渐变;
+	</div>
+	<div id="play" class="rotate">
+		这个盒子做的是旋转运动;
+	</div>
+	<script type="text/javascript">
+		var rotate=document.getElementById('play');
+		rotate.onclick=function(){
+			this.setAttribute('class',"rotate rotates rotates_two");
+			// this.removeAttr('clsss',"rotates");
+			// this.setAttribute("class","rotate rotates_two");
+		}
+	</script>
+</body>
+</html>

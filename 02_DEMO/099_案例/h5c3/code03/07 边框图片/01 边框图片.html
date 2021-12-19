@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3边框</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F7F7F7;
+        }
+        ul {
+            width: 960px;
+            margin: 40px auto;
+            list-style: none;
+            background-color: #FFF;
+        }
+        li {
+            padding: 15px;
+        }
+        li:nth-child(2),li:nth-child(3) {
+            width: 400px;
+            height: 150px;
+            background-origin: content-box;
+            background-clip: content-box;
+            /*边框图片的地址*/
+            border-image-source:url("images/border.png");
+            /*边框的宽度 设置四个边的边框的图片是27 px*/
+            border-image-width: 27px;
+            /*slice 裁剪 */
+            border-image-slice: 57 ;
+            /* stretch 拉伸*/
+            border-image-repeat: stretch;
+            /*
+                    我定义了一个盒子，然后我给这个盒子设置了边框图片.
+                    2:设置了边框图片的宽度
+                    3:制定裁剪方式. 27
+                        浏览器会对这个图片进行自动裁剪，裁剪方式就是
+                        四刀 规定，浏览器按照这个规定的规则去裁剪的.
+                    4：border-image-repeat  排列方式
+                        1:repeat 平铺
+                        2:round 环绕 （等比例缩放这个切出来的图片大小
+                        保证图片完整显示
+                        ）
+                        3:stretch 拉伸
+            */
+        }
+    </style>
+</head>
+<body>
+<ul>
+
+    <li>
+        <div class="border-image">
+            <img src="./images/border.png" alt="">
+            我是第一个div这个div里面还有一个图片；
+        </div>
+    </li>
+
+
+
+    <li>
+        <div class="border-image">我是第二个div</div>
+    </li>
+
+</ul>
+</body>
+</html>

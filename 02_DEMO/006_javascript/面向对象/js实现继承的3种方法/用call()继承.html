@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//类继承，只继承模板，不继承原型对象；就是利用call()和apply()来借用构造函数；
+
+		function Person(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		//父类的原型对象属性；
+		Person.prototype.id=1;
+
+		function child(name,age,sex){
+			this.sex=sex;
+			Person.call(this,name,age); //借用了person方法；
+		}
+
+		var b=new child('张三','20','女');
+		//父类的原型对象并没有继承过来；
+		alert(b.name);
+		alert(b.age);
+		alert(b.sex);
+
+
+	</script>
+</body>
+</html>

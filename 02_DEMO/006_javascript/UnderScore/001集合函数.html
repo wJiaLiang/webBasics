@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/base.css" />
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./Underscore_v1.91.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                listObj: { a: 1, b: 2, c: 3, d: 4, e: 5 },
+                listObjarr: [1, 2, 3, 4, 5],
+                listObj3: [{ a: 1 }, { b: 2 }, { c: 3 }, { d: 4 }, { e: 5 }],
+                listobj4: [
+                    { name: "张三", age: 40 },
+                    { name: "李四", age: 50 },
+                    { name: "王五", age: 60 },
+                ],
+            },
+            beforeMount() {
+                this.init();
+            },
+            methods: {
+                docWrite(name) {
+                    console.log(`--------------${name}---------------------`);
+                    document.writeln(
+                        `<p>------------${name}-------------------</p>`
+                    );
+                },
+                init() {
+                    // each 遍历对象和数组;
+                    _.each(this.listObj, function (element, index) {
+                        if (element >= 3) {
+                            return false;
+                        }
+                        console.log(element); // 1,2,3,4,5;
+                    });
+
+                    this.docWrite("each");
+
+                    // map遍历 数组;
+                    _.map(this.listObj, function (value, key, ele) {
+                        console.log(value, key, ele);
+                    });
+                    this.docWrite("map");
+
+                    // reduce 求和
+                    var sum = _.reduce(this.listObj, (memo, value, key) => {
+                        console.log(memo, value);
+                        return memo + value;
+                    });
+                    console.log(sum);
+
+                    this.docWrite("reduce");
+
+                    // find 找到元素后立即返回，不会遍历整个数据;
+                    var va = _.find(this.listObj, (num) => {
+                        console.log(num);
+                        return num == 3;
+                    });
+                    console.log(va);
+
+                    this.docWrite("find");
+
+                    // 操作的是数组对象类型数据,返回给定匹配的值
+                    var fw = _.findWhere(this.listObj3, { a: 1 });
+                    var fw2 = _.where(this.listObj3, { a: 1 });
+                    console.log(fw, fw2);
+
+                    this.docWrite("findWhere");
+
+                    // 返回和filter相反的结果
+                    var re = _.reject(this.listObj, (num) => {
+                        console.log(num % 2);
+                        return num % 2 == 0; // 返回和filter相反的结果
+                    });
+                    console.log(re);
+                    this.docWrite("reject");
+
+                    // 表示数组中是否含有该值;
+                    var isflag = _.contains(this.listObjarr, 5);
+                    console.log(isflag);
+
+                    this.docWrite("contains");
+
+                    // pluck 提取数组对象中的某个属性值,返回一个数组;
+                    var narr = _.pluck(this.listobj4, "name");
+                    console.log(narr);
+
+                    // _max 返回数组对象中最大的值
+                    var narrto = _.max(this.listObjarr, (item) => {
+                        return item;
+                    });
+                    console.log(narrto);
+                },
+            },
+        });
+    </script>
+</html>

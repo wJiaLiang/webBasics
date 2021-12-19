@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript" src="../jquery1.83.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			console.log($('p').last().text());
+			$('p').css('backgroundColor','red');
+
+		})
+	</script>
+		
+	<p>1</p>
+	<div></div>
+	<div>
+		<p>
+			2
+		</p>
+		<p>3</p>
+	</div>
+	<div></div>
+</body>
+</html>

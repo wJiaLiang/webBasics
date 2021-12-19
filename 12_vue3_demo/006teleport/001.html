@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .modal {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .modal div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+                width: 300px;
+                height: 300px;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" style="position: relative">
+            <section id="modParent"> </section>
+
+            <h3>Tooltips with Vue 3 Teleport</h3>
+            <div>
+                <modal-button></modal-button>
+            </div>
+
+        </div>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+
+        /*
+
+         teleport 内的内容将挂载到指定的 dom 元素上   #modParent
+        
+        */ 
+
+        const app = Vue.createApp({
+            data() {
+                return {};
+            },
+            setup() {},
+            //可以是数组或对象，用于接收来自父组件的数据
+            props: [],
+        });
+
+        app.component("modal-button", {
+            template: `
+                <button @click="modalOpen = true">
+                    Open full screen modal! (With teleport!)
+                </button>
+
+                <teleport to="#modParent">
+                <div v-if="modalOpen" class="modal">
+                    <div>
+                    I'm a teleported modal! 
+                    (My parent is "body")
+                    <button @click="modalOpen = false">
+                        Close
+                    </button>
+                    </div>
+                </div>
+                </teleport>
+                `,
+            data() {
+                return {
+                    modalOpen: false,
+                };
+            },
+        });
+
+        app.mount("#app");
+    </script>
+</html>

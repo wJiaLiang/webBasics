@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="content">
+		<p>1</p>
+		<p class='cla'>2</p>
+		<p id="idd">3</p>
+
+	</div>
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+	$(function(){
+		$("p").css('border','1px solid red');
+		$('.cla').css('fontSize',"30px");
+		$('#idd').css('paddingLeft',"100px");
+		$('p,.cla,#idd').css("margin-top","60px");
+
+	})
+	</script>
+</body>
+</html>

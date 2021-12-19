@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 获取当前的日期对象  getMonth()返回月份（0表示1月，11表示12月）
+        var v = new Date()
+        console.log("v",v);
+        console.log(v.getFullYear(),v.getMonth()+1,v.getDate())
+
+
+        // 获取一个指定的日期对象 2020 11 月 1日的日期对象  getMonth()返回月份（0表示1月，11表示12月）
+        var v2 = new Date(2020,11-1,1);
+        console.log("v2",v2);
+        console.log(v2.getFullYear(),v2.getMonth()+1,v2.getDate())
+
+        /*  
+        
+            年：使用四位数年份，比如2000。如果写成两位数或个位数，则加上1900，即10代表1910
+            如果是负数，表示公元前。
+            月：0表示一月，依次类推，11表示12月。
+            日：1到31。如果传入0表示 上个月的最后一个天
+            参数如果超出了正常范围，会被自动折算。
+            月和日使也可使用 负数，表示从基准日扣去相应的时间。
+
+            new Date(year,month-1,1)  // 当前月的第一天
+            new Date(year,month,0)    // 当前月的最后一天
+        */  
+        var v3 = new Date(2020,0,0)  // 2019 12 月的最后一天
+        console.log("v3",v3)
+        // 如 传入12时表示 2021年的1月份,然而 后面日传入的是0,有表示上个月的最后一天，所以是2020，12 的最后一天了
+        console.log(new Date(2020,12,0))
+        console.log(v3.getFullYear(),v3.getMonth()+1,v3.getDate())
+
+    </script>
+
+
+</body>
+</html>

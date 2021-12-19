@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src='jqwei.js'></script>
+	<script type="text/javascript">
+		console.log($().jq);
+		//全局扩展;
+		$.extend({
+			hello:function(){
+				alert('jq的构造函数')
+			}
+		})
+		//实例的原型上添加方法;
+		$.fn.extend({
+			hello:function(){
+				alert('this is 实例的原型上添加方法')
+			}
+		})
+
+		$.hello();
+		$.fn.hello();
+
+		console.dir($.fn) //是$的原型;
+		console.dir($); //返回jQuery实例的的那个函数,在此函数内new一个实例的
+	</script>
+</body>
+</html>

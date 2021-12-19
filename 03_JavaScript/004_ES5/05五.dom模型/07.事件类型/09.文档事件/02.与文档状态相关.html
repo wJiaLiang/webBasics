@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <di>
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </di>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+    /*
+    DOMContentLoaded事件
+
+    当HTML文档下载并解析完成以后，就会在document对象上触发DOMContentLoaded事件。这时，仅仅完成了HTML文档的解析（整张页面的DOM生成），所有外部资源（样式表、脚本、iframe等等）可能还没有下载结束。也就是说，这个事件比load事件，发生时间早得多。
+    
+    （2）readystatechange事件
+        readystatechange事件发生在Document对象和XMLHttpRequest对象，当它们的readyState属性发生变化时触发
+
+     */ 
+     document.addEventListener("DOMContentLoaded", function(event) {
+        console.log("DOM生成");
+    });
+     
+     document.addEventListener('readystatechange',function(){
+            if(this.readyState=='interactive'){
+                console.log('readyState');
+            }
+
+     },false)
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

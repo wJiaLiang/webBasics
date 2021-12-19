@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="imageSrc" /> <hr>
+
+        <!-- 内联字符串拼接 -->
+        <img :src="'/path/to/images/' + fileName" />            <hr>
+
+        <!-- prop 绑定。"prop" 必须在 my-component 声明 -->
+        <my-component :prop="someThing"></my-component>         <hr>
+
+
+        <!-- 通过 $props 将父组件的 props 一起传给子组件 -->
+        <child-component v-bind="$props"></child-component>     <hr>
+
+
+        <!-- 动态 attribute 名缩写 -->
+        <button :[key]="value"> 动态属性按钮 </button>           <hr>
+
+        <button disabled="disabled"> 按钮 </button>             <hr>
+        
+    </div>
+</body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        /*
+            缩写:  :
+            动态地绑定一个或多个 attribute，或一个组件 prop 到表达式。
+            vue3 新增
+
+        */ 
+
+    const app =Vue.createApp({
+        data(){
+            return{
+                fileName:'',
+                imageSrc:'',
+                key:'disabled',
+                value:"disabled",
+
+                someThing:{name:'kgwei'}
+            }
+        },
+        setup(){
+
+        },
+
+        // 计算属性
+        computed:{},
+
+        // 方法;
+        methods:{},
+    })
+
+// 组件
+app.component('my-component',{
+    data(){
+        return{
+            msg:'my-component 组件'
+        }
+    },
+    props:["someThing"],
+    template:`
+        <input type="text" v-model="msg">
+    `
+})
+
+app.component('child-component',{
+    data(){
+        return{
+            msg:'child-component 组件'
+        }
+    },
+    props:[],
+    template:`
+        <input type="text" v-model="msg">
+    `
+})
+
+
+app.mount("#app")
+
+</script>
+</html>

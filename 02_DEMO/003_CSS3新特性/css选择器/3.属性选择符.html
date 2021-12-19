@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <!--  E[att] 选择具有att属性的E元素;
+     E[att='val']  选择具有att属性且属性值等于val的E元素;
+     E[att~='val']  选择具有att属性且属性值为用空格分隔的字词列表，其中一个等于val的E元素;
+     E[att|='val']  选择具有att属性且属性值为以val开头并用连接符"-"分隔的字符串的E元素，如果属性值仅为val，也将被选择。
+     	//下面几个是css3新增的选择器；	
+     E[att^='val']   选择具有att属性且属性值为以val开头的字符串的E元素；
+     E[att$='val']   选择具有att属性且属性值为以val结尾的字符串的E元素；
+     E[att*='val']   选择具有att属性且属性值为包含val的字符串的E元素；
+      -->
+  	<style type="text/css">
+		/* div[class~='content']{border:2px solid red;} */
+		/* div[class$='1']{background-color: blue;} */
+		div[class^='b']{font-size: 40px;}
+		div[class*='box1']{color:green;}
+		div[openid="true"]{background: #000;color:#fff;}
+	</style>
+</head>
+<body>
+	<div class="content">第一个div</div> 
+	<div class="box1 content">第二个div</div>  
+	<div class="box1">第三个div</div>
+	<div openid="true">第4属性选择器</div>
+</body>
+</html>

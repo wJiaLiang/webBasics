@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// indexOf()/lastIndexOf() 找不到就返回-1，找到就返回该项的索引；
+		var Array=[4,6,7,3,5,6,3];
+		console.log(Array.indexOf(4)) //0;
+		var arraynew=[];
+		for(var i=0;i<Array.length;i++){
+			if(arraynew.indexOf(Array[i])==-1){
+				arraynew.push(Array[i]);
+
+			}
+		}
+		console.log(arraynew);
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .idbox{height: 100px;background-color: black;}
+
+    </style>
+    </head>
+<body>
+    <div class="idbox"></div>
+
+    
+</body>
+<script type="text/javascript" src="../../jquery-1.11.1.js"></script>
+
+<script type="text/javascript">
+$(function(){
+    console.log($);
+    // 会把b页面的id为content的元素加载到这个页面中;
+    var html= $('body').load('./b.html#content');
+
+
+
+})
+
+
+</script>
+</html>

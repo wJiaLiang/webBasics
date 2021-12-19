@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>index1</li>
+		<li class='twoli'>index2</li>
+		<li>index3</li>
+		<li>index4</li>
+		<li>index5</li>
+	</ul>	
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			console.dir($('.twoli').next().css('color','red')); //第三个li;
+			console.log($('.twoli').next().css('color','red').end().css('color','pink'));//第二个li;
+
+
+		})
+
+
+	</script>
+</body>
+</html>

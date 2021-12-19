@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        #box{width: 100px;height: 100px;border: 1px solid red;}
+
+    </style>
+</head>
+<body>
+    <article style="height: 600px;border: 1px solid blue;"></article>
+    <div id="box" style="margin-left: 20px;">
+
+    </div>
+    
+
+    <script type="text/javascript">
+    let box = document.querySelector('#box');
+    //事件screenX，screenY获取的是点击位置相对于屏幕的左边距与上边距
+    box.addEventListener('click',function(e){
+        console.log("相对于电脑屏幕：")
+       console.log( "left:"+e.screenX+"\n"+"top："+e.screenY);
+       console.log("浏览器窗口：")
+       console.log("left:"+e.clientX+"\n"+"top："+e.clientY);
+
+       console.log('相对于网页：'+getMousePos(e).x+'\n'+getMousePos(e).y);
+       console.log(e);
+    })
+
+
+// 获取鼠标相对于整个网页顶部和左边的距离;
+    function getMousePos(event) {
+       var e = event || window.event;
+       var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+       var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+       var x = e.pageX || e.clientX + scrollX;
+       var y = e.pageY || e.clientY + scrollY;
+       //alert('x: ' + x + '\n' + y: ' + y);
+       return { 'x': x, 'y': y };
+    }
+
+
+
+    </script>
+
+</body>
+</html>

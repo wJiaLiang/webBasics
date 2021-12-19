@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class='box1'></div>
+
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript">
+    /*
+    1. document.documentURI属性和document.URL属性都返回一个字符串，表示当前文档的网址。不同之处是documentURI属性可用于所有文档（包括 XML 文档），URL属性只能用于 HTML 文档。
+    
+    2. document.domain属性返回当前文档的域名。比如，某张网页的网址是 http://www.example.com/hello.html ，domain属性就等于www.example.com。如果无法获取域名，该属性返回null。
+
+    3. document.location属性返回location对象，提供了当前文档的URL信息。;
+    
+    
+
+    */
+    var ele =document.querySelector('.box1');
+    ele.textContent=document.URL;
+    console.log(document.URL);
+    // 当前网址为 http://user:passwd@www.example.com:4097/path/a.html?x=111#part1
+    document.location.href // "http://user:passwd@www.example.com:4097/path/a.html?x=111#part1"
+    document.location.protocol // "http:"
+    document.location.host // "www.example.com:4097"
+    document.location.hostname // "www.example.com"
+    document.location.port // "4097"
+    document.location.pathname // "/path/a.html"
+    document.location.search // "?x=111"
+    document.location.hash // "#part1"
+    document.location.user // "user"
+    document.location.password // "passwd"
+
+/*
+
+    location.assign()
+    location.reload()
+    location.toString()
+    如果将新的网址赋值给location对象，网页就会自动跳转到新网址。
+    document.location = 'http://www.example.com';
+    document.location属性与window.location属性等价。
+
+ */
+    // 跳转到另一个网址
+    document.location.assign('http://www.baidu.com');
+    // 优先从服务器重新加载
+    document.location.reload(true);
+    // 优先从本地缓存重新加载（默认值）
+    document.location.reload(false);
+    // 跳转到新网址，并将取代掉history对象中的当前记录
+    document.location.replace('http://www.baidu.com');
+    // 将location对象转为字符串，等价于document.location.href
+    document.location.toString();
+
+
+/***************************************************/ 
+    /*
+    
+
+    document.characterSet属性返回渲染当前文档的字符集，比如UTF-8、ISO-8859-1。
+    document.readyState属性返回当前文档的状态，共有三种可能的值。
+
+    loading：加载HTML代码阶段（尚未完成解析）
+    interactive：加载外部资源阶段时
+    complete：加载完成时
+
+浏览器开始解析HTML文档，document.readyState属性等于loading。
+浏览器遇到HTML文档中的<script>元素，并且没有async或defer属性，就暂停解析，开始执行脚本，这时document.readyState属性还是等于loading。
+HTML文档解析完成，document.readyState属性变成interactive。
+浏览器等待图片、样式表、字体文件等外部资源加载完成，一旦全部加载完成，document. readyState属性变成complete。
+    */
+    if(document.readyState=='complete'){
+        console.log(123);
+    }
+
+
+
+    </script>
+</body>
+</html>

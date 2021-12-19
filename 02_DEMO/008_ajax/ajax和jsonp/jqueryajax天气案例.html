@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<style type="text/css">
+		button{
+			margin:20px 100px;
+		}
+		div{
+			position: absolute;
+			left:-100px;
+			background-color:rgba(200,200,200,0.3);
+			border-radius:20px;
+		}
+	</style>
+</head>
+<body>
+	<script src='./jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			var $bt=$('button');
+			$bt.click(function(event) {
+					var inp=$('input').val();
+					var div;
+				$.ajax({
+					type:"GET",
+					url: 'http://api.map.baidu.com/telematics/v3/weather?output=json&ak=0A5bc3c4fb543c8f9bc54b77bc155724',
+					data:{location:inp||'达州'},
+					dataType:'jsonp',
+					beforeSend:function(){
+						div=$('div').animate(
+							{
+								left: "600",
+								fontSize: "20"
+							}).html("正在加载。。。。");
+					},
+					success:function(data){
+							console.dir(data);
+							for(key in data)
+							{
+								
+							}
+
+					},
+					complete:function(){
+						div.html('加载成功');
+						setTimeout(function(){
+							div.hide(1000);
+						},2000)
+					}
+				})
+			});
+		})
+
+
+	</script>
+		<input type="text" name="">
+	<button>点击我发送</button>
+	<div></div>
+</body>
+</html>

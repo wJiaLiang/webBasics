@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            /*
+            语法:
+            arr.sort([compareFunction])
+
+            参数：
+            用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的各个字符的Unicode位点进行排序。
+            arr.sort(function(a,b){})
+
+            返回值：
+            排序后的数组。请注意，数组已原地排序，并且不进行复制。
+            如果 compareFunction(a, b) 小于 0 ，那么 a 会被排列到 b 之前；
+            如果 compareFunction(a, b) 等于 0 ， a 和 b 的相对位置不变
+            如果 compareFunction(a, b) 大于 0 ， b 会被排列到 a 之前。
+
+        */
+
+            function compare(a, b) {
+                if (a < b) {
+                    // 按某种排序标准进行比较, a 小于 b
+                    return -1;
+                }
+                if (a > b) {
+                    return 1;
+                }
+                // a must be equal to b
+                return 0;
+            }
+            var arr = [3,90,32,45,34,66];
+            arr.sort(compare)
+            console.log(arr); // [3,32,34,45,66,90]
+
+            // 要比较数字而非字符串，比较函数可以简单的以 a 减 b，如下的函数将会将数组升序排列
+            function compareNumbers(a, b) {
+                return a - b;
+            }
+
+            /*
+                sort 方法可以使用 函数表达式 方便地书写：
+                numbers.sort((a, b) => a - b);
+            */ 
+
+            /*
+                对象可以按照某个属性排序：
+                var items = [
+                    { name: 'Edward', value: 21 },
+                    { name: 'Sharpe', value: 37 },
+                    { name: 'And', value: 45 },
+                    { name: 'The', value: -12 },
+                    { name: 'Magnetic' },
+                    { name: 'Zeros', value: 37 }
+                ];
+                items.sort(function (a, b) {
+                    return (a.value - b.value)
+                });
+
+            */ 
+
+
+
+        </script>
+    </body>
+</html>

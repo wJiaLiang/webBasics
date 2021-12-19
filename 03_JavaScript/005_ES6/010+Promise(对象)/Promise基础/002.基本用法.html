@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // ES6 规定，Promise对象是一个构造函数，用来生成Promise实例。
+        // 第一个函数;
+        function runAsync(){
+            const promise =  new Promise(function(resolve,reject){
+                    //要执行的异步代码;
+                    setTimeout(function(){
+                        console.log('执行完成');
+                        resolve('成功后的数据');  //异步成功的数据;
+                        reject('失败的数据');     // 失败的数据;  
+
+                    },2000)
+            })
+            return promise;
+        }
+        // 第二个数据;
+        function runAsync1(){
+            const promise =  new Promise(function(resolve,reject){
+                    //要执行的异步代码;
+                    setTimeout(function(){
+                        console.log('执行完成');
+                        resolve('第二次回调成功后的数据');  //异步成功的数据;
+                        reject('第二次回调失败的数据');     // 失败的数据;  
+
+                    },2000)
+            })
+            return promise;
+        }
+
+
+        // 这样就避免了层层回调函数嵌套的问题;
+        // 在then方法中，你也可以直接return数据而不是Promise对象，在后面的then中就可以接收到数据了
+
+        runAsync()
+        .then(function(data){
+            console.log(data);
+            return runAsync1();
+            // 后面可以用传过来的数据做些其他操作
+        })
+        .then(function(data){
+            console.log(data)
+        })
+
+
+
+
+    </script>
+</body>
+</html>

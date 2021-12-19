@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sessionStorage 的使用.</title>
+
+
+</head>
+<body>
+
+    <input type="button" value="设置值" id="setId">
+    <input type="button" value="获取值" id="getId">
+    <input type="button" value="remove 值" id="removeId">
+    <input type="button" value="clear 值" id="clearId">
+
+    <script>
+            //设置值
+            document.getElementById("setId").onclick=function(){
+                    //我是把数据保存到sessionStorage ，我要得到这个对象
+                    //key 唯一
+                    window.sessionStorage.setItem("username","毛主席保证,邓小平保证,菜10保证");
+                    //根据username key 去取值，毛主席保证,邓小平保证,菜10保证 这个时候我可以切割,
+//                  window.sessionStorage.setItem("username1","我向乔布斯保证")
+            }
+            //获取值
+            document.getElementById("getId").onclick=function(){
+                   var username=window.sessionStorage.getItem("username");
+            }
+            //remove 值
+            document.getElementById("removeId").onclick=function(){
+                //根据制定的key 删除值.
+                window.sessionStorage.removeItem("username");
+            }
+            //清空值.
+            document.getElementById("clearId").onclick=function(){
+                //清空所有的值
+                window.sessionStorage.clear();
+            }
+    </script>
+</body>
+</html>

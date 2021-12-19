@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>cookie</title>
+</head>
+<body>
+	<h2>js中cookie的使用</h2>
+
+
+	<!-- <script type="text/javascript">
+	// 如果不指定过期时间就是浏览器关闭的时候；	
+		document.cookie="user=admin";
+		document.cookie="wei=123";
+
+		console.log(document.cookie);
+		var date=new Date();
+		可以设置日期；
+
+		date.setFullYear(2017);
+		date.setMonth(0);
+		date.setDate(18);
+		10天以后是几号；
+		date.setDate(date.getDate()+10);
+		console.log(date.getFullYear()+'-'+(date.getMonth()+1)+"-"+date.getDate())
+
+	</script> -->
+
+	<script type="text/javascript">
+		var date=new Date();
+		console.log(date);
+		date.setDate(date.getDate()+10);
+		// console.log(date.getMonth()+1);
+		alert(date);
+		//设置cookie的过期的日期；
+		document.cookie="username=haha;expires="+date;
+		document.cookie="password=123";
+
+
+		alert(document.cookie);	
+	</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas id="canvas"> </canvas>
+    <script type="text/javascript">
+    let canvas = document.querySelector("#canvas");
+    // 用css设置canvas的宽高的时候只会把画布放大或缩小; 默认为300*150;
+    canvas.width=600;
+    canvas.height=600;
+    canvas.style.border="1px solid #111";
+    var ctx = canvas.getContext('2d');
+
+    var data=[
+        {
+            'value':.2,
+            "color":'red',
+            "title":"应届生",
+        },
+        {
+            'value':.3,
+            "color":'blue',
+            "title":"社会招生",
+        },
+        {
+            'value':.1,
+            "color":'green',
+            "title":"老学员",
+        },
+        {
+            'value':.4,
+            "color":'pink',
+            "title":"校招",
+        }
+    ];
+
+    var point ={x0:300,y0:300};
+    // 圆弧的半径为；
+    var r = 100;
+    var begin = 0;
+    var end = 0;
+    var angle =0;
+    for (var i = 0; i < data.length; i++) {
+            ctx.beginPath();
+            ctx.fillStyle = data[i].color;
+            ctx.moveTo(point.x0,point.y0);
+            end =  data[i].value*360 + begin;
+            ctx.arc(point.x0,point.y0,r,begin*Math.PI/180,end*Math.PI/180,false);
+            ctx.closePath();
+            ctx.fill();
+            // 每一个扇形的中间夹角;
+            angle = 1/2*data[i].value*360+begin;
+            var x = point.x0 + Math.cos(angle*Math.PI/180) * (r+20);
+            var y = point.y0 + Math.sin(angle*Math.PI/180) * (r+20);
+            if(angle>90&&angle<270){
+                ctx.textAlign = 'right';
+            }
+            ctx.fillText(data[i].title,x,y);
+            begin = end;
+    }
+    ctx.beginPath();
+    ctx.arc(300,300,20,begin*Math.PI/180,360*Math.PI/180);
+    // ctx.fillStyle="white";
+    ctx.fill();
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

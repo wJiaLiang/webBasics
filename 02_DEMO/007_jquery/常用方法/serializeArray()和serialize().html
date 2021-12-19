@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <style type="text/css">
+      #inputbox{
+          width:100px;
+          height:40px;
+          vertical-align: middle;
+          
+      }    
+  
+  </style>
+</head>
+<script src='jquery-1.11.1.js'></script>
+<script>
+	$(function(){
+      //serialize()将表单序列化为字符串;
+      var date=$("form").serialize();
+	     $("#results").append(date); 
+       console.log(date); 
+   //序列化为字符串;出现乱码是应为jq默认调用encodeURLComponent()方法对数据进行了编码；
+      
+
+      //serializeArray()将表单里的数据获取成一个json数组；
+	   var fields = $("form").serializeArray();
+    console.log(typeof fields); //obj;
+    console.dir(fields);
+
+      //循环遍历该数组对象;
+        $.each( fields,function(i,n){
+          console.log(n.value);
+        });
+
+
+});
+</script>
+<body>
+	<p id="results"><b>Results: </b> </p>
+<form>
+  <select name="single">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+  
+  <input type="checkbox" name="checknan" value="check1" checked="checked" /> check1
+  <input type="checkbox" name="checknv" value="check2" checked="checked"/> check2
+  <input type="radio" name="radio" value="r1" checked="checked"/> radio1
+  <input type="radio" name="radio" value="r2"/> radio2
+
+  <select name="multiple" multiple="multiple">
+    <option selected="selected">one</option>
+    <option>two</option>
+    <option selected="selected">three</option>
+  </select><br/>
+
+  <input id='inputbox' type="" name="" value="输入框">
+</form>
+</body>
+</html>

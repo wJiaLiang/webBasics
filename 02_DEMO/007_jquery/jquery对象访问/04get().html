@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div class="content1">内容1</div>
+<div class="content2">内容2</div>
+<div class="content3">内容3</div>
+<div class="content4">内容4</div>
+<div class="content5">内容5</div>
+	<script src='../jquery1.83.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			//get(index)	取得第 index 个位置上的元素。
+			//get()	取得所有匹配的 DOM 元素集合。
+			var ele=$("div").get(3);	
+			console.log(ele); //<div class="content4">内容4</div>
+		})
+
+	</script>
+</body>
+</html>

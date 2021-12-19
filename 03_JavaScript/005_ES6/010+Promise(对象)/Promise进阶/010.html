@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <script type="text/javascript">
+        /*
+
+        setTimeout共有4个参数。最后那两个参数，将在1000毫秒之后回调函数执行时，作为回调函数的参数。
+        还有一个需要注意的地方，如果回调函数是对象的方法，
+        那么setTimeout使得方法内部的this关键字指向全局环境，而不是定义时所在的那个对象 
+
+         */
+        
+         new Promise(function(resolve,reject){
+            setTimeout(resolve,100,'done');
+        })
+        .then(function(v){
+            console.log(v)
+        })
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

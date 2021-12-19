@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>防腾讯固定导航栏</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+      window.onload=function{
+
+
+
+
+
+            //$(function())   当页面上面的dom 绘制完毕就执行..
+            //图片没有加载完毕，这里就执行了. 获取到的height 是18
+
+
+                //获取到是top 高度.
+
+                //我获取的是当前图片没有加载完毕的这样的一个高度
+                var top=$(".top").height();
+
+
+
+                //绑定滚动事件
+                $(window).scroll(function(){
+                        //我要获取匹配元素相对滚动条顶部的偏移。
+                       var sctop=$(document).scrollTop();
+
+                       if(sctop>top){
+
+                           $(".nav").css({
+                                "position":"fixed",
+                                "top":0
+                           })
+                       }else{
+                           $(".nav").css({
+                               "position":"static"
+
+                           })
+                       }
+
+
+                })
+
+        };
+
+
+
+    </script>
+</head>
+
+<body>
+<div class="top">
+    <img src="images/top.png" />
+</div>
+
+
+<div class="nav">
+    <img src="images/nav.png" />
+</div>
+<div class="main">
+    <img src="images/main.png" />
+</div>
+</body>
+
+</html>

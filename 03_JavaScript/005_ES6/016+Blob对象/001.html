@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> 简单例子 </title>
+    </head>
+    <body>
+        <script>
+            let link = document.createElement("a");
+            link.download = "hello.txt";
+
+            let blob = new Blob(["Hello, world!"], { type: "text/plain" });
+
+            link.href = URL.createObjectURL(blob);
+
+            link.click();
+
+            URL.revokeObjectURL(link.href);
+
+            /*
+              通过blob  构造了一个文本 文件然后自动下载
+            
+            */ 
+
+
+
+        </script>
+    </body>
+</html>

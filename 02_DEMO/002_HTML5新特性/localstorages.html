@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		for(var i=0;i<10;i++){
+			if (localStorage.getItem('name')!='') {
+				window.localStorage.setItem("name"+i,i);
+			}
+		}
+
+		var local="";
+		for(var i =0;i<10;i++){
+			 local+=localStorage.getItem('name'+i);
+		}
+		// local=localStorage.getItem('name'+2);
+		console.log(local);
+		console.log(typeof (local));
+
+		var obj=JSON.parse('[]');
+		console.log(obj);
+
+	</script>
+</body>
+</html>

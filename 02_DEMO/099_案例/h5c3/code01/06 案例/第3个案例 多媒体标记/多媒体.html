@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <video id="videoId">
+                <source src="561902ae6ac6e6649.mp4">
+        </video>
+
+
+        <input type="button" value="播放"  id="playId">
+
+        <input type="button" value="暂停"  id="stopId">
+        <script>
+                /*关于video 的一些属性以及方法.*/
+                document.querySelector("#playId").onclick=function(){
+
+                        document.getElementById("videoId").play();
+                };
+
+                    //暂停
+                document.querySelector("#stopId").onclick=function(){
+                    //pause 暂停的一次
+                    document.getElementById("videoId").pause();
+                };
+
+        </script>
+</body>
+</html>

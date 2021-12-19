@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <script type="text/javascript">
+       let p = new Promise((resolve,reject)=>{
+            // resolve('成功');
+            reject('失败');
+       });
+
+       //    两种写法
+       // p.then((data)=>{
+       //      console.log('成功:',data)
+       // },(data)=>{
+       //      console.log('失败：',data);
+       // })
+
+       p.then((data)=>{
+            console.log('成功:',data)
+       })
+       .catch(data=>{
+            console.log('失败：'+data);
+       })
+
+       //  成后走第一个函数，失败后走第二个函数; then()调完返回的是一个新的promise 对象;
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

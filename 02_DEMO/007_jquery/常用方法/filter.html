@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  div { width:60px; height:60px;
+        margin:5px; float:left;
+        
+      }
+  </style>
+  <script type="text/javascript" src='../jquery1.83.js'></script>
+</head>
+
+<body>
+  <div>ssss</div>
+
+  <div class="middle"></div>
+  <div class="middle"></div>
+  <div class="middle"></div>
+  <div class="middle"></div>
+
+  <div>dddd</div>
+
+<script>
+    $("div").css("backgroundColor", "#c8ebcc")
+    .filter(".middle")
+    .css('height','300px');
+</script>
+
+</body>
+</html>

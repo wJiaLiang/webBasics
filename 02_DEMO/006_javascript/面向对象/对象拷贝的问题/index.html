@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+			/* Act on the event */
+			var name='gloal';
+			var obj={
+				name:"inner",
+				exet:function(){
+					var name='a';
+					return function(){
+						return this.name;
+					}
+				}
+			}
+			console.log(obj.exet().call(this));
+			console.log(obj.exet().call(this));
+			console.log(obj.exet(obj));
+
+		
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    #tab div{width:300px;height: 200px;background: lightgreen;display: none;}
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        var container = $('#tab').eq(0);
+        container.find('input').eq(0).css('background','orange');
+        container.find('div').eq(0).css('display','block');
+        container.find('input').click(function(){
+            container.find('input').css('background','');
+            container.find('div').css('display','none');
+            $(this).css('background','orange');
+            container.find('div').eq($(this).index()).css('display','block');
+        });
+    })
+    </script>
+</head>
+<body>
+    <div id="tab">
+        <input type="button" value="香蕉">
+        <input type="button" value="苹果">
+        <input type="button" value="橘子">
+        <div>香蕉</div>
+        <div>苹果</div>
+        <div>橘子</div>
+    </div>
+    
+</body>
+</html>

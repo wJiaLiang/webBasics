@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+            
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+/*
+ 在 Vue 2.x中，生成的 $data 是：
+{
+  user: {
+    id: 2,
+    name: 'Jack'
+  }
+}
+在 3.0 中，其结果将会是：
+{
+  user: {
+    id: 2
+  }
+}
+
+
+
+
+
+*/ 
+const Mixin = {
+  data() {
+    return {
+      user: {
+        name: 'Jack',
+        id: 1
+      }
+    }
+  }
+}
+const app =Vue.createApp({
+    data(){
+        return{
+            user: {
+                id: 2
+            }
+        }
+    },
+     //mixins 选项接收一个混入对象的数组
+     mixins: [Mixin],
+    setup(){
+        
+    },
+    // 在挂载开始之前被调用：相关的 render 函数首次被调用。
+    beforeMount () {
+        console.log(this.user) // user: { id: 2 }
+    },
+
+    // 实例被挂载后调用
+    mounted() {},
+    // props 可以是数组或对象，用于接收来自父组件的数据
+    props:[],
+
+})
+// 组件
+app.component({})
+
+app.mount("#app")
+
+</script>
+</html>

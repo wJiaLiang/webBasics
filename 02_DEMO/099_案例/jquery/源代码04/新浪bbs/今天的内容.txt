@@ -1,0 +1,17 @@
+1:天猫的案例
+
+2:sinabbs 的案例
+3：jQuery mobile
+        其实笔记有一个jQuery ui 主要是针对pc 端..
+        1：针对手机端。
+        2：怎么入门一个新的技术框架.
+
+ 1:jQuery mobile 这个肯定是基于jQuery 一套 针对手机的框架.
+ 去官网.
+    编写一个jQuery mobile的demo
+
+    1:
+
+
+
+

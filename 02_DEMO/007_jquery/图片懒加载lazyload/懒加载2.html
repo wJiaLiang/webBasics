@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+				height:600px;
+				margin-left: 50px;
+				margin-top: 50px;
+				overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class='box'></br>
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+		<img class='lazy' data-original="ddcx.png" alt="图片" title='哈哈'></br>
+
+	</div>
+	<script src='jquery-1.11.1.js'></script>
+	<script src='jquery.lazyload.js'></script>
+<script>
+		 $(function(){
+        	 // $("img.lazy").lazyload();
+        	  // $("img.lazy").lazyload({
+           //  threshold :-80
+
+           
+        	$("img.lazy").lazyload({
+            	container: $("div")
+    
+        });
+       
+    })
+</script>
+</body>
+</html>

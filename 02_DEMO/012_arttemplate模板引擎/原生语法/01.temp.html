@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>原生语法</title>
+    <script type="text/javascript" src="template-native.js"></script>
+</head>
+<body>
+    <div id="mainbox">
+
+    </div>
+    <script id="list1" type="text/html">
+        <h2><%=title%></h2>
+        <!-- 多重的条件判断 -->
+        <ol>
+            <%if (test==1){%>
+                <li>数字1</li>
+                <li><%=arrbox[0]%></li>
+            <%}
+                else if(test==2){%>
+                <li>数字2</li>
+                <li><%=arrbox[1]%></li>
+            <%}
+                else if(test==3){%>
+                <li>数字3</li>
+                <li><%=arrbox[2]%></li>
+            <%}
+                else{%>
+                <li>数字是其他的情况</li>
+                <li><%=arrbox[3]%></li>
+            <%}%>
+        </ol>
+        <!-- 循环 -->
+        <ul>
+            <% for(var i=0;i<arrbox.length;i++){%>
+                <li>key:<%=i%>value:<%=arrbox[i]%></li>
+            <%}%>
+        </ul>
+        <!-- 非转义输出 前面加个#号-->
+        <section><%=#Escape%></section>
+
+    </script>
+
+
+
+    <script type="text/javascript">
+    var data={
+        title:'welcome ArtTemplate',
+        test:5,
+        arrbox:['a','b','c','d','e'],
+        Escape: "<a href='www.baidu.com'>我是a链接</a>"
+    }
+
+    var shtml = template('list1',data);
+    var dom =document.getElementById('mainbox');
+    dom.innerHTML= shtml;
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类似数组的对象</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var obj = {
+          0: 'a',
+          1: 'b',
+          2: 'c',
+          length: 3
+        };
+//“类似数组的对象”的根本特征，就是具有length属性。只要有length属性，就可以认为这个对象类似于数组。但是有一个问题，这种length属性不是动态值，不会随着成员的变化而变化。
+    var obj = {
+        length: 0
+    };
+    obj[3] = 'd';
+    obj.length // 0
+
+// 典型的“类似数组的对象”是函数的arguments对象，以及大多数 DOM 元素集，还有字符串。
+
+
+// 数组的slice方法可以将“类似数组的对象”变成真正的数组。
+
+    var arr = Array.prototype.slice.call(arrayLike);
+
+    //除了转为真正的数组，“类似数组的对象”还有一个办法可以使用数组的方法，就是通过call()把数组的方法放到对象上面。
+    function print(value, index) {
+        console.log(index + ' : ' + value);
+    }
+    Array.prototype.forEach.call(arrayLike, print);
+    
+    //arrayLike代表一个类似数组的对象，本来是不可以使用数组的forEach()方法的，但是通过call()，可以把forEach()嫁接到arrayLike上面调用。
+
+
+
+
+    </script>
+</body>
+</html>

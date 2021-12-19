@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this的指向</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+    /*
+        类的方法内部如果含有this，它默认指向类的实例。但是，必须非常小心，一旦单独使用该方法，很可能报错
+
+    */
+
+    class logger{
+        printName(name='his'){
+            this.prints(`Hello,${name}`);
+        }
+        prints(text='No'){
+            console.log(text);
+        }
+    }
+
+    let log = new logger();
+    log.printName();
+    log.prints();
+
+
+
+/*  
+    通过结构赋值出来就不行了，里面的this 就指向的是运行时所在的环境;
+
+    printName方法中的this，默认指向logger类的实例。但是如果将这个方法提前出来单独使用，
+    this会指向该方法运行时所在的环境，因为找不到print方法而导致报错;
+
+*/ 
+    let {printName}=log;
+    printName();
+
+
+/*
+    name属性;
+    由于本质上，ES6 的类只是 ES5 的构造函数的一层包装，所以函数的许多特性都被Class继承，包括name属性
+    name属性总是返回紧跟在class关键字后面的类名。
+ */ 
+
+    class Point {}
+    Point.name  // "Point"
+    
+
+
+
+
+
+    </script>
+</body>
+</html>

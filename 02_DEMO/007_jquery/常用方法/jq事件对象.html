@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		body{cursor:pointer;}
+		.box{width: 100px; height: 100px; background-color: red;}
+	</style>
+</head>
+<body>
+		<ul>
+			<li>li1</li>
+			<li>li2</li>
+			<li>li3</li>
+			<li>li4</li>
+			<li>li5</li>
+			<li>li6</li>
+			<li>li7</li>
+			<li>li8</li>
+			<li>li9</li>
+			<li>li10</li>
+		</ul>	
+		<div class="box">事件</div>
+	<script src='jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			$('ul li').click(function(e){
+				// e.target.valu();
+				console.log(e.target);
+				console.log($(e.target).text());
+				
+
+			})
+			//不选择第三个li;
+			console.log( $("li:not(:eq(2))")  )
+
+			var number=1;
+			$('.box').click(number,function(event) {
+				console.log(number+=1);
+			});
+
+		})
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型继承</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function Person(name,age){
+			this.name=name;
+			this.age=age;
+		}
+		//父类的原型对象属性；
+		Person.prototype.id=1;
+
+		function child(sex){
+			this.sex=sex;
+		}
+		//实现继承；
+		child.prototype=new Person('王二','23');
+		var b=new child('男');
+		b.naem;
+		b.age;
+		b.sex;
+		alert(b.name);
+		alert(b.age);
+		alert(b.sex);
+		// 原型继承的特点：既继承了构成函数的模板，有继承了他的原型对象；
+
+	</script>
+</body>
+</html>

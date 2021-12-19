@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a href="javascript:void window.open('http://example.com/')">
+        点击打开新窗口
+    </a>
+    <br>
+        <a href="http://example.com" onclick="ff()">阻止不了跳转</a>
+
+    <br><hr>
+        <a href="javascript: void(ff())">文字跳转测试</a>
+
+    <br><hr>
+    <!-- 下面的代码会提交表单，但是不会产生页面跳转 -->
+    <a href="javascript: void(document.form.submit())">文字</a>
+
+
+
+
+</body>
+
+    <script type="text/javascript">
+
+        function ff(){
+            alert(123);
+            return false;
+        }
+        
+
+    </script>
+</html>

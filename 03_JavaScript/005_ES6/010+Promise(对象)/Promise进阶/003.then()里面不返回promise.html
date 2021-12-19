@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    console.log('start');
+    new Promise(resolve=>{
+        setTimeout(()=>{
+            resolve('hello');
+        },2000)
+    })
+    .then(value=>{
+        console.log(value);
+        console.log('everyOne');
+        // 由于返回的不是promise对象，返回的是一个false,所以ms office 是最后then()中的内容;
+        (function(){
+            return new Promise(resolve=>{
+                setTimeout(()=>{
+                    console.log('ms office')
+                },2000)
+            })
+        })();
+        return false;
+    })
+    .then( value=>{
+        console.log(value + 'world')
+    })
+    // 返回的顺序:
+    //  start
+    //  hello
+    //  everyOne
+    //  falseworld
+    //  ms office
+
+
+
+
+
+    </script>
+</body>
+</html>

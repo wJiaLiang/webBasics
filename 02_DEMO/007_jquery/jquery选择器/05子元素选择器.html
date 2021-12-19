@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p>one</p>
+		<span>item1</span><br>
+		<span>item2</span><br>
+		<p>slfj</p>
+		<span>item3</span><br>
+		<span>item4</span><br>
+		<span>item5</span><br>
+	</div>
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			//选取div中第一个类型span标签；相反：last-of-type;
+			// $('div span:first-of-type').css('backgroundColor',"red");
+			//选取div中第一个子元素; 相反：last-child;
+			// $('div p:first-child').css('border',"1px solid green");
+				//br也算一个元素，所以就是6就是选择第二个p;相反 ：nth-last-child()
+			$('div p:nth-child(6)').css('fontSize','30px');
+				// type则直接写他在同类型中的第几个; 相反 :nth-last-of-type()
+			$('div p:nth-of-type(2)').css('backgroundColor','blue');
+
+
+		})
+
+		
+	</script>
+</body>
+</html>

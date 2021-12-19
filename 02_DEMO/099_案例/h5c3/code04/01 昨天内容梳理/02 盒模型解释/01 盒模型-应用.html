@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 盒模型</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		img {
+			width: 100%;
+		}
+
+		.items {
+			padding-top: 30px;
+			text-align: center;
+		}
+		.item {
+			width: 316px;
+			height: 170px;
+			margin: 0 10px;
+			display: inline-block;
+			position: relative;
+			box-sizing: border-box;
+		}
+		/*
+			item 实际高度 170px;
+			我在这里设置这个的盒模型:我把item 的宽高固定，不会受其它的属性 影响
+			现在我的鼠标往.item: 悬停 ，给它添加边框.
+				item 盒子添加border ，它的内容就是减小
+				我现在鼠标悬停到item
+				item 里面的内容图片会变小，因为设置100%
+				它的图片的宽度会少 30px
+				如果说要看到item 底部的边框,高度也要少30px
+
+
+		*/
+		.item:hover{
+			 border: 15px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="items">
+		<div class="item">
+			<img src="./images/1.jpg">
+		</div>
+		<div class="item">
+			<img src="./images/2.jpg">
+		</div>
+		<div class="item">
+			<img src="./images/3.jpg">
+		</div>
+	</div>
+</body>
+</html>

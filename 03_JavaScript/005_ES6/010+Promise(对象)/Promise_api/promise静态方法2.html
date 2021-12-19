@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+    function s1() {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                console.log('执行第一个函数')
+                res('a');
+            }, 2000)
+        })
+    }
+
+    function s2() {
+        return new Promise((res, rej) => {
+
+            setTimeout(() => {
+                console.log('执行第二个函数')
+                res('b');
+            }, 500)
+        })
+    }
+
+    function s3() {
+        return new Promise((res, rej) => {
+
+            setTimeout(() => {
+                console.log('执行第三个函数')
+                res('c');
+            }, 1000)
+        })
+    }
+
+    var p = new Promise((res, rej) => {
+            console.log('开始')
+            let p1 = s1();
+            p1.then((data) => {
+                console.log(data);
+                res();
+            })
+
+
+        })
+        .then((res, rej) => {
+            let p2 = s2();
+            p2.then((data)=>{
+                console.log(data);
+            })
+        })
+        .then((res, rej) => {
+            let p3 = s3();
+            p3.then((data)=>{
+                console.log(data);
+            })
+        })
+    </script>
+</body>
+
+</html>

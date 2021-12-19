@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="mainbox">
+        this is text;
+        <div class="box1">
+            box1
+            <div class="p1">p1</div>
+        </div>
+        dg
+        <div class="box2">box2</div><div class="box3">box3</div>
+
+    </div>
+    <script type="text/javascript">
+/*
+以下属性与节点对象本身的特征相关。
+
+ 1. nodeName属性返回节点的名称
+ 2. nodeType属性返回节点类型的常数值。具体的返回值，可查阅下方的表格。
+ 3. Node.nodeValue属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。
+ 4. Node.textContent属性返回当前节点和它的所有后代节点的文本内容。
+ 5. document.baseURI属性返回一个字符串，表示当前网页的绝对路径;   
+
+以下属性返回当前节点的相关节点。
+ 1. Node.ownerDocument  属性返回当前节点所在的顶层文档对象，即document对象。
+ 2. Node.nextSibling,   属性返回紧跟在当前节点后面的第一个同级节点.因此如果当前节点后面有空格，该属性会返回一个文本节点，内容为空格。
+ 3. previousSibling 属性返回当前节点前面的、距离最近的一个同级节点。如果当前节点前面没有同级节点，则返回null;中间不能有换行和空格,不然返回文体节点;
+ 4. parentNode属性返    回当前节点的父节点;
+ 5. parentElement   属性返回当前节点的父Element节点。如果当前节点没有父节点，或者父节点类型不是Element节点，则返回null。
+ 6. childNodes  属性返回一个NodeList集合，成员包括当前节点的所有子节点。;
+ 7. Node.firstChild，Node.lastChild, 如果当前节点没有子节点，则返回null ,会返回文本节点和空白字符;
+    
+
+
+ */ 
+let a,b,c,d,e,f,g,h,l,k,u,v,w,x,y,z;
+a= document.querySelector('.box2').ownerDocument;
+    console.log(a);
+b= document.querySelector('.box1').nextSibling;
+    console.log(b); //dg;
+c= document.querySelector('.box1').textContent;
+    console.log(c); //box1  p1;
+d= document.querySelector('.box1').nodeValue;
+    console.log(d); //
+    console.log(document.baseURI);
+e= document.querySelector('.box3').previousSibling;
+console.log(e); 
+
+f= document.querySelector('.box2').parentNode;
+    console.log(f);
+g = document.querySelector('.box2').parentElement;
+    console.log(g);
+
+h =document.querySelector('.mainbox').childNodes;
+    console.log(h);
+l =document.querySelector('.mainbox').firstChild;
+console.log(l);
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

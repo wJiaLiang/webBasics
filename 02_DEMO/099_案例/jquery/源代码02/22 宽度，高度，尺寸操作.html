@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+            div{
+                width: 200px;
+                height: 200px;
+                background: red;
+            }
+    </style>
+    <script src=jquery-1.11.1.min.js></script>
+
+    <script>
+            $(function(){
+                    $("#buttonId").click(function(){
+                           /* var he=$("div").height();
+                            alert(he);*/
+                             /*var w=$("div").width();
+                        alert(w);*/
+                               /*var w=$("div").css("width");
+                          alert(w);*/
+
+                            /*坐标操作..*/
+
+                            /*
+                            * offset 偏移.
+                            * */
+                           var offset=$("div").offset();
+
+
+                            alert("top:"+offset.top)
+
+                           alert("left:"+offset.left)
+
+                            /*
+                            *
+                            * 加这个参数，就是设置坐标..
+                            *
+                            * */
+
+                            /*
+                            *
+                            * 获取当前元素的位置.. 在页面上面的一个坐标位置.
+                            * */
+                    });
+            })
+
+    </script>
+
+</head>
+<body>
+
+        <input type="button" value="宽度高度操作" id="buttonId">
+        <div>
+
+        </div>
+</body>
+</html>

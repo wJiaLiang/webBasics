@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件委托</title>
+	<style type="text/css" media="screen">
+		ul{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		window.onload=function(){
+			// 利用闭包原理，为每一个li按钮开辟一个空间；
+			var box=document.getElementsByTagName('li');
+			for (var i=0; i<box.length; i++) 
+			{
+				//这样的话事件就直接给了内层函数
+				box[i].onclick=function()
+				{
+					var num=0; //因为内层函数的引用num不会被销毁;
+					return function()
+					{
+						alert(++num);
+					}
+				}();
+			}
+
+
+			// 直接注册到ul上面；事件委托；
+		// 	var ul=document.getElementsByTagName("ul")[0];
+				
+		// 	ul.onclick=function(e){
+		// 		//事件对象的兼容性写法；
+		// 		e=e||window.event;
+		// 		console.log(e);
+		// 		//目标元素；
+		// 		var k=e.target||e.srcElement;
+		// 		//给目标元素写添加一个属性；
+		// 		if(k.count)
+		// 		{
+		// 			++k.count;
+		// 		}
+		// 		else
+		// 		{
+		// 			k.count=1;
+		// 		}
+		// 		alert(k.count);
+		// 		alert(e.target.innerHTML);
+				
+		// 	}
+
+		}
+
+	</script>
+
+	<ul>
+		<li>我是li标签1</li>
+		<li>我是li标签2</li>
+		<li>我是li标签3</li>
+		<li>我是li标签4</li>
+		<li>我是li标签5</li>
+		<li>我是li标签6</li>
+		<li>我是li标签7</li>
+		<li>我是li标签8</li>
+		<li>我是li标签9</li>
+		<li>我是li标签10</li>
+		<li>我是li标签11</li>
+		<li>我是li标签12</li>
+		<li>我是li标签13</li>
+		<li>我是li标签14</li>
+		<li>我是li标签15</li>
+		<li>我是li标签16</li>
+		<li>我是li标签17</li>
+		<li>我是li标签18</li>
+		<li>我是li标签19</li>
+		<li>我是li标签20</li>
+	</ul>
+</body>
+</html>

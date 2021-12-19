@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+          body{
+              height: 1000px;
+          }
+
+        div{
+            margin-top: 700px;
+            height: 300px;
+            width: 300px;
+            background: blue;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+            $(function(){
+                   var offset=$("div").offset();
+                    
+                    alert(offset.top);
+            })
+    </script>
+</head>
+<body>
+
+        <div>
+
+
+        </div>
+</body>
+</html>

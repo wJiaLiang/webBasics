@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+         html,body{
+             height: 100%;
+         }
+         body{
+             margin: 0;
+             padding: 0;
+             background-color: #0EA9B1;
+         }
+        section{
+             height: 100%;
+             position: relative;
+        }
+
+        .bg1,.bg2{
+             position: absolute;
+             width: 100%;
+             left: 0;
+             bottom: 0;
+        }
+        
+        .bg1{
+             height: 211px;
+             background: url("1.png");
+             animation: beat 1s linear infinite alternate ;
+        }
+
+         .bg2{
+             height: 235px;
+             background: url("2.png");
+             animation: beat 1s linear 0.5s infinite alternate ;
+         }
+
+         @keyframes beat {
+
+              from{
+                  bottom: -0px;
+              }
+              to{
+                  bottom: -32px;
+              }
+         }
+
+         .sun{
+                position: absolute;
+                left: 200px;
+                top: 100px;
+                width:100px ;
+                height: 100px;
+                border-radius: 50%;
+                background-color: #fff;
+         }
+
+         .sun::before,.sun::after{
+                display: block;
+                content: "";
+                position: absolute;
+                left: 0;
+                top:0;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background-color: #fff;
+         }
+         .sun::before{
+              animation: change 1s linear infinite;
+         }
+
+         .sun::after{
+             animation: change 1s linear 0.5s infinite;
+         }
+
+         @keyframes change {
+                from{
+                     transform:scale(1);
+                     opacity:1;
+                }
+                to{
+                    transform:scale(2);
+                    opacity:0;
+                }
+
+         }
+
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="sun"></div>
+        <div class="bg1"></div>
+        <div class="bg2"></div>
+    </section>
+</body>
+</html>

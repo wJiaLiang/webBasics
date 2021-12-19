@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+
+    // var obj = {};
+    // obj.info = 'tom';
+    // obj.extend = function(obj){
+    //     for(var key in obj){
+    //         this[key] = obj[key];
+    //     }
+    // }
+    // obj.extend({info:'jerry',age:12})
+
+    // console.dir(obj);
+    //1、普通函数
+    //2、构造函数
+    //3、函数作为对象
+    //$ 扮演了普通函数和对象的角色
+    //init 扮演了构造函数的角色
+
+    var $ = jQuery = function(){
+        return new $.fn.init();
+    }
+    $.fn = $.prototype = {
+        init : function(){
+            this.hello = 'tom';
+            this.showHello = function(){
+                console.log(this.hello);
+            }
+            this.css = function(){
+                console.log('css');
+            }
+            // 这里的this是谁？
+        },
+        jquery : '1.0',
+        length : 123,
+        size : function(){
+            console.log(this.length);
+        },
+        html: function(){
+
+        }
+    }
+    $.fn.init.prototype = $.fn;
+
+    $.hello = function(){
+
+    }
+
+    $.fn.hello = function(){
+
+    }
+    // $().css();
+    var ret = $();
+    ret.size();
+    console.log(ret.jquery);
+    // function foo(){
+
+    // }
+    // foo.prototype = {
+    //     abc : 456,
+    //     hello : function(){
+    //         this.info = 123;
+    //     }
+    // }
+
+    // var h = new foo.prototype.hello();
+    // console.dir(h.abc);
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

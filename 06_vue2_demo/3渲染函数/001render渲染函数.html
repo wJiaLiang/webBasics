@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <div id="app">
+            <div>
+                <anchored-heading :level="number">
+                    <!-- <div>abc</div> -->
+                </anchored-heading>
+            </div>
+        </div>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+            createElement 参数 3个参数
+            1、一个 HTML 标签名、组件选项对象，或者resolve 了上述任何一种的一个 async 函数。必填项。 {String | Object | Function}
+            2、一个与模板中 attribute 对应的数据对象。可选。  {Object} 
+            3、也可以使用字符串来生成“文本虚拟节点”。可选。 {String | Array}
+            createElement(   )
+
+           如果你写了很多 render 函数，可能会觉得下面这样的代码写起来很痛苦：
+           所以产生了 JSX 语法 
+            new Vue({
+                el: "#demo",
+                render: function (h) {
+                    return (
+                        <AnchoredHeading level={1}>
+                            <span>Hello</span> world!
+                        </AnchoredHeading>
+                    );
+                },
+            });
+           将 h 作为 createElement 的别名是 Vue 生态系统中的一个通用惯例，实际上也是 JSX 所要求的。
+
+        */
+
+        Vue.component("anchored-heading", {
+            render: function (createElement) {
+                return createElement(
+                    "h" + this.level, // 标签名称
+                    // this.$slots.default  // 组件里面的默认的插槽  子节点数组 放到H标签中
+                    {
+                        style: { color: "red" },
+                        on: { click: this.submitForm },
+                        domProps: {
+                            innerHTML: "<p >12345567778 </p>",
+                        },
+                    },
+                    [("先写一些文字", createElement("h1", "一则头条"))]
+                );
+            },
+            methods: {
+                submitForm() {
+                    console.log(9999);
+                },
+            },
+            data() {
+                return {
+                    test: "<p>abc<p>",
+                };
+            },
+            props: {
+                level: {
+                    type: Number,
+                    required: true,
+                },
+            },
+        });
+
+        new Vue({
+            el: "#app",
+            data: {
+                number: 3,
+            },
+            methods: {},
+            beforeMount() {},
+            mounted() {},
+            computed: {},
+            watch: {},
+        });
+    </script>
+</html>

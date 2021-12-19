@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 如果this所在的方法不在对象的第一层，这时this只是指向当前一层的对象，而不会继承更上面的层
+        var a = {
+            p: 'Hello',
+            b: {
+                p:"123",
+                m: function() {
+                    console.log(this.p); // 123;
+                }
+            }
+        };
+        a.b.m()
+    
+    
+    </script>
+</body>
+</html>

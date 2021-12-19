@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+    
+
+    </style>
+</head>
+<body>
+    
+    <script type="text/javascript">
+    /*
+    JavaScript 语言中，生成实例对象的传统方法是通过构造函数。
+
+    ES6 提供了更接近传统语言的写法，引入了 Class（类）这个概念，作为对象的模板。通过class关键字，可以定义类。
+
+    */ 
+
+
+    // es5基于类的写法;
+        function Point(x, y) {
+          this.x = x;
+          this.y = y;
+        }
+
+        Point.prototype.toString = function () {
+          console.log( '(' + this.x + ', ' + this.y + ')' );
+        };
+        var p = new Point(1, 2);
+        p.toString()
+
+
+
+
+    // es6基于类的写法;
+    /*
+        Point类除了构造方法，还定义了一个toString方法。注意，定义“类”的方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了。另外，方法之间不需要逗号分隔，加了会报错。
+        上面代码表明，类的数据类型就是函数，类本身就指向构造函数。
+     */ 
+    class PointTo{
+        constructor(x,y){
+            this.x=x;
+            this.y=y;
+        }
+        toString(){
+            return '('+this.x +","+this.y+')'
+        }
+    }
+    console.log( new PointTo(8,9).toString() );
+
+
+    console.log(typeof PointTo);    //function
+    console.log(PointTo === PointTo.prototype.constructor);   //true;
+
+
+
+
+
+    </script>
+</body>
+</html>

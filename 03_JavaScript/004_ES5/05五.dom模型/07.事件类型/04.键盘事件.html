@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+     
+     <input type="text"
+       name="myInput"
+       onkeypress="return numbersOnly(this, event);"
+       onpaste="return false;"
+     />
+    
+    <script type="text/javascript">
+    // 键盘事件用来描述键盘行为，主要有keydown、keypress、keyup三个事件。
+    /*
+    keydown：按下键盘时触发该事件。
+    keypress：只要按下的键并非Ctrl、Alt、Shift和Meta，就接着触发keypress事件。
+    keyup：松开键盘时触发该事件。
+
+     */ 
+    // 下面是一个例子，对文本框设置keypress监听函数，只允许输入数字。
+
+    function numbersOnly(oToCheckField, oKeyEvent) {
+        return oKeyEvent.charCode === 0
+        || /\d/.test(String.fromCharCode(oKeyEvent.charCode));
+    }
+    // 如果用户一直按键不松开，就会连续触发键盘事件，触发的顺序如下
+    // 1.keydown
+    // 2.keypress
+    // 3.keydown
+    // 4.keypress
+    // （重复以上过程）
+    // keyup
+
+
+    </script>
+</body>
+</html>

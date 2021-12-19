@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪对象选择符</title>
+	<style type="text/css">
+		/* 设置该对象内的第一个字符的样式 */
+		p::first-letter{font-size: 30px;} 
+		/* 设置该对象内的第一行的样式 */
+		p::first-line{background-color: red;font-size: 40px;}
+		p::before{content: '我';display: block; width: 100px;height: 100px;  background-color: green;}
+		p::after{content: '你';width: 100px; height: 100px; background-color: blue;}
+		/* 选中后的颜色ie 都不支持； */
+		p::selection{background-color:yellow;}
+		/* 设置默认的展位符的样式； */
+		input::-webkit-input-placeholder{color:red;}
+
+	</style>
+</head>
+<body>
+	<div class="content">
+		<p>sdjflksjfdlks dfjklsdjflksdjflkjsldkfjlskdjflksdjflksjdfl</p>
+		<input type="text" name="" value="" placeholder="这里输入">
+	</div>
+	
+
+<script type="text/javascript"></script>
+</body>
+</html>

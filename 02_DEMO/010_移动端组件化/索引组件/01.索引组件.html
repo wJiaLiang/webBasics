@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>01.索引组件</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        ul,ol{list-style: none; }
+        dt{background-color: #c234; height: 20px;}
+        dd{background: #fff; height: 35px;line-height: 35px;}
+        .nav{height: 100%;position: fixed;right:0px;top:0px;}
+        .navList{width: 30px;background:#ccc;text-align: center;}
+        /* .navList[data-indexList="list"]{background-color: red;} */
+        .focus{color: red;}
+    </style>
+</head>
+<body>
+    <dl id="wlist">
+        <dt>A</dt>
+        <dd>天津</dd>
+        <dt>B</dt>
+        <dd>天津</dd>
+        <dt>C</dt>
+        <dd>天津</dd>
+        <dt>D</dt>
+        <dd>达州</dd>
+        <dt>F</dt>
+        <dd>天津2</dd>
+
+
+    </dl>
+
+    <nav class="nav">
+        <ul class="navList" data-indexList="#wlist">
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+            <li>F</li>
+            <li>G</li>
+            <li>H</li>
+            <li>I</li>
+            <li>J</li>
+            <li>K</li>
+            <li>L</li>
+            <li>M</li>
+            <li>N</li>
+            <li>O</li>
+            <li>P</li>
+            <li>Q</li>
+            <li>R</li>
+            <li>S</li>
+            <li>T</li>
+            <li>U</li>
+            <li>V</li>
+            <li>W</li>
+            <li>X</li>
+            <li>Y</li>
+            <li>Z</li>
+        </ul>
+    </nav>
+</body>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript">
+    (function(){
+        // 设置右侧的导航条根据的缩放;
+        var nav = document.querySelector('.nav');
+        var navList = document.querySelector('.navList');
+        var scale = nav.clientHeight/navList.offsetHeight;
+        // navList.style.transform = "scale("+scale+")";
+    })();
+    /*
+        1.找到右侧所有的索引；
+        2.找到左侧的所有索引；
+        3.关联左右
+        4.在右侧触碰，或者点击，某个左侧就相对滚动找对应位置
+
+     */
+    (function(){
+        var indexs = document.querySelectorAll('[data-indexList]');
+        for (var i = 0; i < indexs.length; i++) {
+            setIndex(indexs[i]);
+
+        }
+        function setIndex(nav){
+            var id = nav.dataset.indexlist; //自定义属性关联到左边;
+            var list = document.querySelector(id);  //左边盒子的元素;
+            var navs = nav.children;         //所有li 标签
+            var options = list.querySelectorAll('dt');  // 所有左侧的字母标签;
+            // 把dt中的值设置给他自己对应的自定义属性;
+            for (var i = 0; i < options.length; i++) {
+                options[i].dataset.id = options[i].innerHTML;
+            }
+            // 循环给每一个li标签绑定上事件;
+            /*
+            for (var i = 0; i < navs.length; i++) {
+                navs[i].addEventListener('touchend',function(e){
+                    var op = list.querySelector('[data-id='+this.innerHTML+']');
+                    console.log(op)
+                })
+            }
+            */
+            nav.addEventListener('touchstart',function(e){
+                  toScroll(e);
+            });
+            nav.addEventListener('touchmove',function(e){
+                  toScroll(e);
+            })
+            function toScroll(e){
+                var index = getIndex(e); // 当前的索引元素;
+                if(!index){
+                    return;
+                }
+                for (var i = 0; i < navs.length; i++) {
+                    navs[i].className="";
+                }
+                index.className="focus";
+                var dt = getDt(index);      //拿到对应的li标签;
+                console.log(dt);
+                if(!dt){
+                    return ;
+                }
+                var scrollY=getPageY(dt);
+                console.log(scrollY);
+                
+            }
+            // 通过左标方向定位，当前位置在哪个索引;
+            function getIndex(e){
+                var y= e.changedTouches[0].clientY;
+                for (var i = 0; i < navs.length; i++) {
+                    if(navs[i].children.length<1){  
+                        var rect = navs[i].getBoundingClientRect();
+                        if(rect.top<y&&rect.bottom>y){
+                            return navs[i];
+                        }
+                    }
+                }
+                return null;
+            }
+            //根据索引获取对应的dt;
+            function getDt(index){
+                var id = index.innerHTML;
+                var dt = list.querySelector('[data-id='+id+']');
+                if(!dt){
+                    var next = index.nextElementSibling; //没有找到就去获取下一个元素;
+                    if(next){
+                        return getDt(next);
+                    }else{return null;}
+                }
+                return dt
+            }
+            //获取元素在页面上的绝对坐标;
+            function getPageY(el){
+                return el.getBoundingClientRect().top +window.scrollY;
+            };
+        }
+
+    })();
+
+// 文字根据拼音分类;
+    (function(){
+        /*
+            {
+                a:[],
+                b:[]
+            }
+
+         */ 
+
+
+        console.log(datas)
+
+    })()
+
+
+
+
+
+
+
+</script>
+
+
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 作用1.缓存中间状态值
+		var arr=[];
+		for(var i=0;i<3;i++)
+		{
+			arr[i]=function(k)
+			{
+				return function()
+				{
+					alert(k);
+				}
+
+			}(i)
+			arr[i](); //分别输出0，1，2循环的值被缓存住；
+			console.log(i);
+		}
+
+		// 2.闭包可以形成一个封闭的作用域，然后对外开放一个小接口；
+			// 访问函数内部的变量;
+		function foo(ratio){
+			var money=10;
+			return function(){
+				return money*ratio;
+			}
+		}
+		var fn=foo(9);
+		var m=fn();
+		console.log(m);
+
+	</script>
+</body>
+</html>

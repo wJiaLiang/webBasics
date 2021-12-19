@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+            /*
+                    我这里只是一个2d 的平面，我的旋转是没有任何问题
+                     我可以把整个盒子放在一个3维空间里面，我就可以显示一个立体效果
+            */
+           transform:rotateX(30deg) rotateY(30deg);
+            transform-style: preserve-3d;
+           animation: beat 3s linear 0s infinite;
+        }
+
+
+
+        .left,.right,.top,.bottom,.front,.back{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .box:hover{
+            animation-play-state: paused;
+        }
+
+        .left{
+            background: green;
+                  transform:   rotateY(90deg) translateZ(-100px);
+             }
+
+         .right{
+              background: pink;
+              transform:   rotateY(90deg) translateZ(100px);
+          }
+          .top{
+              background: #036;
+              transform:  rotateX(90deg) translateZ(100px);
+          }
+          .bottom{
+              background: yellow;
+              transform: rotateX(90deg) translateZ(-100px);
+          }
+          .front{
+              background: #0da5d6;
+              transform: translateZ(100px);
+          }
+          .back{
+              background:#FFCACA;
+              transform: translateZ(-100px);
+          }
+
+        
+          @keyframes beat  {
+                from{
+
+                     transform:rotateX(0deg) rotateY(0deg)
+
+                }to{
+
+                     transform:rotateX(290deg) rotateY(310deg)
+                }
+          }
+
+    </style>
+
+</head>
+<body>
+<div class="box">
+    <div class="left">left</div>
+    <div  class="right">right</div>
+    <div  class="front">front</div>
+    <div  class="back">back</div>
+    <div  class="top" >top</div>
+    <div  class="bottom">bottom</div>
+</div>
+</body>
+</html>

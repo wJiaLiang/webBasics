@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 复制一个p元素，然后添加到div元素里面去
+            $("#btnClone").click(function () {
+                   var p=$("p").clone();
+
+                    $("div").append(p);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="复制元素" id="btnClone"/>
+    <p class="pItem">我是外部的p元素</p>
+    <!--<div></div>-->
+    <div></div>
+</body>
+</html>

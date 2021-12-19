@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+/*
+
+    
+    JavaScript 语言的对象继承是通过原型链实现的。ES6 提供了更多原型对象的操作方法
+
+    1、构造函数中都有一个原型属性prototype，该属性是引用类型 (原型对象，用new创建的实例中的属性和方法都来自prototype这个对象)
+
+    2、原型对象中（即prototype所在的这个对象）有一个属性constructor，该属性指向构造函数
+
+    3、实例当中都有一个属性__proto__，该属性指向构造函数的原型prototype，
+       改属性不是标准属性，不可以在编程中显示使用，该属性是浏览器自己使用的
+
+
+    JavaScript 只有一种结构：对象。每个实例对象（ object ）
+    都有一个私有属性（称之为 __proto__ ）指向它的构造函数的原型对象（prototype ）。
+    该原型对象也有一个自己的原型对象( __proto__ ) ，层层向上直到一个对象的原型对象为 null。
+    根据定义，null 没有原型，并作为这个原型链中的最后一个环节。
+
+
+1.__proto__属性（前后各两个下划线），用来读取或设置当前对象的prototype对象.
+
+2.Object.setPrototypeOf()
+    Object.setPrototypeOf方法的作用与__proto__相同，用来设置一个对象的prototype对象，返回参数对象本身。
+    它是 ES6 正式推荐的设置原型对象的方法。
+
+3.该方法与 Object.setPrototypeOf 方法配套，用于读取一个对象的原型对象。
+    Object.getPrototypeOf(obj);
+
+*/ 
+
+    let proto = {};
+    let obj = { x: 10 };
+    Object.setPrototypeOf(obj, proto);
+
+    proto.y = 20;
+    proto.z = 40;
+
+    obj.x   // 10
+    obj.y   // 20
+    obj.z   // 40
+    
+    //如果参数不是对象，会被自动转为对象。
+    console.log(Object.getPrototypeOf(obj))   //{y:20,z:40};
+
+
+
+    </script>
+</body>
+</html>

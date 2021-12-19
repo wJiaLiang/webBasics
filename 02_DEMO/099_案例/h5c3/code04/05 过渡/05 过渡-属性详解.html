@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 过渡</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+		.transition {
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+			background-color: green;
+			position: absolute;
+			left: 0;
+			/*
+					transition 属性的详细介绍
+					transition  对应有四个值,
+			*/
+			/*需要过度的属性，一般情况下，我们使用一个all 全部搞定*/
+			transition-property: all;
+			/*过度的持续时间..*/
+			transition-duration: 2s;
+			/*  过度的速度
+				linear  匀速,一般情况下，我们都使用这个匀速
+				ease 匀速
+  				ease-out 减速
+  				ease-in 加速
+			*/
+			transition-timing-function: ease-out;
+			/*  delay 延迟 */
+			transition-delay:1s ;
+			/*简写方式*/
+			/*transition:all 2s linear 2s;*/
+		}
+		.transition:hover {
+			left: 600px;
+			width: 400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div class="transition"></div>
+</body>
+</html>

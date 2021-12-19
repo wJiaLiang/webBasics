@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		span{margin:20px;padding:10px;}
+		p{margin:20px;padding:10px;}
+		input:first-child{margin-right: 30px;}
+	</style>
+</head>
+<body>
+	<form action="" method="get" accept-charset="utf-8">
+		<label>男：<input type="radio" checked name="sex" value="man"></label>
+		<label>女：<input type="radio" name="sex" value="woman"></label>
+		<br>
+		<label>语文：<input type="checkbox" name="hao1" value="yuwen"></label>
+		<label>数学：<input type="checkbox" name="hao2" value="shuxue"></label>
+		<label>英语：<input type="checkbox"  checked  name="hao3" value="yinyu"></label>
+	</form>
+		<button>获取表单信息</button>
+	<!-- <p>块级</p>
+	<span>行内元素</span> -->
+	<script src='jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			$('button').click(function(){
+				console.log($(':radio:checked').val());
+				console.log($('input[type="checkbox"]:checked').val());
+				console.dir($('form').serialize());
+				var s=$('form').serializeArray(); 
+				console.log(s);
+					//全部选择为true；
+					console.log($("input[type='checkbox']").prop("checked"));
+			})
+
+		})
+
+
+	</script>
+</body>
+</html>

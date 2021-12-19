@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		<img src="./.,,.sdfjlsdkj" alt=""><br/><br/>
+		name:<input type="checkbox" name="age" value="18">
+		age:<input type="checkbox" name="name" value="哈哈" checked>
+		id:<input type="checkbox" name="id" value="123号">
+		<br/><br/>
+		<div>
+			
+		</div>
+		<button type="button">按钮点击</button>
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			//设置或返回被选元素的属性值。
+			$('img').attr('src');
+			$('img').attr({src:'../图片懒加载lazyload/ddcx.png',alt:'图片哦',title:'我的图片'})
+			$('img').attr('id','imgBox');
+			
+			//从每一个匹配的元素中删除一个属性;
+			$('img').removeAttr('src');
+
+
+			//prop(name|properties|key,value|fn);
+			var prop=$('img').prop('alt');
+			console.log(prop); //图片哦;
+			$('img').prop({title:"一个图片"});
+			$(':checkbox').prop('checked',true); //选中所有复选框;
+
+			$('input').change(function(){
+				console.log($('input:last-of-type').prop('checked')); //true;
+				$('button').prop('disabled',true); //禁用点击按钮;
+			})
+			console.log($('input:last-of-type').attr('checked',false)); //设置不让选中;
+			$('div').css('border','10px solid red').prop('class','boxRED')
+			//删除由prop设置的属性;
+			$('input').removeProp('checked');
+
+
+		})
+
+	</script>
+</body>
+</html>

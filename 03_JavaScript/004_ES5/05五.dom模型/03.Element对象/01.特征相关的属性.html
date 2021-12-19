@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>特征相关的属性</title>
+</head>
+<body>
+
+    <div class="one two three" id="myDiv"></div>
+    <script type="text/javascript">
+    // 以下属性与元素特点本身的特征相关。
+    /*
+     Element.id，Element.tagName
+
+     Element.innerHTML 
+     Element.innerHTML属性返回该元素包含的 HTML 代码。该属性可读写，常用来设置某个节点的内容。
+     如果将innerHTML属性设为空，等于删除所有它包含的所有节点。   
+     如果插入的文本包含 HTML 标签，会被解析成为节点对象插入 DOM。注意，如果文本之中含有<script>标签，虽然可以生成script节点，但是插入的代码不会执行。
+     var name = <script>alert('haha') \</scrip>
+     el.innerHTML = name;
+     上面代码中，alert方法是会执行的。因此为了安全考虑，如果插入的是文本，最好用textContent属性代替innerHTML。
+    
+
+     Element.outerHTML属性返回一个字符串，内容为指定元素节点的所有HTML代码，包括它自身和包含的所有子元素。
+    
+    Element.className，Element.classList
+    className属性用来读写当前元素节点的class属性。它的值是一个字符串，每个class之间用空格分割。
+    classList属性则返回一个类似数组的对象，当前元素节点的每个class就是这个对象的一个成员。
+
+
+    */ 
+    var d = document.getElementById('myDiv').className; 
+    console.log(d);
+    var d1 = document.getElementById('myDiv').classList; 
+    console.log(d1);
+    /*
+    classList对象有下列方法。
+    
+    add()：增加一个class。
+    remove()：移除一个class。
+    contains()：检查当前元素是否包含某个class。
+    toggle()：将某个class移入或移出当前元素。
+    item()：返回指定索引位置的class。
+    toString()：将class的列表转为字符串。
+
+     */ 
+     myDiv.classList.add('myCssClass');
+    myDiv.classList.add('foo', 'bar');
+    myDiv.classList.remove('myCssClass');
+    myDiv.classList.toggle('myCssClass'); // 如果myCssClass不存在就加入，否则移除
+    myDiv.classList.contains('myCssClass'); // 返回 true 或者 false
+    myDiv.classList.item(0); // 返回第一个Class
+    myDiv.classList.toString();
+
+
+
+
+
+    </script>
+</body>
+</html>

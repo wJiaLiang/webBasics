@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 200px;
+            margin-bottom: 10px;
+            background: pink;
+            display: none;
+        }
+    </style>
+    <script>
+            window.onload=function(){
+
+                    document.getElementById("btnShow").onclick=function(){
+
+
+                                /*先获取到所有的div*/
+                                var divs=document.getElementsByTagName("div");
+
+                                for(var i=0;i<divs.length;i++){
+                                    divs[i].style.display="block";
+                                }
+
+
+                    }
+
+
+                document.getElementById("btnSetHtml").onclick=function(){
+
+
+                    /*先获取到所有的div*/
+                    var divs=document.getElementsByTagName("div");
+
+                    for(var i=0;i<divs.length;i++){
+                        divs[i].innerHTML="啊哈啊哈";
+                    }
+                }
+            }
+
+
+    </script>
+</head>
+<body>
+<input type="button" value="设置内容" id="btnSetHtml"/>
+<input type="button" value="显示div" id="btnShow" />
+<div ></div>
+<div></div>
+<div></div>
+</body>
+</html>

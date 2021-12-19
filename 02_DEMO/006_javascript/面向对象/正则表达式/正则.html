@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RegExp</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		// var re=new RegExp('a');  
+		var re=/a/i;  //是上面的一种简写; i表示忽略大小写;ignore;
+
+		console.dir(typeof re); //object;  /a/
+
+		var str='abcdegh';
+		//test() 用这个正则去匹配一下这个字符串;
+		alert(re.test(str)); //ture;
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .menu {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0px;
+            padding: 0;
+        }
+
+        .icon {
+            cursor: pointer;
+            width: 0px;
+            height: 0px;
+            display: inline-block;
+            border-top: 16px solid transparent;
+            border-bottom: 16px solid transparent;
+            border-left: 16px solid blue;
+            border-right: 0px solid transparent;
+
+        }
+
+        .text {
+            vertical-align: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <tree v-bind:data="data"> </tree>
+           
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+        var data = [{
+            title: '目录',
+            chidren: [{
+                title: '我的音乐',
+                chidren: [{
+                    title: '周杰伦',
+                    chidren: [{
+                        title: '发如雪'
+                    }]
+                }, {
+                    title: '薛之谦',
+                    chidren: [{
+                        title: '动物世界'
+                    }]
+                }],
+            }, {
+                title: '我的相册',
+                chidren: [{
+                    title: '小时候数据'
+                }]
+            }],
+
+        }];
+        Vue.component('tree', {
+            props: {
+                data: {
+                    type: Array,
+                    default: [],
+                }
+            },
+            template: `<div class="menu">
+                    <tree_list v-bind:data="data"> </tree_list>
+        </div> `
+        });
+
+        Vue.component('tree_list', {
+            props: {
+                data: {
+                    type: Array,
+                    default: [],
+                },
+                initCunt:{
+                    type:Number,
+                    default:0,
+                }
+            },
+            // 用计算属性缓存 循环的次数;
+            computed: {
+                cunt(){
+                    let c = this.initCunt;
+                    console.log(c)
+                    return ++c;
+                },
+                Padding(){
+                    console.log(this.cunt);
+                    return  {'padding-left':this.cunt*16+'px'}
+                }
+            },
+            template: `
+            <ul >
+                <li v-for="item of data" v-bind:style="Padding">
+                    <div class="tree_title">
+                        <span class="icon"></span> <span class="text"> {{item.title}} </span>
+                    </div>
+                    <!-- 递归的思想 反复调用自己  判断数据是否有子级  传递数据到组件中，传递每次循环的次数 -->
+                    <tree_list v-if="item.chidren" v-bind:init-cunt="cunt" v-bind:data="item.chidren"> </tree_list>
+                </li>
+            </ul> `
+
+        });
+        new Vue({
+            el: '#app',
+            data: {
+                data
+            },
+            computed: {
+
+            },
+            methods: {
+
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

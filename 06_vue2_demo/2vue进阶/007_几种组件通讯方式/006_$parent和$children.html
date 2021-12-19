@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style> </style>
+</head>
+<body>
+<div id="app">
+
+</div>
+</body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+            这里要说的这种方式就比较直观了，直接操作父子组件的实例。$parent 就是父组件的实例对象，而 $children 就是当前实例的直接子组件实例了，
+            不过这个属性值是数组类型的，且并不保证顺序，也不是响应式的。
+
+            注意修改后不是响应试的
+            
+
+        */ 
+
+        // 定义一个父组件
+        Vue.component('parent',{
+            template:`
+            <div>
+                <p> this is parent component! </p>
+                <p> {{cunt}} </p>
+                <p> {{objs.age}} </p>
+                <p style="padding-bottom:10px"> 
+                    <button @click="changeChildValue">$children</button> 
+                </p>    
+                <child />
+            </div>
+            `,
+            data(){
+                return{
+                    message:'hello node.js',
+                    cunt:10,
+                    objs:{age:56}
+                }
+            },
+            methods:{
+                changeChildValue(){
+                    console.log(this.$children);
+                    this.$children[0].mymessage = 'hello';
+                }
+            }
+        });
+
+        // 定义一个 子组件;
+        Vue.component('child', {
+            template:`
+                <div>
+                    <input type="text" v-model="mymessage" @change="changeValue" />
+                    <div style="padding-top:10px"> {{mess}} </div>
+                    <div style="padding-top:10px"> {{objsnew.age}} </div>
+                    <button @click="addCunt"> 修改父组件传过来的数据 </button>
+                </div>
+            `,
+            data() {
+                return {
+                    mymessage: this.$parent.message,
+                    mess:this.$parent.cunt,
+                    objsnew:this.$parent.objs,
+                }
+            },
+            methods: {
+                changeValue(){
+                    this.$parent.message = this.mymessage; //通过如此调用可以改变父组件的值
+                },
+                addCunt(){
+                    this.mess++;
+                    this.objsnew.age++;   // 如果是对象是响应试的，修改了这里，父组件也会变化;
+                }
+            },
+        });
+
+
+
+    new Vue({
+        el:'#app',
+        template:`
+            <div>
+                <parent />
+            </div>
+        `,
+        data:{
+
+        },
+        methods:{
+
+        },
+      
+
+    })
+
+</script>
+</html>

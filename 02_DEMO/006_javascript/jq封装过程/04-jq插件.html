@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		(function($){
+			//形成一个封闭的环境;
+			var fn1=function(){}
+			var fn2=function(){}
+			var fn3=function(){}
+			var fn4=function(){}
+			//只是暴露一个插件的入口函数
+			$.fn.init=function(){
+				//做一些事情;
+				fn1();fn2();
+			}
+
+
+		})(jQuery)
+
+
+
+
+	</script>
+</body>
+</html>

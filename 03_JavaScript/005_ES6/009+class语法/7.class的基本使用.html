@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #divs {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="divs"></div>
+    <script type="text/javascript">
+
+        /**
+         * es5通过构造函数生成对象实例;
+         */
+        const mv = function (a, b) {
+            this.a = a;
+            this.b = b;
+            // return this;
+        }
+        mv.prototype = {
+            constructor: mv,
+            print: function () {
+                console.log(this.a + '  ' + this.b);
+            }
+        }
+        const mvc = new mv('hello', 'world')
+        mvc.print();
+
+        /**
+         * es6; 基于类;
+           1. mv中的constructor方式是构造函数方法，this关键字代表的是实例对象。也就是说es5的构造函数mv,
+                对应es6的mvv的这个类的构造方法;
+           2. mvv 这个类除了构造方法,还定义一个print方法。注意定义 "类" 的方法的时候前面不要加上function这个关键字，
+              直接写上函数名就可以了，方法之间不需要加逗号分隔，加了会报错; 
+           3. 构造函数的prototype 属性，在es6的“类”上面继续存在。而且类的所有方法都定义在类的prototype属性上;
+           4. 定义在类中的方法是不可以被枚举的。
+           5. constructor 方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。
+              一个类必须有contructor方法，如果没有显示的定义，一个空的contructor方法会被默认添加
+           6. 生成类的实例对象的写法，与es5完全一样，也是使用new命令，如果忘记加上new 像函数那样调用class ,会报错;
+         
+         */
+        class mvv {
+            // 指定的构造函数;
+            constructor(a, b) {
+                this.a = a;
+                this.b = b;
+                return this;
+            }
+            // 直接写上方法;
+            print() {
+                console.log(this.a + " " + this.b);
+            }
+        }
+        new mvv('hello', 'limei').print();
+        console.log(typeof mvv);
+
+
+        function rpFn(arr) {
+            let max = Math.max(...arr);
+            let min = Math.min(...arr);
+            console.log(max);
+            console.log(min);
+            console.log(Math.random() * (max - min) + min);
+            return Math.random() * (max - min) + min;
+        }
+        rpFn([20, 30])
+
+
+
+    </script>
+</body>
+
+</html>

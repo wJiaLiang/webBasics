@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div>
+        <p id="upfile">附件：<input type="file" id="myfile"> </p>
+        <p id="upbtn">
+            <input class="btn" name="" type="button" value="异步上传" onclick="upload(this)">
+            <span>正在上传</span>
+            <span id='upprog'></span>
+            <button id="stopbtn" > 停止上传</button>
+        </p>
+    </div>
+
+    <div id="flist">    </div>
+
+    <script type="text/javascript">
+    function upload() {
+        // 1.准备formData 对象;
+        var fd = new FormData();
+        // myfile 相当于input 的 name字段
+        fd.append('myfile',$('#myfile')[0].files[0]);
+
+        // 2.创建xhr对象
+        var xhr = new new XMLHttpRequest();
+
+        // 3.监听状态，随时相应
+        /*
+            xhr.upload.onprogress 表示监听的是文件上传事件;
+            xhr.onprogress 表示监听的是下载进度事件;
+
+         */
+        xhr.upload.onprogress =function(event){
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

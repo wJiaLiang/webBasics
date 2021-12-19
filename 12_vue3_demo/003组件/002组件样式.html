@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> vue3 Document</title>
+   
+</head>
+<body>
+    <div id="app">
+        <parent-ele> </parent-ele>
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+/*
+  //  对子组件有效的 .foop类名 有效
+.home:deep(.foop) {
+	font-size: 30px;
+	color: red;
+}
+
+// 插槽内容  子组件中将通过 :slotted(.slotele){}修改
+.slotele{
+	background: cadetblue;
+	color:pink;
+}
+
+// 全局的 .foop 类名有效
+:global(.foop) {
+	font-size: 50px;
+	color: blue;
+}
+
+
+*/ 
+
+
+const app =Vue.createApp({
+    data(){
+        return{
+
+        }
+    },
+    setup(){
+
+    },
+    //可以是数组或对象，用于接收来自父组件的数据
+    props:[],
+
+    // 方法;
+    methods:{},
+
+    // 实例被挂载后调用
+    mounted() {},
+
+
+})
+
+app.component("parent-ele",{
+    data(){
+        return{}
+
+    },
+    template:`
+        <div class="foo" style="background:red;width:300px;height:300px;">
+            测试文字
+        </div>
+    `
+})
+
+app.mount("#app")
+
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .box{
+            margin-top: 200px;
+            margin-left: 200px;
+            position: relative;
+            width: 100px;height: 100px;
+            border-radius: 50%;
+            background-color: red;
+        }
+        .box::before,.box::after{
+            position: absolute;
+            left: 0px;top: 0px;
+            width: 100%;
+            height: 100%;
+            content: '';
+            border-radius: 100%;
+            background-color: red;
+        }
+        .box::before{
+            animation: scale 1s infinite forwards;
+        }
+        .box::after{
+            animation: scale 1s .5s infinite forwards;
+        }
+
+        @keyframes scale {
+            0%{
+                /* transform: scale(0); */
+                /* opacity: 1; */
+            }
+            100%{
+                transform: scale(2);
+                opacity:0;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 原理就方式给盒子设置他的伪类元素做放大缩动画; -->
+    <div class="box"></div>
+
+
+    
+</body>
+</html>

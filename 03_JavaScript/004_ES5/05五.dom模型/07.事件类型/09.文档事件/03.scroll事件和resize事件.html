@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+         <li>第1个li标签</li>
+         <li>第2个li标签</li>
+         <li>第3个li标签</li>
+         <li>第4个li标签</li>
+         <li>第5个li标签</li>
+         <li>第6个li标签</li>
+         <li>第7个li标签</li>
+         <li>第8个li标签</li>
+         <li>第9个li标签</li>
+         <li>第10个li标签</li>
+         <li>第11个li标签</li>
+         <li>第12个li标签</li>
+         <li>第13个li标签</li>
+         <li>第14个li标签</li>
+         <li>第15个li标签</li>
+         <li>第16个li标签</li>
+         <li>第17个li标签</li>
+         <li>第18个li标签</li>
+         <li>第19个li标签</li>
+         <li>第20个li标签</li>
+         <li>第21个li标签</li>
+         <li>第22个li标签</li>
+         <li>第23个li标签</li>
+         <li>第24个li标签</li>
+         <li>第25个li标签</li>
+         <li>第26个li标签</li>
+         <li>第27个li标签</li>
+         <li>第28个li标签</li>
+         <li>第29个li标签</li>
+         <li>第30个li标签</li>
+         <li>第31个li标签</li>
+         <li>第32个li标签</li>
+         <li>第33个li标签</li>
+         <li>第34个li标签</li>
+         <li>第35个li标签</li>
+         <li>第36个li标签</li>
+         <li>第37个li标签</li>
+         <li>第38个li标签</li>
+         <li>第39个li标签</li>
+         <li>第40个li标签</li>
+         <li>第41个li标签</li>
+         <li>第42个li标签</li>
+         <li>第43个li标签</li>
+         <li>第44个li标签</li>
+         <li>第45个li标签</li>
+         <li>第46个li标签</li>
+         <li>第47个li标签</li>
+         <li>第48个li标签</li>
+         <li>第49个li标签</li>
+         <li>第50个li标签</li>
+         <li>第51个li标签</li>
+         <li>第52个li标签</li>
+         <li>第53个li标签</li>
+         <li>第54个li标签</li>
+         <li>第55个li标签</li>
+         <li>第56个li标签</li>
+         <li>第57个li标签</li>
+         <li>第58个li标签</li>
+         <li>第59个li标签</li>
+         <li>第60个li标签</li>
+         <li>第61个li标签</li>
+         <li>第62个li标签</li>
+         <li>第63个li标签</li>
+         <li>第64个li标签</li>
+         <li>第65个li标签</li>
+         <li>第66个li标签</li>
+         <li>第67个li标签</li>
+         <li>第68个li标签</li>
+         <li>第69个li标签</li>
+         <li>第70个li标签</li>
+         <li>第71个li标签</li>
+         <li>第72个li标签</li>
+         <li>第73个li标签</li>
+         <li>第74个li标签</li>
+         <li>第75个li标签</li>
+         <li>第76个li标签</li>
+         <li>第77个li标签</li>
+         <li>第78个li标签</li>
+         <li>第79个li标签</li>
+         <li>第80个li标签</li>
+         <li>第81个li标签</li>
+         <li>第82个li标签</li>
+         <li>第83个li标签</li>
+         <li>第84个li标签</li>
+         <li>第85个li标签</li>
+         <li>第86个li标签</li>
+         <li>第87个li标签</li>
+         <li>第88个li标签</li>
+         <li>第89个li标签</li>
+         <li>第90个li标签</li>
+     </ul> 
+
+
+    <script type="text/javascript">
+        // 以下事件与窗口行为有关。
+        /*
+        scroll事件在文档或文档元素滚动时触发，主要出现在用户拖动滚动条。
+            window.addEventListener('scroll', callback);
+
+
+        （2）resize事件
+            resize事件在改变浏览器窗口大小时触发，发生在window、body、frameset对象上面。
+    
+         */
+        window.addEventListener('scroll',callback);
+        function callback(){
+            var time = Date.now();
+            console.log(time);
+        }
+
+        var resizeMethod = function(){
+          if (document.body.clientWidth < 768) {
+            console.log('移动设备');
+          }
+        };
+    window.addEventListener("resize", resizeMethod, true);
+
+    function throttle(fn, wait) {
+        var time = Date.now();
+        return function() {
+            if ((time + wait - Date.now()) < 0) {
+                fn();
+                time = Date.now();
+            }
+        }
+    }
+    window.addEventListener('scroll', throttle(callback, 1000));
+
+
+
+
+
+    </script>
+</body>
+</html>

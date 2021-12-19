@@ -1,0 +1,57 @@
+html{
+	font-size: 100px;
+}
+.main{
+	width: 100%;
+	// padding: 0 10px;
+}
+.topnav{
+	width: 100%;
+	height:0.9rem;
+	line-height: 0.9rem;
+	background-color: #ccc;
+	position: relative;
+}
+.lsite{
+	width:.72rem;
+	height:0.9rem;
+	padding-left: 0.2rem;
+	background-origin: content-box;
+	background-image: url("images/left1.jpg");
+	background-position: left center;
+	background-repeat: no-repeat;
+	float: left;
+}
+.csite{
+	width:5.1rem;
+	display: inline-block;
+	float:left;
+}
+.csite span{
+	float: left;
+	display: block;
+	width:1.7rem;
+	height: 0.9rem;
+	line-height:0.9rem;
+	box-sizing: border-box;
+	text-align: center;
+	color:white; 
+	font-size: .3rem;
+	border-bottom: 0.01rem solid transparent;
+}
+.csite span:hover{
+	border-bottom-color: blue;
+}
+.fsite{
+	width:1.68rem;
+	height:0.9rem;
+	padding-right: 0.56rem;
+	float: right;
+	background-image: url(images/_r2_c4.jpg);
+	background-origin: content-box;
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+.fsite img{
+	
+}

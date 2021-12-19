@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li id='litwo'>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li id='lifiev'>5</li>
+	</ul>
+	<script src='../jquery1.83.js'></script>
+	<script type="text/javascript">
+		$(function(){
+	//这个函数只返回后面那个紧邻的同辈元素，而不是后面所有的同辈元素（可以使用nextAll）。可以用一个可选的表达式进行筛选。
+			var d=$('#lifiev').next().length; //0;
+			console.dir(d);
+			var f=$('li').next().css('backgroundColor','red'); //2345全部选择;
+			console.dir(f);
+
+		})
+
+	</script>
+</body>
+</html>

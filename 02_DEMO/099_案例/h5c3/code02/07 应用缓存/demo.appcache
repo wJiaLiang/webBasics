@@ -1,0 +1,15 @@
+CACHE MANIFEST
+#我需要缓存那些文件.
+CACHE:
+1.jpg
+# 那些文件必须通过网络获取
+NETWORK:
+*
+# 如果没有找到one.css 就去找 two.css
+FALLBACK:
+one.css two.css
+
+
+
+
+

@@ -1,0 +1,512 @@
+2019-06-23 22:44:26: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:26:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:26:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:26:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:26:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:26:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:26:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:26:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:26:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:26:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:26:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:26:   errno: 'EADDRINUSE',
+2019-06-23 22:44:26:   code: 'EADDRINUSE',
+2019-06-23 22:44:26:   syscall: 'listen',
+2019-06-23 22:44:26:   address: '::',
+2019-06-23 22:44:26:   port: 8008 }
+2019-06-23 22:44:26: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:26:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:26:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:26:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:26:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:26:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:26:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:26:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:26:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:26:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:26:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:26:   errno: 'EADDRINUSE',
+2019-06-23 22:44:26:   code: 'EADDRINUSE',
+2019-06-23 22:44:26:   syscall: 'listen',
+2019-06-23 22:44:26:   address: '::',
+2019-06-23 22:44:26:   port: 8008 }
+2019-06-23 22:44:27: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:27:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:27:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:27:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:27:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:27:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:27:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:27:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:27:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:27:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:27:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:27:   errno: 'EADDRINUSE',
+2019-06-23 22:44:27:   code: 'EADDRINUSE',
+2019-06-23 22:44:27:   syscall: 'listen',
+2019-06-23 22:44:27:   address: '::',
+2019-06-23 22:44:27:   port: 8008 }
+2019-06-23 22:44:27: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:27:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:27:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:27:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:27:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:27:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:27:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:27:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:27:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:27:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:27:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:27:   errno: 'EADDRINUSE',
+2019-06-23 22:44:27:   code: 'EADDRINUSE',
+2019-06-23 22:44:27:   syscall: 'listen',
+2019-06-23 22:44:27:   address: '::',
+2019-06-23 22:44:27:   port: 8008 }
+2019-06-23 22:44:28: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:28:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:28:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:28:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:28:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:28:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:28:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:28:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:28:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:28:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:28:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:28:   errno: 'EADDRINUSE',
+2019-06-23 22:44:28:   code: 'EADDRINUSE',
+2019-06-23 22:44:28:   syscall: 'listen',
+2019-06-23 22:44:28:   address: '::',
+2019-06-23 22:44:28:   port: 8008 }
+2019-06-23 22:44:28: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:28:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:28:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:28:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:28:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:28:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:28:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:28:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:28:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:28:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:28:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:28:   errno: 'EADDRINUSE',
+2019-06-23 22:44:28:   code: 'EADDRINUSE',
+2019-06-23 22:44:28:   syscall: 'listen',
+2019-06-23 22:44:28:   address: '::',
+2019-06-23 22:44:28:   port: 8008 }
+2019-06-23 22:44:29: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:29:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:29:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:29:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:29:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:29:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:29:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:29:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:29:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:29:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:29:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:29:   errno: 'EADDRINUSE',
+2019-06-23 22:44:29:   code: 'EADDRINUSE',
+2019-06-23 22:44:29:   syscall: 'listen',
+2019-06-23 22:44:29:   address: '::',
+2019-06-23 22:44:29:   port: 8008 }
+2019-06-23 22:44:29: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:29:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:29:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:29:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:29:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:29:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:29:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:29:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:29:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:29:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:29:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:29:   errno: 'EADDRINUSE',
+2019-06-23 22:44:29:   code: 'EADDRINUSE',
+2019-06-23 22:44:29:   syscall: 'listen',
+2019-06-23 22:44:29:   address: '::',
+2019-06-23 22:44:29:   port: 8008 }
+2019-06-23 22:44:29: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:29:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:29:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:29:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:29:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:29:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:29:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:29:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:29:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:29:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:29:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:29:   errno: 'EADDRINUSE',
+2019-06-23 22:44:29:   code: 'EADDRINUSE',
+2019-06-23 22:44:29:   syscall: 'listen',
+2019-06-23 22:44:29:   address: '::',
+2019-06-23 22:44:29:   port: 8008 }
+2019-06-23 22:44:30: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:30:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:30:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:30:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:30:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:30:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:30:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:30:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:30:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:30:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:30:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:30:   errno: 'EADDRINUSE',
+2019-06-23 22:44:30:   code: 'EADDRINUSE',
+2019-06-23 22:44:30:   syscall: 'listen',
+2019-06-23 22:44:30:   address: '::',
+2019-06-23 22:44:30:   port: 8008 }
+2019-06-23 22:44:30: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:30:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:30:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:30:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:30:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:30:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:30:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:30:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:30:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:30:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:30:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:30:   errno: 'EADDRINUSE',
+2019-06-23 22:44:30:   code: 'EADDRINUSE',
+2019-06-23 22:44:30:   syscall: 'listen',
+2019-06-23 22:44:30:   address: '::',
+2019-06-23 22:44:30:   port: 8008 }
+2019-06-23 22:44:31: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:31:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:31:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:31:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:31:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:31:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:31:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:31:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:31:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:31:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:31:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:31:   errno: 'EADDRINUSE',
+2019-06-23 22:44:31:   code: 'EADDRINUSE',
+2019-06-23 22:44:31:   syscall: 'listen',
+2019-06-23 22:44:31:   address: '::',
+2019-06-23 22:44:31:   port: 8008 }
+2019-06-23 22:44:31: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:31:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:31:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:31:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:31:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:31:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:31:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:31:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:31:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:31:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:31:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:31:   errno: 'EADDRINUSE',
+2019-06-23 22:44:31:   code: 'EADDRINUSE',
+2019-06-23 22:44:31:   syscall: 'listen',
+2019-06-23 22:44:31:   address: '::',
+2019-06-23 22:44:31:   port: 8008 }
+2019-06-23 22:44:32: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:32:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:32:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:32:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:32:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:32:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:32:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:32:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:32:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:32:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:32:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:32:   errno: 'EADDRINUSE',
+2019-06-23 22:44:32:   code: 'EADDRINUSE',
+2019-06-23 22:44:32:   syscall: 'listen',
+2019-06-23 22:44:32:   address: '::',
+2019-06-23 22:44:32:   port: 8008 }
+2019-06-23 22:44:32: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:32:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:32:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:32:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:32:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:32:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:32:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:32:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:32:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:32:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:32:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:32:   errno: 'EADDRINUSE',
+2019-06-23 22:44:32:   code: 'EADDRINUSE',
+2019-06-23 22:44:32:   syscall: 'listen',
+2019-06-23 22:44:32:   address: '::',
+2019-06-23 22:44:32:   port: 8008 }
+2019-06-23 22:44:33: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:44:33:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:44:33:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:44:33:     at Server.listen (net.js:1463:7)
+2019-06-23 22:44:33:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:44:33:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:44:33:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:44:33:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:44:33:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:44:33:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:44:33:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:44:33:   errno: 'EADDRINUSE',
+2019-06-23 22:44:33:   code: 'EADDRINUSE',
+2019-06-23 22:44:33:   syscall: 'listen',
+2019-06-23 22:44:33:   address: '::',
+2019-06-23 22:44:33:   port: 8008 }
+2019-06-23 22:45:17: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:17:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:17:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:17:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:17:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:17:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:17:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:17:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:17:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:17:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:17:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:17:   errno: 'EADDRINUSE',
+2019-06-23 22:45:17:   code: 'EADDRINUSE',
+2019-06-23 22:45:17:   syscall: 'listen',
+2019-06-23 22:45:17:   address: '::',
+2019-06-23 22:45:17:   port: 8008 }
+2019-06-23 22:45:18: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:18:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:18:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:18:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:18:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:18:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:18:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:18:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:18:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:18:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:18:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:18:   errno: 'EADDRINUSE',
+2019-06-23 22:45:18:   code: 'EADDRINUSE',
+2019-06-23 22:45:18:   syscall: 'listen',
+2019-06-23 22:45:18:   address: '::',
+2019-06-23 22:45:18:   port: 8008 }
+2019-06-23 22:45:18: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:18:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:18:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:18:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:18:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:18:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:18:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:18:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:18:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:18:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:18:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:18:   errno: 'EADDRINUSE',
+2019-06-23 22:45:18:   code: 'EADDRINUSE',
+2019-06-23 22:45:18:   syscall: 'listen',
+2019-06-23 22:45:18:   address: '::',
+2019-06-23 22:45:18:   port: 8008 }
+2019-06-23 22:45:18: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:18:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:18:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:18:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:18:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:18:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:18:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:18:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:18:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:18:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:18:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:18:   errno: 'EADDRINUSE',
+2019-06-23 22:45:18:   code: 'EADDRINUSE',
+2019-06-23 22:45:18:   syscall: 'listen',
+2019-06-23 22:45:18:   address: '::',
+2019-06-23 22:45:18:   port: 8008 }
+2019-06-23 22:45:19: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:19:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:19:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:19:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:19:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:19:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:19:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:19:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:19:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:19:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:19:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:19:   errno: 'EADDRINUSE',
+2019-06-23 22:45:19:   code: 'EADDRINUSE',
+2019-06-23 22:45:19:   syscall: 'listen',
+2019-06-23 22:45:19:   address: '::',
+2019-06-23 22:45:19:   port: 8008 }
+2019-06-23 22:45:19: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:19:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:19:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:19:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:19:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:19:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:19:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:19:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:19:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:19:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:19:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:19:   errno: 'EADDRINUSE',
+2019-06-23 22:45:19:   code: 'EADDRINUSE',
+2019-06-23 22:45:19:   syscall: 'listen',
+2019-06-23 22:45:19:   address: '::',
+2019-06-23 22:45:19:   port: 8008 }
+2019-06-23 22:45:20: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:20:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:20:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:20:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:20:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:20:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:20:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:20:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:20:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:20:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:20:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:20:   errno: 'EADDRINUSE',
+2019-06-23 22:45:20:   code: 'EADDRINUSE',
+2019-06-23 22:45:20:   syscall: 'listen',
+2019-06-23 22:45:20:   address: '::',
+2019-06-23 22:45:20:   port: 8008 }
+2019-06-23 22:45:20: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:20:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:20:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:20:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:20:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:20:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:20:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:20:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:20:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:20:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:20:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:20:   errno: 'EADDRINUSE',
+2019-06-23 22:45:20:   code: 'EADDRINUSE',
+2019-06-23 22:45:20:   syscall: 'listen',
+2019-06-23 22:45:20:   address: '::',
+2019-06-23 22:45:20:   port: 8008 }
+2019-06-23 22:45:20: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:20:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:20:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:20:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:20:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:20:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:20:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:20:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:20:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:20:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:20:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:20:   errno: 'EADDRINUSE',
+2019-06-23 22:45:20:   code: 'EADDRINUSE',
+2019-06-23 22:45:20:   syscall: 'listen',
+2019-06-23 22:45:20:   address: '::',
+2019-06-23 22:45:20:   port: 8008 }
+2019-06-23 22:45:21: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:21:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:21:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:21:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:21:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:21:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:21:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:21:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:21:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:21:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:21:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:21:   errno: 'EADDRINUSE',
+2019-06-23 22:45:21:   code: 'EADDRINUSE',
+2019-06-23 22:45:21:   syscall: 'listen',
+2019-06-23 22:45:21:   address: '::',
+2019-06-23 22:45:21:   port: 8008 }
+2019-06-23 22:45:21: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:21:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:21:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:21:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:21:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:21:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:21:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:21:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:21:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:21:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:21:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:21:   errno: 'EADDRINUSE',
+2019-06-23 22:45:21:   code: 'EADDRINUSE',
+2019-06-23 22:45:21:   syscall: 'listen',
+2019-06-23 22:45:21:   address: '::',
+2019-06-23 22:45:21:   port: 8008 }
+2019-06-23 22:45:22: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:22:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:22:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:22:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:22:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:22:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:22:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:22:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:22:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:22:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:22:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:22:   errno: 'EADDRINUSE',
+2019-06-23 22:45:22:   code: 'EADDRINUSE',
+2019-06-23 22:45:22:   syscall: 'listen',
+2019-06-23 22:45:22:   address: '::',
+2019-06-23 22:45:22:   port: 8008 }
+2019-06-23 22:45:22: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:22:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:22:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:22:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:22:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:22:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:22:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:22:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:22:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:22:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:22:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:22:   errno: 'EADDRINUSE',
+2019-06-23 22:45:22:   code: 'EADDRINUSE',
+2019-06-23 22:45:22:   syscall: 'listen',
+2019-06-23 22:45:22:   address: '::',
+2019-06-23 22:45:22:   port: 8008 }
+2019-06-23 22:45:23: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:23:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:23:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:23:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:23:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:23:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:23:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:23:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:23:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:23:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:23:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:23:   errno: 'EADDRINUSE',
+2019-06-23 22:45:23:   code: 'EADDRINUSE',
+2019-06-23 22:45:23:   syscall: 'listen',
+2019-06-23 22:45:23:   address: '::',
+2019-06-23 22:45:23:   port: 8008 }
+2019-06-23 22:45:23: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:23:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:23:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:23:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:23:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:23:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:23:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:23:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:23:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:23:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:23:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:23:   errno: 'EADDRINUSE',
+2019-06-23 22:45:23:   code: 'EADDRINUSE',
+2019-06-23 22:45:23:   syscall: 'listen',
+2019-06-23 22:45:23:   address: '::',
+2019-06-23 22:45:23:   port: 8008 }
+2019-06-23 22:45:23: { Error: listen EADDRINUSE :::8008
+2019-06-23 22:45:23:     at Server.setupListenHandle [as _listen2] (net.js:1328:14)
+2019-06-23 22:45:23:     at listenInCluster (net.js:1376:12)
+2019-06-23 22:45:23:     at Server.listen (net.js:1463:7)
+2019-06-23 22:45:23:     at Object.<anonymous> (d:\web\node_demo\pm2-test\app.js:18:8)
+2019-06-23 22:45:23:     at Module._compile (internal/modules/cjs/loader.js:702:30)
+2019-06-23 22:45:23:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+2019-06-23 22:45:23:     at Module.load (internal/modules/cjs/loader.js:612:32)
+2019-06-23 22:45:23:     at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+2019-06-23 22:45:23:     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+2019-06-23 22:45:23:     at Object.<anonymous> (C:\Users\wei\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:27:21)
+2019-06-23 22:45:23:   errno: 'EADDRINUSE',
+2019-06-23 22:45:23:   code: 'EADDRINUSE',
+2019-06-23 22:45:23:   syscall: 'listen',
+2019-06-23 22:45:23:   address: '::',
+2019-06-23 22:45:23:   port: 8008 }

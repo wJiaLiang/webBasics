@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>constructor方法</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+        constructor方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。
+        一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。
+     */
+
+     /*
+      1.定义了一个空的类Point，JavaScript 引擎会自动为它添加一个空的constructor方法。
+
+      2.constructor方法默认返回实例对象（即this），完全可以指定返回另外一个对象。
+
+      3.类必须使用new调用，否则会报错。这是它跟普通构造函数的一个主要区别，后者不用new也可以执行。
+
+      */
+    class Point {     };
+    class Foo {
+        constructor(){
+            //constructor函数返回一个全新的对象，结果导致实例对象不是Foo类的实例。
+            return Object.create(null);
+        }
+    }
+    console.log( new Foo() instanceof Foo );  //false;
+    Foo()  //报错;
+
+    /*
+    类和模块的内部，默认就是严格模式，所以不需要使用use strict指定运行模式。
+    只要你的代码写在类或模块之中，就只有严格模式可用。
+    考虑到未来所有的代码，其实都是运行在模块之中，所以 ES6 实际上把整个语言升级到了严格模式。
+
+    */
+
+
+
+
+
+
+    </script>
+</body>
+</html>

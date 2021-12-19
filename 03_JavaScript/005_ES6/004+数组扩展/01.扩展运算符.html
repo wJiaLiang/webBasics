@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title> 数组的扩展 </title>
+</head>
+<body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+
+    <script type="text/javascript">
+        //1  扩展运算符
+        //2  Array.from()
+        //3  Array.of()
+        //4  数组实例的 copyWithin()
+        //5  数组实例的 find() 和 findIndex()
+        //6  数组实例的 fill()
+        //7  数组实例的 entries()，keys() 和 values()
+        //8  数组实例的 includes()
+        //9  数组的空位
+    
+/* 1.扩展运算符（spread）是三个点（...）。它好比 rest 参数的逆运算，将一个数组转为用逗号分隔的参数序列。
+    */
+    console.log(...[1,2,3,4,5]);   // 1 2 3 4 5
+    console.log([1,2,3,4,5]);      // Array(5)
+
+    console.log(...document.querySelectorAll('.box'));
+    // 用途
+    function add(x, y) {
+        return x + y;
+    }
+    const numbers = [4, 38];
+    add(...numbers) // 42
+
+
+//*************** 扩展运算符的应用**************
+// 1.复制数组：
+    // 数组是复合的数据类型，直接复制的话，只是复制了指向底层数据结构的指针，而不是克隆一个全新的数组
+    const a1 = [1, 2];
+    const a2 = a1;
+    a2[0] = 2;
+    a1  // [2, 2]    
+
+// es6写法*****************
+    // const a1 = [1, 2];
+    // // 写法一
+    const a2 = [...a1];
+    // // 写法二
+    const [...a2] = a1;
+
+// 2.合并数组:
+    let arr1=['a','b'];
+    let arr2=['c'];
+    console.log([...arr1,...arr2]);
+
+
+// 扩展运算符还可以将字符串转为真正的数组。;
+    console.log( [...'hello'] )   // [ "h", "e", "l", "l", "o" ]
+
+    </script>
+</body>
+</html>

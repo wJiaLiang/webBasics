@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hover方法</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		.nav{
+			width: 600px;
+			height: 900px;
+			margin:0 auto;
+		}
+		ul{
+			list-style: none;
+		}
+		.one_ul>li{
+			float:left;
+			width: 100px;
+			height: 40px;
+			background-color: green;
+			text-align: center;
+			line-height: 40px;
+		}
+		a{
+			text-decoration: none;
+			display:block;
+			color:white;
+			width: 100%;
+			height:100%;
+			font-size: 18px;
+		}
+		.one_ul>li>a:hover{
+			background-color: #F06F2F;
+		}
+		.one_ul>li>ul{
+			display:none;
+		}
+		li>ul>li{
+			height:30px;
+			background-color:rgba(0,0,0,0.2);
+			color:white;
+		}
+		li>ul>li:hover{
+			background-color: #021476;
+		}
+	</style>
+</head>
+<body>
+	<div class='nav'>
+		<ul class='one_ul'>
+			<li><a href="http://baidu.com">1导航</a>
+				<ul>
+					<li>one</li>
+					<li>tow</li>
+					<li>three</li>
+				</ul>
+			</li>
+			<li><a href="#">2导航</a>
+				<ul>
+					<li>121</li>
+					<li>123</li>
+					<li>3445</li>
+				</ul>
+			</li>
+			<li><a href="#">3导航</a>
+					<ul>
+						<li>hhakl</li>
+						<li>sdf</li>
+						<li>sdf</li>
+					</ul>
+			</li>
+			<li><a href="#">4导航</a>
+				<ul>
+					<li>hasldflk</li>
+					<li>sdfsd</li>
+					<li>sdfsf</li>
+				</ul>
+			</li>
+			<li><a href="#">5导航</a>
+					<ul>
+						<li>yun</li>
+						<li>pand</li>
+						<li>daxie</li>
+					</ul>
+			</li>
+			<li><a href="#">6导航</a>
+				<ul>
+					<li>一般</li>
+					<li>是的</li>
+					<li>等待</li>
+				</ul>
+			</li>
+		</ul>
+
+	</div>
+	<script src="./jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//类似于onmouseover/onmouseleve;
+			//鼠标悬浮上去，执行一个函数，离开执行第二个函数
+			$('.one_ul>li').hover(
+				function(){
+					$(this).find("ul").show();
+					// $(this).fadeOut(1000);
+					$(this).css("cursor",'pointer');
+			},
+				function(){
+					$(this).find('ul').slideUp(0);
+					// $(this).fadeIn(500);
+				}
+
+			).click(function(){
+				alert(this.innerHTML);
+
+			})
+
+		})
+
+
+
+	</script>
+
+</body>
+</html>

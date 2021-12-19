@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+			function fn(obj){
+				obj.name="one";   //给外面的那个obj实例赋值；
+				var obj=new Object();  //不管他的名字是否相同，一个new就开了一个空间；就是里面一个对象和外面的对象是不一样的；	
+				obj.name="two";
+				alert(obj.name);
+			}
+
+				var obj=new Object();
+				fn(obj);
+				alert(obj.name);
+
+
+
+	</script>
+</body>
+</html>

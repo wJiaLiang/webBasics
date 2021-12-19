@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		.content{width:300px;height:300px;border:1px solid red;}
+	</style>
+</head>
+<body>
+	<div class="content">
+		文本
+	</div>
+	<span>追加到content盒子中; </span>
+	<s>添加到盒子的头部;  </s>
+	<div class='content'>
+		
+	</div>
+
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			//向每个匹配的元素内部追加内容。
+			$('.content').append('<p>Hello</p>');
+			//把所有匹配的元素追加到另一个指定的元素元素集合中。
+			$('span').appendTo('.content'); //返回span;
+
+
+			//向每个匹配的元素内部前置内容。
+			$('.content').prepend('<i>添加到content容器的开头<i>');
+			//把所有匹配的元素前置到另一个、指定的元素元素集合中。
+			$('s').prependTo('.content').css('color','blue');
+
+			
+
+		})
+
+	</script>
+</body>
+</html>

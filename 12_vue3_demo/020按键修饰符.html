@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <div id="app">
+
+            <input v-on:keyup.delete="confirmDelete" />
+
+            <hr>
+            <input type="text" @keyup.enter="confirmDelete">
+
+            <hr>
+            <!--  不再支持 keyCode -->
+            <input v-on:keyup.13="submit" />
+
+        </div>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {};
+            },
+            setup() {},
+            //可以是数组或对象，用于接收来自父组件的数据
+            props: [],
+            // 方法;
+            methods: {
+                submit(){
+                    console.log('enter')
+                },
+                confirmDelete() {
+                    console.log(1);
+                },
+            },
+
+            // 实例被挂载后调用
+            mounted() {},
+        });
+ 
+        app.component({});
+
+        app.mount("#app");
+    </script>
+</html>

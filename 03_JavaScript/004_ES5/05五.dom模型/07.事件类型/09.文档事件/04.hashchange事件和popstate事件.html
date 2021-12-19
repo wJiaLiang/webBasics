@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#changes">改变url</a>
+    <a href="#urls">display</a>
+    <script type="text/javascript">
+    // 以下事件与文档的URL变化相关。
+    /*
+    （1）hashchange事件在URL的hash部分（即#号后面的部分，包括#号）发生变化时触发。如果老式浏览器不支持该属性，可以通过定期检查location.hash属性，模拟该事件，下面就是代码。
+    要绑定到window对象上;
+
+    （2）popstate事件
+    popstate事件在浏览器的history对象的当前记录发生显式切换时触发。注意，调用history.pushState()或history.replaceState()，并不会触发popstate事件。该事件只在用户在history记录之间显式切换时触发，比如鼠标点击“后退/前进”按钮，或者在脚本中调用history.back()、history.forward()、history.go()时触发。
+
+    该事件对象有一个state属性，保存history.pushState方法和history.replaceState方法为当前记录添加的state对象。
+
+
+    */
+    window.addEventListener('hashchange',function(){
+        console.log(location.hash); // #urls
+        if(location.hash=="#urls"){
+            location.href="https://www.baidu.com";
+        }
+    },false)
+    window.onpopstate = function(event) {
+        console.log("state: " + event.state);
+    };
+    history.pushState({page: 1}, "title 1", "?page=1");
+    history.pushState({page: 2}, "title 2", "?page=2");
+    history.replaceState({page: 3}, "title 3", "?page=3");
+    history.back(); // state: {"page":1}
+    history.back(); // state: null
+    history.go(2);  // state: {"page":3}
+
+
+
+
+    </script>
+</body>
+</html>

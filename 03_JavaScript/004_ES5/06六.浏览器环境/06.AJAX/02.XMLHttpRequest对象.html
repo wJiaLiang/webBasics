@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+        XMLHttpRequest对象用来在浏览器与服务器之间传送数据
+        
+        注意，AJAX只能向同源网址（协议、域名、端口都相同）发出HTTP请求，如果发出跨源请求，就会报错（详见《同源政策》和《CORS机制》两节）。
+        
+        虽然名字里面有XML，但是实际上，XMLHttpRequest可以报送各种数据，包括字符串和二进制，而且除了HTTP，它还支持通过其他协议传送（比如File和FTP）
+     */
+     var ajax = new new XMLHttpRequest();
+     ajax.open('GET','http://www.example.com',true);
+
+
+     var xhr = new XMLHttpRequest();
+     //指定通信过程中状态改变时的回调函数;
+     xhr.onreadystatechange=function(){
+        // 通信成功时，状态值为4;
+        if(xhr.readyState ===4){
+            if(xhr.status === 200){
+                console.log(xhr.responseText);
+            } else{
+                console.log(xhr.statusText);
+            }
+        }
+     }
+     // 错误的回调函数;
+     xhr.onerror=function(){
+        console.log(xhr.statusText);
+     }
+     // open 方法用于指定 HTTP动词、请求的网站、是否异步;
+     // true 代表异步，false代表同步;
+     xhr.open('GET','url',true);
+     //发送HTTP请求
+     xhr.send(null);
+     
+
+
+     
+
+
+
+
+    </script>
+</body>
+</html>

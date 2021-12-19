@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="">
+		
+		<input type="text" name="" value="fffff" ><br/>
+		<input type="password" name="" value="ssss" ><br/>
+		
+	</form>
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			function fn(){
+				alert('this is form');
+			}
+			$('form').on('click','input',function(){
+				console.log($(this)) //input;
+			});
+
+			$('input').click(function(){
+				alert('this is input')
+			});
+
+			//移除一个事件处理函数。
+			//若要移除元素上所有的代理事件，而不移除任何非代理事件，请使用特殊值 "**"。
+			// $('form').off('click','**');
+			//移除input元素上的所有事件;
+				$('input').off();
+			//移除form上代理到input元素的事件 on()绑定的事件;
+			//$('form').off('click','input',fn);
+
+		})
+
+	</script>
+</body>
+</html>

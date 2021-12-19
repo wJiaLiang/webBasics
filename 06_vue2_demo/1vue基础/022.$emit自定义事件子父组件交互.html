@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <style>
+        #app {
+            width: 100%;
+            height: 500px;
+            border: 1px solid deeppink;
+            margin-left: 80px;
+            margin-top: 10px;
+        }
+
+        .head {
+            line-height: 45px;
+        }
+
+        .head input[type='text'] {
+            height: 40px;
+        }
+
+        ul li:hover {
+            background-color: pink;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h3> 通过自定义属性实现子父组件 交互 </h3>
+        <div style="float: left">
+            <h5>自定义下拉框1</h5>
+            <coms_select btn-value="查询" v-bind:listdata="listdata1"> </coms_select>
+        </div>
+
+        <p style="float: left;padding:30px;"></p>
+        <div style="float:left">
+            <h5> 自定义组件2</h5>
+            <coms_select btn-value="搜索" v-bind:listdata="listdata2"> </coms_select>
+        </div>
+
+        <p style="float:left;padding:30px;"></p>
+        <!-- 搜限制的一些元素 如table中只能放tr ul中只能放li   可以使用is 来扩展html的标签功能 -->
+        <table>
+            <h5>is HTML 扩展</h5>
+            <tr is="coms_select" btn-value="is 扩展HTML"></tr>
+        </table>
+    </div>
+
+    <div class="#app1">
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+
+        /*
+        过自定义属性实现子父组件 交互
+        使用组件先要注册组件;
+        组件就是一个自定义标签;
+        组件data中的数据必须是函数; 如果是对象就公用了这个个数据；数函数则每个组件独立;
+        */
+       
+        // 全局注册组件
+        Vue.component('coms_select', {
+            data: function () {
+                return {
+                    sel: false,
+                    val:''
+                }
+            },
+
+            props: ['btnValue', 'listdata'], // props绑定属性用的 表示接受到的值 这里一定要驼峰命名法;
+            template: `<div>
+            <div class="head">
+                <input type="text" :value="val" @click="tapSlect">
+                <input type="button" v-bind:value="btnValue" style="font-size: 23px;">
+            </div>
+            <div >
+                <coms_list v-show="sel" v-bind:listli='listdata' v-on:setvalue="changValue"> </coms_list>
+
+            </div>
+        </div>`,
+            methods: {
+                tapSlect() {
+                    this.sel = !this.sel
+                },
+                changValue(v) {
+                    alert('子组件向父组件传递参数' +v);
+                    this.val = v;
+                    
+                }
+            },
+        });
+
+        // 全局注册组件
+        Vue.component('coms_list', {
+            props: ['listli'],
+            template: `<ul>
+                        <li v-for="item of listli"  @click="selectHandle(item)"> {{item}} </li>
+                    </ul>`,
+            methods: {
+                selectHandle: function (item) {
+                    // 在子组件中有交互，告知父级,改变val的值，需要触发一个自定义事件;在父级需要绑定一个自定义事件;
+                    // 实例上有一个$emit
+                    this.$emit('setvalue', item)
+                }
+            }
+        })
+
+
+        /*
+           父组件向子组件传递数据是用自定义属性 props
+           子组件向父组件；用到自定义事件,父组件用$on监听自定义事件，子组件需要用$emit 触发父组件所关心的自定义事件;
+       */
+
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                listdata1: ['上海', '北京', '深圳', '广州', '山西', '南京'],
+                listdata2: ['西红柿', '橘子', '香蕉', "苹果", '荔枝', '葡萄']
+            },
+            methods: {
+
+            },
+
+        })
+
+
+    </script>
+</body>
+
+</html>

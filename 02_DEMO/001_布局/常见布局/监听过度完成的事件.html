@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+			div{
+				width:100px;
+				height:100px;
+				background-color: red;
+				border-radius: 20px;
+				transition: all 1s;
+			}
+			#small{
+				font-size: 35px;
+				font-style: inherit;
+				color:green;
+				text-align: center;
+				line-height:100px;
+				display: none;
+			}
+	</style>
+	<script type="text/javascript">
+			window.onload=function(){
+				var box=document.getElementsByTagName('div')[0];
+				var button=document.getElementsByTagName('button')[0];
+				box.onclick=function(){
+					box.style.transform="translate(300px,300px) rotate(720deg)";
+					box.style.width='200px';
+					box.style.height='200px';
+
+				}
+				//过度结束的一个事件；
+					var small=document.getElementById('small');
+				addEventListener("webkitTransitionEnd", function(){
+					small.style.display="block";
+					small.style.width="200px";
+					small.style.height="200px";
+					small.style.lineHeight="200px";
+					small.style.fontSize='60px';
+					box.style.opacity="0";
+					box.style.borderRadius='100px';
+					console.log(box);
+				})
+
+
+			}
+
+	</script>
+</head>
+<body>
+	<button>点击</button>
+	<div>
+		<div id="small">勇敢</div>
+	</div>
+</body>
+</html>

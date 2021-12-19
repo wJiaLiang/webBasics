@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		*{margin:0; padding:0;}
+		.main{width:680px;margin:50px auto; min-height: 30px;}
+		button{width:80px;height:30px;float: right; outline: medium;}
+		input{width:598px;height:26px;float:left;border-right:none;}
+		table thead tr td{padding-left: 30px; text-align: left}
+		table{width:600px; border-collapse: collapse;text-align: center;padding-top: 50px;}
+		table,tr,td{border: 1px solid blue;}
+	</style>
+</head>
+<body>
+	<div class="main">
+	<input type="text" value="" placeholder="各大城市天气查询"><button type='button'>查询天气</button>
+	<table border=1;>
+		<thead>
+			<tr>
+				<td colspan="6">今天是:&nbsp;&nbsp;<span></span></td>
+			</tr>
+			<tr>
+				<td>日期</td>
+				<td>白天</td>
+				<td>晚上</td>
+				<td>温度</td>
+				<td>天气</td>
+				<td>风力</td>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	</div>
+	<script src='../jquery/jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			$('button').click(function(){
+				var city=$('input').val();
+					$('table').show();
+				var jax =$.ajax({
+					type:'get',
+					url:'http://api.map.baidu.com/telematics/v3/weather?output=json&ak=0A5bc3c4fb543c8f9bc54b77bc155724',
+					data:{location:city||'广州'},
+					dataType:'jsonp',
+					jsonp:'callback',
+					jsonpCallback:'wei',
+					success:function(data){
+						console.log( typeof data);
+						console.dir(data);
+						var dates=data.date;
+						$('thead tr:first td span').empty();
+						$('thead tr:first td span').append(dates);
+						var weather= data.results[0].currentCity;
+						// console.log(weather);
+						var weatherOhter=data.results[0].weather_data;
+						var html='';
+						$.each( weatherOhter ,function(i,itme){
+								html+='<tr><td>'+itme["date"]+
+									  '</td><td>'+"<img src="+itme.dayPictureUrl+
+									  '></td><td><img src='+itme.nightPictureUrl+
+									  '></td><td>'+itme["temperature"]+
+									  '</td><td>'+itme["weather"]+
+									  '</td><td>'+itme["wind"]+
+									  '</td><tr/>'
+
+						})
+							$('table tbody').empty();
+							$('table tbody').append(html);
+					},
+					error:function(data){
+						console.log("错误"+data)
+					}
+
+				})
+				console.log(jax);
+			})
+
+		})
+
+
+	</script>
+</body>
+</html>

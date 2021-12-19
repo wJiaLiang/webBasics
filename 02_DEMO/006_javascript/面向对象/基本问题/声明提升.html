@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	//函数内部没有使用var声明的变量都会提升为全局变量；
+		// var name='张三';
+		// function fn(){
+		// 		console.log(name);
+			
+		// 		var name='李四';
+		// 		console.log(name);
+		// 		console.log(age);
+		// }
+		// fn();
+
+	// *******************************
+	//不使用var声明变量就会导致隐式全局变量；
+
+		var foo = 1;
+		function bar() {
+    		if (!foo) {
+        		var foo = 10;
+    		}
+    		alert(foo);
+		}
+		bar();  //10;
+	// 函数声明提升的优先级大于变量的优先级；函数的表达式不会被提升；
+	fn(); //1
+	var fn;
+	function fn(){
+		console.log(1);
+	}
+	fn=function(){
+		console.log(2);
+	}
+
+
+
+
+	</script>
+</body>
+</html>

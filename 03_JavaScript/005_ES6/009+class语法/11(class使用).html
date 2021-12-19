@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <script type="text/javascript">
+        class myclass{
+            xs=1;
+            ys=2; // 实例属性在外层可以直接写，不用加this;
+
+            static s = 10; // 静态属性;
+            constructor(){
+                this.x = 3;
+                this.y = 4;
+            };
+            test(){
+                return this.x+this.y;
+            };
+            //  静态方法，可以直接通过类调用方法;
+            static testTo(){
+                // console.log(x+y);
+                console.log(this.x);
+
+            }
+        }
+
+        var t = new myclass();
+        console.log(t.test())
+        console.log(myclass.testTo());  // 通过类直接调动;
+        console.log(myclass.s);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

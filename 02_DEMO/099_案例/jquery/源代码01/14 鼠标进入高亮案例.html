@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li:hover {
+            background: red;
+        }
+    </style>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+                $("#findId").click(function(){
+
+
+
+                        /*
+                        * 大家以后调用方法的时候一定要注意返回值..
+                        *
+                        * */
+
+                        /*
+                         *
+                         *查找指定元素的所有后代元素（子子孙孙）
+                         *
+                         *
+                         * */
+                      /* $("#one").find("li").css("background","red");*/
+
+                    /*
+                    * children  孩子.
+                    *
+                    * */
+                   /*  alert($("#one").children().length);*/
+
+
+                        /*
+                        * siblings  兄弟..
+                        *
+                        * */
+                 /*   alert( $("#sc").siblings().length);
+*/
+
+
+
+                /*
+                *   获取当前节点的父元素..
+                *
+                * */
+               /* console.log($("#sc").parent());*/
+                    $("li").eq(2).css("color","red");
+                });
+
+        });
+    </script>
+</head>
+<body>
+
+<input type="button" value="find 方法的使用"  id="findId">
+
+<ul id="one">
+    <li>隔行变色,索引号为：0</li>
+    <li>隔行变色,索引号为：1</li>
+    <li>隔行变色,索引号为：2</li>
+    <li>隔行变色,索引号为：3</li>
+    <li>隔行变色,索引号为：4</li>
+    <li>隔行变色,索引号为：5</li>
+    <li>隔行变色,索引号为：6</li>
+    <li>隔行变色,索引号为：7</li>
+    <li>隔行变色,索引号为：8</li>
+    <li>隔行变色,索引号为：9</li>
+</ul>
+
+<ul>
+    <li>天津</li>
+    <li>武汉</li>
+    <li id="sc">四川</li>
+    <li>广东</li>
+    <li>广西</li>
+ </ul>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止默认事件</title>
+		<style type="text/css">
+			a{
+				display:table-cell;
+				width:100px;
+				height:100px;
+				background-color: red;
+			}
+		</style>
+</head>
+<body>
+	<script type="text/javascript">
+		window.onload=function()
+		{	
+			
+			var a=document.getElementsByTagName('a')[0];
+			// a.onclick=function(){
+			// 	//return false 阻止默认事件但是不阻止冒泡，但是jqery中就可以都阻止；
+			// 	return false;
+
+
+			//第2种方法；
+				a.onclick=function(e){
+				if(e)
+				{
+					e.preventDefault();
+				}
+				else{
+					e.returnValue=false;
+				}
+			}
+		}
+
+	</script>
+	<a href="http://www.baidu.com">我是A标签</a>
+</body>
+</html>

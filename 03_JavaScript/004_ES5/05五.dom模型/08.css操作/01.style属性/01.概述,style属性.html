@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>style属性</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+    <div class="box1"> </div>
+    <p class="p1"> </p>
+
+    <script type="text/javascript">
+/*
+CSS与JavaScript是两个有着明确分工的领域，前者负责页面的视觉效果，后者负责与用户的行为互动。但是，它们毕竟同属网页开发的前端，因此不可避免有着交叉和互相配合。本节介绍如果通过JavaScript操作CSS。
+    style属性：
+    操作 CSS 样式最简单的方法，就是使用网页元素节点的getAttribute方法、setAttribute方法和removeAttribute方法，直接读写或删除网页元素的style属性。
+
+    Style对象:
+    每一个网页元素对应一个DOM节点对象。这个对象的style属性可以直接操作，用来读写行内CSS样式。
+    
+    cssText属性:元素节点对象的style对象，有一个cssText属性，可以读写或删除整个样式。
+ */
+function byDom(dom){
+    return document.querySelector(dom);
+}
+ var box1 = byDom('.box1');
+ box1.setAttribute('style', 'width:100px;'+'height:100px;'+'background-color:blue');
+
+var dstyle = document.querySelector('.p1').style;
+    dstyle.width = "100px";
+    dstyle.height = "100px";
+    dstyle.backgroundColor = 'pink';
+
+document.addEventListener('mousemove',function(e){
+    box1.style.transform = 'translateX('+e.clientX+'px)'+ 'translateY('+e.clientY+'px)';
+},false)
+
+// 这样就重写了box1上的所有样式;
+    box1.style.cssText="border:10px solid red;width:50px;height:50px;";
+    
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

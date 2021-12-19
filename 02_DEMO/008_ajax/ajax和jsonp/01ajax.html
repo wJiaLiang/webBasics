@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src='01.txt'>
+		
+	</script>
+
+	<script type="text/javascript">
+		alert(a);
+	</script>
+
+	<button>点击我显示</button>
+	<div></div>
+		<script>
+			window.onload=function(){
+				var div=document.getElementsByTagName('div')[0];
+				div.onclick=function(){
+					alert(div);
+					var sc=document.createElement('script');
+					sc.src='01.txt';
+					document.body.div.appendChild(sc);
+					alert(a);
+				}
+				
+
+
+			}
+
+
+
+		</script>
+</body>
+</html>

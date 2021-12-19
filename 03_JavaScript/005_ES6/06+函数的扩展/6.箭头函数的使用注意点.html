@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>箭头函数的使用注意点</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+    /*
+        注意点:
+        1.函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象;
+        2.不可当做构造函数，不可使用new命令;
+        3.不可使用arguments对象，改对象在函数体内不存在，可以使用...rest参数代替:
+        4.不可使用yield命令，因为箭头函数不能作为Generator函数;
+
+        第一点尤其值得注意。this对象的指向是可变的，但是在箭头函数中，它是固定的。
+        箭头函数中导致this总是指向函数定义生效时所在的对象，这里即call(改变后的的指向上下文);
+        普通函数执行的时候this总是指向的是window全局对象
+
+     */ 
+    function foo(){
+        setTimeout( ()=>{
+            console.log('id:',this.id);   
+        },1000)
+    }
+
+    var id =11;
+    foo.call({id:22});      // id:22;
+
+
+    function foo1(){
+        let _this=this;
+        setTimeout(function(){
+            console.log('number:',this.number);
+        },1000)
+    }
+    var number =1;
+    foo1.call({number:2});  //number:1;
+
+// *****************************************************************************
+/*
+    箭头函数中的this绑定的是定义时所在的作用域即(Timer函数)，
+    后者的this指向的运行时所在的作用域(全局对象);
+ */  
+    function Timer() {
+        this.s1 = 0;
+        this.s2 = 0;
+        // 箭头函数
+        setInterval(() => this.s1++, 1000);
+        // 普通函数
+        setInterval(function () {
+            this.s2++;   //NaN      取不到数据;全局中没有s2的这个属性所有是NaN;
+        }, 1000);
+    }
+
+    var timer = new Timer();
+    setTimeout( () => console.log('s1: ', timer.s1), 3100);  // 3
+    setTimeout( () => console.log('s2: ', timer.s2), 3100);  // 0
+
+
+/*
+    ******************************************************************************
+    箭头函数可以让this指向固定化，这种特性很有利于封装回调函数。
+    下面是将一个 DOM 事件的回调函数封装在一个对象里面。
+
+    init方法中，使用了箭头函数，这导致这个箭头函数里面的this，总是指向handler对象。
+    否则，回调函数运行时，this.doSomething这一行会报错，因为此时this指向document对象
+
+    this指向的固定化，并不是因为箭头函数内部有绑定this的机制;,实际上箭头函数内根本就没有自己的this，
+    导致了内部的this就是外层代码块的this，正是因为他没有this所以也就不能作构造函数用;
+
+    除了this，以下三个变量在箭头函数之中也是不存在的，指向外层函数的对应变量：arguments、super、new.target。
+    
+    由于箭头函数没有自己的this，所以当然也就不能用call()、apply()、bind()这些方法去改变this的指向
+ */ 
+    var handler={
+        id:1234567,
+        init:function(){
+            document.addEventListener('click',
+                event=>this.doSome(event.type),
+                false
+            )
+        },
+        doSome:function(type){
+            console.log('handling '+type + ' for ' + this.id)
+        }
+    }
+    handler.init();  // handling click for 1234567
+
+
+
+    </script>
+
+</body>
+</html>

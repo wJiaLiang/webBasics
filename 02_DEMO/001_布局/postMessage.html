@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>窗口间的通信</title>
+	<style type="text/css">
+		iframe{
+			width:500px;
+			height:500px;
+			margin:0 auto;
+			display:block;	
+			
+		}
+		button{
+			vertical-align: center;
+		}
+	</style>
+</head>
+<body>
+
+	<button>点击</button>
+	<iframe src="http://www.baidu.com">
+		
+	</iframe>
+	<script type="text/javascript">
+		
+
+	//实例话XMLHttpRequest对象;
+	var xhr=new new XMLHttpRequest();
+	
+	//指定请求;两个必需的参数;俩个必需的参数(请求方式,URL);
+	//如果是get方式的话就没有必要send方法中就没有必要传递数据;
+	xhr.open('get/post','setdata.php');
+	//post请求的时候设置才能设置;
+	xhr.setRequestHeader(header, value);
+	//提交,发送;
+	xhr.send();
+	xhr.onreadystatechange=function(){
+		if(xhr.readyState==4){
+
+		}
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div> contexmenu 事件 </div>
+    <script type="text/javascript">
+    /* 
+    contextmenu事件在一个节点上点击鼠标右键时触发，或者按下“上下文菜单”键时触发。
+
+    */
+   // 阻止了鼠标右键菜单;
+   window.onload=function(){
+     var body = document.querySelector('body');
+       document.addEventListener('contextmenu',function(e){
+            e.preventDefault(); 
+
+       },false)
+   }
+   
+
+
+
+
+
+    </script>
+</body>
+</html>

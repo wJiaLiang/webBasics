@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    function getNum(){
+        var promise = new Promise(function(resolve,reject){
+
+            setTimeout(function(){
+                var num = Math.ceil(Math.random()*100);
+                if(num>50){
+                    resolve(`${num}大于50`);
+                }else{
+                    reject(`${num}小于50`);
+                }
+            },2000)
+            
+        })
+        return promise;
+    }
+
+// then 中两个函数;第一个表示成功的回调，第二个表示失败的回调;
+// 
+    getNum()
+    .then(function(data){
+        console.log(data);
+    },function(data){
+        console.log(data);
+    })
+
+
+    // catch的用法
+    /*   
+    我们知道Promise对象除了then方法，还有一个catch方法，
+    它是做什么用的呢？其实它和then的第二个参数一样，用来指定reject的回调；
+    不过它还有另外一个作用：在执行resolve的回调（也就是上面then中的第一个参数）时，如果抛出异常了（代码出错了），那么并不会报错卡死js，而是会进到这个catch方法中。
+
+    */ 
+    getNumber()
+    .then(function(data){
+        console.log('resolved');
+        console.log(data);
+        console.log(somedata); //此处的somedata未定义
+    })
+    .catch(function(reason){
+        console.log('rejected');
+        console.log(reason);
+    });
+
+    
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

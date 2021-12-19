@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // 立即调用的函数表达式（IIFE）
+
+        //我们需要在定义函数之后，立即调用该函数。这时，你不能在函数的定义之后加上圆括号，这会产生语法错误。
+        function(){ /* code */ }();
+        // SyntaxError: Unexpected token (
+        //产生这个错误的原因是，function这个关键字即可以当作语句，也可以当作表达式。
+
+
+        // 语句
+        function f() {}
+        // 表达式
+        var f = function f() {}
+        // js引擎规定function关键字出现在行首就解释成语句，认为函数的定义不应该是以圆括号结尾，所以就报错了;
+
+
+        //解决方法就是不要让function出现在行首，让引擎将其理解成一个表达式最简单的处理，就是将其放在一个圆括号里面。
+        (function(){ /* code */ }());
+        // 或者
+        (function(){ /* code */ })();
+            
+
+        //推而广之，任何让解释器以表达式来处理函数定义的方法，都能产生同样的效果，比如下面三种写法。
+        var i = function(){ return 10; }();
+        true && function(){ /* code */ }();
+        0, function(){ /* code */ }();
+        // 这样写也可以;
+        !function () { /* code */ }();
+        ~function () { /* code */ }();
+        -function () { /* code */ }();
+        +function () { /* code */ }();
+        
+
+
+
+
+
+    </script>
+</body>
+</html>

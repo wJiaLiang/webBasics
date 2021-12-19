@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style> </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <p> this is 父组件 </p>
+        <div>
+
+        </div>
+    </div>
+</div>
+</body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        Vue.component('parent',{
+            data(){
+                return {
+                    message:'Hello'
+                }
+            },
+            template:`
+            <div>
+                <p> this is 父组件 {{message}}</p>
+                <div> <child ></child> </div>
+            </div>
+            
+            `,
+            provide:{
+                test:'test',
+                afunc:function (val){
+                    console.log('子组件触发提交函数',val)
+                    console.log(this) // 如果是箭头函数这里的 this指向的是 window;
+                   
+                },
+            },
+            methods:{
+                afunc:function(val){
+                    // console.log('子组件触发提交函数',val)
+                }
+            }
+
+
+        });
+
+        Vue.component('child',{
+            data(){
+                return{
+                    child:'child 组件'
+                }
+            },
+            template:`
+            <div>
+                <p> this is 子组件 </p>
+                <div> {{test}} {{afunc}} </div>
+            </div>
+            `,
+            inject: ['test',"afunc"],	// 得到父组件传递过来的数据
+            mounted(){
+                this.afunc(66)
+                console.log(this)
+               
+            }
+
+
+
+        })
+
+
+    new Vue({
+        el:'#app',
+        data:{
+            mainList:'组页面',
+        },
+        template:`<parent></parent>`,
+        methods:{
+
+        },
+        beforeMount() {
+
+        },
+        mounted () {
+
+        },
+        computed: {
+
+        },
+        watch: {
+
+        },
+
+    })
+
+</script>
+</html>

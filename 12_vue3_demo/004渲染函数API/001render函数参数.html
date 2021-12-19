@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> render函数 </title>
+        <style></style>
+    </head>
+    <body>
+
+        
+        <div id="app">  
+            <p> 此处直接替换 </p>
+        </div>
+
+
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="module">
+        
+      const {h,ref} = Vue
+        /*
+
+        在 2.x 中，e render 函数将自动接收 h 函数 (它是 createElement 的常规别名) 作为参数：
+        export default {
+            render(h) {
+                return h('div')
+            }
+        }
+        
+        在 3.x 中，h 现在是全局导入的，而不是作为参数自动传递。
+        import { h } from 'vue'
+        export default {
+            render() {
+                return h('div')
+            }
+        }
+
+        
+        */ 
+
+        const app = Vue.createApp({
+            data(){
+                return{
+
+                }
+            },
+            methods: {
+                submitForm(){
+                    console.log(777)
+                }
+            },
+            render() {
+                return h('div',
+                    {
+                        class: ['button', 'is-outlined'],
+                        style: {color: '#34495E',width:'200px',height:'300px',border:'1px solid deeppink'},
+                        id: 'submit',
+                        innerHTML: '<p>888</p>',
+                        onClick: this.submitForm,
+                        key: 'submit-button'
+                    },
+                )
+            },
+
+            setup(){
+
+            },
+
+        })
+        app.mount("#app")
+        
+    </script>
+</html>

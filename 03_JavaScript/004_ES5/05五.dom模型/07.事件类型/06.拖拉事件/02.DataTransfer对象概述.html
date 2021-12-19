@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="target" draggable="true" style="width: 100px;height: 100px;border: 1px solid blue;"></div>
+    <div id="targetTo" draggable="true" style="width: 100px;height: 100px;border: 1px solid red;"></div>
+    <!-- // HTML代码为 -->
+    <div id="output" class="contentDiv" style="min-height: 200px;border: 1px solid black;">
+        文件拖拉到这里
+    </div>
+
+    <script type="text/javascript">
+    /*
+    所有的拖拉事件都有一个dataTransfer属性，用来保存需要传递的数据。这个属性的值是一个DataTransfer对象。
+
+    拖拉的数据保存两方面的数据：数据的种类（又称格式）和数据的值。数据的种类是一个MIME字符串，比如 text/plain或者image/jpeg，数据的值是一个字符串。一般来说，如果拖拉一段文本，则数据默认就是那段文本；如果拖拉一个链接，则数据默认就是链接的URL。
+    
+    当拖拉事件开始的时候，可以提供数据类型和数据值；在拖拉过程中，通过dragenter和dragover事件的监听函数，检查数据类型，以确定是否允许放下（drop）被拖拉的对象。比如，在只允许放下链接的区域，检查拖拉的数据类型是否为text/uri-list。
+
+    发生drop事件时，监听函数取出拖拉的数据，对其进行处理
+
+     */ 
+/******************************************************************/
+     // DataTransfer对象的属性 
+
+// （1）dropEffect
+        // dropEffect属性设置放下（drop）被拖拉节点时的效果，可能的值包括copy（复制被拖拉的节点）、move（移动被拖拉的节点）、link（创建指向被拖拉的节点的链接）、none（无法放下被拖拉的节点）。设置除此以外的值，都是无效的。
+        var target = document.querySelector('#target');
+        target.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.dataTransfer.dropEffect = 'move';
+        });
+        // 鼠标箭头会根据dropEffect属性改变形状，提示目前正处于哪一种效果。这意味着，通过鼠标就能判断是否可以在当前节点drop被拖拉的节点。
+
+//（2）effectAllowed
+        // effectAllowed属性设置本次拖拉中允许的效果
+
+        var targetTo= document.querySelector('#targetTo');
+         targetTo.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.dataTransfer.effectAllowed  = 'copy';
+        });
+
+// （3）files
+    // iles属性是一个FileList对象，包含一组本地文件，可以用来在拖拉操作中传送。如果本次拖拉不涉及文件，则属性为空的FileList对象。
+    var div = document.getElementById('output');
+    var contentDiv = document.querySelector(".contentDiv");
+    div.addEventListener("dragenter", function( event ) {
+      div.textContent = '';
+      event.stopPropagation();
+      event.preventDefault();
+    }, false);
+
+    div.addEventListener("dragover", function( event ) {
+      event.stopPropagation();
+      event.preventDefault();
+    }, false);
+
+    div.addEventListener("drop", function( event ) {
+      event.stopPropagation();
+      event.preventDefault();
+      var fileList = event.dataTransfer.files;
+      // for (var i = 0; i < files.length; i++) {
+      //   div.textContent += files[i].name + ' ' + files[i].size + '字节\n';
+      // }
+        if (fileList.length > 0) {
+        var file = fileList[0];
+        var reader = new FileReader();
+        reader.onloadend = function(e) {
+            if (e.target.readyState == FileReader.DONE) {
+                var content = reader.result;
+                contentDiv.innerHTML = "File: " + file.name + "\n\n" + content;
+                console.log(content);
+            }
+        }
+        reader.readAsBinaryString(file);
+      }
+
+
+    }, false);
+
+
+//  （4）types
+/*  types属性是一个数组，保存每一次拖拉的数据格式，比如拖拉文件，则格式信息就为File。
+  下面是一个例子，通过检查dataTransfer属性的类型，决定是否允许在当前节点执行drop操作。   
+*/
+function contains(list, value){
+  for( var i = 0; i < list.length; ++i ){
+    if(list[i] === value) return true;
+  }
+  return false;
+}
+
+function doDragOver(event){
+  var isLink = contains( event.dataTransfer.types, "text/uri-list");
+  if (isLink) event.preventDefault();
+}
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

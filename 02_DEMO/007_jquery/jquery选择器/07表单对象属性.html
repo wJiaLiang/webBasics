@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="content">
+		<select name="下拉选项" multiple>
+			<option value="1">1111</option>
+			<option value="2" selected='selected'>2222</option>
+			<option value="3">3333</option>
+			<option value="5">5555</option>
+		</select>
+		<input type="checkbox" name="复选框" value="复选" checked='checked'>
+	</div>
+	<script src='../jquery-1.11.1.js'></script>
+	<script>
+		$(function(){
+			$('select').css('width',"100px").css('height',"150px");
+			var values=$("select option:selected").val();
+			console.log(values); //2
+
+			var ins=$('input:checked').val();
+			console.log(ins); //复选；
+
+			$('input:enabled')    //匹配所有可用元素;
+			$('input:disabled')   //匹配所有不可用的元素;
+
+
+		})
+
+	</script>
+</body>
+</html>

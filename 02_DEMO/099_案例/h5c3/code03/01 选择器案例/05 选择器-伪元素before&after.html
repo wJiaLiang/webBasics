@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器 - 伪元素</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: '微软雅黑';
+			background-color: #F7F7F7;
+		}
+		li {
+			font-size: 20px;
+			/*line-height: 40px;*/
+			list-style: none;
+		}
+		span.test {
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+
+
+		/*我要通过css 往 li 里面添加元素..
+			before
+				  在li 的子元素的最前面添加内容
+			after
+				  在li 的子元素的最后面添加内容
+		*/
+
+		/*li::before{
+			display: block;
+			width: 200px;
+			height: 200px;
+			!*这个属性必须要添加，如果没有也要添加*!
+			content: '';
+			background: chartreuse;
+		}
+		!*还有一个after  也可以用来添加伪元素*!
+		li::after{
+			display: block;
+			width: 200px;
+			height: 200px;
+			!*必须写的属性*!
+			content: 'ccc';
+			background: red;
+		}*/
+
+
+
+		/*
+		  伪元素选择器 需要在中间加两个::
+		这个从原则上来讲，加一个冒号是伪类选择器
+	    : 加一个冒号，浏览器也能解析出来，浏览器会把这个
+	    加一个冒号的:before 当做伪元素选择器来处理
+		这个是浏览器的一个兼容处理.
+		在后面的案例当中在一个一个去学习.
+
+		*/
+		li:before{
+			display: block;
+			width: 200px;
+			height: 200px;
+			content: '';
+			background: chartreuse;
+		}
+
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<span class="test">中间的</span>
+			<span class="test">中间的</span>
+			<span class="test">中间的</span>
+			<span class="test">中间的</span>
+			<span class="test">中间的</span>
+			<span class="test">中间的</span>
+		</li>
+	</ul>
+</body>
+</html>

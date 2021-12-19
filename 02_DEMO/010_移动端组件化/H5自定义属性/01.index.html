@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        
+
+        
+    <div class="box" data-id="219"> </div>
+    <div class="test" data-cardBank="中国">   </div>
+    <div class="test2" data-w-j-l="666">    </div>
+
+    <script type="text/javascript">
+    /*
+    1.在HTML5中添加了data-*的方式来自定义属性，所谓data-*实际上上就是data-前缀加上自定义的属性名。
+    2.命名可以用驼峰命名方式，但取值是必需全部使用小写(后面会说)
+    3.使用这样的结构可以进行数据存放。使用data-*可以解决自定义属性混乱无管理的现状。
+    4.命名如果是用带连字符连接的在用data获取的时候需要命名驼峰化，即大小写组合书写;
+     */ 
+
+    var box = document.querySelector('.box');
+    var elment = document.querySelector('.test');
+    var element2 =document.querySelector('.test2');
+
+    alert(box.dataset.id)  //219
+    // 不管是不是驼峰命名法 取值时一切都是小写;
+    alert(elment.dataset.cardbank);  //中国;
+    // 带连字符的属性取值是用驼峰化;
+    alert(element2.dataset.wJL);   //666
+
+
+    </script>
+</body>
+</html>

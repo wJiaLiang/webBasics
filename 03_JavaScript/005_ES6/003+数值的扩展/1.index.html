@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+/*
+  1.  ES6 将全局方法parseInt()和parseFloat()，移植到Number对象上面，行为完全保持不变。
+    这样做的目的，是逐步减少全局性方法，使得语言逐步模块化。
+*/
+
+    // ES5的写法
+    parseInt('12.34') // 12
+    parseFloat('123.45#') // 123.45
+
+    // ES6的写法
+    Number.parseInt('12.34') // 12
+    Number.parseFloat('123.45#') // 123.45
+
+
+/*
+  2.  Number.isInteger()
+    Number.isInteger()用来判断一个数值是否为整数。
+    如果参数不是数值，Number.isInteger返回false。
+*/
+let [z1,z2,z3,z4] =
+        [   Number.isInteger(),
+            Number.isInteger('wei'),
+            Number.isInteger(12),  
+            Number.isInteger('12')
+        ]
+console.log(z1,z2,z3,z4)    // false false true false
+
+
+
+
+
+    </script>
+</body>
+</html>

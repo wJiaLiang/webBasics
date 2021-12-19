@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{cursor:pointer;}
+    </style>
+</head>
+<body>
+    
+    <p id="para">Hello</p>
+    <p id="elebiao" onclick="helloto()">Hello_to</p>
+    <p id="els" onclick="(function(){console.log(this)})() ">指向的是全局window对象自执行函数</p>
+    <p id="els" onclick="console.log(this)">指向的是dom节点</p>
+    <!-- 这样绑定事件指向的是节点对象 -->
+    <p id="els" onclick=" console.log(this.id) ">指向的是节点对象</p>
+
+    <script type="text/javascript">
+// 点击<p>节点会输出para。这是因为监听函数被“拷贝”成了节点的一个属性，所以this指向节点对象。
+//  这样用addEventListener()绑定事件;
+        var id = 'doc';
+        var paras = document.getElementById('para');
+        function hello(e){
+            console.log(e.target);
+            console.log(this.id);  // 标签id属性; para
+            console.log(this)  //this指向的是节点对象; para;
+        }
+        paras.addEventListener('click', hello, false);
+
+
+// 这样绑定的事件时候函数内的this指向的是全局对象，这时候相当在全局作用域内运行;
+    /* <p id="para" onclick="hello()">Hello</p>
+     或者这样绑定事件
+     pElement.setAttribute("onclick",'hello');
+
+    */
+        function helloto(){
+            console.log(this.id);  //doc
+        }
+        // 或者
+        elebiao.onClick=function(){
+            helloto();
+        }
+
+/*
+ 一种解决方法是，不引入函数作用域，直接在on-属性写入所要执行的代码。因为on-属性是在当前节点上执行的。
+    <p id="para" onclick="console.log(id)">Hello</p>
+        <!-- 或者 -->
+    <p id="para" onclick="console.log(this.id)">Hello</p>  this指向的是节点对象
+
+
+    element.onclick = function (){ doSomething() }; //指向的是全局函数;
+    element.onclick = function (){  }; //指向节点对象;
+*/
+
+    
+
+
+
+    </script>
+</body>
+</html>

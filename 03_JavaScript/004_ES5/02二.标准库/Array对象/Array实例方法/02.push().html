@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+    // push方法用于在数组的末端添加一个或多个元素，
+    // 并返回添加新元素后的数组长度。注意该方法会改变原数组
+    var a = [];
+    a.push(1)  // 1
+    a.push('a') // 2
+    a.push(true, {}) // 4
+    a  // [1, 'a', true, {}]
+
+
+    // 如果需要合并两个数组，可以这样写:
+    var b = [1, 2, 3];
+    var c = [4, 5, 6];
+
+    Array.prototype.push.apply(b,c);
+    // 或者
+    a.push.apply(a,b);
+    
+    
+
+    </script>
+</body>
+</html>

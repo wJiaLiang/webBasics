@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <template v-for="(item,index) in list" >
+                <li @click="clickHand" :ref="setItemRef"> {{"index:"+index}} {{"item:"+item}} </li>
+            </template>
+        </ul>
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+    /*
+
+        1、对于 v-if/v-else/v-else-if 的各分支项 key 将不再是必须的，因为现在 Vue 会自动生成唯一的 key。
+        2、在 Vue 3 中，这样的用法将不再在 $ref 中自动创建数组。要从单个绑定获取多个 ref，请将 ref 绑定到一个更灵活的函数上
+        3、3.x 版本中 v-if 总是优先于 v-for 生效
+    
+    */ 
+const app =Vue.createApp({
+    data(){
+        return{
+            list:[2,4,6,8,10,12],
+            itemRefs:[]
+        }
+    },
+    setup(){
+
+    },
+    // props 可以是数组或对象，用于接收来自父组件的数据
+    props:[],
+
+    // Vue 实例将会在实例化时调用 watch()，遍历 watch 对象的每一个 property。
+    watch:{},
+
+    // 计算属性
+    computed:{},
+
+    // 方法;
+    methods:{
+        clickHand(){
+            // console.log(this.$refs) // undefind
+            console.log(this.itemRefs)
+        },
+        setItemRef(el){
+            this.itemRefs.push(el)
+        }
+    },
+
+    // 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。
+    beforeCreate () {},
+
+    // 在实例创建完成后被立即调用。
+    created () {},
+
+    // 在挂载开始之前被调用：相关的 render 函数首次被调用。
+    beforeMount () {},
+
+    // 实例被挂载后调用
+    mounted() {
+        
+    },
+
+    // 被 keep-alive 缓存的组件激活时调用。
+    activated () {},
+
+    //被 keep-alive 缓存的组件停用时调用。
+    deactivated () {},
+
+    // 实例销毁之前调用。在这一步，实例仍然完全可用。
+    beforeUnmount () {},
+
+    // 实例销毁后调用
+    unmounted () {},
+
+    // 组件
+    components:{},
+
+    // 过滤器
+    filters: {},
+
+    // 自定义指令
+    directives:{},
+
+    //mixins 选项接收一个混入对象的数组
+    mixins:[],
+
+})
+// 组件
+app.component({})
+
+app.mount("#app")
+
+</script>
+</html>

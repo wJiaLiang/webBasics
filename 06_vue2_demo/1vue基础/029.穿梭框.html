@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<style>
+			* {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .main {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+        }
+
+        .left_list {
+            width: 300px;
+        }
+
+        .right_list {
+            width: 300px;
+        }
+
+        .head {
+            height: 45px;
+            background-color: #ccc;
+            line-height: 45px;
+            border: 1px solid silver
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .content {
+            border: 1px solid blue;
+            min-height: 300px;
+        }
+
+        .c_list {
+            float: left;
+            width: 70px;
+            padding-top: 100px;
+        }
+
+        .textc {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="main">
+				<trans_list title="原列表" v-bind:data="oringinData"> </trans_list>
+				<div class="c_list">
+					<div class="textc">
+						<input style="font-size: 30px;" type="button" value="<" v-on:click="targettoorg">
+
+					</div>
+					<div class="textc">
+						<input style="font-size: 30px;" type="button" value=">" v-on:click="orgtotarget">
+					</div>
+				</div>
+				<trans_list title="目标列表" :data="targetData"> </trans_list>
+
+			</div>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+		<script>
+			Vue.component('trans_list', {
+				props: ['title', 'data'],
+				computed: {
+					lengthCheck() {
+						let l = this.data.filter((ele, index, arr) => {
+							return ele.checked == true
+						}).length;
+						console.log(l);
+						return l;
+					}
+				},
+				methods: {
+
+				},
+				template: `<div class="left_list fl">
+    <div class="head">
+        <label>
+            <input type="checkbox" name="" id="id"> <span> {{title}} </span>
+        </label>
+        <p class="fr">{{lengthCheck}}/{{data.length}}</p>
+    </div>
+    <div class="content">
+        <ul>
+        <li v-for="item,index in data">
+            <label>
+                <input type="checkbox" v-model="item.checked" name="" :id="'id'+index"> 
+                <span> {{item.title}} </span>
+            </label>
+        </li>
+        </ul>
+    </div>
+</div>`
+			});
+
+			var dataList = {
+				oringinData: [{
+					id: 105,
+					title: 'Node课程',
+					checked: true
+				}, {
+					id: 106,
+					title: 'canvas课程',
+					checked: true
+				}],
+				targetData: [{
+						id: 12,
+						title: "语文",
+						checked: false,
+					},
+					{
+						id: 12,
+						title: "数学",
+						checked: false,
+					}, {
+						id: 12,
+						title: "英语",
+						checked: true,
+					}, {
+						id: 12,
+						title: "物理",
+						checked: false,
+					}
+				]
+			};
+
+			new Vue({
+				el: '#app',
+				data: {
+					...dataList
+				},
+				methods: {
+					targettoorg() {
+						let newdata = this.targetData.filter(ele => ele.checked)
+						console.log(newdata);
+						let newD = newdata.map(ele => {
+							return {
+								...ele,
+								checked: false
+							}
+						})
+						console.log(newD);
+
+						this.oringinData.push(...newD);
+						// 清空选中的;直接给数组赋值你选择的数据;
+						this.targetData = this.targetData.filter(ele => !ele.checked);
+
+					},
+					orgtotarget() {
+						let newdata = this.oringinData.filter(ele => ele.checked);
+						let checkdata = newdata.map(ele => {
+							return {
+								...ele,
+								checked: false,
+							}
+						})
+						this.targetData.push(...checkdata);
+						this.oringinData = this.oringinData.filter(ele => !ele.checked);
+					}
+
+				},
+				computed: {
+
+				}
+			})
+		</script>
+
+	</body>
+
+</html>

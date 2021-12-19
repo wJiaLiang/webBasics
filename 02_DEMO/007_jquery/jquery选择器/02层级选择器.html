@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+<input type="password" name="" value="" placeholder="">
+<form>
+  <label>Name:</label>
+  <input type='text' name="name" value="dddd"/>
+  <fieldset>
+      <label>Newsletter:</label>
+      <input type='text' name="newsletter" />
+ </fieldset>
+</form>
+<input type='text' name="none" />
+<p>sdjfljsdf</p>
+
+
+		<!-- 层级选择器 -->
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			$('form label').css('color',"red");
+			$('form>input').css("border","2px solid blue");  
+			$('label+input').css("width","300px"); //匹配所有跟在 label 后面的 input 元素
+			$('input~input').css('marginBottom','100px'); //匹配 prev 元素之后的所有 siblings 元素
+
+		})
+
+
+	</script>
+</body>
+</html>

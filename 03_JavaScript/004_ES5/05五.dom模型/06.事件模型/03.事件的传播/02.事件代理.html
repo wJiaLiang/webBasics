@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>事件代理</title>
+    <style>
+        ul>li{border: 1px deeppink solid;margin-bottom: 10px;cursor: pointer;}
+    </style>
+</head>
+<body>
+    <ul class="ulbox">
+        <li>this is 第1 li标签</li>
+        <li>this is 第2 li标签</li>
+        <li>this is 第3 li标签</li>
+        <li>this is 第4 li标签</li>
+        <li>this is 第5 li标签</li>
+        <li>this is 第6 li标签</li>
+        <li>this is 第7 li标签</li>
+        <li>this is 第8 li标签</li>
+    </ul>
+
+    <div id="result">       </div>
+    <script type="text/javascript">
+    /*
+    由于事件会在冒泡阶段向上传播到父节点，因此可以把子节点的监听函数定义在父节点上，由父节点的监听函数统一处理多个子元素的事件。这种方法叫做事件的代理（delegation）。
+
+     */ 
+    var ulbox = document.querySelector('.ulbox');
+
+    ulbox.addEventListener('click',function(event){
+        if(event.target.tagName.toLowerCase() ==='li'){
+            console.log(this);
+        }
+    },false)
+
+    /*
+    上面代码的click事件的监听函数定义在<ul>节点，但是实际上，它处理的是子节点<li>的click事件。这样做的好处是，只要定义一个监听函数，就能处理多个子节点的事件，而且以后再添加子节点，监听函数依然有效。
+
+
+    
+     */ 
+
+
+
+    </script>
+</body>
+</html>

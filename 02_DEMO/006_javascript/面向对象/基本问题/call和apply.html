@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象</title>
+</head>
+<body>
+		<script type="text/javascript">
+				function Foo(n){
+					var age=239;
+					this.name=n;
+				}
+
+				var p1=new Foo("hh");
+				console.dir(p1);
+				console.dir(Foo);
+				console.dir(Foo.prototype);	
+
+
+	var info="tom"; //info是window的属性;
+	
+	function foo(){
+		var info='jerry';
+		console.log(this.info);// this指向的是window tom;
+	}
+	var obj={
+		info:'spike'
+	}
+	//1.可以执行这个函数
+		foo.call();
+	//2.改变this指向;
+		foo.apply(obj);
+	//3.借用别的对象上的方法;
+	//
+	//求数组中的最大值;
+	var arr=[123,56,22,44,];
+	//这里借用math中的max方法;
+
+	var max=Math.max.apply(null,arr);
+	console.log(max);
+
+
+		</script>
+</body>
+</html>

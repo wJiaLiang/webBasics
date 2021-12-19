@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>JQ调用淘宝搜索接口</title>
+	<style type="text/css" media="screen">
+		*{margin:0 ;padding: 0;}
+		.main{width: 80%;margin:30px auto;background-color:#e1e1e1;border:1px solid green;text-align: center;}
+		input{width:100%;height: 40px;margin:0 auto;border:none;}
+		ul{list-style: none;padding: 0;margin:0; display: none;}
+		ul li{line-height: 20px;text-align: left;padding-left: 10px;}
+		ul li a{text-decoration: none;width:100%;}
+		li:hover{background-color: goldenrod;cursor:pointer;}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<h3>51</h3>
+		<input type="text" id='q' placeholder="搜索关键词">
+		<ul>
+	
+		</ul>
+	</div>
+	<script src='../jquery/jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+			$(function(){
+				$('input').keyup(function(){
+					var jax=$.ajax({
+						//jsonp只能以get方式请求;
+						type:'get',
+						url:"http://kwdsrv.51job.com/KwdSrvByKey/default.aspx?src=for51all",
+						data:{kwd:$('input').val()},
+						cache:false,                 //不缓存
+						dataType:'jsonp',
+						jsonp:'callback',    //回调函数的键;
+						jsonpCallback:'wei',  //回调函数名；
+						success:function(data){
+							// var str=new Function(""+data.content+"")()
+							// var str = eval("'" + data.content + "'"); 
+							var str=data.content; //unicode编码了
+							var str=eval(str);				
+							console.dir(str);
+
+							var $ul=$('ul');
+							// if(data.result.length!=''){
+							// 	$ul.empty();
+							// 	var html='';
+								
+
+
+							// 	$ul.css('display','block');
+							// 	$ul.append(html);
+
+							// }else{
+							// 	$ul.css('display','none');
+							// }
+						},
+						error:function(){
+							console.log(-1);
+						}
+					})
+					
+					console.log(jax.getAllResponseHeaders());
+
+				})
+
+
+			})
+
+			
+	</script>
+	
+</body>
+</html>
+

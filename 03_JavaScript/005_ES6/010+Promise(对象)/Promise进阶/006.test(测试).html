@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+        设 doSomething()  和  doSomethingElse() 返回的都是 Promise 对象;
+        下面 写法的区别：
+        注意 then() 中接受两个函数为参数;
+    */
+    // 1#
+    // 正常情况状态;
+    doSomething().then(function(){
+        return doSomethingElse();
+    })
+
+    // 2#;
+    // 没有返回 默认返回一个 undefind;
+    doSomething().then(function(){
+        doSomethingElse();
+    })
+
+    // 3#
+    // 传的是一个函数执行 所以不符合规范,第一个then会被忽略掉;
+    doSomething().then( doSomethingElse() )
+                .then(.....);
+
+    // 4#
+    // 就相当一个函数;
+    doSomething().then(doSomethingElse);
+
+
+
+
+
+
+    </script>
+</body>
+</html>

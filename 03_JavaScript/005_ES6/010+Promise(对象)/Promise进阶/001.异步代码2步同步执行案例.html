@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+    console.log('开始');
+    new Promise(resolve=>{
+        setTimeout(()=>{
+            resolve('hello');
+            
+        },2000)
+        // console.log(a+b);  
+    })
+    .then(value=>{
+        console.log(value)      // hello
+        return new Promise(resolve=>{
+            setTimeout(()=>{
+                resolve('world');
+            },500)
+        })
+    })
+    .then(value=>{
+        console.log(value +  'world');
+    })
+    .catch(err=>{
+        console.log('catch捕获错误',err);
+    })
+    .finally(()=>{
+        console.log('执行结束');
+    })
+
+    // 开始
+    // hello 
+    // worldworld
+    // 执行结束
+
+
+
+
+    </script>
+</body>
+</html>

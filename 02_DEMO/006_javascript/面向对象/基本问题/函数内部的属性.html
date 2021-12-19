@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的内部的属性</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		function foo(a,b,c){
+			console.log(arguments.length); //实参的个数；
+			console.log(foo.length); //形参的个数；
+			console.log(foo.caller); //函数的调用者；
+	
+		}
+		function fn(){
+			foo(1,2);
+		}
+		fn();
+
+
+		//类数组转化为数组；
+		var obj={0:'a',1:'b',2:'c',length:3};
+		var arr=Array.prototype.slice.call(obj,0);
+
+		arr.push('s')
+		console.log(arr);  //["a", "b", "c", "s"];
+
+	</script>
+</body>
+</html>

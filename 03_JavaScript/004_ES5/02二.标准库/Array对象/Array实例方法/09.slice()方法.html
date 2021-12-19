@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <script type="text/javascript">
+
+        /*
+            slice方法用于提取原数组的一部分，返回一个新数组，原数组不变。
+            它的第一个参数为起始位置（从0开始），
+            第二个参数为终止位置（但该位置的元素本身不包括在内）。
+            如果省略第二个参数，则一直返回到原数组的最后一个成员。
+        */ 
+
+        var a = ['a', 'b', 'c'];
+
+        a.slice(0) // ["a", "b", "c"]
+        a.slice(1) // ["b", "c"]
+        a.slice(1, 2) // ["b"]
+        a.slice(2, 6) // ["c"]
+        a.slice() // ["a", "b", "c"] slice没有参数，实际上等于返回一个原数组的拷贝。
+
+        /*
+            如果slice方法的参数是负数，则表示倒数计算的位置。
+            面代码中，-2表示倒数计算的第二个位置，-1表示倒数计算的第一个位置。
+        */ 
+        var a = ['a', 'b', 'c'];
+        a.slice(-2) // ["b", "c"]
+        a.slice(-2, -1) // ["b"]
+
+        // *slice方法的一个重要应用，是将类似数组的对象转为真正的数组
+        Array.prototype.slice.call({ 0: 'a', 1: 'b', length: 2 })   // ['a', 'b']  
+       
+        console.log(Array.isArray( Array.prototype.slice.call(document.querySelectorAll("div")) )  )
+        //true
+        
+
+
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>饼状图</title>
+    <style type="text/css">
+        body{font-size: 24px;}
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="700" height="600" style="border: 1px solid #ccc;"></canvas>
+    <script>
+        var c=document.getElementById('myCanvas');
+        var cd=c.getContext('2d');
+        var data_arr=[0.1,0.25,0.5,0.15],   //权重
+            color_arr=['blueviolet',"#FFAA00","#00AABB","#FF4400"], //定义数据对应的颜色
+            text_arr=["第一季度","第二季度","第三季度","第四季度"]  //定义数据对应的季度
+        var oPi=Math.PI*2;
+        //圆的起始位置
+        var startAgl=0;
+        //圆的结束位置
+        var agl;
+        for(var i=0;i<data_arr.length;i++){
+            //console.log(data_arr[i],text_arr[i],color_arr[i]);
+            //绘制饼图
+            agl=data_arr[i]*oPi+startAgl;
+            cd.fillStyle=color_arr[i];
+            cd.beginPath();
+            cd.moveTo(300,300);
+            cd.arc(300,300,150,startAgl,agl,false);
+            cd.lineTo(300,300);
+            cd.stroke();
+            cd.fill();
+            startAgl=agl;
+            console.log(startAgl);
+            //绘制图例
+            cd.fillRect(480,50+18*i,16,16);
+            cd.fillStyle="#000";
+            cd.fillText(text_arr[i],500,62+18*i);
+        }
+    </script>
+</body>
+</html>

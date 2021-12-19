@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>style对象的三个方法</title>
+</head>
+<body>
+    
+    <div class="box1"> </div>
+    <script type="text/javascript">
+    /*
+    setProperty(propertyName,value)：设置某个CSS属性。
+    getPropertyValue(propertyName)：读取某个CSS属性。
+    removeProperty(propertyName)：删除某个CSS属性。
+    
+    */ 
+     var box1 = document.querySelector('.box1').style;
+     box1.setProperty('width','100px');
+     console.log(box1.getPropertyValue('width'));
+     console.log(box1.removeProperty('width'));
+     
+
+
+
+    </script>
+    
+</body>
+</html>

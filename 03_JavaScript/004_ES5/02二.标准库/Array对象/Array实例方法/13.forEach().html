@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //forEach方法与map方法很相似，也是遍历数组的所有成员，执行某种操作，但是forEach方法一般不返回值，只用来操作数据。如果需要有返回值，一般使用map方法。
+
+        //forEach方法的参数与map方法一致，也是一个函数，数组的所有成员会依次执行该函数。它接受三个参数，分别是当前位置的值、当前位置的编号和整个数组
+
+        [2,4,6].forEach( function(element, index,array) {
+            console.log(element) //2 ,4 ,6;
+        });
+
+        //forEach方法也可以接受第二个参数，用来绑定回调函数的this关键字。
+        var out =[];
+        [5,6,7].forEach(function(elem,index,arr){
+            this.push(elem*2);
+        },out)
+        console.log(out) //12,14,16;
+
+
+        //上面代码中，空数组out是forEach方法的第二个参数，结果，回调函数内部的this关键字就指向out。这个参数对于多层this非常有用，因为多层this通常指向是不一致的。
+        var obj = {
+              name: '张三',
+              times: [1, 2, 3],
+              print: function () {
+                //这里的this指向的是obj对象;
+                this.times.forEach(function (n) {
+                  console.log(this.name);//这里的this指向的是window对象;
+                });
+              }
+            };
+            obj.print() //什么也没有打印;
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="content">
+		<ul>
+			<li>one1</li>
+			<li>two2</li>
+			<p>p元素</p>
+			<li>three3</li>
+		</ul>
+		<input type="checkbox" name="" value="男" checked='checked'>
+		<input type="checkbox" name="" value="女" >
+	</div> 
+ <ul id='uls'>
+    <li>list item 1</li>
+    <li>list item 2</li>
+    <li>list item 3</li>
+    <li>list item 4</li>
+    <li>list item 5</li>
+</ul>
+
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+		// $('li:first').css('fontSize','50px');  //<li>one1</li>
+			//相反的有:last
+			var s=$('input:not(:checked)');//去除所有与给定选择器匹配的元素
+			console.dir(s);
+			//odd偶数行的元素;
+		// $('#uls li:even').css('color','blue');  //匹配所有索引值为偶数的元素，从 0 开始计数
+			$('#uls li:gt(x)').css('color','red');	 //下标从0 开始; 大于x的所有元素；
+			$('#uls li:lt(3)').css('color',"green");  //小标小于3的元素；
+			$('ul:has(p)').css('fontSize',"30px");  //选择到所有ul中包含p的元素;
+		})
+
+
+	</script>
+</body>
+</html>

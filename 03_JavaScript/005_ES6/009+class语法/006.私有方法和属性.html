@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>私有方法和属性</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+    私有方法是常见需求，但 ES6 不提供，只能通过变通方法模拟实现。
+    一种做法是在命名上加以区别。
+    就是只能在函数内部调用到的方法;从外面是无法访问的;
+
+    一种方法就是方法名加下划线，表示私有，但是外面还是可以调用到;
+    另一种方法就是索性将私有方法移出模块，因为模块内部的所有方法都是对外可见的
+    
+    foo是公有方法，内部调用了bar.call(this, baz)。这使得bar实际上成为了当前模块的私有方法
+    */ 
+    class Widget {
+      foo (baz) {
+        bar.call(this, baz);
+      }
+    }
+
+    function bar(baz) {
+      return this.snaf = baz;
+    }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

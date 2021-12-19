@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		var xhr= new XMLHttpRequest();
+		//get 方式的时候数据跟在地址的后面;
+		xhr.open('get','index.php?请求的参数跟在后面',true);
+
+		//post请求的时候需要设置，这个告诉服务器我是按了这种数据方式编码的；不然send（）里面的数据是看不到的；
+		xhr.setRequestHeader('Content-Type','application/x-www-form-urlenconded');
+		//get方式的话send()里面设置为null;
+		xhr.send();
+		xhr.onreadystatechange=function()
+		{
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					xhr.statusText   //表示响应信息；如OK；
+					xhr.getAllResponseHeaders()   //获取全部的响应头信息；
+					xhr.getResponseHeader('Content-Type')    //获取指定的头信息;判断后台返回的是什么数据类型;
+					xhr.responseText        //表示响应的主体;
+
+					alert("成功"+xhr.responseText);
+				}else{
+					alert('失败');
+				}
+			}
+		}
+
+
+	</script>
+</body>
+</html>

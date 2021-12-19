@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    var maxArr=[
+        {name:"李白",age:10,price:1.4},
+        {name:"阿杜",age:50,price:1.9},
+        {name:"尼玛",age:20,price:4.4},
+        {name:"泰山",age:90,price:2.9},
+        {name:"呵呵",age:70,price:1.6},
+    ]
+    maxArr.sort(function(a,b){
+        return  b['age']-a['age'];
+    })
+    console.log(maxArr);  // 
+
+    /**
+     * 排序原理:
+     * 参数 a 和 b 实际上是数组中随机选择的数;
+        //默认是字符串来排序;
+     */
+     var arr1=[2,4,67,8,54];
+     arr1.sort(function(a,b){
+        return a-b      //从小到大; 如何使正数就会交换位置，类似冒泡排序原理;
+     })     
+     console.log(arr1);  // [2,4,8,54,67]
+
+
+     var arr2 =['23px','45px','88px','67px'];
+     arr2.sort(function(a,b){
+        return parseInt(a)-parseInt(b);
+     })
+     console.log(arr2); // ["23px","45","67px","88px"]
+
+
+     // 随机打乱一个数组;
+     var arr3=[4,7,8,90];
+     arr3.sort(function(a,b){
+        return Math.random() - 0.5;
+     })
+     console.log(arr3);  // [7,90,8,4]
+
+
+    </script>
+</body>
+</html>

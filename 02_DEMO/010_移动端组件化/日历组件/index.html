@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>日历组件</title>
+    <style type="text/css">
+        div{border-radius: 300px;}
+    </style>
+
+</head>
+<body>
+
+    <header class="pt30">
+        <div class="mauto titlebox">
+            <input class="dataInput" type="text" name=""> <button>获取</button>
+        </div>
+    </header>
+    <section class="pt30 div1">
+        <div class="nowTime">
+        <table class="mauto">
+            <thead>
+                <tr>
+                    <th>星期一</th>
+                    <th>星期二</th>
+                    <th>星期三</th>
+                    <th>星期四</th>
+                    <th>星期五</th>
+                    <th>星期六</th>
+                    <th>星期日</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </section>
+
+
+
+
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript">
+        let flag = true;
+        var Input = document.querySelector('.dataInput');
+        var div1 = document.querySelector('.div1');
+        var button =document.querySelector('button');
+        button.onclick=function(){
+            var oDate = new Date();
+            if(flag){
+                div1.style.display="block";
+
+                showDate(oDate.getFullYear,oDate.getMonth()+1);
+            }else{
+                div1.style.display="none";
+            }
+            flag = !flag;
+        }
+
+    /**
+     * [showDate description] 生成日历的函数;
+     *传入的参数为:要生成在那个容器里,当前的年和月，然后动态生成html;
+     * @param  {[type]} argument [description]
+     * @return {[type]}          [description]
+     */
+    function showDate(obj,year,month) {
+
+    }
+
+
+    // 判断每一个月有多少天
+    if(month==1||month==3||month==5||month==7||month==8||month==10||month==12){
+        dayNum = 31;
+    }else if(month==4||month==6||month==9||month==11){
+        dayNum = 30;
+    }else if(month==2&& isleapYear()){
+        dayNum =29;
+    }else{
+        dayNum =28;
+    }
+
+
+    // 判断闰年;
+    function isleapYear( year ){
+    if( year%4==0 && year%100!=0){
+        return true;
+
+    }else if (year%400==0){
+        return true;
+    }else {
+        return false;
+    }
+    console.log(isleapYear(2018));
+
+    </script>
+</body>
+</html>

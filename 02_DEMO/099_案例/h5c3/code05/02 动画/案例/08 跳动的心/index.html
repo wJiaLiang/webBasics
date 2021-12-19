@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Red Heart</title>
+	<style>
+		html, body {
+			height: 100%;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			background: #ffa5a5;
+			background: linear-gradient(to bottom, #ffa5a5 0%,#ffd3d3 100%);
+		}
+
+		.chest {
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			position: relative;
+		}
+
+		.heart {
+			position: absolute;
+			z-index: 2;
+			background: linear-gradient(-90deg, #F50A45 0%, #d5093c 40%);
+			animation: beat 0.7s ease 0s infinite normal;
+		}
+
+		.heart.center {
+			background: linear-gradient(-45deg, #B80734 0%, #d5093c 40%);
+		}
+
+		.heart.top {
+			z-index: 3;
+		}
+
+		.side {
+			top: 100px;
+			width: 220px;
+			height: 220px;
+			border-radius: 220px;
+		}
+
+		.center {
+			width: 210px;
+			height: 210px;
+			bottom: 100px;
+			left: 145px;
+			/*transform: rotate(45deg);*/
+		}
+
+		.left {
+			left: 62px;
+		}
+
+		.right {
+			right: 62px;
+		}
+
+
+		@keyframes beat {
+			0% {
+				transform: scale(1) rotate(225deg);
+				box-shadow:0 0 40px #d5093c;
+			}
+
+			50% {
+				transform: scale(1.1) rotate(225deg);
+				box-shadow:0 0 70px #d5093c;
+			}
+
+			100% {
+				transform: scale(1) rotate(225deg);
+				box-shadow:0 0 40px #d5093c;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="chest">
+		<div class="heart left side top"></div>
+		<div class="heart center"></div>
+		<div class="heart right side"></div>
+	</div>
+
+	<script type="text/javascript">
+
+		// var parentbox=document.querySelector("");
+		var childbox=document.querySelector('.chest');
+
+		// var parentheight=parentbox.offsetHeight;
+		var childheight=childbox.offsetHeight;
+
+		//添加过度；
+		var addTransition=function(e){
+			childbox.style.webkitTransition='all,.2s';
+			childbox.style.transition='all,.2s';
+		}
+		//清除过度；
+		var moveTransition=function(e){
+			childbox.style.webkitTransition="none";
+			childbox.style.transition="none";
+		}
+		//设置过度；
+		var setTranslatey=function(translatey){
+			childbox.style.webkitTransform="translateY("+translatey+"px)";
+			childbox.style.transform="translateY("+translatey+"px)";
+		}
+
+		//定位的区间；
+		var maxpostition=0;
+		// var minpostition=parentheight-childheight;
+		//缓冲区间；
+		var distance=500;
+		//滑动区间；
+		 var maxswipe=maxpostition+distance;
+		 // var minswipe=minpostition-distance;
+		 //改变时候的当前定位；
+		 var currentY=0;
+
+		 var startY=0,moveY=0,distanceY=0,isMove=false;
+		 childbox.addEventListener('touchstart', function(e){
+		 	startY=e.touches[0].clientY;
+		 	console.log(startY);
+
+		 })
+		 childbox.addEventListener('touchmove',function(e){
+		 	moveY=e.touches[0].clientY;
+		 	distanceY=moveY-startY;
+		 	
+		 	//删除定位；
+		 	moveTransition();
+		 	//判断是否在我们的滑动区间范围内；
+		 	if((currentY+distanceY)<maxswipe){
+		 		setTranslatey( currentY+distanceY);
+		 	}
+		 	
+		 })
+		 childbox.addEventListener('touchend',function(e){
+
+		 			//离开的时候吸附回去；
+
+		 			if((currentY+distanceY)>maxswipe){
+		 				currentY=maxpostition;  //currentY设置为0是应为要下次使用
+		 				addTransition();
+		 				setTranslatey(currentY);
+		 			}
+		 			// else if((currentY+distanceY<minswipe)){
+		 			// 	currentY=minpostition;
+		 			// 	addTransition();
+		 			// 	setTranslatey(currentY);
+		 			// }
+		 			else{
+		 				//记录滑动到的位置；
+		 				currentY=currentY+distanceY;
+		 			}
+		 })
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="template-native.js"></script>
+</head>
+<body>
+    <div id="box">   </div>
+
+
+    <script type="text/javascript">
+    var data={
+        arr:['a','b','c','d']
+    }
+    var str='<ul>'+
+            '<%for(var i=0;i<arr.length;i++){%>'+
+            '<li><%=arr[i]%></li>'+
+            '<%}%>'+
+            '</ul>'
+
+
+
+    window.onload=function(){
+        //编译字符串 调用compile方法，完成后得到一个渲染函数;
+        var rend=template.compile(str);
+        // 传入数据返回编译好的模板;
+        var shtml=rend(data);
+
+        var box=document.getElementById('box');
+        box.innerHTML=shtml;
+
+
+
+    }
+
+
+
+
+    </script>
+</body>
+</html>

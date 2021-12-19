@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>with语句</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // with (对象) {
+        //     语句;
+        // }
+// 它的作用是操作同一个对象的多个属性时，提供一些书写的方便
+    var obj = {
+      p1: 1,
+      p2: 2,
+    };
+    with (obj) {
+      p1 = 4;
+      p2 = 5;
+    }
+    // 等同于
+    obj.p1 = 4;
+    obj.p2 = 5;
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

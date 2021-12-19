@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+            历史
+    </title>
+
+
+
+</head>
+<body>
+        <input type="button" value="前进" id="forwardId">
+        <input type="button" value="后退" id="backId">
+        <input type="button" value="打印" id="printId">
+        <script>
+            //调用出来前进，后退的功能..
+            //调用浏览器前进功能
+            document.getElementById("forwardId").onclick=function(){
+                window.history.forward();
+            }
+            //调用浏览器后退功能
+            document.getElementById("backId").onclick=function(){
+                window.history.back();
+            }
+            /*调用浏览器打印的功能*/
+            document.getElementById("printId").onclick=function(){
+                 window.print();
+            }
+        </script>
+</body>
+</html>

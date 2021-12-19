@@ -1,0 +1,9 @@
+;(function($){
+	$.fn.extend({
+		
+
+		
+
+
+	})
+})(jQuery)

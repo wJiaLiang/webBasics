@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器 - 属性</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: '微软雅黑';
+			background-color: #F7F7F7;
+		}
+
+
+		a {
+			color: #333;
+			font-size: 24px;
+			text-decoration: none;
+		}
+
+		li {
+			line-height: 40px;
+		}
+
+		/*标签存在href 属性*/
+		/*a[href]{
+			color:red;
+		}*/
+
+		/*href 属性的值等于 a.mp4*/
+		/*a[href='a.mp4']{
+			color:blue;
+		}*/
+
+		/*
+			 href 的属性的值包含mp3
+		*/
+		/*a[href*='mp3']{
+			color:green;
+		}*/
+
+
+		/*查找所有的 a标签，它的href 属性的值 以a 开头*/
+		/*a[href^='a']{
+			color:green;
+		}
+*/
+		/*这个获取的是href 属性的值后缀为mp4 的元素*/
+		a[href$='mp4']{
+			color:pink;
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<span data-src="111">adsfas</span>
+		</li>
+		<li>
+			<a href="a.mp4" data-src="111">a.mp4是一个视频文件</a>
+		</li>
+		<li>
+			<a href="b.txt">b.txt是一个文本文件</a>
+		</li>
+		<li>
+			<a href="a.mp3">a.mp3一个音频文件</a>
+		</li>
+		<li>
+			<a href="b.mp3">b.mp3一个音频文件</a>
+		</li>
+		<li>
+			<a href="a.rmvb">a.rmvb是一个视频文件</a>
+		</li>
+		<li>
+			<a href="b.rmvb">b.rmvb是一个视频文件</a>
+		</li>
+	</ul>
+
+</body>
+</html>

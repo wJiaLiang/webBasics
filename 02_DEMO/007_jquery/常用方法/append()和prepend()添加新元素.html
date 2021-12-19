@@ -1,0 +1,36 @@
+W3School TIY
+ 编辑您的代码：
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src='jquery-1.11.1.js'></script>
+<script>
+function appendText()
+{
+	var txt1="<p>Text文本1</p>";              // 以 HTML 创建新元素
+
+	var txt2=$("<p></p>").text("Text文本2");  // 以 jQuery 创建新元素
+
+	var txt3=document.createElement("p");
+		txt3.innerHTML="Text文本3";               // 通过 DOM 来创建文本
+		
+	$("div").append(txt1,txt2,txt3);        // 追加新元素
+	var i=3;
+	
+	$('p').prepend("<i>dddddddddddddd</i>");
+}
+
+
+
+</script>
+</head>
+<body>
+	<div>
+		<p>This is a paragraph.</p>
+	</div>
+
+<button onclick="appendText()">追加文本</button>
+
+</body>
+</html>
+   

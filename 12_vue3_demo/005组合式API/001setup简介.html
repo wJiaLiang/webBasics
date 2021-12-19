@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+        <p ref="p" id="elep">  num:{{num}} </p>
+        
+        <p> newNum:{{newNum}}</p>
+
+        <coust v-model:v="mesg"> </coust>
+
+
+
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script type="module">
+
+let {ref,onMounted,watch,computed} = Vue
+
+const app = Vue.createApp({
+    data(){
+        return{
+            mesg:666,
+            num:999
+        }   
+    },
+    setup(){
+        let num = ref(99)
+
+        setInterval(() => {
+            num.value++
+            
+        }, 1000);
+
+        // 生命周期钩子 组合式 API 上的生命周期钩子与选项式 API 的名称相同，
+        // 这些函数接受在组件调用钩子时将执行的回调。
+        onMounted(()=>{
+            console.log('jq',$("#elep").text() )
+        })
+
+        // 每当 num 被修改时就会执行第二的回调方法
+        watch(num,(newValue,oldValue)=>{
+            console.log('新值'+newValue,'旧值'+oldValue)
+        })
+
+        // 计算属性
+        let newNum = computed(()=>{
+            return num.value-50
+        })
+
+        return{ num,newNum}
+      
+    },
+    // Vue 实例将会在实例化时调用 watch()，遍历 watch 对象的每一个 property。
+    watch:{},
+
+    // 计算属性
+    computed:{},
+
+    // 在挂载开始之前被调用：相关的 render 函数首次被调用。
+    beforeMount () {
+        
+    },
+
+    // 实例被挂载后调用
+    mounted() {
+        let v = this.$refs.p
+        console.log("$refs",v)
+    },
+    // 方法;
+    methods:{},
+
+    // 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。
+    beforeCreate () {},
+
+    // 在实例创建完成后被立即调用。
+    created () {},
+
+   
+})
+
+/*
+    1、setup 组件选项在创建组件之前执行，一旦 props 被解析，并充当合成 API 的入口点。
+    2、setup 选项应该是一个接受 props 和 context 的函数，
+    3、从 setup 返回的所有内容都将暴露给组件的其余部分 (计算属性、方法、生命周期钩子等等) 以及组件的模板。
+
+*/ 
+app.component("coust",{
+    props:{
+        v:Number
+    },
+    setup(props,context){
+        console.log(props)
+        console.log(context)
+        let v2 = ref(props.v)
+
+        setInterval(() => {
+            v2.value++
+        }, 1000)
+
+        return{ v2 }
+    },
+    template:`
+        <div>v: {{v}} </div>
+        <div>v2: {{v2}} </div>
+    
+    `
+})
+
+app.mount("#app")
+
+</script>
+</html>

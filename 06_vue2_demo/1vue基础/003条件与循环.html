@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-if="see" v-on:click="bindtap"> 显示的p </p>
+        <P v-else> 隐藏的p </P>
+        <ul>
+            <li v-for="item in TODOs" > {{item.title}} </li>
+            <li></li>
+        </ul>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                w:100,
+                mess:'',
+                see:true,
+                TODOs:[{title:'语文'},{title:'数学'},{title:'地理'},{title:'英语'},]
+            },
+            methods: {
+                bindtap(){
+                    this.see = false;
+                }
+            }
+        })
+        
+        
+    </script>
+</body>
+</html>

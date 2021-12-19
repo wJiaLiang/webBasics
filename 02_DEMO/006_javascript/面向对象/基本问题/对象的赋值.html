@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src='jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+	//题一；
+		var a=new Object();
+		a.value=99;
+		var b=a;
+		b.value=100;
+
+		alert(b.value);//100;
+
+	//题二;
+		for(var i=0;i<=3;i++){
+				//里面的函数进入了事件列队，
+			setTimeout(function(){
+				console.log(i);
+			},0);
+		}
+		//4四次；
+
+
+
+	</script>
+</body>
+</html>

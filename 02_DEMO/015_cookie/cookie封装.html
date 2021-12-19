@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cookie封装</title>
+</head>
+<body>
+
+
+	<input type="button" name="" value="setCookie">
+	<input type="button" name="" value="removeCookie">
+	<input type="button" name="" value="getCookie">
+	<div>
+	<a href="cookie的应用.html" title=""> go a 链接</a>
+		
+	</div>
+	<script type="text/javascript" src="../jquery/jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+		
+		/**
+		 * [setCookie description]
+		 * @param {[type]} name   [description]
+		 * @param {[type]} value  [description]
+		 * @param {[type]} mydate [过期的日期]
+		 */
+		//设置cookie的函数;
+		function setCookie(name,value,mydate){	
+				var da=new Date();
+				//设置过期时间；
+				da.setDate(da.getDate()+mydate);
+				document.cookie=name+'='+value+";expires="+da;
+				
+		}
+		setCookie("password",12345,1);
+		setCookie("na","亮娃",10);
+		setCookie('name',"魏佳亮",10);
+
+		//封装一个获取cookie的函数；给一个key返回一个value;
+		function getCookie(name)
+		{
+			var arr=document.cookie.split('; ');
+			for (var i = arr.length - 1; i >= 0; i--)
+			{
+				console.log( arr[i]);
+				var arr2=arr[i].split("=");
+				if(arr2[0]==name)
+				{
+					return arr2[1];
+				}
+			}
+			return "";
+		}
+		//删除一个cookie;
+		function remove(name){
+			//让他-1秒过期；这就覆盖了name=name的那条数据；
+			setCookie(name,'1',-1);
+		}
+
+		// getCookie('name');
+		// remove('name');
+		
+	
+	var READYTOPROCESS = false;
+	window.onbeforeunload = function closeWindow(e){
+    if (!READYTOPROCESS){
+        //message to be returned to the popup box.
+        var message = '你确定要关闭吗？',
+        e = e || window.event;
+        if (e)
+            e.returnValue = message; // IE
+        	return message; // Safari
+    }
+};
+
+
+		
+	</script>
+</body>
+</html>

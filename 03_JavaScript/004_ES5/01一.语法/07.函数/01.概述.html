@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    // 函数是一段可以反复调用的代码块。函数还能接受输入的参数，不同的参数会返回不同的值。
+    // JavaScript 有三种声明函数的方法。
+
+//  1.function 命令
+            function print(s) {
+                console.log(s);
+            }
+// 2.除了用function命令声明函数，还可以采用变量赋值的写法。
+        var print = function(s) {
+            console.log(s);
+        };
+    // 采用函数表达式声明函数时，function命令后面不带有函数名。
+    // 如果加上函数名，该函数名只在函数体内部有效，在函数体外部无效。
+    var print = function x(){
+        console.log(typeof x);
+    };
+    x           // ReferenceError: x is not defined
+    print()    // function
+
+    //加入了函数名x。这个x只在函数体内部可用，指代函数表达式本身，其他地方都不可用。这种写法的用处有两个，一是可以在函数体内部调用自身，二是方便除错（除错工具显示函数调用栈时，将显示函数名，而不再显示这里是一个匿名函数）。因此，下面的形式声明函数也非常常见。
+    var f = function f() {};
+
+// 3.Function 构造函数
+    var add = new Function(
+        'x',
+        'y',
+        'return x + y'
+    );
+    // 等同于
+    function add(x, y) {
+      return x + y;
+    }
+    //上面代码中，Function构造函数接受三个参数，除了最后一个参数是add函数的“函数体”，其他参数都是add函数的参数。
+
+    //你可以传递任意数量的参数给Function构造函数，只有最后一个参数会被当做函数体，如果只有一个参数，该参数就是函数体。
+
+// ***************************************
+    // 函数的重复声明
+    //如果同一个函数被多次声明，后面的声明就会覆盖前面的声明
+    function f() {
+        console.log(1);
+    }
+    f() // 2
+    function f() {
+      console.log(2);
+    }
+    f() // 2
+
+// ***************************************
+    //圆括号运算符，return 语句和递归
+    //函数体内部的return语句，表示返回。JavaScript 引擎遇到return语句，就直接返回return后面的那个表达式的值，后面即使还有语句，也不会得到执行。也就是说，return语句所带的那个表达式，就是函数的返回值。return语句不是必需的，如果没有的话，该函数就不返回任何值，或者说返回undefined。
+
+    //函数可以调用自身，这就是递归（recursion）。下面就是通过递归，计算斐波那契数列的代码。
+    function fib(num) {
+      if (num === 0) return 0;
+      if (num === 1) return 1;
+      return fib(num - 2) + fib(num - 1);   
+      //4  5
+      //2  4
+      //0  3
+      //0
+    }
+    fib(6) // 8
+
+
+// *******************************************
+// 函数第一等公民:
+    //JavaScript 语言将函数看作一种值，与其它值（数值、字符串、布尔值等等）地位相同。凡是可以使用值的地方，就能使用函数。比如，可以把函数赋值给变量和对象的属性，也可以当作参数传入其他函数，或者作为函数的结果返回。函数只是一个可以执行的值，此外并无特殊之处。
+
+// 函数名的提升
+// JavaScript 引擎将函数名视同变量名，所以采用function命令声明函数时，整个函数会像变量声明一样，被提升到代码头部。所以，下面的代码不会报错。
+    f();
+    function f() {}
+    //面代码好像在声明之前就调用了函数f。但是实际上，由于“变量提升”，函数f被提升到了代码头部，也就是在调用之前已经声明了
+
+// 不能在条件语句中声明函数
+// 
+    if (foo) {
+        function x() {}
+    }
+    try {
+      function x() {}
+    } catch(e) {
+      console.log(e);
+    }
+    //但是，实际情况是各家浏览器往往并不报错，能够运行。
+    //但是由于f的提升，导致if语句无效，所以上面的代码不会报错。要达到在条件语句中定义函数的目的，只有使用函数表达式。
+    if (false) {
+      var f = function () {};
+    }
+    f() // undefined
+
+
+
+
+
+
+    </script>
+</body>
+</html>

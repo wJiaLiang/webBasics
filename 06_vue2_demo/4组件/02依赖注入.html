@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+        <cust-ele name="呵呵"> 
+
+            <child-ele name="name"> </child-ele>
+
+        </cust-ele>
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+/*
+    使用 $parent property 无法很好的扩展到更深层级的嵌套组件上。
+    这也是依赖注入的用武之地，它用到了两个新的实例选项： provide 和 inject。
+
+    然而，依赖注入还是有负面影响的。它将你应用程序中的组件与它们当前的组织方式耦合起来，使重构变得更加困难。
+    同时所提供的 property 是非响应式的。这是出于设计的考虑，
+    推荐使用 vuex
+
+*/ 
+
+Vue.component('child-ele',{
+    props:{name:String},
+    mounted(){
+        this.getMap()  //根组件的触发， 父组件的    我是 cust-ele 组件的 getMap方法
+    },
+    inject:["getMap"],
+    template:`
+        
+        <div> child组件name  {{name}} </div>
+    `
+})
+
+Vue.component('cust-ele',{
+    props:{
+        name:String
+    },
+    provide:function(){
+        return{
+            getMap:this.getMap,
+        }
+    },
+    methods:{
+        getMap(){
+            console.log('我是 cust-ele 组件的 getMap方法')
+        }
+    },
+    template:`
+        <div> 
+            <p> cust-ele {{name}}</p>
+            <slot> </slot>
+        </div>
+    `
+})
+
+new Vue({
+    el:'#app',
+    data:{
+
+    },
+    provide:function(){
+        return{
+            getMap:this.getMap,
+        }
+    },
+    methods:{
+        getMap(){
+            console.log('我是 根组件的 getMap方法')
+        }
+    },
+    mounted () {},
+    computed: {},
+    watch: {},
+
+})
+
+</script>
+</html>

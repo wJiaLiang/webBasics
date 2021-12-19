@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title></title>
+        <link rel="stylesheet" href="" />
+    </head>
+    <body>
+        <script type="text/javascript">
+            // js 宏任务与微任务;
+            // https://www.jianshu.com/p/45941ae81244
+            console.log(1);
+
+            setTimeout(function () {
+                console.log(3);
+            });
+
+            setTimeout(function () {
+                console.log(4);
+            });
+
+            let p = new Promise((resolve, reject) => {
+                console.log(5);
+                resolve();
+            }).then(() => {
+                console.log(6);
+            });
+
+            console.log(2);
+
+            //  输出结果  1 5 2 6 3 4
+            /*
+                外层都为宏任务, then()中的函数为微任务，当宏任务执行完成后执行微任务;
+                定时器函数在 本轮宏任务执行时推到了下轮的任务队列中,等到本来宏任务和微任务执行完毕后再执行定时器函数;
+            */
+        </script>
+    </body>
+</html>

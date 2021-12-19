@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 写了v-mode value值就无效了  -->
+        <input type="text" v-model='mess' value="hahah">
+        <input type="checkbox" v-model="checked">
+        <p>{{mess}}</p>       
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script >
+        // 指令 是一种特殊的属性，以v-开头将数据和dom做关联;当表达式的值改变的时候响应式的作用在视图;
+        // v-bind:属性="表达式";
+
+        // 绑定事件  语法：v-on:事件名="表达式"
+        
+        // v-model 在表单元素上创建双向的数据绑定;会根据控件类型自动选取正确的方法来更新元素交互的值
+        // 负责监听用户输入事件的值来更新数据
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                mess:'Hello,wei',
+                checked:true,
+            },
+            methods: {
+                
+            }
+            
+            
+        })
+        
+        
+        
+        
+    </script>
+</body>
+</html>

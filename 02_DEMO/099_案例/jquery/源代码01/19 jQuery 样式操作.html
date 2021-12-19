@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+            .demo{
+                   background: red;
+                   width: 300px;
+                   height: 400px;
+                   border-radius: 10px;
+            }
+    </style>
+
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+                $(function(){
+
+                        $("#buttonId").click(function(){
+                                    /*
+                                    * 1:样式的名称，
+                                    * 2：样式的值..
+                                    * 我们一次只能修改一个样式..
+                                    *
+                                    * */
+                                    /* $("div").css("font-size","200px");
+                                     $("div").css("background","red");*/
+
+
+                                    /*
+                                    *
+                                    * 我们可以把css 的内容封装到一个对象里面去..
+                                    *
+                                    * */
+                                   /* var obj={
+                                         "background":"red",
+                                         "font-size":"99px"
+                                    };*/
+                                   /* $("div").css(obj);*/
+
+                                    /*
+                                    *
+                                    * 我们开发写代码，我们要解耦..
+                                    *
+                                    * css 代码，应该写在css 的文件里面去.
+                                    *
+                                    * js 代码就放在js 文件.
+                                    * */
+
+                                  /*  $("div").addClass("demo")*/
+                                    /*
+                                       setAttribute("","")
+                                    *
+                                    *
+                                    * */
+
+
+
+
+                        })
+
+                        /*
+                        *
+                        * 移除样式.
+                        * */
+                          /*   $("#removebuttonId").click(function(){
+                                $("div").removeClass("demo");
+                                 /!*setAttrite("class","")*!/
+                          });
+
+                       */
+
+                    $("#togglebuttonId").click(function(){
+                                /*
+                                *  如果class 有值，则把class 的值移除
+                                *  如果class 没有值，再次调用，把原来的值还原...
+                                * */
+                              /*  $("div").toggleClass();*/
+
+                                /*
+                                *
+                                * 为当前元素切换一个样式..
+                                *   如果当前元素有该样式，则移除。
+                                *   如果当前元素没有该样式，则添加...
+                                * */
+                               /* $("div").toggleClass("demo");*/
+                    });
+
+
+                    $("#hasbuttonId").click(function(){
+                                /*
+                                * 判断某个样式是否存在..
+                                * */
+                               var flag=$("div").hasClass("demo");
+                                alert(flag);
+                    })
+                });
+    </script>
+</head>
+<body>
+        <input type="button" value="css 样式操作" id="buttonId">
+        <input type="button" value="css 移除样式" id="removebuttonId">
+        <input type="button" value="css 切换样式" id="togglebuttonId">
+        <input type="button" value="css 判断样式是否存在" id="hasbuttonId">
+        <div class="demo" >
+              what are you 弄撒勒!
+        </div>
+
+
+</body>
+</html>

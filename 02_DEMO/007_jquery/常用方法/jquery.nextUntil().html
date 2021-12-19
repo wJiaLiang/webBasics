@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.siblings *
+{ 
+display: block;
+border: 2px solid lightgrey;
+color: lightgrey;
+padding: 5px;
+margin: 15px;
+}
+</style>
+<script type="text/javascript" src='../jquery-1.11.1.js'></script>
+</script>
+<script>
+	$(function(){
+		//h2到h6之间的元素;不包括他们；
+  		$("h2").nextUntil("h6").css({"color":"green","border":"2px solid red"});
+  		//所有兄弟元素；
+  		$('h2').siblings().css('fontSize','50px');
+  		//直接父元素
+  		$('h2').parent().css('color','red');
+	});
+</script>
+</head>
+<body class="siblings">
+
+<div>div (父)
+  <p>p</p>
+  <span>span</span>
+  <h2>h2</h2>
+  <h3>h3</h3>
+  <h4>h4</h4>
+  <h5>h5</h5>
+  <h6>h6</h6>
+  <p>p</p>
+</div>
+
+</body>
+</html>

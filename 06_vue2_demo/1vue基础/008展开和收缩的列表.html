@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        ol {
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .liitem {
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            background-color: rgba(0, 0, 0, .6);
+            color: white;
+        }
+
+        .bder {
+            border-bottom: 1px solid deeppink;
+        }
+
+        .isShow {
+            display: block !important;
+        }
+
+        .isnone {
+            display: none;
+        }
+        .anmeta{transition:all 2s linear 2s}
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li style="padding-bottom: 6px;" v-for="items,index in datalist" @click="selectTap(index)">
+                <a class="liitem" href="javascript:;"> {{items.title}} </a>
+                <ol :class="{isShow:index == current}" class="anmeta">
+                    <li class="bder" v-for="option in items.list"> {{option}} </li>
+                </ol>
+            </li>
+        </ul>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">  </script>
+
+    <script>
+        
+        let data = [{
+                title: '品牌',
+                list: ['苹果', '华为', '中兴', 'OPPO', 'vivo', '小米']
+            },
+            {
+                title: '尺寸',
+                list: ['3.0英寸以下', '3.0-3.9英寸', '4.0-4.9英寸', '5.0-5.9英寸', '6.0-6.9英寸', '7.0-7.9英寸', ]
+            },
+            {
+                title: '网络',
+                list: ['联通', '双卡双待', '双4G', '移动4g', '电信4g', '联通4g']
+            }
+        ];
+        
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                datalist: data,
+                current: -1,
+            },
+            methods: {
+                selectTap(index) {
+                    console.log(index);
+                    this.current = this.current === index ? -1 : index;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

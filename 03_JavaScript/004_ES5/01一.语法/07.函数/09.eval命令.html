@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eval命令</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // eval命令的作用是，将字符串当作语句执行。
+        eval('var a = 1;');
+        a // 1
+//eval没有自己的作用域，都在当前作用域内执行，因此可能会修改当前作用域的变量的值，造成安全问题。
+    var a = 1;
+    eval('a = 2');
+    a // 2
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

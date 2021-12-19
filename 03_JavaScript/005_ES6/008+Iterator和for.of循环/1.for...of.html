@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+        for...of循环可以使用的范围包括数组、Set 和 Map 结构、某些类似数组的对象
+        (比如 arguments 对象、DOM NodeList 对象)、后文的 Generator 对象，以及字符串。
+
+
+     */ 
+    // 数组：
+    let arr=['red','green','blue','yellow','orange','pink','gray','white','black']
+    for (let v of arr){
+        console.log(v); // 'red','green','blue','yellow','orange','pink','gray','white','black'
+    }
+
+    arr.forEach(function(ele,index){
+        console.log(index);
+    })
+    
+
+    /*
+    JavaScript 原有的for...in循环，只能获得对象的键名，不能直接获取键值。
+    ES6 提供for...of循环，允许遍历获得键值。
+
+    */
+    for (let key in arr){
+        console.log(key);    //输出下标;
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3 渐变</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #CCC;
+		}
+		.linear:nth-child(1){
+				width: 400px;
+			    height: 400px;
+			    margin: 100px auto;
+			/*方向
+			    第一个参数：
+			            to bottom,top,left,right 渐变的方向
+			    		我还可设置度数
+			    第二个参数: 渐变的起始颜色
+			    第三个参数：渐变的终止颜色
+			*/
+			    background: linear-gradient(
+					 45deg,
+					 red,
+					 green
+				);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="linear"></div>
+	<div class="linear"></div>
+</body>
+</html>

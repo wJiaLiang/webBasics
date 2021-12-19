@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="js/Jerry.js"></script>
+    <script type="text/javascript">
+    window.onload = function(){
+        var ret = $('.active');
+        console.dir(ret);
+        console.dir($);
+
+        //作用就是向$对象上扩展成员(也就是Jerry对象)
+        $.extend({
+            fn1 : function(){},
+            fn2 : function(){},
+            attr1 : 123,
+            attr2 : 456
+        });
+        $.fn3 = function(){};
+        $.fn4 = function(){};
+        $.attr3 = 111;
+        $.attr4 = 333;
+        //------------------------------------------
+        //扩展到了$.prototype上
+        $.fn.extend({
+            foo1 : function(){},
+            foo2 : function(){}
+        });
+
+        $.fn.foo3 = function(){};
+        $.fn.foo4 = function(){};
+
+        
+
+    }    
+    </script>
+</head>
+<body>
+    <div id="div1">1</div>
+    <div class="active">2</div>
+    <div class="active">3</div>
+</body>
+</html>

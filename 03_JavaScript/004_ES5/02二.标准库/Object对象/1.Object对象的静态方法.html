@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+    /*
+        所谓“静态方法”，是指部署在Object对象自身的方法。
+        Object.keys()
+        Object.getOwnPropertyNames()
+        一般用来遍历对象的属性。它们的参数都是一个对象，都返回一个数组
+        该数组的成员都是对象自身的（而不是继承的）所有属性名
+        Object.keys方法只返回可枚举的属性（关于可枚举性的详细解释见后文
+        Object.getOwnPropertyNames方法还返回不可枚举的属性名。
+    */
+    var a = ["Hello", "World"];
+    Object.keys(a)      // ["0", "1"]
+    Object.getOwnPropertyNames(a)    // ["0", "1", "length"]
+
+
+    var o = {
+        p1: 123,
+        p2: 456
+    };
+    Object.keys(o)   // ["p1", "p2"]
+    Object.getOwnPropertyNames(o)   // ["p1", "p2"]
+    
+    </script>
+
+
+    <script type="text/javascript">
+    /*
+        Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+        Object.defineProperty(obj, prop, descriptor)
+        obj：要在其上定义属性的对象。
+        prop：要定义或修改的属性的名称。
+        descriptor：将被定义或修改的属性描述符。
+        https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+
+    */
+
+    </script>
+
+    
+
+</body>
+</html>

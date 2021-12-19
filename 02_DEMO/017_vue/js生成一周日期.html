@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="text/javascript">
+    var dateArrayPre = [];
+    var dataArrayNext = [];
+
+    function getDete(ddd) {
+        let year = ddd.getFullYear();
+        let month = ddd.getMonth() + 1;
+        let day = ddd.getDate();
+        let week = ddd.getDay();
+
+        //console.log(`${year}-${month}-${day}-星期-${week}`);
+        let sl = `${year}-${month}-${day}-星期-${week}`;
+        // dateArray.push(sl);
+
+        return sl;
+    }
+
+// 获取本周当前日期以后的日期;
+    function getDateNext() {
+        let obj = new Date(2018, 9, 7);
+        let week = obj.getDay();
+        if (week == 0) {
+            week = 7;
+        }
+
+        // 循环当前日期到周日的天数;
+        // 0,1,2,3,4,5,6
+        // 默认当前的不计算进入;
+        for (let i = 0; i <= 7 - week; i++) {
+            let m = obj.getDate(); // 每循环一次就获取一次当前的日期在此基础上再加1算下一个日期;
+            let ddd = null;
+            if(i==0){
+                ddd = new Date(obj.setDate(m));
+            }else{
+                ddd = new Date(obj.setDate(m + 1));
+            }
+
+            let datestr = getDete(ddd);
+            dataArrayNext.push(datestr);
+        }
+
+    }
+
+// 获取本周当前日期以前的日期;
+    function getDatePre() {
+        let objto = new Date(2018, 9, 7);
+        let weekto = objto.getDay();
+        if (weekto == 0) {
+            weekto = 7;
+        }
+
+        // 循环当前日期前几天的日期;
+        // 当日期为周日的时候向前获取日期;
+        for (let j = 1; j < weekto; j++) {
+            console.log(j);
+            let n = objto.getDate(); // 每循环一次就获取一次当前的日期,在此基础上再减一算下一个日期;
+            let ddd = null;
+
+            ddd = new Date(objto.setDate(n - 1))
+            let dataStr = getDete(ddd)
+            dateArrayPre.push(dataStr)
+        }
+    }
+
+    getDateNext();
+    getDatePre();
+
+    console.log(dateArrayPre);
+    console.log(dataArrayNext);
+    
+    // 计算合并数据;
+    var arr = dataArrayNext.reverse().concat(dateArrayPre);
+
+    console.log(arr);
+
+
+
+    </script>
+</body>
+
+</html>

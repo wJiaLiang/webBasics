@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const imgs = [
+            'https://img01.sogoucdn.com/app/a/100520024/935575277aa2bbbf10b920a331206622',
+            "https://img02.sogoucdn.com/app/a/100520024/26bdf26067080cead45d8c1fcfdb3582",
+            'https://img02.sogoucdn.com/app/a/100520024/e42be225965529e04d87198ddcb9391b'
+        ]
+
+        function loadImg(url){
+            const p = new Promise(function(resolve,reject){
+                var img = new Image();
+                img.src= url;
+                img.onload = function(e){
+                    resolve(this);
+                }
+                img.onerror = function(e){
+                    reject(new Error('图片'));
+                }
+                console.log('1234')
+            })
+
+            return p;
+        }
+        
+/*
+    loadImg()
+    .then(function(img){
+        console.log('加载完成')
+        console.log(img)  
+        document.body.appendChild(img);
+    })
+    .catch(function(i){
+        console.log(i);
+    })
+
+    console.log(111)
+*/ 
+
+// all 方法;
+const allDone = Promise.all([loadImg(imgs[0]),loadImg(imgs[1]),loadImg(imgs[2])]);
+
+allDone.then(function(result){
+    console.log(result);
+    result.forEach( function(element, index) {
+        document.body.appendChild(element);
+    });
+}).catch(function(r){
+    console.log(r);
+})
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

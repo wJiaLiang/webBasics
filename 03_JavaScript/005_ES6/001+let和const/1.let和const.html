@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <script type="text/javascript">
+
+    
+// 1.使用let 声明的变量，只在命令所在的代码块内有效;
+    {
+        let a = 10;
+        var b = 2;
+    }
+    console.log(b); //2;
+    console.log(a) //undefind;
+
+//  2.使用let 声明的变量在域解析的时候不会被提升;
+
+    console.log(c); //undefind;
+    var c = 20;
+    
+    console.log(d); //报错;
+    let d = 21;
+
+    typeof f;  //报错;
+    let f = 22;
+
+
+ // 3只要块级作用域内存在let命令，它所声明的变量就“绑定”（binding）这个区域，不再受外部的影响
+    let g = 23;
+    function fn (){
+        暂时性死区; 在声明前赋值就报错了;内部使用了let 外面就不关事了;
+        g = 7;    
+        console.log(g);  //7;
+        let g = 2222; 
+    }
+    fn(); //报错,在函数内部声明了 g 变量;
+
+// 4.let 不允许在同一个作用域下声明已经存在的变量;
+    var j = 10;
+    let j = 20; //报错；
+
+// 5. let 在 for 循环中的应用;
+    var btn = document.querySelectorAll('button');
+    for(var i = 0;i< btn.length;i++){
+        // 循环体内i的值指向的是全局的i值;循环完成后i的值就是最后值;
+        btn[i].onclick = function(){
+            console.log(i);
+        }
+    }
+
+    for(var i = 0;i< btn.length;i++){
+        function loopfn(i){
+            btn[i].onclick = function(){
+                console.log(i);
+            }
+        };
+        loopfn(i)
+    }
+
+    for(var i = 0;i< btn.length;i++){
+       (function(i){
+            btn[i].onclick=function(){
+                console.log(i);
+            }
+       })(i)
+    }
+
+    /*  
+        在循环语句内是一个父作用域，在循环体之中是一个子作用域;
+        用let声明的i,当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量
+    */
+    for(let i=0;i<btn.length;i++){
+        btn[i].onclick=function(){
+            console.log(i);
+        }
+    }
+
+    // 就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。
+    for(let j=0;j<3;j++){
+        // 循环语句的j和循环体内的j是相互不影响的;
+        let j = 10;
+        console.log(j);
+    }
+    console.log(j)  //报错;j只在循环中有效;不会泄露到for循环外;
+
+// **************const********const************const**************const**************const*************
+
+    // const 命令同样具有let 的1,2,3,条特征;还具有下面两点
+    // 1. const 声明是必须赋值;
+        var a; let b; const c=0;
+
+    /*
+        2. const 声明的常量如果存的是简单数据类型不可改变其值;
+        如果存的是对象那么引用不可被改变，对象里面的数据如何变是没有关系的;
+    */ 
+
+    const oop = {a:10};
+    oop.a=20;
+    console.log(oop);  // {a:20}
+
+    const arr = ["一","贰","三"];
+    console.log(arr);
+
+//4.  es6 声明变量的6种方法
+    /*
+        var  function  let const  import  class;
+        为了保持兼容性，var命令和function命令声明的全局变量，
+        依旧是顶层对象的属性；另一方面规定，let命令、const命令、class
+        命令声明的全局变量，不属于顶层对象的属性
+    */ 
+
+    var a = 1;   console.log( window.a );  // 1;
+    let b = 2;   console.log( window.b );  // undfind;
+
+// 5.  global 对象
+    /*
+        浏览器里面，顶层对象是window，但 Node 和 Web Worker 没有window。
+        浏览器和 Web Worker 里面，self也指向顶层对象，但是 Node 没有self。
+        Node 里面，顶层对象是global，但其他环境都不支持。
+    */ 
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="content1">index1</div>
+	<div class="content2">index2</div>
+	<div class="content3">index3</div>
+	<div class="content4">index4</div>
+	<div class="content5">index5</div>
+<script src="../jquery1.83.js"></script>
+<script type="text/javascript">
+		$(function(){
+			$('div').each(function(index,element){
+				//注意这里的element是一个dom对象，不是一个jquery对象;
+				console.log('每个元素的下标是：'+index+"元素是："+$(element).text());
+
+			})
+		})
+
+
+
+</script>
+</body>
+</html>

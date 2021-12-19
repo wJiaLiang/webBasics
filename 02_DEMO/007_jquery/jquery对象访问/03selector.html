@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div class="content1">index1</div>
+<div class="content2">index2</div>
+<div class="content3">index3</div>
+<div class="content4">index4</div>
+<div class="content5">index5</div>
+	<script src='../jquery1.83.js'></script>
+	<script>
+		$(function(){
+			var slec=$("div.content1").css('backgroundColor',"green").selector;
+			alert(slec);
+			//返回所用的选择器；
+			//用于精确检测选择器查询情况。这个属性对插件开发人员很有用;
+			console.debug(slec); //div.content1     string类型;
+			console.log($('div.content3').context); //#document
+		})
+
+	</script>
+</body>
+</html>

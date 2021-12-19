@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{ font-size: 30px;margin-top: 20px }
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		var bFalse = false;
+		var sRed = "red";
+		var iZero = 0;
+		var iThreeFourFive = 345;
+		var oObject = new Object;
+		
+		document.write("bFalse 的逻辑值是 " + (!!bFalse)+'<br/>'); 
+		document.write("sRed 的逻辑值是 " +  (!!sRed)+'<br/>');  
+		document.write("iZero 的逻辑值是 " +  (!!iZero)+"<br/>");  
+		document.write("iThreeFourFive 的逻辑值是 " +  (!!iThreeFourFive)+"<br/>");
+		document.write("oObject 的逻辑值是 " + (!!oObject)+"<br/>");
+		//bFalse 的逻辑值是 false
+		//sRed 的逻辑值是 true
+		//iZero 的逻辑值是 false
+		//iThreeFourFive 的逻辑值是 true
+		//oObject 的逻辑值是 true 
+		function fn(){
+			console.dir(obj);
+		}
+		console.log(!sRed); //false;
+		console.log(!fn);  //false;
+
+	</script>
+</body>
+</html>

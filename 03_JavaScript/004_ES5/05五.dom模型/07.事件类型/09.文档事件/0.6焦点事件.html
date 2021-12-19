@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label>
+            <input type="text" name="">
+        </label>
+        <br>
+        <label>
+            <input type="password" name="">
+        </label>
+    </form>
+        <div class="se" onclick="dofn(this)">东方闪电好</div>
+
+
+    <script type="text/javascript">
+    /*焦点事件发生在Element节点和document对象上面，与获得或失去焦点相关。它主要包括以下四个事件。
+    focus事件：Element节点获得焦点后触发，该事件不会冒泡。
+    blur事件：Element节点失去焦点后触发，该事件不会冒泡。
+    focusin事件：Element节点将要获得焦点时触发，发生在focus事件之前。该事件会冒泡。Firefox不支持该事件。
+    focusout事件：Element节点将要失去焦点时触发，发生在blur事件之前。该事件会冒泡。Firefox不支持该事件。
+   
+   这四个事件的事件对象，带有target属性（返回事件的目标节点）和relatedTarget属性（返回一个Element节点）。对于focusin事件，relatedTarget属性表示失去焦点的节点；对于focusout事件，表示将要接受焦点的节点；对于focus和blur事件，该属性返回null。
+    */
+
+    var form = document.querySelector('input[type="text"]');
+    form.addEventListener('focus',function(e){
+        console.log(e.target);
+    },false)
+    var ev = new Event('focus');
+    // disPatchEvEvent()的参数是Event对象的实例
+    form.dispatchEvent(ev);
+
+    function dofn(that){
+        console.log(that);
+    }
+
+
+    
+    </script>
+</body>
+</html>

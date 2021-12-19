@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+
+/*
+    data 组件选项声明不再接收纯 JavaScript object，而需要 function 声明。
+    data 始终声明为函数
+    
+*/ 
+
+const app =Vue.createApp({
+    data(){
+        return{
+
+        }
+    },
+    setup(){
+
+    },
+    // props 可以是数组或对象，用于接收来自父组件的数据
+    props:[],
+
+})
+
+
+app.mount("#app")
+
+</script>
+</html>

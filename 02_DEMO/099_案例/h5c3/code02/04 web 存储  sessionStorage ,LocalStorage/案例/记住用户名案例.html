@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <form>
+            昵称：<input type="text"  id="username"><br><br>
+            密码：<input type="password"  id="password"><br><br>
+            是否记住用户名:<input type="checkbox" id="ischecked"><br><br>
+            <input type="button" value="登录" id="buttonId">
+        </form>
+
+        <script>
+                document.getElementById("buttonId").onclick=function(){
+                       var username=document.getElementById("username").value;
+                        //是否需要记住用户名.
+                        var flag= document.getElementById("ischecked").checked;
+                        if(flag){
+                            //需要记住用户名
+                            //把这个值放在localStorage 里面去
+                            window.localStorage.setItem("username",username);
+                        }else{
+                            //如果用户不需要我记住用户名密码，我需要把这个值清掉
+                            window.localStorage.removeItem("username");
+                        }
+                }
+                //页面加载完毕的时候，我需要从localStorage 把值取出来，取出来之后放在username input 框里面
+                window.onload=function(){
+                       var data=window.localStorage.getItem("username");
+                       if(data!=null){
+                            document.getElementById("username").value=data;
+                       }
+                }
+        </script>
+
+</body>
+</html>

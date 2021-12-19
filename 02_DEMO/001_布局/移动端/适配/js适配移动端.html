@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="base.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div class='main'>
+		<div class='topnav'>
+			<div class="lsite"></div>
+			<div class="csite clearfix">
+				<span>商品</span>
+				<span>详情</span>
+				<span>评价</span>
+			</div>
+			<div class="fsite"></div>
+		</div>
+	</div>
+	<div id='number'></div>
+
+</body>
+<script src="../jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	// $(function(){
+	// 	$(window).on('resize',function(event) {
+	// 	var screen={max:750,min:320,px:100};
+	// 	var w=$(this).width();
+	// 		if (w<screen.min) {
+	// 			w=screen.min;
+	// 		}else if (w>screen.max) {
+	// 			w=screen.max;
+	// 		}
+	// 		$('#number').css('height',"100px").css("width",'100px').css('fontSize',"40px");
+	// 		$('#number').html($(window).innerWidth());
+
+	// 	$("html").css("font-size",screen.px*w/screen.max+"px");
+	// 	}).trigger('resize');
+	// })
+
+
+		$(function(){
+			$(window).on("resize",(function(event) {
+				var width=$(window).innerWidth();
+				console.log(width);
+				if(320>=width){
+					width=320;
+				}
+				else if (750<=width) {
+					// width=750;	
+				}
+				var fontSize=100*(width/750);
+				$("html").css("fontSize",fontSize+"px");
+			})).trigger('resize');
+		});
+
+</script>
+</html>

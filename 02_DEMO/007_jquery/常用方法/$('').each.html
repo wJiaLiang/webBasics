@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            color:red;
+        }
+        .Colorblue{
+			border: 1px solid darkgoldenrod;
+        }
+        .for{
+        	border: 2px dotted deeppink;
+        }
+    </style>
+</head>
+<body>
+
+<script src="jquery-1.11.1.js"></script>
+<script>
+		$(function(){
+     		$("div").each( function(i, n){
+     			// 下标从0开始；
+       			console.log( "这是下标：" +i+"  "+"这是值: " + n );
+       			$(n).css({
+       				marginTop: '20px',
+       				padding: '10px'
+       			});
+       			if(i<3)$(n).addClass('for');
+       			if(i>3)$(n).addClass('Colorblue');
+
+    		});
+    		// $('div').addClass('Colorblue');
+		})
+</script>
+    <div class="one">一</div>
+    <div class="two">二</div>
+    <div class="three">三</div>
+    <div class="four">四</div>
+    <div class="five">五</div>
+
+</body>
+</html>

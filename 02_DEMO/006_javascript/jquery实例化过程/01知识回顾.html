@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    /*
+    思路跳转快
+    jQuery还是一头雾水
+    框架封装不明白
+    call apply的使用
+    正则不牢固(分组、exec)
+    each的封装过程
+    面向对象基础不牢固
+    隐式迭代（遍历，循环）
+    进度慢
+    数组与类数组
+    心里状态
+    */
+    // Function.prototype.call  Function.prototype.apply
+    // 为什么所有的方法都可以访问到call 和 apply？
+    // 1、调用方法；2、改变所调用函数的this指向；3、借用别的对象的方法
+    // function foo(){
+    //     console.log('hello');
+    // }
+    // foo();
+    // foo.call();
+    // foo.apply();
+    //-------------------------------------------------------
+    var info = 'hello tom';
+    function foo(param,param2){
+        console.log(this.info,param,param2);
+    }
+    foo(123,345);
+    foo.call({info : 'hello spike'},456,789);
+    foo.apply({info : 'hello kitty'},[456,789]);
+    //---------------------------------------------------------
+    var ret = Math.max.call(null,123,234,43,5,56,76,76,7865);
+    var ret2 = Math.min.apply(null,[123,234,43,5,56,76,76,7865]);
+    var ret1 = Math.max(1213,23,43,443,45,56,56);
+    var ret3 = Math.min(1213,23,43,443,45,56,56);
+    console.log(ret2);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

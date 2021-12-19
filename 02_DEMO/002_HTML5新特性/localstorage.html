@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>本地存储</title>
+</head>
+<body>
+	<label for="in">用户名:</label><input id='in' type="text"></br>
+	<br>
+	<label for="f">密码:</label><input id='f' type="text"></br>
+	<br>
+	<label for="w">是否记住密码</label><input id='w' type="checkbox"></br>
+	<br>
+	<button>登录按钮</button></body></br>
+	</br>
+	<button id='clear'>清除</button>
+	<script>
+			
+					var but=document.getElementsByTagName('button')[0];
+
+					but.onclick=function(){
+						//获取输入框和文本框的值;
+						var name=document.getElementById('in').value;
+						var password=document.getElementById('f');
+						
+						//将获取到的值存入其中;
+						window.localStorage.setItem('name',names);
+					}
+
+					var bbb=document.getElementById("clear");
+
+					//点击这个按钮的时候就删除
+					bbb.onclick=function(){
+							window.localStorage.removeItem('name');
+					}
+
+					//点击的时候就去获取其中的值,如果值为"";就设置一个值;
+					window.onload=function(){
+						var names=window.localStorage.getItem('name');
+						if(name==''){
+							document.getElementById('in').value=names;
+						}
+					}
+					
+
+		
+
+	</script>
+</body>
+</html>

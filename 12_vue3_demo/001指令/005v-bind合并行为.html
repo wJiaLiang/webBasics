@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+        <!-- template -->
+        <div v-bind="{ id: 'blue' }" id="red"></div>
+
+        <!-- result -->
+        <div id="red"></div>
+
+
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+/*
+    在 3.x，如果一个元素同时定义了 v-bind="object" 和一个相同的单独的 property，那么声明绑定的顺序决定了它们如何合并。
+    换句话说，相对于假设开发者总是希望单独的 property 覆盖 object 中定义的内容，现在开发者对自己所希望的合并行为有了更好的控制。
+
+    <!-- template -->
+    <div v-bind="{ id: 'blue' }" id="red"></div>
+
+    <!-- result -->
+    <div id="red"> </div>
+        
+*/ 
+
+const app =Vue.createApp({
+    data(){
+        return{
+
+        }
+    },
+    setup(){
+
+    },
+    // props 可以是数组或对象，用于接收来自父组件的数据
+    props:[],
+
+    // Vue 实例将会在实例化时调用 watch()，遍历 watch 对象的每一个 property。
+    watch:{},
+
+    // 计算属性
+    computed:{},
+
+    // 方法;
+    methods:{},
+
+    // 在挂载开始之前被调用：相关的 render 函数首次被调用。
+    beforeMount () {},
+
+    // 实例被挂载后调用
+    mounted() {},
+
+
+})
+// 组件
+app.component({})
+
+app.mount("#app")
+
+</script>
+</html>

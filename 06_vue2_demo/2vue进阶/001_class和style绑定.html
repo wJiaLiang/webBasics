@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo{width:200px;height: 200px;border: 2px solid red;}
+        .demo1{width: 200px;height: 200px;border: 2px solid yellowgreen;}
+        .bgRed{background:red;}
+        .err-Bgobj{background: cornflowerblue;}
+        .bg2{background: black;}
+
+        .bgBlue{background:blue;}
+        .errbg{background: orange;}
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--  class 类名绑定方法  -->
+    <div class="demo" :class="{bgRed:isActive,'err-Bgobj':hasErr}"></div>
+    <div class="demo" :class="isActive?'bg2':''"></div>
+
+    <div class="demo" :class="[isActive?activeClass:'',errClass?'bgRed':'']"></div>
+
+    <!--  style 绑定方法   -->
+    <div class="demo1" :style="{color:isred,}"> 3333 </div>
+    <div class="demo1" :style="[{fontSize:'26px'},{color:isyellow}]"> 666 </div>
+
+
+</div>
+</body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+        * 对象语法:直接写类名,如果类名有字符,用用单引号包括起来;
+        * 数组语法:
+        *
+        * */
+
+    new Vue({
+        el:'#app',
+        data:{
+            isActive:true,
+            hasErr:true,
+
+            activeClass:"bgBlue",
+            errClass:"errbg",
+
+            isred:'red',
+            isyellow:'blue'
+
+        },
+        beforeMount() {
+
+        },
+        methods:{
+
+        }
+
+    })
+</script>
+</html>

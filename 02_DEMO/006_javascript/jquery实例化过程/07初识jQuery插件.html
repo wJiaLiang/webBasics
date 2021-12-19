@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    #tab div{width:300px;height: 200px;background: lightgreen;display: none;}
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+    <script type="text/javascript" src="js/tab.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        // $('#tab').tab({
+        //     background : 'red'
+        // });
+        $('#tab').tab({
+            height : 300,
+            color : {
+                div : ['black','lightblue']
+            }
+        });
+    })
+    console.log(settings);
+    </script>
+</head>
+<body>
+    <div id="tab">
+        <input type="button" value="香蕉">
+        <input type="button" value="苹果">
+        <input type="button" value="橘子">
+        <div>香蕉</div>
+        <div>苹果</div>
+        <div>橘子</div>
+    </div>
+    
+</body>
+</html>

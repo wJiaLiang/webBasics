@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    // for...in循环不仅可以遍历对象，也可以遍历数组，毕竟数组只是一种特殊对象。
+
+    // 但是，for...in不仅会遍历数组所有的数字键，还会遍历非数字键。
+
+    var a = [1, 2, 3];
+    a.foo = true;
+
+    for (var key in a) {
+      console.log(key);
+    }
+    //  0:
+    //  1
+    //  2
+    //  foo
+   //上面代码在遍历数组时，也遍历到了非整数键foo。所以，不推荐使用for...in遍历数组。
+   
+
+
+
+
+
+    </script>
+</body>
+</html>

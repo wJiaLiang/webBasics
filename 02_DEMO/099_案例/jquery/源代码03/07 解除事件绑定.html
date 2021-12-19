@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+
+
+                /*1:页面加载完毕，我先给div 绑定事件
+                * 2:给input type=button 添加一个点击事件
+                *   我把这个div 绑定的事件，解绑..
+                * 3:测试，事件是否解绑
+                *
+                * */
+
+                $("div").on("click mouseover",function(){
+                         alert("点击事件已经添加好..")
+                })
+                $("input").on("click",function(){
+                        //把刚刚的div 的事件解绑..
+                    /**
+                     *
+                     *
+                     * off
+                     *  加参数的，
+                     *      解绑指定的事件.
+                     *  不加参数
+                     *      不加参数，相当于解绑div 上面所有的事件.
+                     */
+                    $("div").off("mouseover");
+
+                })
+
+
+
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="解除绑定事件"/>
+<div>
+    我是一个p元素
+    <br/>
+    <span class="spanItem">我是页面中的span</span>
+    <h1>我是标题</h1>
+    <br/>
+</div>
+</body>
+</html>

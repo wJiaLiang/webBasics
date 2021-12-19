@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>src延迟加载</title>
+	<style>
+		
+		img{
+			width: 200px;
+			height: 100px;
+			margin-bottom: 10px;
+			margin-left: 30px;
+			border: 1px solid green;
+
+		}
+	</style>
+</head>
+<body>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+	<div class='box'>
+		<img class='lazy' data-original="ddcx.png" alt="">
+	</div>
+</body>
+<script src='jquery-1.11.1.js'></script>
+<script src='jquery.lazyload.js'></script>
+<script>
+		 $(function(){
+        	 // $("img.lazy").lazyload();
+        	  $("img.lazy").lazyload({
+            threshold :-100     
+            });
+            	$.ajax({
+            	type:'get',
+                dataType:'json',
+                // jsonpCallback:'hao',
+                // jsonp:'b',
+                url:'https://www.google.com/complete/search?client=serp&hl=zh-CN&gs_rn=64&gs_ri=serp&tok=ta1DRviVdYvKvE3hbOfBkQ&pq=%E7%99%BE%E5%BA%A6&cp=1&gs_id=jt&q=%E4%B8%BA&xhr=t',
+                success:function(data){
+                    alert(data);
+                    // console.log(data.today);
+            },
+            	fail:function(data){
+            		console.log(data);
+            	}
+        
+           })
+    })
+</script>
+</html>

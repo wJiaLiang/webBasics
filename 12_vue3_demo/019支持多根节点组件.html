@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+/*
+    在 Vue 3 中，组件现在正式支持多根节点组件，即片段
+    <!-- Layout.vue -->
+    <template>
+        <header> ... </header>
+        <main v-bind="$attrs"> ... </main>
+        <footer> ... </footer>
+    </template>
+
+*/ 
+
+
+const app =Vue.createApp({
+    data(){
+        return{
+
+        }
+    },
+    setup(){
+
+    },
+    //可以是数组或对象，用于接收来自父组件的数据
+    props:[],
+
+    // 计算属性
+    computed:{},
+
+    // 方法;
+    methods:{},
+    
+    // 实例被挂载后调用
+    mounted() {},
+
+})
+app.mount("#app")
+
+</script>
+</html>

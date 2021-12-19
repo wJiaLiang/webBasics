@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var obj={
+		info:"hello",
+		num:'33',
+		age:'100'
+	}
+	var obj1=obj;
+	obj1.info="hi";
+	console.log(obj.info) //hi 存的是内存地址,共同指向的还是同一片内存地址;
+
+	//需求改变obj1.info的值的时候obj.info的值不变？
+	//用for in 多拷贝一份;
+	var obj1={};
+	for(var key in obj){
+		obj1[key]=obj[key];
+	}
+	
+//***********************************************
+		//利用递归深拷贝;
+	function deepCopy(source){
+		var result={};
+		for(var key in source){
+			result[key]= typeof source[key]==='object'? deepCopy(source[key]):source[key];
+		}
+		return result;
+	}
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

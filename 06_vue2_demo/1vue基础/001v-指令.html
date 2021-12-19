@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text">
+        <p v-bind:class="mess">{{mess}} </p>
+        <p v-bind:title="mess1*2">{{mess1*2}} </p>
+        <p>{{mess2.map(ele=>ele*2)}} </p>
+        <p v-bind:title="xu"> 鼠标悬浮 title </p>
+
+
+        <input type="text" v-on:input="watchValue">
+        <p>{{fu()}}</p>
+        <p>{{mess3}}</p>       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script >
+        // 指令 是一种特殊的属性，以v-开头将数据和dom做关联;当表达式的值改变的时候响应式的作用在视图;
+
+        /*
+         v-text 更新元素的 textContent。如果要更新部分的 textContent，需要使用 {{ Mustache }} 插值。
+        */ 
+
+
+        // v-bind:属性="表达式";   缩写  ：
+        // 绑定事件  语法：v-on:事件名="表达式"   缩写 @    
+
+        /*
+            v-pre  
+            跳过这个元素和它的子元素的编译过程。可以用来显示原始 Mustache 标签。跳过大量没有指令的节点会加快编译。
+        */ 
+
+        /*
+            v-once 只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。
+            <li v-for="i in list" v-once>{{i}}</li>
+        */ 
+
+
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                mess:'Hello V',
+                mess1:23,
+                mess2:[7,8,9],
+                mess3:'',
+                xu:'当前显示'+ new Date().toLocaleString(),
+
+            },
+            methods:{
+                fu(){
+                    console.log(this);
+                    console.log('直接在模板中调用这个函数')
+                },
+                watchValue(e){
+                    console.log(this === vm); // true;
+                    console.log( e.target.value );
+                    this.mess3 = e.target.value;
+                }
+            }
+            
+        })
+        
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <script type="text/javascript">
+        
+        var p = new Promise((resolve,reject)=>{
+            resolve('成功');
+        })
+        console.log(p);
+
+        //var p2 = p.then(()=>{return 123})   // 返回一个非Promise,p2 结果是一个成功状态的promise对象;
+
+        // var p2 = p.then(()=>{ });   // 什么都不返回,p2 结果是一个成功状态的promise对象;
+
+        var p2 = p.then(()=>{
+            return new Promise((res,rej)=>{
+                res('哈哈') })
+            }) // 此时p2的状态取决于里面返回的的promise的状态;
+
+        console.log(p2);
+
+        p2.then((data)=>{
+            console.log(data);
+        })
+
+
+    </script>
+</body>
+</html>

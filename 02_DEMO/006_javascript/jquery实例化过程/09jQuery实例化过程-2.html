@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+    var $ = jQuery = function(){
+        return new $.fn.init();
+    };
+    $.fn = $.prototype = {
+        init : function(selector){
+            this.css = function(){
+                console.log(123);
+            }
+        },
+        jquery : '1.0',
+        length : 0,
+        size : function(){
+            console.log(this.length);
+        }
+    };
+    $.fn.init.prototype = $.fn;
+
+    $("div").css();
+    $().size();
+
+    console.log($().jquery);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

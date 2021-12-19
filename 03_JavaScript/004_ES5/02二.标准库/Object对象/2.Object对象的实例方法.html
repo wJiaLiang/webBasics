@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+        //   Object.prototype.toString()
+
+        // toString方法的作用是返回一个对象的字符串形式，默认情况下返回类型字符串。
+        var o1 = new Object();
+        console.log( o1.toString() )    // [object Object]
+        var o2 = {a:1};
+        o2.toString()       // "[object Object]"
+
+        //字符串[object Object]本身没有太大的用处，但是通过自定义toString方法，可以让对象在自动类型转换时，得到想要的字符串形式。
+        var o = new Object(); 
+        o.toString = function () {
+          return 'hello';
+        };
+        console.log( o + ' ' + 'world' );
+        o + ' ' + 'world' // "hello world"
+
+        //当对象用于字符串加法时，会自动调用toString方法。由于自定义了toString方法，所以返回字符串hello world。
+
+        //数组、字符串、函数、Date对象都分别部署了自己版本的toString方法，覆盖了Object.prototype.toString方法。
+
+        console.log( [1, 2, 3].toString() );    // "1,2,3"
+        console.log( "123".toString() );        // "123"
+        var fu=(function () {
+          return 123;
+        }).toString()    
+        console.log(fu);   "function () {return 123;}"
+        
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <div id="app">
+            <my-component> </my-component>
+        </div>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+    函数式组件
+    没有管理任何状态，也没有监听任何传递给它的状态，也没有生命周期方法。
+    它只是一个接受一些 prop 的函数。在这样的场景下，我们可以将组件标记为 functional，
+    这意味它无状态 (没有响应式数据)，也没有实例 (没有 this 上下文)。一个函数式组件就像这样：
+
+*/
+        Vue.component("my-component", {
+            functional: true,
+            // props 可选
+            props: {},
+            render: function (createElement, context) {
+                return createElement(
+                    "div",
+                    {
+                        class: {
+                            color: false,
+                            color2: true,
+                        },
+                        style: { color: "red" },
+                        attrs: {
+                            id: "foo",
+                        },
+                        // domProps: {
+                        //     innerHTML: "<p >12345567778 </p>",
+                        // },
+                    },
+                    [
+                        "先写一些文字",
+                        createElement("h1", "一则头条"),
+                        createElement(
+                            "section",
+                            {
+                                props: {
+                                    someProp: "foobar",
+                                    style: {
+                                        color: "blue",
+                                    },
+                                },
+                            },
+                            ["section 元素"]
+                        ),
+                    ]
+                );
+            },
+        });
+
+        new Vue({
+            el: "#app",
+            data: {},
+            methods: {},
+            beforeMount() {},
+            mounted() {},
+            computed: {},
+            watch: {},
+        });
+    </script>
+</html>

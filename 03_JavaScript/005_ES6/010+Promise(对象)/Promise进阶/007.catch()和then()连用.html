@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    console.log('start');
+
+    new Promise(resolve=>{
+        setTimeout(()=>{
+            resolve();
+        },1000)
+    })
+    .then( ()=>{
+        console.log('s');
+        throw new Error('test error');
+    })
+    .catch(err=>{
+        // 这里的catch 可以捕获上一个then()中抛出的错误;
+        console.log('I catch' +err);
+        // cath 返回的也是成功状态的Promise对象;所以后面的then()能执行;
+        throw new Error('test error to');// 这样既可以直接进入到最后一个catch中;
+    })
+    .then(()=>{
+        console.log('here')
+    })
+    .then(()=>{
+        console.log('here to')
+    })
+    .catch(err=>{
+        console.log('no,I cathc',err);
+    })
+
+    // 在所有的队列的最后都要加个catch()捕获错误;
+
+    </script>
+</body>
+</html>

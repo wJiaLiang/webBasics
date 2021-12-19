@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		table{
+			width: 600px;
+			height: 90px;
+			margin: 0 auto;
+		}
+		button{
+		}
+	</style>
+
+</head>
+<body>
+	<table border="1" style="border-collapse: collapse" cellpadding="5px">
+		<caption>表格</caption>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>名字</th>
+				<th>年龄</th>
+				<th>性别</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='one'>
+				<td>1</td>
+				<td>张三</td>
+				<td>22岁</td>
+				<td>男</td>
+				<td align='center'>
+					<button type="button">删除行</button>
+					<button type="button">删除列</button>
+				</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>李四</td>
+				<td>28岁</td>
+				<td>男</td>
+				<td align='center'>
+					<button type="button">删除行</button>
+					<button type="button">删除列</button>
+				</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>赵六</td>
+				<td>42岁</td>
+				<td>女</td>
+				<td align='center'>
+					<button type="button">删除行</button>
+					<button type="button">删除列</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+	<script src="jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			console.log($('th:first-child'))
+			var but=$('table').find('button:first-child');
+			$.each(but,function(i,n){
+					but.eq(i+1).click(function(){
+					var row=$('tr:gt(0)');
+						row.eq(i).remove();
+				// 不能用这样的方法去实现；通过this
+			})
+				
+			})
+
+				
+
+		})
+	</script>
+	
+
+
+
+</body>
+</html>

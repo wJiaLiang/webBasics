@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+        <cust-ele> </cust-ele>
+         <hr>
+        
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+/*
+     provide 函数允许你通过两个参数定义 property：
+    1、property 的 name (<String> 类型)
+    2、property 的 value 
+
+    inject 函数有两个参数：
+    1、要注入的 property 的名称 
+    2、一个默认的值 (可选)
+
+有时我们需要在注入数据的组件内部更新注入的数据。在这种情况下，我们建议提供一个方法来负责改变响应式 property。
+如果要确保通过 provide 传递的数据不会被注入的组件更改，我们建议对提供者的 property 使用 readonly。
+
+*/ 
+let { provide,inject,ref,reactive,readonly} = Vue
+
+const app = Vue.createApp({
+    data(){
+        return{
+
+        }
+    },
+    setup(){
+        // provide('location',  ref('North Pole'))  // 这样定义就是响应式的
+        // provide('geolocation', {
+        //     longitude: 90,
+        //     latitude: 135
+        // })
+
+        const location = ref('North Pole')
+        const geolocation = reactive({
+            longitude: 90,
+            latitude: 135
+        })
+        
+        // 显示定义修改值函数
+        const updateLocation = (changeval)=>{
+            console.log(location)
+            location.value = changeval
+        }
+        provide('updateLocation',updateLocation)
+        provide('location',location)
+        provide('geolocation',geolocation)
+        provide('abc',readonly('abc')) // 值不会被修改
+
+    },
+
+})
+// 组件
+app.component("cust-ele",{
+    props:{
+        name:String
+    },
+    methods:{
+    
+    },
+    setup(){
+        const userLocation = inject('location', 'default value')
+        const userGeolocation = inject('geolocation')
+        const updateLocation = inject('updateLocation')
+
+        return {
+            userLocation,
+            userGeolocation,
+            updateLocation
+        }
+    },
+    template:`
+        <div>  
+            <p> {{userLocation}} </p>
+            <p> {{userGeolocation}} </p>
+        </div>
+        <input type="text" v-model="userLocation">
+        <hr/>
+        <button @click="updateLocation(666)"> 显示修改值 </button>
+    `
+})
+
+app.mount("#app")
+
+</script>
+</html>

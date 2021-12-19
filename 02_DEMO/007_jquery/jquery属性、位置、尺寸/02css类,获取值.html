@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		.color{background-color: darkgoldenrod;}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>Hello1</li>
+		<li>Hello2</li>
+		<li>Hello3</li>
+		<li>Hello4</li>
+		<li>Hello5</li>
+	</ul>
+	<input type="text" name="age" value='文本值'>
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			//addClass;
+			$('ul li:last-child').addClass('color')
+			//removeClass();
+			$('ul li:last-child').removeClass('color')
+			//toggleClass;如果存在（不存在）就删除（添加）一个类。
+			$('ul li:first').click(function(){
+				$(this).css('cursor','pointer');
+				$('ul li:first').toggleClass('color');
+
+			})
+
+			var d=$('ul').html();
+				d=$('ul').text();//结果是由所有匹配元素包含的文本内容组合起来的文本。这个方法对HTML和XML文档都有效。
+				d=$('input').val(); //文本框;
+
+			console.log(d);
+		})
+
+	</script>
+</body>
+</html>

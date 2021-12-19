@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的作用域</title>
+</head>
+<body>
+    <script type="text/javascript">
+    // 定义
+// 函数外部声明的变量就是全局变量（global variable），它可以在函数内部读取
+    var v = 1;
+    function f() {
+      console.log(v);
+    }
+    f()     // 1
+    //变量v在函数内部定义，所以是一个局部变量，函数之外就无法读取。
+    function f(){
+      var v = 1;
+    }
+    v // ReferenceError: v is not defined
+
+// 函数内部的变量提升
+// 
+//与全局作用域一样，函数作用域内部也会产生“变量提升”现象。var命令声明的变量，不管在什么位置，变量声明都会被提升到函数体的头部
+    
+
+
+//  函数本身的作用域
+    //函数本身也是一个值，也有自己的作用域。它的作用域与变量一样，就是其声明时所在的作用域，与其运行时所在的作用域无关。
+
+    //很容易犯错的一点是，如果函数A调用函数B，却没考虑到函数B不会引用函数A的内部变量。
+    var x = function () {
+        console.log(a);
+    };
+    function y(f) {
+        var a = 2;
+        f();
+    }
+    y(x)
+    //上面代码将函数x作为参数，传入函数y。但是，函数x是在函数y体外声明的，作用域绑定外层，因此找不到函数y的内部变量a，导致报错。
+
+    
+
+
+
+
+
+
+    </script>
+</body>
+</html>

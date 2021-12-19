@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style: none;
+        }
+        li {
+            margin-top: 10px;
+        }
+        li a {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        a{text-decoration:none;}
+        .firsta{border: 1px solid red;margin-right: 10px;}
+        .active {color: pink;}
+        .posr{position: relative;}
+        .posa{position: absolute;}
+        .close{font-size: 23px;top:-10px;right: -3px;}
+    </style>
+</head>
+
+<body>
+    <section id="app">
+        <div>
+            你的选择:
+            <a class="firsta " href="javascript:;" v-for="item,index in chose"  v-on:click="delBtn(index)"> 
+                {{chose[index]}} 
+                <span class="close"> x </span> 
+            </a>
+        </div>
+        <ul>
+            <li v-for="item,i in datalist">
+                {{item.title}}:
+                <a href="javascript:;" v-for="cItem,ci in item.list" v-on:click="addChooseHandle(i,cItem,ci)"
+                    v-bind:class="{active:item.index == ci}"> {{cItem}} </a>
+            </li>
+        </ul>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+        let data = [{
+                title: '品牌',
+                list: ['苹果', '华为', '中兴', 'OPPO', 'vivo', '小米']
+            },
+            {
+                title: '尺寸',
+                list: ['3.0英寸以下', '3.0-3.9英寸', '4.0-4.9英寸', '5.0-5.9英寸', '6.0-6.9英寸', '7.0-7.9英寸', ]
+            },
+            {
+                title: '网络',
+                list: ['联通', '双卡双待', '双4G', '移动4g', '电信4g', '联通4g']
+            }
+        ]
+        data.forEach(ele => ele.index = -1); //给每一项添加一个index属性; 用来记录每个对象中第几个被选择;
+        console.dir(data);
+
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                datalist: data,
+                chose: {},  // 循环对象的时候就自动排序了;
+            },
+            methods: {
+                addChooseHandle(i, c, ci) {
+                    //    console.log(c)
+                   
+                    this.$set(this.chose, i, c);  // i表示外层循环的下表 （列的下标）
+                    console.log(this.chose);
+                    this.datalist[i].index = ci; // 
+
+                },
+                delBtn(key){
+                    this.$delete(this.chose,key);
+                    this.datalist[key].index = -1;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

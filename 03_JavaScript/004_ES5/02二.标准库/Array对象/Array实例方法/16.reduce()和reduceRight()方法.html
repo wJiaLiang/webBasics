@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    /*
+        reduce方法和reduceRight方法依次处理数组的每个成员，最终累计为一个值。
+        reduce是从左到右处理（从第一个成员到最后一个成员），
+        reduceRight则是从右到左（从最后一个成员到第一个成员），其他完全一样。
+        这两个方法的第一个参数都是一个函数。该函数接受以下四个参数
+
+        1.累积变量，默认为数组的第一个成员
+        2.当前变量，默认为数组的第二个成员
+        3.当前位置（从0开始）
+        4.原数组
+        这四个参数之中，只有前两个是必须的，后两个则是可选的。
+
+        下面代码中，第一轮执行，x是数组的第一个成员，y是数组的第二个成员。
+        从第二轮开始，x为上一轮的返回值，y为当前数组成员，直到遍历完所有成员，返回最后一轮计算后的x。
+    */ 
+        var sum=[1,2,3,4,5,6].reduce(function(x,y){
+            return x+y;
+        })
+        console.log(sum); // 21;
+
+        /*
+            如果要对累积变量指定初值，可以把它放在reduce方法和reduceRight方法的第二个参数
+            指定参数x的初值为10,相当于相加后的数据加上 10;
+        */
+        var sumto = [1,2,3,4,5].reduce(function(x,y){
+            return x+y;
+        } ,10)
+        console.log(sumto) // 25
+
+
+    </script>
+</body>
+</html>

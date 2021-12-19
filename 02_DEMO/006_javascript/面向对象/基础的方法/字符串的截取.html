@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// str.slice(start, end)  两个参数都是索引值；包左不保右；
+		var str="weijia";
+		console.log(str.slice(1));   //eijia;
+		console.log(str.slice(1,5))  //eiji;
+		console.log(str.slice(-2));	 //ia 倒数第二个截到最后；
+		var STR="nimenhao";
+		//STR.substr(截取位置(必须)，截取长度);包含start；
+
+		console.log(STR.substr(0));  //imenhao;
+		console.log(STR.substr(1,3));  //ime;  
+
+		var st="jia 345记录2eil3wei";
+		console.log(st.split('')); //返回一个数组安每个字母拆分
+		console.log(typeof st.toString());  //string;
+	</script>
+</body>
+</html>

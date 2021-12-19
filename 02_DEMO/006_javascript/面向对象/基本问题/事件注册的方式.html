@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件注册</title>
+	<style type="text/css">
+		div{
+			width:100px;
+			height:100px;
+			background-color: green;
+		}
+		p{
+			width: 100px;height: 100px;background: #000;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<p onclick='clicks(this)'></p>
+<script type="text/javascript">
+	// 1.行内事件；
+		function clicks(l){
+			console.log('abcd');
+			console.log(l);
+		}
+	// 2.编程方式；
+	// 3.addEventListener(type, funtion(){},false铺获/true冒泡)
+	var div=document.getElementsByTagName('div')[0];
+	if(div.addEventListener)
+	{
+		div.addEventListener("click", function(){
+			alert('ie9或者以上的浏览器');
+		},false)
+	}
+	else{
+		//兼容IE；p a标签不可以内嵌快级元素；
+		div.attachEvent("onclick",function(){
+			alert("ie8或者以下的浏览器");
+		})
+	}
+	
+
+
+</script>
+	
+</body>
+</html>

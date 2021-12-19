@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /**
+         * Map 含义和基本用法;
+         JavaScript 的对象（Object），本质上是键值对的集合（Hash 结构），但是传统上只能用字符串当作键。这给它的使用带来了很大的限制
+         要创建键值对的集合，Map比object更合适;
+         * 
+         */
+         var data1={a:1},data2={b:2};obj={};
+         obj[data1]=88;
+         obj[data2]=99;
+         console.log(obj); //{[object object]:99};对象被toString()后是[object object];
+
+         console.log({}==={}) //false,引用的数据类型比较的是内存地址;
+
+// 1.创建一个Map;
+    const map=new Map([
+            ['a',1],
+            ['b',2]
+        ])
+    console.log(map);
+// Map类的属性：
+    console.log(map.size);
+// Map类的方法:
+        // 1.set(key,value) 设置键名key对应的值为value，然后返回整个Map结构;
+        // 如果key有值，则键值会被更新,否则就生成该键;
+        map.set('c',3);
+        console.log(map);
+        // 2.get(key) get方法读取key对应的键值，如果找不到key,返回undefined;
+        console.log('c');
+        // 3.delete(key);删除某个键，返回true，如果删失败，就返回false;
+        console.log(map.delete('c'));
+        // 4.has(key) 方法返回一个布尔值，表示某个键值是否在当前Map对象之中;
+        console.log(map.has('b'));
+        // 5.clear();清除所有数据，没有返回值
+        // 6.keys();返回键名的遍历器;
+        console.log(map.keys());
+        // 7. values()返回键值的遍历器;
+        console.log(map.values());
+        // 8.entries();返回键值对的遍历器；
+
+        // 9.forEach() 使用回调函数遍历每一个成员
+        map.forEach(function(key,value,map){
+            console.log('value:'+value);
+        })
+        // 注意事项；
+        // 需要特别注意的是，Map 的遍历顺序就是插入顺序。
+
+    </script>
+</body>
+</html>

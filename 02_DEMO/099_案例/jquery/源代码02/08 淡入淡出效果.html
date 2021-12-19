@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            left: 8px;
+            height: 400px;
+            width: 400px;
+            background: red;
+            display: none;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            // 淡入效果
+            $("#btnFadeIn").click(function () {
+                $("div").fadeIn(1000);
+            });
+
+            // 淡出效果
+            $("#btnFadeOut").click(function () {
+                $("div").fadeOut(2000);
+            });
+
+            // 淡入淡出切换
+            $("#btnFadeToggle").click(function () {
+                $("div").fadeToggle();
+            });
+
+            // 淡到
+            $("#btnfadeTo").click(function () {
+                $("div").fadeTo(2000,0.4);
+            });
+
+
+
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="淡入" id="btnFadeIn"/>
+<input type="button" value="淡出" id="btnFadeOut"/>
+<input type="button" value="淡入淡出切换" id="btnFadeToggle"/>
+<input type="button" value="淡到效果" id="btnfadeTo"/>
+<div></div>
+</body>
+</html>

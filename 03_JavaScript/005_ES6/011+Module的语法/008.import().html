@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+    // 1.前面介绍过，import命令会被 JavaScript 引擎静态分析，先于模块内的其他语句执行
+    /*  
+    这样的设计，固然有利于编译器提高效率，但也导致无法在运行时加载模块。在语法上，条件加载就不可能实现。如果import命令要取代 Node 的require方法，这就形成了一个障碍。因为require是运行时加载模块，import命令无法取代require的动态加载功能。
+
+    因此，有一个提案，建议引入import()函数，完成动态加载。
+
+    */ 
+    /*
+    import()函数就能接受什么参数，两者区别主要是后者为动态加载。
+
+    import()返回一个 Promise 对象。
+     */
+
+
+// 适用场合
+    
+// (1) 按需加载   import()可以在需要的时候，再加载某个模块。
+    button.addEventListener('click', event => {
+        import('./dialogBox.js').then(dialogBox => {dialogBox.open();})
+        .catch(error => { /* Error handling */ })
+    });
+    /*          
+    上面代码中，import()方法放在click事件的监听函数之中，只有用户点击了按钮，才会加载这个模块。
+    */
+//  (2) 条件加载;  import()可以放在if代码块，根据不同的情况，加载不同的模块。
+    
+//  (3) 动态的模块路径    import()允许模块路径动态生成。  
+    // import(f()).then(...);
+    // 上面代码中，根据函数f的返回结果，加载不同的模块。
+
+    
+    
+
+
+
+
+    </script>
+</body>
+</html>

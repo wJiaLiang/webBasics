@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .dome1{
+            margin-left: 300px;
+            width: 300px;
+            height: 300px;
+            border:  1px solid red;
+        }
+        .dome2{
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+        }
+        .dome3{
+            width: 100px;
+            height: 100px;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <button @click='fn'>事件</button>
+        <a @click="prevent" href="www.baidu.com"> go baidu.com </a>
+        <p>阻止默认事件:</p>
+        <a @click.prevent="" href="www.baidu.com"> go baidu.com </a>
+
+        <div class="dome1" @click.capture='dome1'>
+            这是dome1
+            <div class="dome2" @click.stop="dome2">
+                这是 dome2
+                <div class="dome3" @click="dome3">
+                    这是 dome3
+                </div>
+            </div>
+        </div>
+        <!-- 按键修饰符 -->
+        <input type="text" @keyup.enter = 'keyup1'>
+        <input type="text" @keyup.tab = 'keyup2'>
+    
+        <input style="width: 100px;height: auto;border: 1px solid red" value="测试修饰符" @keyup.left="keyup3"></input>
+        <div style="border: 1px solid blue;width: 100px;height: 50px;" @click.left="keyup4"> div 按下鼠标左键  </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+        /*
+            事件修饰符
+            语法： @事件名.修饰符.修饰符 = ''
+            事件流，先捕获再触发；
+            capture 捕获；
+            stop 阻止冒泡
+            */
+
+
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello'
+            },
+            methods: {
+                fn() {
+                    alert(123);
+                },
+                prevent(ev) {
+                    ev.preventDefault();
+                },
+                dome1(){
+                    console.log('dome1')
+                },
+                dome2(){
+                    console.log('dome2')
+                },
+                dome3(){
+                    console.log('dome3')
+                },
+                keyup1(){
+                    console.log('enter建触发');
+                },
+                keyup2(){
+                    console.log('tab建触发');
+                },
+                keyup3(){
+                    console.log('left');
+                },
+                keyup4(){
+                    console.log('鼠标左键安下')
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

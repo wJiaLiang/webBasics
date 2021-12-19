@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <script type="text/javascript" src="./template-web.js"></script> -->
+    <script type="text/javascript" src="./template-native.js"></script>
+</head>
+<body>
+    <div id='content'>
+
+    </div>
+
+
+</body>
+
+<script id="tmp1" type="text/html">
+    <h1><%=custom(time) %> </h1>
+
+
+
+</script>
+
+<script type="text/javascript">
+    var data={
+        name: "原生语法test",
+        age: 18,
+        time:1514383803142
+    }
+    // 自定义一个渲染函数;
+    // custom 是模板中的函数名称,第二个参数是执行的函数,用于处理模板中的字段;
+    // 模板中会把改字段传入自定义的函数;
+    template.helper('custom',function(s){
+        return Date(s);
+    })
+    window.onload=function(){
+        var shtml= template('tmp1',data);
+        document.getElementById('content').innerHTML=shtml;
+
+    }
+
+
+
+
+</script>
+</html>

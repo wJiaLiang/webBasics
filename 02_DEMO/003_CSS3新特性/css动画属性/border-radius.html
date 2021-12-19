@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>border-radius</title>
+    <style type="text/css">
+        *{margin: 0px;padding:0px;line-height: 1px;font-size: 14px;}
+        section{padding:90px;}
+        .circular{
+            padding:3px 6px; 
+            border: 1px solid #ccc;
+            color: red;
+            border-radius: 300px;
+            line-height: 1;
+            font-size: 12px;
+            text-align: center;
+        }
+        .radius {
+            border-top-left-radius: 200px 100px;
+            border-top-right-radius: 200px 100px;
+            border-bottom-left-radius: 200px 100px;
+            border-bottom-right-radius: 200px 100px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        border-radius还有一个大值特性，也就是值很大的时候，
+        只会使用能够渲染的圆角大小渲染。因此，要实现一个正方形元素的圆角效果（例如网站头像），
+        我们还可以使用一个很大的圆角值，同样是不需要计算的。例如，下面240*240像素图片，我设置圆角大小300px，跟上面效果一样。
+        参考 链接  张金旭;
+        http://www.zhangxinxu.com/wordpress/2015/11/css3-border-radius-tips/
+    </header>
+
+    <section>
+        <span class="circular">1</span>
+        <span class="circular">12345</span>
+    </section>
+    <script type="text/javascript">
+
+
+
+    </script>
+</body>
+</html>

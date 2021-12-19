@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scroll</title>
+	<style type="text/css">
+		div{
+			width:600px;
+			height:1600px;
+		}
+	</style>
+</head>
+<body>
+		<div>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+			哈哈哈哈哈哈哈哈啊哈<br/>
+
+		</div>
+	<script type="text/javascript">
+		
+
+		window.onscroll=function(){
+			//google识别；
+			// document.title=document.body.scrollTop;
+
+			//IE  火狐  识别；
+			document.title=document.documentElement.scrollTop;
+
+			//谷歌，火狐，IE9+; 识别；
+			// document.title=window.pageYOffset;
+
+			console.log(document.body.scrollTop);
+
+		}
+	</script>
+</body>
+</html>

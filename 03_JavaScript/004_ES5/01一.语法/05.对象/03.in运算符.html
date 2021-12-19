@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // in运算符用于检查对象是否包含某个属性（注意，检查的是键名，不是键值），
+        // 如果包含就返回true，否则返回false。
+
+        var obj = { p: 1 };
+        'p' in obj      // true
+
+        // in运算符的一个问题是，它不能识别哪些属性是对象自身的，哪些属性是继承的。
+        var obj = {};
+        'toString' in o // true
+        //toString方法不是对象obj自身的属性，而是继承的属性。但是，in运算符不能识别，
+        // 对继承的属性也返回true。
+        
+
+
+        
+
+
+    </script>
+</body>
+</html>

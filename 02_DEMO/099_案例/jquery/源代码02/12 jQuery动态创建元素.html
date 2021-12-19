@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 使用jQuery动态创建元素  append 方法使用.
+            $("#btnCreate").click(function () {
+
+                    var p="<p>www.itcast.cn</p>";
+
+                    /*
+                    * append 是往当前元素的子元素的末尾追加一个元素
+                    * */
+                   /* $("div").append(p);*/
+
+                  /*
+                  * prepend  往当前元素的子元素的开始位置追加一个元素.
+                  *
+                  * */
+                  /*$("div").prepend(p);*/
+                    /*
+                    *
+                    * before 在当前元素的前面添加一个节点，该节点与当前元素是兄弟关系.
+                    * */
+                    /* $("div").before(p);*/
+                  /*
+                   *
+                   * after 在当前元素的后面添加一个节点，该节点与当前元素是兄弟关系.
+                   * */
+                    $("div").after(p);
+
+
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="动态创建元素" id="btnCreate"/>
+<div>
+        <a href="http://www.sohu.com">搜狐</a>
+</div>
+</body>
+</html>

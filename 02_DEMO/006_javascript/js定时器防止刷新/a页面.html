@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		h4{font-size: 30px;}
+	</style>
+</head>
+<body>
+	<a href="b页面.html">点击去b页面</a><br/><br/>
+	<h4>a页面</h4>
+	<h4 id='box'></h4>
+	<script type="text/javascript">
+		window.onload=function(){
+		    var maxTime;
+		    //重点是window的name属性;首先就有这个属性，所以第一次成立；
+			if(window.name==''){
+				maxTime=60;
+			}else{
+				maxTime=window.name;
+			}
+
+		var abox=document.getElementById('box');
+		var timer=setInterval(function(){
+				--maxTime;
+				if(maxTime>=0){
+					window.name=maxTime;
+					abox.innerHTML=maxTime;
+				}else{
+					clearInterval(timer);
+					alert('时间到');
+				}
+			},1000)
+		
+		}
+	</script>
+</body>
+</html>

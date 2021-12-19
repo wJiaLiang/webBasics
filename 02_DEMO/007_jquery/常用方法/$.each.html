@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box1">1</div>
+	<div class="box2">2</div>
+	<div class="box3">3</div>
+	<div class="box4">4</div>
+	<div class="box5">5</div>
+	<script src='jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		// 可以遍历任何对象；
+		$(function(){
+			var box=document.getElementsByTagName('div');
+			console.log(box.length); //5;
+			console.log(typeof box); //object;
+			var boxarr=[]; 
+			for(var i=0;i<box.length;i++){
+				boxarr.push(box[i]);
+			}
+
+			console.dir(boxarr); //Array
+
+			//
+			$.each(box,function(index,ele){
+				console.log(ele.innerHTML+' '+index); //12345;
+			});
+
+			var obj ={w:['wei'],e:['jia'],l:['liang']};
+			var obj =['w','e','l','h','i','o','m'];
+			var obj=[{'wei'},{'jia'},{'liang'}];//语法错误;
+			
+
+			$.each(obj,function(index, el) {
+					console.log("$.each遍历任何对象"+el);				
+			});
+
+
+
+		});
+	
+
+
+	</script>
+</body>
+</html>

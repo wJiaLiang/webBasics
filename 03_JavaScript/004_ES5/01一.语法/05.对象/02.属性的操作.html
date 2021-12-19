@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性的操作</title>
+</head>
+<body>
+    <script type="text/javascript">
+// 读取属性
+        // 读取对象的属性，有两种方法，一种是使用点运算符，还有一种是使用方括号运算符。
+        var obj = {
+            p: 'Hello World'
+        };
+        obj.p       // "Hello World"
+        obj['p']    // "Hello World"
+
+    //上面代码分别采用点运算符和方括号运算符，读取属性p。
+    // ### 请注意，如果使用方括号运算符，键名必须放在引号里面，否则会被当作变量处理。
+    var foo = 'bar';
+    var obj = {
+      foo: 1,
+      bar: 2
+    };
+    obj.foo  // 1    
+    obj[foo]  // 2   方括弧内部的foo指向的是外部的变量;
+
+    // 方括号运算符内部还可以使用表达式。
+    obj['hello' + ' world']
+    obj[3 + 3]
+
+    // 数字键可以不加引号，因为会自动转成字符串。
+    var obj = {
+        0.7: 'Hello World'
+    };
+    obj['0.7'] // "Hello World"
+    obj[0.7] // "Hello World"
+
+    // 注意，数值键名不能使用点运算符（因为会被当成小数点），只能使用方括号运算符。
+    
+
+
+// 属性的赋值
+    // 点运算符和方括号运算符，不仅可以用来读取值，还可以用来赋值。
+    var obj = {};
+    obj.foo = 'Hello';
+    obj['bar'] = 'World';
+
+
+// 查看所有属性
+    var obj = {
+        key1: 1,
+        key2: 2
+    };
+
+    Object.keys(obj);
+    // ['key1', 'key2']
+
+
+// delete命令用于删除对象的属性，删除成功后返回true。
+    var obj = { p: 1 };
+    Object.keys(obj) // ["p"]
+
+    delete obj.p // true
+    obj.p // undefined
+    Object.keys(obj) // []
+
+//另外，需要注意的是，delete命令只能删除对象本身的属性，无法删除继承的属性
+// toString是对象obj继承的属性，虽然delete命令返回true，但该属性并没有被删除，
+// 依然存在。这个例子还说明，即使delete返回true，该属性依然可能读取到值。
+
+
+
+
+
+
+    </script>
+</body>
+</html>

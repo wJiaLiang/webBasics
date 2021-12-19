@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		input{width:60px;height:30px;}
+		span{width:1px;height:200px;background-color: black;position: absolute;left:300px;top:0;}
+		#box{width:100px;height:100px;background-color: red;border-radius: 20px;text-align: center;line-height: 100px;margin-top: 50px;position: absolute;left:0px;}
+	</style>
+</head>
+<body>
+	<input type="button" name="" value='按钮'>
+	<div id="box">运动盒子</div>
+	<span></span>
+
+	<script type="text/javascript">
+		var but=document.getElementsByTagName('input')[0];
+
+		var ispeed=0;
+		function starplay(){
+			var box=document.getElementById('box');
+			setInterval(function(){
+				if(box.offsetLeft<300){
+					ispeed+=6;
+				}
+				else{
+					ispeed-=6;
+				}
+				box.style.left=box.offsetLeft+ispeed+"px";
+
+			},30)
+		}
+
+
+
+		but.onclick=function(){
+			starplay();
+		}
+
+
+	</script>
+</body>
+</html>

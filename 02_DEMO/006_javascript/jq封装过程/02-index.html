@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var $=jQuery=function(){
+			return new $.fn.init();
+		};
+		$.fn=$.prototype={
+			init:function(select){
+				
+				
+				this.css=function(){
+					console.log('css方法');
+				}
+			},
+			jq:"verson2.0",
+			size:function(){
+				console.log(this.jq)
+			}
+		}
+		$.fn.init.prototype=$.fn;
+		$().size();
+	</script>
+</body>
+</html>

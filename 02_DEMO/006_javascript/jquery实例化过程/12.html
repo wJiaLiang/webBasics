@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="js/Jerry.js"></script>
+    <script type="text/javascript">
+    window.onload = function(){
+        var ret = $('div');
+        // console.dir(ret.size());
+        // $.each(ret,function(index,element){
+        //     // element.innerHTML = '测试'+index;
+        //     this.innerHTML = '测试-------'+index;
+        // });
+        ret.each(function(index,element){
+            this.innerHTML = '测试-------'+index;
+        });
+
+    }
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

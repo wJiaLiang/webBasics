@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    // 1.整数和浮点数
+    //JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。所以，1与1.0是相同的，是同一个数。
+    console.log( 1===1.0 ); //true;
+
+
+
+   
+    //2. NaN 含义：NaN是 JavaScript 的特殊值，表示“非数字”（Not a Number），主要出现在将字符串解析成数字出错的场合
+
+    5 - 'x'     // NaN
+
+    //上面代码运行时，会自动将字符串x转为数值，但是由于x不是数值，所以最后得到结果为NaN，表示它是“非数字”（NaN）。
+
+    //需要注意的是，NaN不是独立的数据类型，而是一个特殊数值，它的数据类型依然属于Number，使用typeof运算符可以看得很清楚
+    console.log(typeof NaN);
+    // 运算规则
+
+    // NaN不等于任何值，包括它本身
+        console.log(NaN === NaN) //false;
+
+    // 数组的indexOf方法内部使用的是严格相等运算符，所以该方法对NaN不成立。
+        [NaN].indexOf(NaN)  // -1
+
+
+    // NaN在布尔运算时被当作false。
+    // Boolean(NaN) // false
+
+    // NaN与任何数（包括它自己）的运算，得到的都是NaN。
+    //  NaN + 32 // NaN
+    //  NaN - 32 // NaN
+    //  NaN * 32 // NaN
+    //  NaN / 32 // NaN
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变换和过度</title>
+	<style type="text/css">
+		.box{
+			width:100px;
+			height:100px;
+			font-size: 12px;
+			background-color:rgba(122,121,121,0.8);
+			text-align: center;
+			line-height: 100px;
+			border-radius: 30px;
+		}
+		/*在x轴和y轴上移动*/
+		.boxxxx{
+			transition:all 1s ease-out;
+			transform:translate(300px,300px) rotate(360deg) scale(0.8);
+			/*这样写就会被层叠掉*/
+			transform: scale(2);
+			transform: translateX(500px);
+			transform: rotate(360deg);
+			font-size: 20px;
+			width:500px;
+		}
+	</style>
+</head>
+<body>
+		<div class='box'>
+			这个是移动的盒子
+		</div>
+</body>
+<script type="text/javascript">
+	var box=document.getElementsByTagName('div')[0];
+		console.log(box);
+	box.onclick=function(){
+		//给标签添加类名;
+		box.setAttribute("class","box boxxxx");	
+	}
+
+
+</script>
+</html>

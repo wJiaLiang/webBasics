@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+		button{
+			width: 40px;
+			height: 30px;
+			border: 2px solid seagreen;
+			display: block;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>1</button>
+	<button>2</button>
+	<button>3</button>
+	<button>4</button>
+	<button>5</button>
+
+	<script type="text/javascript" src="../jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+			// $(function(){
+			// 	$('button').click(function(e){
+			// 		alert(e.target);
+			// 		console.log(e.target);
+			// 		console.log(typeof($('button')));
+			// 	})
+			// })
+
+			var btn=document.getElementsByTagName('button');
+			for (var i = 0; i < btn.length; i++) {
+				btn[i].onclick=function(){
+					console.log(1111);
+					console.log(typeof(btn));
+			}
+		}
+
+	</script>
+</body>
+</html>

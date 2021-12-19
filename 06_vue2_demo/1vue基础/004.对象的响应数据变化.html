@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="font-size: 28px;" id="app">
+        <p>{{msg}}</p>
+        <p>{{rend.title}}</p>
+        <input type="text" v-model="demo[0].a[0].b">
+        <input type="text" v-model="demo[0].a[1].c">
+        {{demo[0].a[1].c}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello',
+                rend: {title:'测试'},
+                test:[{a:'1',b:'2',c:'3'},{a:'a1',b:'b2',c:'c2'}],
+                demo:[
+                    {
+                        a:[
+                            {b:'input值'},
+                            {c:'c的值'}
+                        ]
+                    }
+                ]
+            },
+            methods: {
+
+            },
+            mounted () {
+                setTimeout(() => {
+                    this.$set(this.test[0],'a','测试');
+                    console.log(this.test);
+                    this.demo = [
+                                    {
+                                        a:[
+                                            {b:'input修改后的值'},
+                                            {c:"c修改后的值"}
+                                        ]
+                                    }
+                                ]
+                }, 2000);
+
+                setTimeout(()=>{
+                    this.demo[0].a[1].c = 123;
+                },3000)
+            }
+        })
+        // 这样无法动态更新视图;
+        // vm.rend.title = '测试动态更新对象数据';
+
+        /*
+        调用Vue的静态方法;set  函数上的方法就叫静态方法;
+        vue.set(target,prop,value);
+        */
+        setTimeout(function () {
+            Vue.set(vm.rend, 'title', '动态更新对象数据');
+        })
+        
+        /*
+            调用实例上的方法; 原型上的方法必须通过实例调用;
+        */
+        console.log(vm);
+        setTimeout(() => {
+        vm.$set(vm.rend,'title','调用实例的方法去修改');
+            
+        },1000);
+
+        // 重新给该对象赋值;
+        setTimeout(() => {
+            vm.rend = {'title':'直接重新赋值'};
+        },2000);
+
+
+
+    </script>
+</body>
+
+</html>

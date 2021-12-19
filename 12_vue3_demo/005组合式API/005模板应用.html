@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+            <div ref="root"> this is a ele </div>
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+
+/*
+
+在渲染上下文中暴露 root，并通过 ref="root"，将其绑定到 div 作为其 ref。
+如果 VNode 的 ref 键对应于渲染上下文中的 ref，则 VNode 的相应元素或组件实例将被分配给该 ref 的值
+作为模板使用的 ref 的行为与任何其他 ref 一样：它们是响应式的，可以传递到 (或从中返回) 复合函数中
+
+*/ 
+let {ref,onMounted} = Vue
+const app =Vue.createApp({
+    data(){
+        return{
+
+        }
+    },
+    setup(){
+        const root = ref(null)
+        onMounted(()=>{
+            console.log(root.value)
+        })
+        return{
+            root
+        }
+    },
+    //可以是数组或对象，用于接收来自父组件的数据
+    props:[],
+
+    // Vue 实例将会在实例化时调用 watch()，遍历 watch 对象的每一个 property。
+    watch:{},
+
+    // 计算属性
+    computed:{},
+
+    // 方法;
+    methods:{},
+
+    // 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用。
+    beforeCreate () {},
+
+    // 在实例创建完成后被立即调用。
+    created () {},
+
+    // 在挂载开始之前被调用：相关的 render 函数首次被调用。
+    beforeMount () {},
+
+    // 实例被挂载后调用
+    mounted() {},
+
+    // 被 keep-alive 缓存的组件激活时调用。
+    activated () {},
+
+    //被 keep-alive 缓存的组件停用时调用。
+    deactivated () {},
+
+    // 实例销毁之前调用。在这一步，实例仍然完全可用。
+    beforeUnmount () {},
+
+    // 实例销毁后调用
+    unmounted () {},
+
+    // 组件
+    components:{},
+
+    // 自定义指令
+    directives:{},
+
+    //选项接收一个混入对象的数组
+    mixins:[],
+
+})
+// 组件
+app.component({})
+
+app.mount("#app")
+
+</script>
+</html>

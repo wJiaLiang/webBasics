@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" name="" value="全选">
+	<input type="submit" name="" value="反选">
+	<div class='box'>
+		1<input type="checkbox" value='1'>
+		2<input type="checkbox" name="" value="2">
+		3<input type="checkbox" name="" value="3">
+		4<input type="checkbox" name="" value="4">
+	</div>
+	<label id="label"><input type="checkbox" checked value=""></label>
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			//全选按钮;
+			$('input[type="button"]').click(function(){
+				//选择为true;没有选中为false;一般用于操作的状态;
+				var flag=$('input[type="checkbox"]').prop('checked');
+				console.log(flag);
+				if(flag){
+					$('input[type="checkbox"]').prop('checked',false);
+				}else{
+					$('input[type="checkbox"]').prop('checked',true);
+				}
+			});
+			//反选按钮;
+			$('input[type="submit"]').click(function(){
+					var $pred=$('input:checked').prop('checked');
+					//2:返回属性值的函数,第一个参数为当前元素的索引值，第二个参数为原先的属性值。
+					$('input:checkbox').prop('checked',function(index,oldvalue){
+							console.log(index);
+							return !oldvalue;
+
+					})
+
+
+			})
+			var flag=$('#label').children().attr('checked');
+			console.log(flag); //checked;
+
+
+		})
+
+
+	</script>
+</body>
+</html>

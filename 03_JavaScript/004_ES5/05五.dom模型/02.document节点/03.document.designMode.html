@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <iframe id="editor" src="about:blank">    </iframe>
+    
+    <script type="text/javascript">
+    /*  document.designMode属性控制当前文档是否可编辑，通常用在制作所见即所得编辑器。
+        打开iframe元素包含的文档的designMode属性，就能将其变为一个所见即所得的编辑器。
+
+    */ 
+    let ed = document.querySelector('#editor');
+
+    ed.contentDocument.designMode = 'on';
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

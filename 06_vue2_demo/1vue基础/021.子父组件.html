@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <style>
+        #app {
+            width: 500px;
+            height: 500px;
+            border: 1px solid deeppink;
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+
+        .head {
+            line-height: 45px;
+        }
+
+        .head input[type='text'] {
+            height: 40px;
+        }
+
+        ul li:hover {
+            background-color: pink;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>自定义下拉框1</h2>
+        <coms_select btn-value="查询"> </coms_select>
+
+        <h2> 自定义组件2</h2>
+        <coms_select btn-value="搜索"> </coms_select>
+        <!-- 搜限制的一些元素 如table中只能放tr ul中只能放li   可以使用is 来扩展html的标签功能 -->
+        <table>
+            <tr is="coms_select"></tr>
+
+        </table>
+    </div>
+
+    <div class="#app1">
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+
+    <script>
+        /*
+        使用组件先要注册组件;
+        组件就是一个自定义标签;
+        组件data中的数据必须是函数; 如果是对象就公用了这个个数据；数函数则每个组件独立;
+        */  
+        // 全局注册组件
+        Vue.component('coms_select', {
+                data:function(){
+                    return {
+                        sel:false,
+                    }
+                },
+                methods:{
+                    tapSlect(){
+                        this.sel = !this.sel
+                    }
+                },
+                props: ['btnValue'],  // 表示接受到的值 这里一定要驼峰命名法;
+                template: `<div>
+            <div class="head">
+                <input type="text" @click="tapSlect">
+                <input type="button" v-bind:value="btnValue" style="font-size: 23px;">
+            </div>
+            <div v-show="sel">
+                <ul>
+                    <li>123河北</li>
+                    <li>123南京</li>
+                    <li>123天津</li>
+                    <li>123北京</li>
+                    <li>123上海</li>
+                </ul>
+
+            </div>
+        </div>`
+            })
+
+
+        let vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+
+            },
+           
+
+        })
+    </script>
+</body>
+
+</html>

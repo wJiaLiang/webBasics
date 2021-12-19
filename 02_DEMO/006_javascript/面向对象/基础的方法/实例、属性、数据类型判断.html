@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// instanceof 判断某个实例是否是 某个构造函数产生的；
+			function Fn(){
+			}
+			var fn=new Fn();
+			console.log(fn instanceof Fn); //true;
+
+		//判断某个属性是否属于某个对象；
+		// 1.in
+		// 2. hasOwnProperty();
+			var obj =new Object;
+			obj.info='abc';
+			Object.prototype.age=123456;
+			console.log(obj.hasOwnProperty('info')); //只能判断实例对象上的属性；
+			console.log('info' in obj); //true;
+			console.log('age' in obj); //false; 原型和实例的都可以判断；
+
+		// 数据类型
+		// 基本的数据类型： string number boolean undefinde null;
+		// 引用类型：object(object,Array,RegExp,Date,Function Number,String,Boolean,Math,Error);
+		// typeof 
+		console.log('****************分界线************************');
+		function showType(){
+			console.log(typeof 'w34')// string;
+			console.log(typeof true); //boolean;
+			console.log(typeof undefinde);  //undefinde;
+			console.log(typeof unll);  //undefinde;
+			console.log('*************')
+			console.log(typeof []) //object
+			console.log(typeof {})
+			var fn=function(){};
+			console.log(typeof fn) //function;
+			console.log(typeof new Date); //object;
+			
+
+		}
+		showType();
+		//如何判断object 和Array;
+		function isArray(arr){
+			return Object.prototype.toString.call(arr)==='[object Array]';
+		}
+		console.log (isArray('[]'));
+	</script>
+</body>
+</html>

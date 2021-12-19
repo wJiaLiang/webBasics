@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>函数的默认参数</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+//  一、函数参数的默认值;
+
+   /*
+    函数log的参数y有没有赋值，如果没有，则指定默认值为World。这种写法的缺点在于，
+    如果参数y赋值了，但是对应的布尔值为false，则该赋值不起作用。
+    就像上面代码的最后一行，参数y等于空字符，结果被改为默认值。
+
+    */
+
+    function log(x,y){
+        y=y||'world';
+        console.log(x,y);
+    }
+    log('Hello');    //'Hello world'
+    log('h',false);  //'h world'
+   
+    
+
+    /*
+    ES6 允许为函数的参数设置默认值，即直接写在参数定义的后面。
+     */ 
+    function logto(x, y = 'World') {
+        console.log(x, y);
+    }
+    logto('Hello')            // Hello World
+    logto('Hello', 'China')   // Hello China
+    logto('Hello', '')        // Hello
+
+    /*
+     1.参数变量x是默认声明的，在函数体中，不能用let或const再次声明，否则会报错。
+
+     2.使用参数默认值时，函数不能有同名参数。
+
+     3.参数默认值不是传值的，而是每次都重新计算默认值表达式的值。也就是说，参数默认值是惰性求值的。
+     参数p的默认值是x + 1。这时，每次调用函数foo，都会重新计算x + 1，而不是默认p等于 100。
+     */
+     function foo(x=9){
+        // var x=1;    //可以
+        // let x=2;    //报错; 
+        const x=3;  // 报错;
+        console.log(x);
+     }
+     foo(3);
+
+     function foo(x,x,y){}
+     function fop(x,xy=1){}
+
+     let x=99;
+     function foop(p=x+1){
+        console.log(p)
+     }
+     foop();
+/**************************************************************************/
+    // 结构赋值与默认值结合使用;
+    function foo({x, y = 5}) {
+        console.log(x, y);
+    }
+
+    foo({})             // undefined 5
+    foo({x: 1})         // 1 5
+    foo({x: 1, y: 2})   // 1 2
+    foo()   // TypeError: Cannot read property 'x' of undefined
+
+    /* 
+        使用的是对象的结构赋值的默认值,没有使用函数参数的默认值,
+        只有当函数foo的参数是一个对象时，变量x,y才通过结构赋值生成
+        如何调用函数foo时没有提供参数变量x,y就不会生成，从而报错;
+        
+    */
+   
+    // 如果没有提供参数foo默认的参数就一个空对象;
+    function foo({x, y = 5} = {}) {
+        console.log(x, y);
+    }
+    foo()   // undefined 5
+
+//=====================================
+    // 函数参数的默认值，和解构赋值的的默认值，相当于设置了双重默认值;
+    function fetch(url, { body = '', method = 'GET', headers = {}} ) {
+        console.log(method);
+    }
+
+    fetch('http://example.com', {}); // 'GET'
+    fetch('http://example.com');  //  报错;  第二个参数无法产生;没有提供第二个参数，解构赋值无法产生;
+
+
+    //函数fetch没有第二个参数时，函数参数的默认值就会生效，然后才是解构赋值的默认值生效，变量method才会取到默认值GET。
+    function fetchto(url,{body='',method='GET',headers={}}={} ){
+        console.log(method);
+    }
+    fetchto('http://example.com');  //GET
+// =====================================
+//  写法一
+//  设置了函数参数的默认值为空对象;解构赋值设置了默认值;
+    function m1({x=0,y=0} = {}){
+        console.log([x,y]); 
+    }
+// 写法二
+// 设置了函数参数的默认值是一个有属性的对象，但是解构赋值没有默认值;
+    function m2({x,y}={x:0,y:0}){
+        console.log([x,y]);
+    }
+    m1()            //[0,0]
+    m2()            //[0,0]
+    m1({x:2,y:9});  //[2,9]
+    m2({x:2,y:9});  //[2,9]
+    m1({})          // [0,0]
+    m2({})          //[undefined,undefined]
+    m1({x:3})       //[3,0]
+    m2({x:3})       //[3,undefined]
+
+//*******************************************************************
+/*
+    二、参数默认值的位置;
+    定义了默认值的参数，应该是函数的尾参数。因为这样比较容易看出来，到底省略了哪些参数。
+    如果非尾部的参数设置默认值，实际上这个参数是没法省略的。
+    
+    有默认值的参数不是尾参数，是无法省略的,除非显示的输入undefined，传入undefined，将触发该参数等于默认值;
+ */
+    function f2(x=1,y){
+        console.log([x,y]);
+    }
+    f2();               //[1,undefined]
+    f2(2);              //[2,undefined]
+    //f2(,3);           报错;
+    f2(undefined,10)    //[1,10];
+
+// *******************************************************************
+/*
+    函数的length属性
+    1.函数的length属性，将返回没有指定默认值的参数个数。也就是说，指定了默认值后，length属性将失真。
+    2.ength属性的返回值，等于函数的参数个数减去指定了默认值的参数个数。
+    3.如果设置了默认值的参数不是尾参数，那么length属性也不再计入后面的参数了。
+ */ 
+
+    console.log( (function (a=1,b,c,d){}).length );   //0;
+    console.log( (function (a,b=2,c,d){}).length );   //1;
+
+/*
+    作用域
+    一旦设置了参数的默认值，函数进行声明初始化时，参数会形成一个单独的作用域（context）。
+    等到初始化结束，这个作用域就会消失。这种语法行为，在不设置参数默认值时，是不会出现的
+    如果参数的默认值是一个函数，该函数的作用域也遵守这个规则。请看下面的例子。
+
+    参数y的默认值为dx,调用f时参数形成一个单独的作用域，默认变量值指向第一个
+    参数,而不是全局变量dx;输出2;
+
+ */ 
+    let dx = 1;
+    function f3(dx,y = dx){
+        console.log(y);
+    }
+    f3();     // 2
+
+/*
+    函数f4调用时,参数y=dx形成一个单独的作用域，在这个作用域中变量x本身并没有定义;
+    所以指向外层的全局变量x，函数调用时，函数体内的局部变量x影响不到默认变量值x;
+ */ 
+    let dx=3;
+    function f4(y = dx){
+        let dx=9;      
+        console.log(y);
+    }
+    f4();         // 3
+
+//*********************************************************************
+/*
+运用
+    1.利用参数默认值，可以指定某一个参数不得省略，如果省略就抛出一个错误。 
+    2.调用的时候没有参数就会使用默认的参数 throwIfMissing函数的运行结果;
+    3.可以将参数默认值设为undefined，表明这个参数是可以省略的。
+ */
+    function throwIfMissing() {
+        throw new Error('Missing parameter');
+    }
+    function foo(mustBeProvided = throwIfMissing()) {
+      return mustBeProvided;
+    }
+    foo();
+
+
+
+
+
+
+    </script>
+</body>
+</html>

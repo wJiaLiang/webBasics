@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    console.log('start');
+    let promise  = new Promise(resolve=>{
+        setTimeout(()=>{
+            console.log('fulfilled');
+            resolve('hello,world');
+        },3000)
+    })
+
+    setTimeout(()=>{
+        promise.then( value=>{
+            console.log(value);  // hello,world
+        })
+    },1000)
+/*
+    特性：不管前面promise的状态是完成或失败;队列都会安装固定的顺序走;
+
+
+ */ 
+
+
+
+
+    </script>
+</body>
+</html>

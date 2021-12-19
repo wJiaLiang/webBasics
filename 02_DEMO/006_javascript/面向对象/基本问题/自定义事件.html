@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义事件</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr=[];
+		arr.push(function()
+			{
+				console.log('1');
+			})
+		arr.push(function()
+			{
+				console.log('2')
+			})
+		arr.push(function()
+			{
+				console.log('3')
+			})
+		for(var i=0;i<arr.length;i++)
+			{
+				arr[i]();
+			}
+
+//添加自定义事件；
+	function addevent(obj,type,fn)
+	{
+		
+	}
+
+
+	</script>
+	<div></div>
+	<button></button>
+</body>
+</html>

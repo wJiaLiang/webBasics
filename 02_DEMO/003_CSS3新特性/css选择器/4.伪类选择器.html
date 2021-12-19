@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择符</title>
+
+	<style type='text/css'>
+			 /*当这个文本框获得焦点; */
+			/* input:focus{background-color: dodgerblue;}
+
+		选择属于父元素的第一个子元素的每个 <p> 元素。p必须是在其父元素中的第一个元素
+			p:first-child{font-size: 30px;} 
+			/* 以下是css3选择器;  */
+			 /* 选择属于父元素的最后一个子元素的每个 <p> 元素。 */
+			/* p:last-child{font-size: 30px;}
+			匹配p元素中除最后一个外的元素； */
+			/* p:not(:last-child){background-color: red;}  
+
+			/* input:only-child{font-size: 20px;}  匹配父元素仅有的一个子元素E。 */
+			  /*匹配父元素的第n个子元素p。br都算 */
+			 /*p:nth-child(3){background-color: red;} 
+			  倒数匹配父元素的第n个子元素E */
+			/* p:nth-last-child(1){border:2px solid green;}
+
+				选择属于其父元素下的首个 <p> 元素的每个 <p> 元素。
+			/* p:first-of-type{font-size: 30px;} */
+			/* p:last-of-type{font-size: 30px;}    */
+			/* p:only-of-type{background-color: orangered;} */
+
+			/* p:nth-of-type(2){background-color:orangered;}  */
+			 /* 匹配其父元素下的同类型中的第n个同级兄弟元素p*/
+			/* p:nth-last-of-type(2){background-color: goldenrod;} 到着是同类型的的几个元素 */
+			/* input:checked+span{ font-size: 40px;}  当元素选中时生效 */
+			/* .son:target{background-color: red;} */
+	</style>
+
+</head>
+<body>
+	<div class="content" id='box'>
+		<p>one--p元素</p>
+		<a href="#son">我是a标签</a><br/>
+		<input type="text" name="" value="">
+		<p>我是p元素1</p>
+		<p>我是p元素2</p>
+		<p>我是p元素3</p>
+		<strong>我是strong标签</strong>
+	</div>
+	<div class="content">
+		<input type="text">
+		<p>我是p  元素</p>
+		<input type="radio" name='sex'><span>男</span>
+		<input type="radio" name="sex"><span>女</span>
+		<input type="checkbox" name='target1'><span>你们</span>
+		<input type="checkbox" name='target2'><span>他们</span><br/><br/>
+		<div id='son' class='son'>a 锚点跳过来的值将会别选中</div>
+	</div>
+
+
+
+
+
+	<script type="text/javascript">
+		var obj=document.getElementById('box');
+		//打印这个元素的整个代码的结构;
+		console.dirxml(obj);
+		console.dir(obj);
+	</script>
+</body>
+</html>

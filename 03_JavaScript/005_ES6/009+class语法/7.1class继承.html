@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>class 的继承</title>
+    <style type="text/css">
+        #canvas{
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, .5)
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas" style="border: 1px solid red">
+
+    </canvas>
+
+    <script type="text/javascript">
+ /**
+  *  extends、 static、 super;
+  */
+    const canvas = document.querySelector('#canvas');
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width = 600;
+    const h = canvas.height = 400;
+
+    // 定义一个球类;
+    class Ball {
+        constructor (x,y,r){
+            this.x =x;
+            this.y =y;
+            this.r =r;
+            this.color= `rgb( ${~~Ball.rpFn([55,255])},${~~Ball.rpFn([55,255])},${~~Ball.rpFn([55,255])} )`;
+            return this;
+        }
+        render(ctx){
+            ctx.save();
+            ctx.translate(this.x,this.y);
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(0, 0, this.r, 0, 2*Math.PI);
+            ctx.fill();
+            ctx.restore();
+            return this;
+        }
+        // 取一个随机数;
+        static rpFn(arr){
+            let max = Math.max(...arr);
+            let min = Math.min(...arr);
+            return Math.random() * (max -min) + min;
+        }
+        // 生成一个随机的坐标位置;
+            
+
+
+    }
+    // const ball1 = new Ball(100,100,30).render(ctx);
+    for (var i = 0; i < 10; i++) {
+        new Ball(60+i*10,100,20+i).render(ctx);
+    }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

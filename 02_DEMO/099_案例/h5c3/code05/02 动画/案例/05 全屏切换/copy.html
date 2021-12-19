@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全屏滚动</title>
+    <style>
+            html,body{
+                 height: 100%;
+            }
+            body{
+                 margin: 0;
+                 padding: 0;
+            }
+            ul{
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                list-style: none;
+                position: relative;
+            }
+            .img-box li{
+                 position: absolute;
+                 width: 100%;
+                 height: 100%;
+                 background-size: cover;
+                 transition:all 1s linear;
+            }
+            .img-box li:nth-child(1){
+                 background-image: url("images/bg1.jpg");
+                 z-index: 3;
+                 transform:translateX(-100%);
+            }
+            .img-box li:nth-child(2){
+                background-image: url("images/bg5.jpg");
+                z-index: 2;
+            }
+            .img-box li:nth-child(3){
+                background-image: url("images/bg4.jpg");
+                z-index: 1;
+            }
+
+            .handle{
+                 position: absolute;
+                 bottom: 100px;
+                 z-index: 10;
+                 height: 100px;
+                 width: 100%;
+                 text-align: center;
+            }
+            .handle li{
+                 display: inline-block;
+                 width: 80px;
+                 height: 80px;
+                 background-color: pink;
+                 border-radius: 50%;
+                 font-size: 25px;
+                 line-height: 80px;
+                 margin: 0px 20px;
+            }
+            a:link{
+                text-decoration: none;
+            }
+            .img-box li:target{
+                  z-index: 3;
+            }
+
+            /*我想做到第一张图片在点击的时候切换*/
+            .img-box li:nth-child(1):target{
+                z-index: 3;
+                transform: translateX(0);
+            }
+
+    </style>
+</head>
+<body>
+<ul class="handle">
+    <li>
+        <a href="#img1">1</a>
+    </li>
+    <li>
+        <a href="#img2">2</a>
+    </li>
+    <li>
+        <a href="#img3">3</a>
+    </li>
+</ul>
+<ul class="img-box">
+    <li id="img1"></li>
+    <li id="img2"></li>
+    <li id="img3"></li>
+</ul>
+</body>
+</html>

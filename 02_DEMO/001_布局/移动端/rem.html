@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rem布局</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<style type="text/css">
+	/* html{
+		font-size: 100px;
+	}
+	*{
+		margin:0;
+		padding:0;
+	}
+	div{
+		margin:100px 100px;
+		
+		background-color: red;
+	} */
+		/*html{
+			font-size: 10px;
+		}
+			p{
+				font-size: 2rem;
+			}*/
+
+	
+	</style>
+	<link rel="stylesheet" type="text/css" href="rem.css">
+</head>
+<body>
+	<!-- <div>
+		<p>AAA</p>
+	</div> -->
+	<div id='count'>
+		<span></span>
+	</div>
+
+</body>
+
+<script type="text/javascript">
+window.onresize=function(){
+	var width=window.innerWidth;
+
+		if(width>320){
+			// 屏幕在320px的时候,意思是最小屏幕的时候的字体乘以变化的宽度；
+			var fsize = 100/320*width;
+			console.log(fsize);
+		}
+		var html=document.getElementsByTagName('html')[0];
+			//可以支持css选择器；
+		var hq=document.querySelector('div>span');
+		console.log(hq);
+		html.style.fontSize=fsize+"px";
+	}
+</script>
+</html>

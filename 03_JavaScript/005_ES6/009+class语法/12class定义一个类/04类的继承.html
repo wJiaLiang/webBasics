@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+	</head>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<body>
+		<div id="app"> </div>
+
+
+		<script type="text/javascript">
+		/*
+			// Class 可以通过extends关键字实现继承，这比 ES5 的通过修改原型链实现继承，要清晰和方便很多。
+			class ColorPoint extends Point {
+
+			}
+			// 等同于
+			class ColorPoint extends Point {
+				constructor(...args) {
+					super(...args);
+				}
+			}
+		*/
+			// 另一个需要注意的地方是，在子类的构造函数中，只有调用super之后，才可以使用this关键字，否则会报错。
+			// 这是因为子类实例的构建，基于父类实例，只有super方法才能调用父类实例。
+
+			class Point {
+				constructor(x, y) {
+					this.x = x;
+					this.y = y;
+				}
+			}
+
+			class ColorPoint extends Point {
+				constructor(x, y, color) {
+					// this.color = color; 		// 报错，要先调用super()方法;
+					super(x, y);
+					this.color = color; // 正确
+				}
+			}
+
+			let pm = new ColorPoint(1,2,'red');
+			console.log(pm); 	// {x:1,y:2,color:'red'}
+
+		</script>
+	</body>
+</html>

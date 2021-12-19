@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+    <ul></ul>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script type="text/javascript">
+    // 返回一个节点数组;
+    var str = '<li>0</li><li>1</li><li>2</li><script>alert(123)<\/script>';
+    var arr = jQuery.parseHTML(str,true); //true,就可以执行js标签;
+    console.log(arr);
+    $.each(arr,function(i){
+        $('ul').append(arr[i]);
+    })
+
+
+//
+var div = document.getElementsByTagName('div');
+ console.log(div);
+ console.log([1,2,3,4,5,6])
+ console.log( $.makeArray( div,{'lenght':0}) ); //把类数组转化成数组;
+
+
+
+    </script>
+</body>
+</html>

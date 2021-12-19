@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+    //  JavaScript各种运算符的优先级别（Operator Precedence）是不一样的。优先级高的运算符先执行，优先级低的运算符后执行。
+
+
+    var x = 1;
+    var arr = [];
+    var y = arr.length <= 0 || arr[0] === undefined ? x : arr[0];
+
+//上面代码中，变量y的值就很难看出来，因为这个表达式涉及5个运算符，到底谁的优先级最高，实在不容易记住
+
+//根据语言规格，这五个运算符的优先级从高到低依次为：小于等于（<=)、严格相等（===）、或（||）、三元（?:）、等号（=）。因此上面的表达式，实际的运算顺序如下。
+
+    var y = ((arr.length <= 0) || (arr[0] === undefined)) ? x : arr[0];
+    
+   // 圆括号（()）可以用来提高运算的优先级，因为它的优先级是最高的，即圆括号中的表达式会第一个运算。
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

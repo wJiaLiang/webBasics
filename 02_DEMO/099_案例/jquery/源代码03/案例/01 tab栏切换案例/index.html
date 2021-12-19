@@ -1,0 +1,169 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head lang="en">
+            <meta charset="UTF-8">
+            <title></title>
+            <style type="text/css">
+                * {
+                    margin: 0;
+                    padding: 0;
+                }
+                ul {
+                    list-style: none;
+                }
+                .wrapper {
+                    width: 1000px;
+                    height: 475px;
+                    margin: 0 auto;
+                    margin-top: 100px;
+                }
+
+                .tab {
+                    border: 1px solid #ddd;
+                    border-bottom: 0;
+                    height: 36px;
+                    width: 320px;
+                }
+
+                .tab li {
+                    position: relative;
+                    float: left;
+                    width: 80px;
+                    height: 34px;
+                    line-height: 34px;
+                    text-align: center;
+                    cursor: pointer;
+                    border-top: 4px solid #fff;
+                }
+
+                .tab span {
+                    position: absolute;
+                    right: 0;
+                    top: 10px;
+                    background: #ddd;
+                    width: 1px;
+                    height: 14px;
+                    overflow: hidden;
+                }
+
+                .products {
+                    width: 1002px;
+                    border: 1px solid #ddd;
+                    height: 476px;
+                }
+
+                .products .main {
+                    float: left;
+                    display: none;
+                }
+
+                .products .main.selected {
+                    display: block;
+                }
+
+                .tab li.active {
+                    border-color: red;
+                    border-bottom: 0;
+                }
+
+                .loadClass{
+                     width: 200px;
+                     height: 30px;
+                     border: 1px solid #ccc;
+                     text-align: center;
+                     line-height: 30px;
+                     position: absolute;
+                     display: none;
+                }
+
+
+                /*
+                        1:把鼠标进入事件改成点击事件
+
+                */
+
+            </style>
+            <script type="text/javascript" src="../06%20%20jQuery第三方插件/jquery.color.js/jquery-1.11.1.min.js"></script>
+            <script type="text/javascript">
+                $(function(){
+                    $(".tab>li").click(function(){
+                            $(this).addClass("active").siblings().removeClass("active");
+                            var index=$(this).index();
+                            $(".products>div").eq(index).show().siblings().hide();
+
+                            //获取当前元素的位置
+                           var offset=$(this).offset();
+                           //距离顶部的位置
+                            var top=offset.top;
+                           //距离左边的位置
+                            var left=offset.left;
+
+                            /*
+                            *
+                            * 让当前正在执行的动画停止。
+                            *
+                            * 1:我应该获取到当前正在执行动画.
+                            *
+                            * $(":animated")
+                            *
+                            * */
+
+                            $(":animated").stop(true,true);
+
+                            /*
+                            * 设置这个load 的位置，相对于当前元素.
+                            * */
+                            $(".loadClass").css({
+                                    left:left+300,
+                                    top:top+40,
+                                    display:"block"
+                            })
+
+                            //当前元素从右边向左边滑动
+                           $(".loadClass").animate({"left":left,"opacity":1},1000)
+
+                           //当前从左边向右边滑动.
+                           //项目经理要求这里运行速度缓慢，好让客户给钱优化，以让速度得到明显的提升.
+
+                           window.setTimeout(function(){
+                               $(".loadClass").animate({"left":left+300,"opacity":0},1000)
+                           },1000)
+
+
+
+
+                    });
+                });
+            </script>
+        </head>
+        <body>
+        <div class="loadClass">
+             正在加载中...
+        </div>
+
+        <div class="wrapper">
+            <ul class="tab">
+                <li class="tab-item active">国际大牌<span>◆</span></li>
+                <li class="tab-item">国妆名牌<span>◆</span></li>
+                <li class="tab-item">清洁用品<span>◆</span></li>
+                <li class="tab-item">男士精品</li>
+            </ul>
+            <div class="products">
+                <div class="main selected">
+                    <a href="###"><img src="imgs/guojidapai.jpg" alt=""/></a>
+                </div>
+                <div class="main">
+                    <a href="###"><img src="imgs/guozhuangmingpin.jpg" alt=""/></a>
+                </div>
+                <div class="main">
+                    <a href="###"><img src="imgs/qingjieyongpin.jpg" alt=""/></a>
+                </div>
+                <div class="main">
+                    <a href="###"><img src="imgs/nanshijingpin.jpg" alt=""/></a>
+                </div>
+            </div>
+        </div>
+
+        </body>
+        </html>

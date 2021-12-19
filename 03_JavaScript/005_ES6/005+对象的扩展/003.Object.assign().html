@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+    /*
+    Object.assign 方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象(target)；
+    如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性
+
+    Object.assign拷贝的属性是有限制的，
+    只拷贝源对象的自身属性（不拷贝继承属性），
+    也不拷贝不可枚举的属性（enumerable: false）。
+
+    */ 
+    const target = { a: 1, b: 1 };
+    const source1 = { b: 2, c: 2 };
+    const source2 = { c: 3 };
+    Object.assign(target, source1, source2);
+    console.log(target)  // {a:1, b:2, c:3}
+
+    // 如果只有一个参数，Object.assign会直接返回该参数。
+    const obj = {a: 1};
+    console.log( Object.assign(obj) === obj )// true
+
+    // 如果该参数不是对象，则会先转成对象，然后返回。
+    typeof Object.assign(2) // "object"
+
+    
+
+
+/*
+1.浅拷贝
+    Object.assign 方法实行的是浅拷贝，而不是深拷贝。
+    也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用
+    
+    源对象obj1的a属性的值是一个对象，Object.assign拷贝得到的是这个对象的引用。
+    这个对象的任何变化，都会反映到目标对象上面。
+ */ 
+    const obj1 = {a: {b: 1}};
+    const obj2 = Object.assign({}, obj1);
+
+    obj1.a.b = 2;
+    obj2.a.b // 2
+
+// 2.同名属性的替换
+
+// 3.数组的处理
+
+    // Object.assign把数组视为属性名为 0、1、2 的对象，
+    // 因此源数组的 0 号属性4覆盖了目标数组的 0 号属性1。
+    Object.assign([1, 2, 3], [4, 5])  // [4, 5, 3]
+    
+
+
+// 常见用途：
+//(1)为对象添加属性
+    class Point {
+        constructor(x, y) {
+            Object.assign(this, {x, y});
+        }
+    }
+
+// (2)为对象添加方法
+    Object.assign(SomeClass.prototype, {
+        someMethod(arg1, arg2) {
+        
+        },
+        anotherMethod() {
+            
+        }
+    });
+    // 等同于下面的写法
+    SomeClass.prototype.someMethod = function (arg1, arg2) { };
+    SomeClass.prototype.anotherMethod = function () { };
+
+// (3)克隆对象,只能克隆原始对象自身的值，不能克隆它继承的值;
+    function clone(origin) {
+        return Object.assign({}, origin);
+    }
+
+// （4）合并多个对象
+    const merge = (target, ...sources) => Object.assign(target, ...sources);
+
+// （5）为属性指定默认值
+    
+
+
+    </script>
+</body>
+</html>

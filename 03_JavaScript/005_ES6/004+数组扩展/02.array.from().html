@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+/*
+    Array.from 方法用于将两类对象转为真正的数组：
+    类似数组的对象(array-like object)和
+    可遍历(iterable)的对象(包括 ES6 新增的数据结构 Set 和 Map)。
+
+ */ 
+    let arrayLike = {
+        '0':'a',
+        '1':'b',
+        '2':'c',
+        '3':'d',
+        length:3
+    }
+
+    
+    let value = Array.from(arrayLike);
+    console.log(value);   // ["a", "b", "c"]
+
+    // 判断类型;
+    function getType(s){
+      return  Object.prototype.toString.call(s).match(/\[object (.*?)\]/)[1].toLowerCase();
+    }
+
+    console.log(getType(arrayLike) );  // object
+    
+    let arr1 = [].slice.call(arrayLike); 
+    let arr2 = Array.from(arrayLike);
+      
+    console.log(getType(arr1));  // array
+    console.log(getType(arr2));  // array
+
+/*
+    实际应用中，常见的类似数组的对象是 DOM 操作返回的 NodeList 集合，以及函数内部的arguments对象。
+    Array.from都可以将它们转为真正的数组。
+    
+ */
+
+
+
+
+
+    </script>
+</body>
+</html>

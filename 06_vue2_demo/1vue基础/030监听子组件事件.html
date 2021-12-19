@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{margin:0px;padding: 0px;}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<h4>在父组件中自定义事件,子组件中通过$emit 来触发父组件中的事件;</h4>
+			<div :style="{ fontSize: postFontSize + 'px' }">
+				<!-- 自定义标签上绑定一个自定义事件  -->
+				<blogs_name  
+						v-on:parsfs="clicks" 
+						v-bind:post="post"
+						v-for="post,index in posts" :key="index"  >  </blogs_name>
+			</div>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+		<script type="text/javascript">
+			// 注册组件;
+			Vue.component('blogs_name', {
+				data() {
+					return {
+						istrue: false
+					}
+				},
+				props: ['post'],
+				methods:{
+					changesfs(){
+						console.log('组件事件');
+						this.$emit('parsfs',2)
+					}
+				},
+				template: `<div class="blog-post">
+						<h5> {{post.title}}</h5>
+						<button style="cursor: pointer;" @click="changesfs" type="button"> click text </button>
+						<div v-html="post.content"></div>
+					</div>`
+			});
+			
+			new Vue({
+				el: '#app',
+				data: {
+					posts: [{
+						title:'标题1',
+						content: '内容数据1'
+					},{
+						title:'标题2',
+						content: '内容数据2'
+					}],
+					postFontSize: 16
+				},
+				methods: {
+					clicks:function(fs){
+						console.log("$emit提交事件");
+						console.log(this.postFontSize,fs)
+						this.postFontSize+=fs;
+					}
+				}
+			})
+		</script>
+
+	</body>
+</html>

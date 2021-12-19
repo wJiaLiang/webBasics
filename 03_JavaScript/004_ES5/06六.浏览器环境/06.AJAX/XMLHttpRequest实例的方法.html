@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> XMLHttpRequest 实例上的方法</title>
+    <style>
+        progress{
+            width: 100%;height: 30px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <progress   min="0" max="100" value="60"> 30%  </progress>     
+    <script type="text/javascript">
+        /*  
+        1、abort()
+            abort方法用来终止已经发出的HTTP请求。
+        */
+        var ajax = new XMLHttpRequest();
+        ajax.open('GET', 'http://www.example.com/page.php', true);
+        var ajaxAbortTimer = setTimeout(function() {
+              if (ajax) {
+                ajax.abort();
+                ajax = null;
+              }
+        }, 5000);
+/***********************************/ 
+        /*
+        2、getAllResponseHeaders()
+        getAllResponseHeaders方法返回服务器发来的所有HTTP头信息。格式为字符串，每个头信息之间使用CRLF分隔，如果没有受到服务器回应，该属性返回null。
+        
+        3、getResponseHeader()
+        getResponseHeader方法返回HTTP头信息指定字段的值，如果还没有收到服务器回应或者指定字段不存在，则该属性为null。
+
+        function getHeaderTime () {
+            console.log(this.getResponseHeader("Last-Modified"));
+        }
+
+        */
+/************************************/ 
+        /*
+        4、open()
+        XMLHttpRequest对象的open方法用于指定发送HTTP请求的参数，它的使用格式如下，一共可以接受五个参数。
+        void open(
+           string method,
+           string url,
+           optional boolean async,
+           optional string user,
+           optional string password
+        );
+        method：表示HTTP动词，比如“GET”、“POST”、“PUT”和“DELETE”。
+        url: 表示请求发送的网址。
+        async: 格式为布尔值，默认为true，表示请求是否为异步。如果设为false，则send()方法只有等到收到服务器返回的结果，才会有返回值。
+        user：表示用于认证的用户名，默认为空字符串。
+        password：表示用于认证的密码，默认为空字符串。
+        
+        xhr.open('POST', encodeURI('someURL'));
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {};
+        xhr.send(encodeURI('dataString'));
+        
+    
+
+        */
+/******************************************/ 
+        /*
+        5、send()
+        send方法用于实际发出HTTP请求。如果不带参数，就表示HTTP请求只包含头信息，也就是只有一个URL，典型例子就是GET请求；如果带有参数，就表示除了头信息，还带有包含具体数据的信息体，典型例子就是POST请求。
+
+        ajax.open('GET'
+            , 'http://www.example.com/somepage.php?id=' + encodeURIComponent(id)
+            , true
+        );
+
+        // 等同于
+        var data = 'id=' + encodeURIComponent(id));
+        ajax.open('GET', 'http://www.example.com/somepage.php', true);
+        ajax.send(data);
+        上面代码中，GET请求的参数，可以作为查询字符串附加在URL后面，也可以作为send方法的参数。
+        
+        下面是发送POST请求的例子：
+
+        var data = 'email='
+        + encodeURIComponent(email)
+        + '&password='
+        + encodeURIComponent(password);
+        ajax.open('POST', 'http://www.example.com/somepage.php', true);
+        ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        ajax.send(data);
+
+        注意，所有XMLHttpRequest的监听事件，都必须在send()方法调用之前设定。
+         */ 
+         
+         
+
+
+    </script>
+</body>
+</html>

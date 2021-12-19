@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>wheel事件</title>
+</head>
+<body>
+
+
+    
+    <script type="text/javascript">
+
+    /*
+        wheel事件是与鼠标滚轮相关的事件，目前只有一个wheel事件。用户滚动鼠标的滚轮，就触发这个事件。
+
+        deltaX：返回一个数值，表示滚轮的水平滚动量。
+        deltaY：返回一个数值，表示滚轮的垂直滚动量。
+        deltaZ：返回一个数值，表示滚轮的Z轴滚动量。
+        deltaMode：返回一个数值，表示滚动的单位，适用于上面三个属性。0表示像素，1表示行，2表示页
+        
+        浏览器提供一个WheelEvent构造函数，可以用来生成滚轮事件的实例。它接受两个参数，第一个是事件名称，第二个是配置对象。
+        var syntheticEvent = new WheelEvent("syntheticWheel", {"deltaX": 4, "deltaMode": 0});
+    
+    */
+    
+    window.addEventListener('wheel',function(e){
+        console.log(e.deltaY);
+
+    },false)
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

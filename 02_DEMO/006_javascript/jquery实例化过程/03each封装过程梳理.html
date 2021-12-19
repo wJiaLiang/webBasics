@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    div,p{width: 300px;height: 30px;border:1px solid red; margin-top: 5px;}
+    </style>
+    <script type="text/javascript" src="js/jquery-1.12.1.js"></script>
+    <script type="text/javascript">
+    /*
+
+    */
+
+    //通过fn这个函数的返回值控制循环的退出条件
+    function each(arr,fn){
+        for(var i=0;i<arr.length;i++){
+            // var flag = fn(i,arr[i]);
+            var flag = fn.call(arr[i],i,arr[i]);
+            if(flag === false){
+                break;
+            }
+        }
+    }
+
+
+    window.onload = function(){
+        var aDiv = document.getElementsByTagName('div');
+        // for(var i=0;i<aDiv.length;i++){
+        //     aDiv[i].style.background = 'green';
+        // }
+        // each(aDiv,'green');
+
+        var abc = function(index,element){
+            // element.style.background = 'orange';
+            this.style.background = 'orange';
+            if(index === 0){
+                return false;
+            }
+            return true;
+        };
+        //隐式迭代 （遍历  循环）
+        each(aDiv,abc);
+
+        // $.each(aDiv,function(index,element){
+        //     element.style.background = 'orange';
+        //     this.style.background = 'blue';
+        // });
+        var aP = document.getElementsByTagName('p');
+        // for(var i=0;i<aP.length;i++){
+        //     aP[i].style.background = 'blue';
+        // }
+        // each(aP,'blue');
+        // each(aP,function(index,element){
+        //     element.style.background = 'blue';
+        //     if(index === 1){
+        //         return false;
+        //     }
+        //     return true;
+        // });
+
+    }
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <p></p>
+    <p></p>
+</body>
+</html>

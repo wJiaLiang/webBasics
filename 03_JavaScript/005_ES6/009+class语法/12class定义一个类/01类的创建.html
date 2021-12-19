@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+    </head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <body>
+    	<div id="app">  </div>
+        
+		<script type="text/javascript">
+		/*
+			// es5  实现类;
+ 			function Person (name,age){
+ 				this.name = name;
+ 				this.age = age;
+ 				
+ 			}
+ 			Person.prototype.say = function(){
+ 				return this.name + this.age;
+ 			}
+ 			let p = new Person('wei',666);
+			
+		*/ 
+			
+			/*
+				注意，定义“类”的方法的时候，前面不需要加上function这个关键字，直接把函数定义放进去了就可以了。
+				另外，方法之间不需要逗号分隔，加了会报错。
+			*/  
+        	class Person{
+				constructor(name,age){
+					this.name = name;
+					this.age = age;
+				}
+				// 定义在原型上面;
+				say(){
+					console.log(this.name+"说话");
+				}
+				
+			}
+			
+			let p = new Person('哈哈',29);
+			Person === Person.prototype.constructor  // true;
+			console.log(p)
+			p.say();
+			
+			
+			
+
+        </script>
+    </body>
+</html>

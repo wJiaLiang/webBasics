@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .s{color:green;border-top:5px solid black;}
+        </style>
+    </head>
+    <body>
+        <div id="app" style="border:6px solid orange;">
+            <div>
+                <p>父组件:  </p>
+                <p> value: {{value}}</p>
+                <p> objs.age: {{objs.age}} </p>
+            </div>
+            <hr>
+            <div>
+                <p> 子组件: </p>
+                <child-ele v-bind:num="message" 
+                            :size="two" 
+                            :t-content="name"
+                            :sum="value"
+                            :cobj="objs"   >
+                <child-ele>
+
+            </div>
+        </div>
+        
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+        组件实例的作用域是孤立的。这意味着不能 (也不应该) 在子组件的模板内直接引用父组件的数据。
+        父组件的数据需要通过 prop 才能下发到子组件中。
+        
+        2. :t-content 在HTML中自定义属性 短横线分隔式命名      在js props 中国驼峰命名 tContent
+
+        3.  单向数据流： props是单向绑定的
+            每次父组件更新时，子组件的所有 prop 都会更新为最新值。
+            不要在子组件内部改变 prop。如果你这么做了，Vue 会在控制台给出警告。
+            在两种情况下，我们很容易忍不住想去修改 prop 中数据：
+                1 Prop 作为初始值传入后，子组件想把它当作局部数据来用；定义一个局部变量;
+                2 Prop 作为原始数据传入，由子组件处理成其它数据输出。 定义一个计算属性来处理;
+           
+        4. 注意在 JavaScript 中对象和数组是引用类型，指向同一个内存空间，如果 prop 是一个对象或数组，
+            在子组件内部改变它会影响父组件的状态。
+
+        */ 
+
+        // 子组件
+        Vue.component("child-ele",{
+            data(){
+                return{
+                    newNum:this.sum,
+                    childObj:this.cobj
+                }
+            },
+            computed: {
+                norSum:function(){
+                    return this.sum
+                }
+            },
+            props: ['num','size','tContent',"sum","cobj"],
+            mounted () {
+                console.log(this.$parent);   // 直接可以修改父元素的数据,如果传递到了子组件，子组件也会自动更新;
+                setTimeout(() => {
+                    this.$parent.objs.age = 100;  //可以修改成功;
+                },2000);
+            },
+            template:`
+            <h4>
+                <p> {{num}} </p>
+                <p> {{size}} </p>
+                <p> {{tContent}} </p>
+
+                <section>
+                    <h5>props接受变量 newNum: {{sum}} </h5>
+                    <h5>data 局部变量 newNum: {{newNum*2}} </h5>
+                    <h5>computed计算属性 norSum: {{norSum*2}} </h5>
+                    <h5>传的是数组或者对象都会影响到父数据: <input type="text" v-model="childObj.age"> </h5>    
+                </section>
+            </h4>
+            `,
+            methods:{
+
+            }
+
+        })
+
+        
+
+        //    父组件
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                message:"父组件通过props向子组件传递数据",
+                two:"size字段",
+                name:"属性名称,驼峰命名和短下滑命名",
+                value:20,
+                objs:{
+                    name:'张三',
+                    age:27,
+                }
+            },
+            beforeMount() {},
+            methods: {},
+        });
+
+
+
+
+
+    </script>
+</html>

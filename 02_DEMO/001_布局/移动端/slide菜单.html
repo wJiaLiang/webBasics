@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>slide菜单</title>
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		html,body{
+			height: 100%;
+			width: 100%;
+			
+		}
+		ol,ul{
+			list-style-type: none;
+		}
+		.harder{
+			width: 100%;
+			height: 60px;
+			background-color: greenyellow;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 100;
+		}
+		.all{
+			height: 100%;
+			padding-top: 60px;
+		}
+		.left{
+			float: left;
+			width: 90px;
+			height: 100%;
+			overflow: hidden;
+		}
+		.left>ul{
+			
+		}
+		ul>li{
+			width: 90px;
+			height: 50px;
+			background-color: #F3F4F6;
+			border-right: 2px solid #CCCCCC;
+			border-bottom: 2px solid #CCCCCC;
+			text-align: center;
+			line-height: 50px;
+		}
+		ul>li.now{
+			border-right: none;
+			color: blue;
+			background-color: transparent;
+		}
+		.right{
+			height: 100%;
+			overflow: hidden;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="harder"></div>
+	<div class='all'>
+		<div class="left">
+			<ul>
+				<li>1</li>
+				<li class='now'>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+				<li>11</li>
+				<li>12</li>
+				<li>13</li>
+				<li>14</li>
+				<li>15</li>
+				<li>16</li>
+				<li>17</li>
+				<li>18</li>
+				<li>19</li>
+				<li>20</li>
+			</ul>
+		</div>
+		<div class="right">
+			porduct盒子，商品的继承;
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		//过度的功用方法;
+		var parentbox=document.querySelector(".left");
+		var childbox=parentbox.querySelector('ul');
+
+		var parentheight=parentbox.offsetHeight;
+		var childheight=childbox.offsetHeight;
+		console.log(childheight);
+		console.log(childbox);
+		//添加过度；
+		var addTransition=function(e){
+			childbox.style.webkitTransition='all,.2s';
+			childbox.style.transition='all,.2s';
+		}
+		//清除过度；
+		var moveTransition=function(e){
+			childbox.style.webkitTransition="none";
+			childbox.style.transition="none";
+		}
+		//设置过度；
+		var setTranslatey=function(translatey){
+			childbox.style.webkitTransform="translateY("+translatey+"px)";
+			childbox.style.transform="translateY("+translatey+"px)";
+		}
+
+		//定位的区间；
+		var maxpostition=0;
+		var minpostition=parentheight-childheight;
+		//缓冲区间；
+		var distance=100;
+		//滑动区间；
+		 var maxswipe=maxpostition+distance;
+		 var minswipe=minpostition-distance;
+		 //改变时候的当前定位；
+		 var currentY=0;
+
+		 var startY=0,moveY=0,distanceY=0,isMove=false;
+		 childbox.addEventListener('touchstart', function(e){
+		 	startY=e.touches[0].clientY;
+		 	console.log(startY);
+
+		 })
+		 childbox.addEventListener('touchmove',function(e){
+		 	moveY=e.touches[0].clientY;
+		 	distanceY=moveY-startY;
+		 	
+		 	//删除定位；
+		 	moveTransition();
+		 	//判断是否在我们的滑动区间范围内；
+		 	if((currentY+distanceY)<maxswipe&&(currentY+distanceY)>minswipe){
+		 		setTranslatey( currentY+distanceY);
+		 	}
+		 	
+		 })
+		 childbox.addEventListener('touchend',function(e){
+
+		 			//离开的时候吸附回去；
+
+		 			if((currentY+distanceY)>maxswipe){
+		 				currentY=maxpostition;  //currentY设置为0是应为要下次使用
+		 				addTransition();
+		 				setTranslatey(currentY);
+		 			}
+		 			else if((currentY+distanceY<minswipe)){
+		 				currentY=minpostition;
+		 				addTransition();
+		 				setTranslatey(currentY);
+		 			}
+		 			else{
+		 				//记录滑动到的位置；
+		 				currentY=currentY+distanceY;
+		 			}
+		 			
+
+		 })
+
+	</script>
+</body>
+</html>

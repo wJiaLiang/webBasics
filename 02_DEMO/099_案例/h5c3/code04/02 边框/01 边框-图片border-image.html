@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS3边框</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+
+		ul {
+			width: 960px;
+			margin: 40px auto;
+			list-style: none;
+			background-color: #FFF;
+		}
+
+		li {
+			padding: 15px;
+		}
+
+		li:nth-child(2) {
+			width: 400px;
+			height: 150px;
+			/*边框图片地址*/
+			border-image-source: url("images/border.png");
+			/*裁剪 裁剪的尺寸
+			距离四个边的距离 都是设置的27
+			*/
+			border-image-slice: 54 54 54 54;
+			/*宽度*/
+			border-image-width:27px;
+			/*切出来的边框的排列方式.
+			repeat 平铺
+			round 保证这个切出来的图片完整显示，它会自动等比例缩放.
+			stretch
+			*/
+			border-image-repeat: stretch;
+		}
+	</style>
+
+
+</head>
+<body>
+	<ul>
+		<li>
+			<div class="border-image">
+				<img src="./images/border.png" alt="">
+			</div>
+		</li>
+		<li>
+			<div class="border-image"></div>
+		</li>
+	</ul>
+</body>
+</html>

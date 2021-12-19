@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <style> </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <p> this is A 组件</p>
+        <input type="text" v-model="mymessage" @input="passData(mymessage)">
+    </div>
+</div>
+</body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+        对于父子组件之间的通信，上面的两种方式是完全可以实现的，但是对于两个组件不是父子关系，那么又该如何实现通信呢？
+        在项目规模不大的情况下，完全可以使用中央事件总线 EventBus 的方式。如果你的项目规模是大中型的，
+        那你可以使用我们后面即将介绍的 Vuex 状态管理。
+
+        
+        */ 
+        // 组件 A
+        Vue.component('A',{
+            template:`
+            <div>
+                <p> this is A 组件</p>
+                <input type="text" v-model="mymessage" @input="passData(mymessage)">
+            </div>
+
+            `,
+            data(){
+                return{
+                    mymessage:'hello brother1'
+                }
+            },
+            created () {
+
+            },
+            beforeMount () {
+                // 第一次自动执行一次;
+                this.$nextTick(function(){
+                    this.passData(this.mymessage);
+                })
+            },
+            updated () {
+                this.passData(this.mymessage);
+            },
+            methods:{
+                passData(val){
+                    console.log('执行了啊',val)
+                    this.$EventBus.$emit("globalEvent",val)
+                }
+            }
+        });
+
+        //  组件B
+        Vue.component('B',{
+            template:`
+            <div>
+                <p> this is B 组件</p>
+                <div> 组件A传递过来的数据，{{brothermessage}} </div>
+            </div>
+            `,
+            data(){
+                return{
+                    brothermessage:''
+                }
+            },
+            mounted(){
+                this.$EventBus.$on('globalEvent',(val)=>{
+                    this.brothermessage  = val;
+                })
+            },
+           
+        });
+
+        // //定义中央事件总线
+        const EventBus = new Vue();
+        // // 将中央事件总线赋值到 Vue.prototype 上，这样所有组件都能访问到了
+        Vue.prototype.$EventBus = EventBus
+
+    new Vue({
+        el:'#app',
+        data:{ },
+        template:`
+            <div>
+                <A></A>
+                <B></B>
+            </div>
+        `,
+        methods:{
+
+        },
+        
+
+    })
+
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择排序</title>
+</head>
+<body>
+	<script type="text/javascript">
+			var array=[23,45,67,86,21,33,234];
+			for(var i=0;i<array.length-1;i++)
+			{	
+				//原理就是选出一项后不停的与后面的做比较；
+				for(var j=i+1;j<array.length;j++)
+				{
+					if(array[i]>array[j])
+					{
+						var a=array[i];
+						array[i]=array[j];
+						array[j]=a;
+					}
+				}
+			}
+			document.write("<h1>"+array+"</h1>");
+	</script>
+</body>
+</html>

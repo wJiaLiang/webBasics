@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="css" href="../css/base.css">
+</head>
+<body>
+<div id="app">
+    <div> {{arr}} </div>
+    <div> {{arr[0]}} </div>
+
+    <div style="margin-top:15px;cursor: pointer;">
+        <button @click="changeArr"> 修改数组 </button>
+    </div>
+</div>
+</body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    new Vue({
+        el:'#app',
+        data:{
+            arr:[1,2,3,4,5,6,7]
+        },
+        beforeMount() {
+
+        },
+        methods:{
+            // 
+            changeArr(){
+                // vue 里面可以修改成功但是不会反应到页面;
+                // this.arr[0]=9;
+                // this.arr.length = 16;
+
+                // 这样解决;
+                //this.$set(this.arr,1,'59');   // 这样 修改数据
+                Vue.set(this.arr,2,'559');
+
+                // 下面变异方法可以被检测到
+                // push()
+                // pop()
+                // shift()
+                // unshift()
+                // splice()
+                // sort()
+                // reverse()
+
+            }
+        }
+
+    })
+</script>
+</html>

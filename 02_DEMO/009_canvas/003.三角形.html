@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas id="canvas"> </canvas>
+    <script type="text/javascript">
+    let canvas = document.querySelector("#canvas");
+    // 用css设置canvas的宽高的时候只会把画布放大或缩小; 默认为300*150;
+    canvas.width=300;
+    canvas.height=300;
+    canvas.style.border="1px solid #111";
+    var ctx = canvas.getContext('2d');
+    // 设置线的宽度;
+    ctx.lineWidth=10;
+    // 设置线段的颜色;
+    ctx.strokeStyle="green";
+
+    // 设置填充的颜色;  填充到原本线一半的宽度;
+    ctx.fillStyle="rgba(0,0,0,.3)";
+
+    ctx.moveTo(100,100);   
+    ctx.lineTo(300,100);
+    ctx.lineTo(150,300); 
+    ctx.lineTo(200,50);
+    ctx.lineTo(250,300);
+    // 自动闭合路径;
+    ctx.closePath();
+    
+    ctx.stroke(); 
+    // 填充线段围成的图形;
+    ctx.fill()
+
+    
+    
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src='jquery-1.11.1.js'></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#div1").slideToggle("slow");
+    $("#div2").slideToggle();
+    $("#div3").slideToggle("fast");
+  });
+});
+</script>
+</head>
+
+<body>
+
+<p>演示带有不同参数的 slideToggle() 方法。</p>
+<button>点击这里，使三个矩形淡入淡出</button>
+<br><br>
+<div id="div1" style="width:80px;height:80px;background-color:red;"></div>
+<br>
+<div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+<br>
+<div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+</body>
+
+</body>
+</html>

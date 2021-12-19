@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+
+
+    <script type="text/javascript">
+    //用来判断数组成员是否符合某种条件。
+        //它们接受一个函数作为参数，所有数组成员依次执行该函数，返回一个布尔值。该函数接受三个参数，依次是当前位置的成员、当前位置的序号和整个数组。
+        
+        //some方法是只要有一个数组成员的返回值是true，则整个some方法的返回值就是true，否则false。
+        var arr = [1, 2, 3, 4, 5];
+        let rearr =arr.some(function (elem, index, arr) {
+          return elem >= 3;
+        });
+        console.log(rearr) // true
+        //上面代码表示，如果存在大于等于3的数组成员，就返回true。
+        
+
+
+    //every方法则是所有数组成员的返回值都是true，才返回true，否则false。
+
+        var arr = [1, 2, 3, 4, 5];
+        arr.every(function (elem, index, arr) {
+            return elem >= 3;
+        });
+        // false
+        //some方法返回false，every方法返回true，回调函数都不会执行。
+
+    </script>
+</body>
+</html>

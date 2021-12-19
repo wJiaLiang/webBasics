@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas id="canvas"> </canvas>
+    <script type="text/javascript">
+    let canvas = document.querySelector("#canvas");
+    // 用css设置canvas的宽高的时候只会把画布放大或缩小; 默认为300*150;
+    canvas.width=300;
+    canvas.height=300;
+    canvas.style.border="1px solid #111";
+    var ctx = canvas.getContext('2d');
+
+    // 起点坐标和宽高; rect 描述一个正方形;
+    // ctx.rect(100,100,60,60);
+    // ctx.stroke()
+    
+
+    //第二种绘制发；
+    // ctx.strokeStyle="red";
+    // ctx.strokeRect(100,100,60,60);
+
+    // 填充;
+    ctx.fillStyle="red";
+    ctx.rect(100,100,80,80);
+    ctx.fill();
+    
+    ctx.clearRect(100,100,20,20);
+
+    
+    
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="button" value="切换到第1个" @click="taphand(1)">
+        <input type="button" value="切换到第2个" @click="taphand(2)">
+        <input type="button" value="切换到第3个" @click="taphand(3)">
+
+        <component :is="current"> </component>
+        
+        <keep-alive>
+                <component :is="current"> </component> 
+        </keep-alive>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+        /*
+            多个组件可以使用同一个挂载点，动态的载他们中切换,使用保留的component元素，使用is特性进行动态绑定;
+            可以使用 keep-alive把切出的组件保留在内存中，这样可以保留他的状态，避免重新渲染
+
+            用 component  标签的is属性绑定 要渲染的当前组件;
+        
+            给第一个组件中改变了背景色，操作了状态的  如果要保留就要包在 <keep-alive> 标签中
+
+        */ 
+        let custom1 = Vue.component('custom1', {
+            template:`<div @click="changebg">第一个组件  </div>`,
+            methods:{
+                changebg(ev){
+                    ev.target.style="background-color:red"
+                }
+            }
+        })
+        let custom2 = Vue.component('custom2', {
+            template:`<div>第二个组件  </div>`
+        })
+        let custom3 = Vue.component('custom3', {
+            template:`<div>第三个组件  </div>`
+        })
+
+        new Vue({
+            el:'#app',
+            data:{
+                current:custom1
+            },
+            computed: {
+                
+            },
+            methods: {
+                taphand(index){
+                    if(index ===1){
+                        this.current = custom1
+                    }else if(index===2){
+                        this.current = custom2
+                    }else if(index===3){
+                        this.current = custom3
+                    }
+                    
+                }
+            },
+            
+        })
+
+    </script>
+</body>
+
+</html>

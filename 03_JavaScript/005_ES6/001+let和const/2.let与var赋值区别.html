@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        ul,ol{list-style: none;cursor: pointer;}
+    </style>
+</head>
+<body>
+    <ol>
+        <li>ol>li==>1</li>
+        <li>ol>li==>2</li>
+        <li>ol>li==>3</li>
+        <li>ol>li==>4</li>
+        <li>ol>li==>5</li>
+    </ol>
+    <ul>
+         <li>ul>li==>1</li>
+         <li>ul>li==>2</li>
+         <li>ul>li==>3</li>
+         <li>ul>li==>4</li>
+         <li>ul>li==>5</li>
+    </ul>
+
+    <script type="text/javascript">
+    var ol = document.querySelectorAll('ol>li');
+    var ul = document.querySelectorAll('ul>li');
+
+    for (var i = 0; i < ol.length; i++) {
+        ol[i].onclick=function(){
+            //每一次循环i的值都发生变化;函数内的i指向的是全局变量;只能输出最后一个值;
+            console.log(i);     
+        }
+        console.log(ol[i].onclick); //会打印5次函数体;
+    };
+
+
+
+    // 这样可以输出每一次循环的值;
+    for (let j = 0; j < ul.length; j++) {
+        ul[j].onclick=function(){
+            console.log(j)
+        }
+    }
+
+    /*
+        另外，for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，
+        而循环体内部是一个单独的子作用域。
+    */ 
+    for(let k=0;k<3;k++){
+        let k = 'abc';
+        console.log(k); //abc  abc  abc;
+    }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

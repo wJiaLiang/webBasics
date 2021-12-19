@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person(name){
+			this.name=name;;
+		}
+		//原型上的this也指向的是实例；
+		Person.prototype.showName=function(){
+			console.log(this.name);
+		}
+		//这里构造函数中的this指向的是他的实例；
+		var pl=new Person('张三');
+		console.log(pl.name);
+		pl.showName();
+ 
+// ***************************************
+
+ 	//this的指向由函数的调用方式决定，就是函数中的this就是调用函数的那个对象，也就是调用函数时 '点'前面的那个对象；
+ 	 var obj={
+ 	 		name:'car',
+ 	 		showName:function(){
+ 	 			alert(this.name);
+ 	 		}
+ 	 }
+ 	 obj.showName();
+
+// ***************************************事件函数中；
+	window.onload=function(){
+		var box=document.getElementById('box');
+		box.onclick=function(){
+			alert(this.innerHTML);    //dom 对象;
+		}
+	}
+	//************************定时函数中:this就是window;
+	setTimeout(function(){
+		alert(this==window)
+	},1000)
+	//********************普通函数中的this就是window;
+		function fn(){
+			console.log(this);
+		}
+		fn();
+	</script>
+	<div id='box' style="width:100px;height:100px;background-color:green;">测试</div>
+</body>
+</html>

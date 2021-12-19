@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+		/*
+		  我们使用background-size
+		  目的:
+		  背景跟它所在的元素的大小能够自适应.而且还需要让图片不变形.
+		*/
+		.pic {
+			/*我在这里是控制盒子的大小*/
+			width: 600px;
+			height: 400px;
+			margin: 50px auto;
+			border: 1px solid #CCC;
+			background-image: url(./images/2.jpg);
+			background-repeat: no-repeat;
+			/*我在这里是控制背景图片的大小
+			  我现在固定了背景图片的大小，
+			  如果盒子的大小发生了改变，背景不会变化
+			  我想让这个背景图片随着这个盒子的大小改变而改变.
+			  如果我把背景的高宽设置成100%
+			  这个背景的大小会随这盒子的大小而发生改变.
+			  但是，这个图片可能会变形.
+			  background-size:100% 100%;
+			  contain 包含
+			  如果我添加contain的这个值
+			   这个图片等比例缩放,不会变形，但是可能有其它的空白的部分
+			  图片始终在背景完全显示.
+			  background-size:contain;
+			  这个图片也会等比例缩放，超出等比例的部分不显示.
+			  始终填满整个div 区域
+			*/
+			background-size: cover;
+
+		  }
+	</style>
+</head>
+<body>
+	<div class="pic"></div>
+</body>
+</html>

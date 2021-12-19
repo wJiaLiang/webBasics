@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+	</head>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<body>
+		<div id="app"> </div>
+
+
+		<script type="text/javascript">
+			/*
+				constructor 方法
+				constructor方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。
+				一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。
+			*/ 
+			class Point {}
+
+			// 等同于
+			class Point {
+				constructor() {}
+			}
+
+
+			// constructor方法默认返回实例对象（即this），完全可以指定返回另外一个对象
+			class Foo {
+				constructor() {
+					return Object.create(null);
+				}
+			}
+			new Foo() instanceof Foo  // false
+
+
+
+			
+			//类必须使用new调用，否则会报错。这是它跟普通构造函数的一个主要区别，后者不用new也可以执行。
+
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

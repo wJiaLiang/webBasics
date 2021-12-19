@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 匹配一个字符传以ff 开头   以fe结尾,提取中间部分;
+        addStr = '哈哈';
+        var str = 'fe008400fe003s000099222ffsfe002ff00000000000666fe3456';
+
+        var flag = false;
+
+        let startResult = str.search('ff');
+        let endResult = str.search('fe');
+
+        console.log(startResult);
+
+        // 等于-1表示没有在当前字符串中匹配到; 不等于-1 就表示在当前的字符串中匹配到;
+
+        function getStr (str) {
+
+            if (startResult != -1) {
+                flag = true;
+            }
+
+            if (flag) {
+                addStr += str;
+            }
+
+            console.log(addStr);
+
+            if (endResult != -1) {
+                addStr += str;
+                flag = false;
+                console.log( addStr );
+            }
+
+        }
+        for(let i=0;i<6;i++){
+            getStr();
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

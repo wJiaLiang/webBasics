@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class='weil'>weil</div>
+	<div class='jial'>jial</div>
+	<input type="text" name="wei" value="" placeholder="">
+	<input type="text" name="ja" value="" placeholder="">
+	<input type="text" name="jafs" value="" placeholder="">
+	<script src='../jquery-1.11.1.js'></script>
+	<script type="text/javascript">
+		$(function(){
+			//匹配所有不含有指定的属性，或者属性不等于特定值的元素。
+			$('input[name!="wei"]').css("border","3px solid red");
+			//匹配给定的属性值是以某些值开始的元素
+			$('input[name^="j"]').css('width',"20px");
+			//匹配给定的属性是以某些值结尾的元素
+			$('div[class$="l"]').css('backgroundColor','green').css('marginTop',"20px");
+			//有class类名的div中;
+			$('div[class]').css("width","50px");
+			//复合属性选择器，需要同时满足多个条件时使用。
+			$("input[id][name$='man']")
+			
+
+		})
+
+
+
+	</script>
+</body>
+</html>

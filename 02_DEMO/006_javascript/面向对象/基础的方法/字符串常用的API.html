@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字符串</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var str="Hello,wei"
+	// document.write(str+'<br/>');
+	// //将文本显示为大号字体;
+	// document.write(str.big()+'<br/>');
+	// document.write(str.blink());
+	// var strw="He llo,world";
+	// document.write(strw.charAt(2)+'<br/>');
+	// console.log(strw.charAt(2));//空格也是一个字符;
+	// document.write(strw.fontcolor('red')+'<br/>');
+	// //必需是1到7直接的数字;
+	// document.write(strw.fontsize(4)+'<br/>');
+	
+	// //搜索整个数组中具有给定元素的值; lastindexOf();表示最后一次出现的位置;
+	// var Arrystr=['h','e','l','l','o','w','e','i'];
+	// document.write(Arrystr.indexOf('e')+'<br/>');
+	// document.write(Arrystr.lastIndexOf('e'));
+	// //lastIndexOf();返回的是最后一次出现的位置;
+	// //indexOf判断字符串中值在字符串中的位置,如果没有级返回-1;
+	// console.log(str.indexOf('e'));
+	// console.log(str.lastIndexOf('e'));
+
+	// 返回一个数组,第一项就是这个wei这个项,或匹配一个正则表达式;
+	 console.dir(str.match('wei')); 
+	 // search() 方法用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。
+	 console.log(str.search('w'));  //6   返回该字符串的下标;
+		var s= str.replace(/wei/g,'ha');  // 并没有对原有的字符串进行操作;
+		console.log(s);   //Hello,ha
+		console.log(str); //Hello,wei
+		str="Hello,wei";
+		console.log(str.slice(2,4)); //ll   两个参数都是下标; 包左不包右;
+		console.log(str.split(","));  //转成字符串数组  按逗号来拆分,和截取后要返回字符串的长度;
+		//把单词分割成字母;
+		console.log(str.split('')); 
+		console.log(str.substr(0,1)); //H  从0 下标开始,取一个字符; 指定子串的位置和长度；
+		console.log(str.substring(1)); // hllo,wei 不接受负的参数；
+		
+		var number='12389';
+		console.log(typeof number.toString());
+
+
+	</script>
+</body>
+</html>

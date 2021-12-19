@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+            div{
+                margin: 100px auto;
+                width: 1000px;
+                height: 100px;
+                background: linear-gradient(
+                        135deg,
+                        black 25%,
+                        white 25%,
+                        white 50%,
+                        black 50%,
+                        black 75%,
+                        white 75%
+                );
+              /*
+                 我调整一下它的背景尺寸的大小
+                 高宽一百
+              */
+              background-size: 100px 100px;
+                /*设置平铺*/
+              background-repeat: repeat;
+                /*执行动画*/
+              animation: move 1s linear infinite;
+            }
+           /* @keyframes move {
+                 from{
+
+                 }to {
+                        background-position: 100px 0;
+                  }
+                }
+            }*/
+    </style>
+</head>
+<body>
+
+      <div></div>
+</body>
+</html>

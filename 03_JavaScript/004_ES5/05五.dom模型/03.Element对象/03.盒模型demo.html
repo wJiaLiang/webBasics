@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+        .hidden{display: none;}
+        .posr{position: relative;}
+        .posa{position: absolute;}
+        #box1{width: 500px;height: 500px;border: 1px solid #ccc;box-shadow: 4px 4px 4px #ccc;}
+        #box2{width: 500px;height: 500px;border: 1px solid #ccc;box-shadow: 4px 4px 4px #ccc;overflow:auto;}
+        #box2_2{width: 200px;height: 800px;border:1px solid blue;overflow:auto;}
+        #box3{width: 100px;height: 800px;border:1px solid blue;}
+    </style>
+</head>
+<body>
+    <div id="box1" class="hidden">
+
+
+    </div>
+    <div id="box2" class="posr">
+        <div id="box2_2" class="posa" style="left:20px;top:45px;">
+            1 <br>
+            2 <br>
+            3 <br>
+            4 <br>
+            5 <br>
+            6 <br>
+            7 <br>
+            8 <br>
+            9 <br>
+        </div>
+    </div>
+    <div id="box3" class="hidden">
+
+    </div>
+
+
+    <script type="text/javascript">
+    var box1 = document.querySelector('#box1');
+    let box2_2 = document.querySelector('#box2_2');
+    let box3 = document.querySelector('#box3');
+    // 如果要查看整张网页的水平的和垂直的滚动距离，要从document.documentElement元素上读取。
+    let documentbox = document.documentElement||document.body;
+
+
+    box1.addEventListener('click', function(ev){
+        // 该属性返回元素节点可见部分的宽高;
+        let w = this.clientWidth;     
+        let h = this.clientHeight;
+
+        console.log(w,h);
+        let lw = this.clientLeft;  //左边框的宽度;
+        let tw = this.clientTop;   //上边框的宽度;
+        console.log(lw,tw);
+
+
+    },true)
+
+    box2_2.addEventListener('click',function(){
+        
+        // Element.offsetLeft返回当前元素左上角相对于Element.offsetParent节点的水平位移，Element.offsetTop返回垂直位移，单位为像素
+        let ol = this.offsetLeft;   //20;
+        let ot = this.offsetTop;    //45;
+        console.log(ol,ot);
+        // Element.offsetHeight属性返回元素的垂直高度，Element.offsetWidth属性返回水平宽度。
+        // 这两个属性值包括Padding和Border、以及滚动条
+        let ow = this.offsetWidth;      //202;
+        let oh = this.offsetHeight;     //802;
+        console.log(ow,oh);
+
+        //网页元素左上角的视口横纵坐标 边框开始计算;
+        let sl=this.getBoundingClientRect().left;
+        let st=this.getBoundingClientRect().top;
+        console.log(sl,st);
+        
+        /*某个网页元素距离网页左上角的坐标，使用视口坐标加上网页滚动距离。*/
+        Element.getBoundingClientRect().left + document.documentElement.scrollLeft
+        
+
+    },false)
+
+    box3.addEventListener('click',function(){
+
+        //Element.offsetHeight属性返回元素的垂直高度，Element.offsetWidth属性返回水平宽度。
+        //这两个属性值包括Padding和Border、以及滚动条。这也意味着
+        let ow = this.offsetWidth;
+        let oh = this.offsetHeight;
+        console.log(ow,oh);
+
+    })
+
+// *****************整个网页的盒模型数据;**********************;
+    documentbox.addEventListener('click',function(){
+        /*Element.scrollHeight属性返回某个网页元素的总高度，Element.scrollWidth属性返回总宽度，可以理解成元素在垂直和水平两个方向上可以滚动的距离。它们都包括由于溢出容器而无法显示在网页上的那部分高度或宽度。这两个属性是只读属性。*/
+        let sw=this.scrollWidth;  
+        let sh=this.scrollHeight;   
+        console.log(sw,sh)
+
+        /*Element.scrollLeft属性表示网页元素的水平滚动条向右侧滚动的像素数量，Element.scrollTop属性表示网页元素的垂直滚动条向下滚动的像素数量。对于那些没有滚动条的网页元素，这两个属性总是等于0。*/ 
+        let sl=this.scrollLeft;  //滚动条的距离;
+        let st=this.scrollTop;
+        console.log(sl,st);
+
+
+    },false)
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

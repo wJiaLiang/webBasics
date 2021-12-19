@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<!-- 关系选择符 -->
+	<!-- 1.包含选择符(E F)   选择所有被E元素包含的F元素。
+		 2.子选择符(E>F) 	 选择所有作为E元素的子元素F
+		 3.相邻选择符(E+F) 	 选择紧贴在E元素之后F元素。
+		 4.兄弟选择符(E~F)	 选择E元素后所有兄弟元素F。 css3新增;
+	-->
+	<style type="text/css">
+		p~a{background-color: red;} 
+		p+a{border:10px solid blue;}
+	</style>
+</head>
+<body>
+	<div class="contentone">
+		<a href="javascript">first a 没变化</a>
+		<p>我是p元素</p>
+		<a href="javascript">我是a元素red 边框</a>
+		<div class="box">我是div</div>
+		<a href="javascript">我是a元素red</a>
+	</div>
+	<div class="contenttwo">
+		<p>我是第二个p元素</p>
+		<a href="javascript">我是第二个a元素red 边框</a>
+	</div>
+</body>
+</html>

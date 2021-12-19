@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red{color: red;}
+        .fs40{font-size: 20px;}
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- html 模板 -->
+        <p v-bind:constid="id"> 自定义属性 </p>
+        <p class="fs40" :class="{red:addclass}"> {{text}} </p>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+
+        /*
+            html模板
+        */ 
+        let str = "<div> hello vue</div>"
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                id:'he',
+                addclass:true,
+                text:'测试文字'
+            },
+            methods: {
+                
+            },
+            computed: {
+                
+            },
+            
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    .testele{
+      font-size: 18px;
+      width: 500px;
+      height: 200px;
+      background:red;
+    }
+    .test-enter-active {
+        animation: bounce-in 1s;
+    }
+    /* .test-leave-active {
+        animation: bounce-in 1s reverse;
+    } */
+
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <button style="margin-bottom:30px;padding:10px;" 
+                    @click="show =!show">
+                    触发动画
+            </button>
+  
+            <transition name="test" mode="out-in">
+                <div v-show="show" class="testele"> 
+                    CSS 动画用法同 CSS 过渡，区别是在动画中 v-enter 类名在节点插入 DOM 后不会立即删除，
+                    而是在 animationend 事件触发时删除。
+                </div>
+            </transition>
+          </div>
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script type="module">
+
+
+
+const app =Vue.createApp({
+    data(){
+        return{
+            show:true
+        }
+    },
+    setup(){
+
+    },
+    // props 可以是数组或对象，用于接收来自父组件的数据
+    props:[],
+
+    // Vue 实例将会在实例化时调用 watch()，遍历 watch 对象的每一个 property。
+    watch:{},
+})
+// 组件
+app.component({})
+
+app.mount("#app")
+
+</script>
+</html>

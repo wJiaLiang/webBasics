@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="resultbox">
+        
+    </div>
+
+    <script type="text/javascript">
+    /*
+      
+     
+        这三个方法都支持第二个参数，表示开始搜索的位置。
+        includes()      //返回布尔值，表示是否找到了参数字符串。
+        startsWith()    //返回布尔值，表示参数字符串是否在原字符串的头部。
+        endsWith()      //返回布尔值，表示参数字符串是否在原字符串的尾部。
+    */
+   
+    let  str ='hello peters';
+    console.log( str.startsWith('hello') ); //true;
+    console.log( str.endsWith('s') );   //false;
+    console.log( str.includes('w'));    //false;
+    console.log( str.indexOf('e') );    //1; 
+        
+    /*
+        repeat()    //repeat方法返回一个新字符串，表示将原字符串重复n次。
+    */
+    console.log( 'kg'.repeat(3) ); //kgkgkg
+         
+    
+    /*
+        模板字符串
+        下面代码中的模板字符串，都是用反引号表示。
+        如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。
+        模板字符串中嵌入变量，需要将变量名写在${}之中;
+        大括号内部可以放入任意的 JavaScript 表达式，可以进行运算，以及引用对象属性;
+        如果模板字符串中的变量没有声明，将报错。
+    */
+         let name = "boy", time="today";
+         let x =10,y =20;
+
+        // 模板字符串之中还能调用函数。
+         function fn(){
+            return "Hello javascriptes6";
+         }  
+
+          $('body').append(`
+                hello ${name} ,
+                how are you ${time}?;
+                `
+            );
+
+          $('#resultbox').append(`<ul>
+            <li><a href="javascript:;">button1</a></li>
+            <li> ${x}+${y}=${x+y}; </li>
+            <li> ${fn()} </li>
+        </ul>`.trim());
+      
+
+    </script>
+</body>
+</html>

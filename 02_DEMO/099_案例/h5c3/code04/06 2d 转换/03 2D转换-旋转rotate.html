@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 2D转换</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #F7F7F7;
+		}
+		.rotate {
+			width: 200px;
+			height: 200px;
+			margin: 60px auto;
+			background-color: green;
+			transform: rotate(-30deg);
+			transition: all 1s linear;
+		}
+
+		/*  旋转我们使用rotate
+			正数：是顺时针旋转
+			负数：逆时针旋转.
+		*/
+		.rotate:hover {
+			/*旋转到360deg*/
+			transform: rotate(-360deg);
+			width:20px;
+			height: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="rotate"></div>
+</body>
+</html>

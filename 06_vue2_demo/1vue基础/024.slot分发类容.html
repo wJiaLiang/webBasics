@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>自定义组件一</h2>
+        <!-- 写在自定义标签之间的内容，要混合子组件中的模板 -->
+        <const>
+            <div> 我是HTML 结构</div>
+        </const>
+
+        <h2>自定义组件二</h2>
+        <consttwo>
+            <div slot="one"> 自定义第一个name 名字 </div>
+            <!-- 批量替换 -->
+            <template slot="two">
+                <div> 批量替换 </div>
+                <div> 组件中这里的数据是父组件中的数据: {{ mess }} </div>
+            </template>
+
+        </consttwo>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+
+        /*
+            定制模板
+            使用一种方式混合父组件的内容和组件自己的模板，这个过程被称为‘内容分发’,在子组件中使用特殊的<slot>元素内容的插槽。这样组件扩展性更强;
+        
+        */ 
+        Vue.component('const', {
+            template: `<div>
+                <slot> 如何自定义标签中没有类容，这个是默认内容 </slot>
+            <ul>
+                <li>组件类容1</li>
+                <li>组件类容2</li>
+                <li>组件类容3</li>
+            </ul>
+        </div>`
+        })
+
+        // 按自定的名字替换,批量替换;
+
+        Vue.component('consttwo', {
+            data(){
+                return {
+                    mess:'子组件中的数据'
+                }
+            },
+            template: `<div>
+            <div>
+
+                <slot name="one"> 第二个组件中的第一个数据 </slot>
+                <slot name="two"> 第二个组件中的第二个数据 </slot>
+                <p> 第二个组件中的第三个数据: {{mess}}</p>
+               
+            </div>
+        </div>`
+        })
+
+
+
+
+        new Vue({
+            el: '#app',
+            data:{
+                mess:'父组件中的数据'
+            }
+
+        })
+    </script>
+</body>
+
+</html>

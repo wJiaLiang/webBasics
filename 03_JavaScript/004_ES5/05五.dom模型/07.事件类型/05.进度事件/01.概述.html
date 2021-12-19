@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        /*给图片加上过度 */
+        /* img{transition: all 1s ease } */
+        .finished{
+            animation: animations1 3s ease normal infinite forwards;
+        }
+        @keyframes animations1{
+            0%{ transform: scale(.01) rotate(360deg);}
+            0%{ transform: scale(.01) rotate(360deg);}
+            90%{transform: scale(.6) rotate(0deg);}
+            100%{ transform:scale(.6) rotate(0deg);}
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <img draggable="true" src="https://www.baidu.com/img/bd_logo1.png">
+    <script type="text/javascript">
+    /*
+    进度事件用来描述一个事件进展的过程，比如XMLHttpRequest对象发出的HTTP请求的过程、
+    <img>、<audio>、<video>、<style>、<link>加载外部资源的过程。下载和上传都会发生进度事件。
+        
+    进度事件有以下几种:
+
+    abort事件：   当进度事件被中止时触发。如果发生错误，导致进程中止，不会触发该事件。
+    error事件：   由于错误导致资源无法加载时触发。
+    load事件：    进度成功结束时触发。
+    loadstart事件： 进度开始时触发。
+    loadend事件：   进度停止时触发，发生顺序排在error事件\abort事件\load事件后面。
+    progress事件：  当操作处于进度之中，由传输的数据块不断触发。
+    timeout事件：   进度超过限时触发。
+
+    */ 
+    var image =document.querySelector('img');
+    // 图片加载完成后加上一个 finished 类名;
+    image.addEventListener('load', function(event) {
+        image.classList.add('finished');
+        console.log(image.complete)
+    });
+    // 如果加载失败是将图片隐藏;
+    image.addEventListener('error', function(event) {
+        image.style.display = 'none';
+    });
+
+    /*
+    有时候，图片加载会在脚本运行之前就完成，尤其是当脚本放置在网页底部的时候，因此有可能使得load和error事件的监听函数根本不会被执行。所以，比较可靠的方式，是用complete属性先判断一下是否加载完成。
+        function loaded() {
+            // code after image loaded
+        }
+    if (image.complete) {
+      loaded();
+    } else {
+      image.addEventListener('load', loaded);
+    }
+    由于DOM没有提供像complete属性那样的，判断是否发生加载错误的属性，所以error事件的监听函数最好放在img元素的HTML属性中，这样才能保证发生加载错误时百分之百会执行。
+    <img src="/wrong/url" onerror="this.style.display='none';" />
+
+    error事件有一个特殊的性质，就是不会冒泡。这样的设计是正确的，防止引发父元素的error事件监听函数
+
+    */ 
+
+
+
+
+
+
+    </script>
+</body>
+</html>

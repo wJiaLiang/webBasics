@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input id="checkbox" type="checkbox" name="" value="复选框">
+    
+    <script type="text/javascript">
+/*
+        概述：
+        鼠标事件使用MouseEvent对象表示，它继承UIEvent对象和Event对象。浏览器提供一个MouseEvent构造函数，用于新建一个MouseEvent实例。
+
+        event = new MouseEvent(typeArg, mouseEventInit);
+
+        MouseEvent构造函数的第一个参数是事件名称（可能的值包括click、mousedown、mouseup、mouseover、mousemove、mouseout），第二个参数是一个事件初始化对象。该对象可以配置以下属
+
+1.screenX，设置鼠标相对于屏幕的水平坐标（但不会移动鼠标），默认为0，等同于MouseEvent.screenX属性。
+2.screenY，设置鼠标相对于屏幕的垂直坐标，默认为0，等同于MouseEvent.screenY属性。
+3.clientX，设置鼠标相对于窗口的水平坐标，默认为0，等同于MouseEvent.clientX属性。
+4.clientY，设置鼠标相对于窗口的垂直坐标，默认为0，等同于MouseEvent.clientY属性。
+5.ctrlKey，设置是否按下ctrl键，默认为false，等同于MouseEvent.ctrlKey属性。
+6.shiftKey，设置是否按下shift键，默认为false，等同于MouseEvent.shiftKey属性。
+7.altKey，设置是否按下alt键，默认为false，等同于MouseEvent.altKey属性。
+8.metaKey，设置是否按下meta键，默认为false，等同于MouseEvent.metaKey属性。
+9.button，设置按下了哪一个鼠标按键，默认为0。-1表示没有按键，0表示按下主键（通常是左键），1表示按下辅助键（通常是中间的键），2表示按下次要键（通常是右键）。
+10.buttons，设置按下了鼠标哪些键，是一个3个比特位的二进制值，默认为0。1表示按下主键（通常是左键），2表示按下次要键（通常是右键），4表示按下辅助键（通常是中间的键）。
+11.relatedTarget，设置一个Element节点，在mouseenter和mouseover事件时，表示鼠标刚刚离开的那个Element节点，在mouseout和mouseleave事件时，表示鼠标正在进入的那个Element节点。默认为null，等同于MouseEvent.relatedTarget属性。
+
+
+*/
+// bubbles，布尔值，设置事件是否冒泡，默认为false，等同于Event.bubbles属性。
+// cancelable，布尔值，设置事件是否可取消，默认为false，等同于Event.cancelable属性。
+// view，设置事件的视图，一般是window或document.defaultView，等同于Event.view属性。
+// detail，设置鼠标点击的次数，等同于Event.detail属性。
+
+function simulateClick() {
+  var event = new MouseEvent('click', {
+    'bubbles': true,
+    'cancelable': true
+  });
+  var cb = document.getElementById('checkbox');
+  cb.dispatchEvent(event);
+}
+simulateClick();
+// 上面代码生成一个鼠标点击事件，并触发该事件。
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

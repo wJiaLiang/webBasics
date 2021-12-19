@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+	
+		.parent{
+			width: 500px;
+			height: 600px;
+			background-color: gray;
+			}
+
+		.child{
+			float: left;
+			width: 100px;
+			height: 100px;
+			margin-left: -50px;
+			margin-top: -50px;
+			position: relative;
+			left: 50%;
+			top: 50%;
+			background-color: pink;
+		}
+		#box{width:100px;height:100px;border:1px dotted green;}
+	</style>
+</head>
+<body>
+	<div id='box'>
+		位置
+	</div>
+	<div class="parent">
+		<div class="child"></div>
+	</div>
+</body>
+</html>

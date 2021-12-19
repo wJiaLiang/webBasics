@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的查找</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var array=[23,45,32,12,56,33,899];
+		var a=12;
+		var flag=false;
+		//给定一个标志的变量，如果找到就改变他的值，然后break;就跳出循环；
+		for (var i = array.length - 1; i >= 0; i--) {
+			if(array[i]=a)
+			{
+				flag=true;
+				break;
+			}
+		}
+		if(flag==true)
+		{
+			alert('找到了');
+		}
+
+
+
+	</script>
+</body>
+</html>

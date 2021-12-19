@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="computed">
+                <p> {{aDouble}} </p>
+                <p> {{message}} </p>
+                <p> {{reversedMessage}} </p>
+                <p> {{fullName}} </p>
+                <input type="text" @ v-model="fullTest">
+                <input type="button" value="改变" @click="changeHand">
+            </div>
+
+            <!-- ********watch分界线  watch分界线  watch分界线 ************ -->
+            <div class="watch" style="margin-top:30px;">
+                <p>"c:" {{c}} </p>
+                <p>"c.hooby.back:" {{c.hooby.back}} </p>
+
+                <button @click="changeC">改变c</button>
+                <button @click="changeCname">改变c.name</button>
+                <button @click="changeD">改变d</button>
+            </div>
+
+
+        </div>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+            computed:
+                    是计算属性，依赖其它属性值，并且 computed 的值有缓存，只有它依赖的属性值发生改变,
+                    下一次获取 computed 的值时才会重新计算 computed 的值;
+
+            watch:更多的是「观察」的作用,类似于某些数据的监听回调 ,每当监听的数据变化时都会执行回调进行后续操作；
+
+        运用场景:
+            computed:当我们需要进行数值计算，并且依赖于其它数据时，应该使用 computed，
+            因为可以利用 computed 的缓存特性，避免每次获取值时，都要重新计算；
+
+            watch:当我们需要在数据变化时执行异步或开销较大的操作时，应该使用 watch，
+            使用 watch 选项允许我们执行异步操作 ( 访问一个 API )，限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。这些都是计算属性无法做到的
+        */ 
+
+        new Vue({
+            el: "#app",
+            data: {
+                a:12,
+                message: 'Hello',
+                surname:'kg',
+                name:'wei',
+                fullTest:"",
+
+                a:5,
+                b:12,
+                c:{name:"测试名称",age:28,sex:1,hooby:{back:'测试back',green:'测试green'}},
+                d:{name:"测试名称",age:28,sex:1,hooby:{back:'测试back',green:'测试green'}}
+            },
+            beforeMount() {},
+            mounted() {},
+            methods: {
+                changeHand(){
+                    console.log('onChange',this.fullTest);
+                    this.fullName = this.fullTest;
+                },
+                changeC:function(e){
+                   this.c.hooby.back = "blue";
+                },
+                changeCname:function(e){
+                   this.c.name = "c.name";
+                },
+                changeD:function(e){
+                   this.d.hooby.back = "ddddddd";
+                }
+            },
+
+            // 计算属性; 不要用箭头函数来定义;
+            computed: {
+                aDouble:vm =>{
+                  return  vm.a*2
+                },
+                reversedMessage:function(){
+                    return this.message.split('').reverse().join('');
+                },
+                fullName:{
+                    get:function(){
+                       return  this.surname + this.name;
+                    },
+                    set:function(value){
+                        console.log('set',value)
+                       let surname = value.split(',')[0];
+                       let name = value.split(',')[1];
+                       this.surname = surname;
+                       this.name = name;
+                    }
+                }
+            },
+            // 观察;不要用箭头函数来定义;
+            watch: {
+
+                // 直接改变c 对象才触发这个观察函数;
+                c:function(newValue,oldValue){
+                    console.log("c-----",newValue,oldValue)
+                },
+
+                // 直接触发;
+                'c.hooby.back':function(newValue,oldValue){
+                    console.log("c.hooby.back------",newValue,oldValue);
+                },
+
+                // 默认触发一次
+                d:{
+                    handler(newV,oldV){
+                        console.log("d------",newV,oldV)
+                    },
+                    //表示 加载好直接默认触发一次handler函数;
+                    immediate:true
+                }
+
+
+
+
+
+            },
+            
+        });
+
+
+
+    </script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+        
+        
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+/*
+    什么是函数式组件?
+    没有管理任何状态，也没有监听任何传递给它的状态，也没有生命周期方法，它只是一个接受一些 prop 的函数。
+    简单来说是  一个无状态和无实例的组件
+
+
+
+*/ 
+let {h} = Vue
+
+const app =Vue.createApp({
+    data(){
+        return{
+            something:'test'
+        }
+    },
+    setup(){
+
+    },
+    //可以是数组或对象，用于接收来自父组件的数据
+    props:[],
+
+    // Vue 实例将会在实例化时调用 watch()，遍历 watch 对象的每一个 property。
+    watch:{},
+
+    // 计算属性
+    computed:{},
+
+    // 方法;
+    methods:{
+       
+    },
+
+})
+
+app.mount("#app")
+
+</script>
+</html>

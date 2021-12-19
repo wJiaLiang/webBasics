@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>offset</title>
+	<style type="text/css">
+		div{
+			width:200px;
+			height:200px;
+			background-color: rgba(50,100,30,0.7);
+		}
+	</style>
+</head>
+<body>
+	<div>盒子</div>
+	<script type="text/javascript">
+		// offset   获取元素的尺寸只读，都没有单位；
+		var box=document.getElementsByTagName('div')[0];
+		console.log(box.offsetHeight);
+		console.log(box.offsetWidth);
+		document.write('offsetTop:'+box.offsetTop+'<br/>');
+		document.write("offsetleft:"+box.offsetLeft);
+
+	</script>
+</body>
+</html>

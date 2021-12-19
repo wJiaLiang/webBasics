@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	//函数有参数是以变量为准；
+		function fn(a){
+			console.log(a);  //123456
+			var a=123;
+			console.log(a);  //123
+		}	
+		fn(123456);
+
+		console.log("**********分割线****************");
+		//遇到同名的函数和变量，函数优先；
+		// 在预解析中优先级最高的是函数,变量、后是参数;
+		function fn(b){
+			console.log(b);   //b函数；
+			var b=123;
+			function b(){
+				console.log("wwww")
+			}
+			console.log(b);   //123;
+		}	
+		fn(123456);
+
+
+	</script>
+</body>
+</html>

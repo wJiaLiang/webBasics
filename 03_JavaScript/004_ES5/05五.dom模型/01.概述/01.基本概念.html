@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding:0;}
+        div,p{font-size:60px;}
+        ol,li{list-style: none;}
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="childbox">123</div>
+        <div class="cbox1">111</div>
+        <div class="cbox2">222</div>
+        <div class="cbox3">333</div>
+    </div>
+
+    <section style="margin-top: 30px;"> </section>
+    <article>
+        <ol>
+            <li class="l1">1-li</li>
+            <li class="l2">2-li</li>
+            <li class="l3">3-li</li>
+            <li class="l4">4-li</li>
+            <li class="l5">5-li</li>
+        </ol>
+
+    </article>
+
+
+
+
+    <script type="text/javascript">
+    /*
+    DOM 是 JavaScript 操作网页的接口，
+    所有的节点和最终的树状结构，都有规范的对外接口。所以，DOM 可以理解成网页的编程接口。
+    严格地说，DOM 不属于 JavaScript，但是操作 DOM 是 JavaScript 最常见的任务，而 JavaScript 也是最常用于 DOM 操作的语言
+    
+    DOM的最小组成单位叫做节点（node）。文档的树形结构（DOM树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。
+
+    节点的类型有七种:
+        Document：整个文档树的顶层节点
+        DocumentType：doctype标签（比如<!DOCTYPE html>）
+        Element：网页的各种HTML标签（比如<body>、<a>等）
+        Attribute：网页元素的属性（比如class="right"）
+        Text：标签之间或标签包含的文本
+        Comment：注释
+        DocumentFragment：文档的片段
+        具有一些共同的属性和方法。
+    
+    最顶层的节点就是document节点，它代表了整个文档。文档里面最高一层的HTML标签，一般是<html>，它构成树结构的根节点（root node），其他HTML标签节点都是它的下级。
+        父节点关系（parentNode）：直接的那个上级节点
+        子节点关系（childNodes）：直接的下级节点
+        同级节点关系（sibling）：拥有同一个父节点的节点
+    */ 
+    
+
+/*
+    children属性返回一个动态的HTMLCollection集合，由当前节点的所有Element子节点组成
+    
+    firstElementChild属性返回当前节点的第一个Element子节点，如果不存在任何Element子节点，则返回null。
+    lastElementChild属性返回当前节点的最后一个Element子节点，如果不存在任何Element子节点，则返回null。
+
+    childElementCount属性返回当前节点的所有Element子节点的数目。
+
+*/ 
+
+let node = document.querySelector('.box1');
+console.log(node.children);
+
+node.children[2].style.color="red";
+node.firstElementChild.style.color="blue";
+node.lastElementChild.style.color="green";
+
+var se=document.querySelector('section');
+se.innerHTML = node.childElementCount;
+
+/*
+remove方法用于移除当前节点。
+
+上面方法在DOM中移除了el节点。注意，调用这个方法的节点，是被移除的节点本身，而不是它的父节点。
+
+before方法用于在当前节点的前面，插入一个同级节点。如果参数是节点对象，插入DOM的就是该节点对象；如果参数是文本，插入DOM的就是参数对应的文本节点。
+
+after方法用于在当前节点的后面，插入一个同级节点。如果参数是节点对象，插入DOM的就是该节点对象；如果参数是文本，插入DOM的就是参数对应的文本节点。
+
+replaceWith方法使用参数指定的节点，替换当前节点。如果参数是节点对象，替换当前节点的就是该节点对象；如果参数是文本，替换当前节点的就是参数对应的文本节点。
+
+ */
+var l1= document.querySelector('.l1');
+    l1.remove();
+
+var l2= document.querySelector('.l2');
+let node3 = document.querySelector('.cbox3');
+l2.before(node3);
+
+let node4 = document.querySelector('.l4');
+node4.replaceWith("合伙人");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

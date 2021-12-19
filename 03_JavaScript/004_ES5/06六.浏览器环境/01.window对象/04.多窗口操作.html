@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <iframe id="if1" src="http://www.baidu.com">
+
+        </iframe>
+    <script type="text/javascript">
+    /*
+    iframe元素遵守同源政策，只有当父页面与框架页面来自同一个域名，两者之间才可以用脚本通信，否则只有使用window.postMessage方法。
+    
+     */
+
+    function fn(){
+        var if1=document.querySelector('#if1');
+        var odm= if1.contentWindow.title;
+        console.log(odm);
+    }
+    var dom = document.querySelector('body');
+
+    dom.onclick=function(){
+        fn();
+    }
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab 标签</title>
+</head>
+<body>
+
+	<!--
+		 必须以data- 开头，在之前我们用过这种用法，jQueryMobile
+
+		 1:定义属性
+		 	data-fuck="bdqn"
+		 2:后去属性
+		 	dataset 固定用法，取值.
+		 	data-you-fuck 这个地方的一个命名规则驼峰命名规则.
+
+		 	驼峰命名
+		 		1：第一个单词的首字母小写
+		 		2：第二个单词的首字母大写
+	-->
+
+	<div  data-you-fuck="bdqn"></div>
+    <script>
+			var f=document.querySelector("div").dataset['youFuck'];
+			alert(f);
+	</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+//1.每一个函数都包含两个非继承而来的方法call和apply;
+
+		// 绑定一些函数，用来传递参数，或者说借用别的函数；
+		function sum(x,y){
+			return x+y
+		}
+		function callone(num1,num2){
+			//绑定sum 函数到this中； 或者说借用了别的对象上的方法和函数，
+			return sum.call(this,num1,num2);
+		}
+		alert(callone(3,9));
+
+
+		//就是参数改变成数组；
+		function applytwo(num1,num2){
+			return sum.apply(this,[num1,num2]);
+		}
+		alert(applytwo(7,8));
+
+
+
+//2.扩展作用域；或者说改变作用域；
+	window.color='blue';
+	var obj={color:'red'};
+
+	function showColor(){
+		alert(this.color);
+	}
+		//执行的时候改变了他的作用域；
+		showColor.call(window);
+		showColor.call(obj);
+
+
+		var as=29.8933;
+		console.log(Math.floor.call(null,as)); //29
+		var ss=878374;
+		console.log(String.prototype.split.call(ss)); //返回数组;
+
+	</script>
+</body>
+</html>

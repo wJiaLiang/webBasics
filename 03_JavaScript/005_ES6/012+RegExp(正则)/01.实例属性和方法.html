@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            /*
+                正则对象的实例属性分成两类
+                1.一类是修饰符相关，返回一个布尔值，表示对应的修饰符是否设置。
+                2.另一类是与修饰符无关的属性，主要是下面两个。
+            */
+
+            let reg = /abcd/gim;
+            console.log(reg.global);
+
+            console.log(reg.lastIndex); // 返回一个数值，表示下一次开始搜索的位置。该属性可读写，但是只在进行连续搜索时有意义
+            console.log(reg.source); // 返回正则表达式的字符串形式(不包括反斜杠),该属性只读。
+        </script>
+
+        <script>
+            (function () {
+                // 正则实例对象的test方法返回一个布尔值，表示当前模式是否能匹配参数字符串。
+                let reg = /_x/;
+                console.log(reg.test("_xd_x")); // false;
+
+                var r = /x/g;       // 使用了g表示全局匹配会有多个结果;
+                var s = "_x_x";
+                console.log(r.lastIndex); // 0
+                console.log(r.test(s));   // true
+
+                console.log(r.lastIndex); // 2
+                console.log(r.test(s));   // true
+
+                console.log(r.lastIndex); // 4
+                console.log(r.test(s));   // false
+            })();
+
+
+            /*
+                则实例对象的exec方法，用来返回匹配结果。如果发现匹配，就返回一个数组，成员是匹配成功的子字符串，否则返回null
+                利用g修饰符允许多次匹配的特点
+            */ 
+            (function () {
+            
+                let s = "_x_x";
+                let r1 = /x/;
+                let r2 = /y/;
+                console.log(r1.exec(s)); // [0:"x",index:1,inpout:"_x_x"]
+
+                let str = "abcdefjhijklmopqrstuvwxyz";
+                let newstr = str.replace(/abc/, "123");
+                console.log(newstr);   // 123defjhijklmopqrstuvwxyz
+
+            })();
+
+
+
+        </script>
+    </body>
+</html>

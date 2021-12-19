@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>MouseEvent实例的属性。</title>
+</head>
+<body>
+    
+    <div id="div" onclick="showc(event)"> event实例属性</div>
+
+    <button onmouseup="whichbutton(event)">buttons</button>
+
+    <div id="move" style="width: 300px;height: 400px;border: 1px solid red;"></div>
+
+    <script type="text/javascript">
+/**************************************************************************/ 
+//1、  altKey，ctrlKey，metaKey，shiftKey
+
+    // 以下属性返回一个布尔值，表示鼠标事件发生时，是否按下某个键。
+    /*
+    altKey属性：Alt 键
+    ctrlKey属性：Ctrl 键
+    metaKey属性：Meta 键（Mac键盘是一个四瓣的小花，Windows键盘是Windows键）
+    shiftKey属性：Shift 键
+
+     */ 
+    //代码中，点击网页会输出是否同时按下Alt键。
+    
+    function showc (event){
+        console.log(event.altKey);
+    }
+
+/******************************************************************/ 
+// 2、button，buttons
+    /*
+    button属性返回一个数值，表示按下了鼠标哪个键。
+
+    -1：没有按下键。
+    0：按下主键（通常是左键）。
+    1：按下辅助键（通常是中键或者滚轮键）。
+    2：按下次键（通常是右键）。
+
+     */ 
+     function whichbutton(e){
+        switch (e.button) {
+        case 0:
+            console.log("Left button clicked") //左键
+            break; 
+        case 1:
+            console.log("Middle button clicked.") //中建
+            break;
+        case 2:
+            console.log("Right button clicked.") //右键
+            break;
+        default :
+            console.log('Unexpected code:'+ e.button);
+            break;
+        }
+
+    }
+
+    /*  buttons属性返回一个3个比特位的值，表示同时按下了哪些键。它用来处理同时按下多个鼠标键的情况。
+        1：二进制为001，表示按下左键。
+        2：二进制为010，表示按下右键。
+        4：二进制为100，表示按下中键或滚轮键。
+        同时按下多个键的时候，每个按下的键对应的比特位都会有值。比如，同时按下左键和右键，会返回3（二进制为011）。
+    */
+/****************************************************************/ 
+// 3.   以下属性与事件的位置相关。
+    /*
+        clientX，clientY，movementX，movementY，screenX，screenY
+        
+        （1）clientX，clientY
+        clientX属性返回鼠标位置相对于浏览器窗口左上角的水平坐标，单位为像素，与页面是否横向滚动无关。
+        clientY属性返回鼠标位置相对于浏览器窗口左上角的垂直坐标，单位为像素，与页面是否纵向滚动无关。
+
+     */
+    function showCoords(e){
+        console.log( 'clientX:'+e.clientX +"\n" +  'clientY:'+e.clientY )
+    }
+
+    // 这样写必须在事件名前面加上on;
+    window.onmousedown=function(event) {
+        console.log( 'clientX:'+event.clientX +"\n" +  'clientY:'+event.clientY )
+    };
+
+
+    // （2）movementX，movementY
+    /*
+    movementX属性返回一个水平位移，单位为像素，表示当前位置与上一个mousemove事件之间的水平距离。在数值上，等于currentEvent.movementX = currentEvent.screenX - previousEvent.screenX。
+    
+    movementY属性返回一个垂直位移，单位为像素，表示当前位置与上一个mousemove事件之间的垂直距离。在数值上，等于currentEvent.movementY = currentEvent.screenY - previousEvent.screenY。
+
+    也就是 鼠标 每次移动时 两次移动之间的位置;
+    */
+
+    var movebox = document.querySelector('#move');
+   movebox.onmousemove=function(e){
+        this.innerHTML= "x轴:"+e.movementX+"\n y轴:"+e.movementY;
+   }
+   // （3）screenX，screenY
+   /*
+    screenX属性返回鼠标位置相对于屏幕左上角的水平坐标，单位为像素。
+    screenY属性返回鼠标位置相对于屏幕左上角的垂直坐标，单位为像素
+
+    */
+   
+    window.onmousedown=function(event) {
+        console.log( 'clientX:'+event.screenX +"\n" +  'clientY:'+event.screenY )
+    };
+
+    /*
+    relatedTarget
+    relatedTarget属性返回事件的次要相关节点。对于那些没有次要相关节点的事件，该属性返回null。
+    下表列出不同事件的target属性和relatedTarget属性含义
+    事件名称      target属性        relatedTarget属性
+    focusin     接受焦点的节点     丧失焦点的节点
+    focusout    丧失焦点的节点     接受焦点的节点
+    mouseenter  将要进入的节点     将要离开的节点
+    mouseleave  将要离开的节点     将要进入的节点
+    mouseout    将要离开的节点     将要进入的节点
+    mouseover   将要进入的节点     将要离开的节点
+    dragenter   将要进入的节点     将要离开的节点
+    dragexit    将要离开的节点     将要进入的节点
+
+    不知道有什么用;
+    <div id="outer" style="height:50px;width:50px;border-width:1px solid black;">
+        <div id="inner" style="height:25px;width:25px;border:1px solid black;"></div>
+    </div>
+
+    var inner = document.getElementById("inner");
+    inner.addEventListener("mouseover", function (){
+        鼠标从outer进入inner，输出  进入inner 离开outer
+        console.log('进入' + event.target.id + " 离开" + event.relatedTarget.id);
+
+    });
+    
+
+
+    */ 
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

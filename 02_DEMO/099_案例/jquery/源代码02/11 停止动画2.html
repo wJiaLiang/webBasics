@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+  /*
+                 * 第一个参数：
+                 *       清空队列，可以结束动画.
+                 *       如果设置为true
+                 *                  停止队列里面所有的动画
+                 *       如果设置为false
+                 *                  不会停止队列里面所有的动画，仅仅停止当前动画.
+                 * 第二个参数:
+                 *       如果设置为true，立即完成当前正在执行的动画.
+                 *       如果设置为false，队列里面的动画则会被清空.
+                 * */-->
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 400px;
+            width: 400px;
+            background: red;
+        }
+    </style>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("#btnStart").click(function (){
+                    $("div").animate({"margin-left":"400px"},3000).animate({"width":"100px"},1000);
+            });
+            $("#btnStop").click(function (){
+
+                    /*
+                    *   第一个参数，
+                    *       如果是true
+                    *       会把当前元素所有的动画都给清空停止.
+                    *       如果是false
+                    *       当前正在执行的动画，停止掉.
+                    *
+                    *  第二参数
+                    *        如果是true
+                    *           立即完成动画。
+                    *        如果是false
+                    *           把当前正在执行的动画，立即停止，后续动画效果结束.
+                    * */
+                    $("div").stop(false,true);
+
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="执行动画效果" id="btnStart"/>
+<input type="button" value="停止动画效果" id="btnStop"/>
+<div></div>
+</body>
+</html>

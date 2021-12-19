@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str='sjdfl 5859 we3 we 5 5 34sdfj 55';
+		var re=/\d/g;
+		//match将检索字符串string，以找到一个或多个与regexp匹配的文本
+		alert(str.match(re)); // 5,8,5,9,5,5,3,4,5,5
+		
+		var re=/\d+/g; //+表示多个；表示全局查找多个连续的数字;
+		alert(str.match(re)); //5859,5,5,34,55
+	</script>
+</body>
+</html>

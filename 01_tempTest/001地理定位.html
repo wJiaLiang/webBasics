@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <div id="demo"></div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script>
+        // 获取地理定位;
+        function getLocal() {
+            if (navigator.geolocation) {
+                var n = navigator.geolocation.getCurrentPosition(function (res) {
+                    let w = res.coords.latitude;
+                    let s = res.coords.longitude
+                    console.log('纬度', res.coords.latitude);
+                    console.log('经度', res.coords.longitude);
+                    $('#demo').text('纬度,' + w + '=====' + '经度' + s);
+                    getWeather(w,s);
+
+                });
+            } else {
+                alert('该浏览器不支持定位');
+            }
+        }
+        // 获取天气数据;
+        function getWeather(w,s) {
+            $.ajax({
+                url: 'https://free-api.heweather.net/s6/weather/now?location=' + w + ',' + s +'&key=df95ec39940d4cceb40f52fad1f1b1c6',
+                method: 'GET',
+                success: function (res) {
+                    console.log('常规天气数据',res);
+                }
+            });
+            $.ajax({
+                url: 'https://free-api.heweather.net/s6/air/now?location=' + w + ',' + s +'&key=df95ec39940d4cceb40f52fad1f1b1c6',
+                method: 'GET',
+                success: function (res) {
+                    console.log('空气质量',res);
+                }
+            })
+        }
+    
+        getLocal();
+    </script>
+
+    </script>
+</body>
+
+</html>

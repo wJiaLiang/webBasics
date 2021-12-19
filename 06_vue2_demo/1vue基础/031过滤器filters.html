@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style></style>
+    </head>
+    <body>
+        <div id="app">
+            <p> {{accountBalance | abc}} </p>
+            <p> {{accountBalance | test}} </p>
+            
+            <p> {{message | filtersA | filtersB}} </p>
+        </div>
+    </body>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        /*
+            过滤器函数总接收表达式的值 (之前的操作链的结果) 作为第一个参数。
+            filtersA 过滤器函数将会收到 message 的值作为第一个参数。
+
+        
+        */ 
+
+        new Vue({
+            el: "#app",
+            data: {
+                accountBalance: 88999,
+                message:666
+            },
+            filters: {
+                test(v){
+                    console.log(this)  // window
+                    return v+"@"
+                },
+                abc:function(v){
+                    console.log(this)  // Window
+                    return "$" + v
+                },
+                filtersA:function(v){
+                    return "￥" + v
+                },
+                filtersB:function(v){
+                    return "$" + v
+                }
+            },
+            methods: {},
+            beforeMount() {},
+            mounted() {},
+            computed: {},
+            watch: {},
+        });
+    </script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="text" v-model="objs.money.cn"> <hr><br>
+        <input type="text" v-model="objs.age">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                objs:{
+                    name:'李四',
+                    age:24,
+                    money:{
+                        cn:888,
+                        us:777,
+                    }
+                }
+            },
+            watch: {
+                // 这样监控的是objs 的所有属性;
+                /*
+                objs:{
+                    handler(newValue,oldValue){
+                        console.log(newValue,oldValue)
+                    },
+                    deep:true
+                },
+                */
+                // 这样监控单个
+                'objs.money.cn':function(newv,old){
+                    console.log(newv,old);
+                }
+
+
+
+            },
+            methods: {
+
+            },
+
+
+        })
+    </script>
+
+</body>
+
+</html>

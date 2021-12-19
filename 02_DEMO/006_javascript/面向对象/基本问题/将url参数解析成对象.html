@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+		(function(a){
+			console.log(a);  //function a(){}，声明提升函优先;
+			var a=2;
+			function a(){}
+		})(1)
+		
+		// http://wei.com/ww/jiesou.php?gong=%E4%B8%AA%E4%BA%BA&sex=%E5%A5%B3%E5%A3%AB&phone=167
+		document.write(location.pathname);
+		
+
+		var a="ww/jiesou.php?gong=个人&sex=男人&phone=12345";
+		var arr=a.split('?');
+		console.debug(arr);
+		var cunt=arr[1].split("&");	
+		console.dir(cunt);
+		var suzu=[];
+		for(var i=0;i<cunt.length;i++){
+			var lisu=cunt[i].split('=');
+			suzu.push(lisu);
+		}
+		console.dir(suzu);
+		var obj={};
+		for(var j=0;j<suzu.length;j++){
+			 obj[suzu[j][0]]=suzu[j][1];
+		}
+
+		console.dir(obj);
+		// 最终将url后的参数添加到obj对象中；
+	</script>
+
+	
+	<div id='box'>10</div>
+	<script type="text/javascript">
+	var box=document.getElementById('box');
+	console.log(box);
+	box.style.width="100px";
+	box.style.height='100px';
+	box.style.backgroundColor="red";
+	box.style.fontSize='50px';
+	box.style.color="white";
+	box.style.textAlign="center";
+	box.style.lineHeight='100px';
+	var time=10;
+	var outtime=null;
+		outtime=setInterval(function(){
+			box.innerHTML=--time; //先自己运算在再参与运算；
+			if(time<5){
+				return false;
+			}
+			if(time==0){
+				fn();
+			}
+		},1000)
+
+		function fn(){
+			clearInterval(outtime);
+			box.style.backgroundColor='green';
+		}
+		
+
+	</script>
+
+</body>
+</html>

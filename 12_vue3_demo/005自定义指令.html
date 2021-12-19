@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+<body>
+    <div id="app">
+        <p v-highlight="'yellow'" > 高亮显示此文本亮黄色 </p>
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+/*
+    在 Vue 2，自定义指令是通过使用下面列出的钩子来创建的，这些钩子都是可选的
+        bind - 指令绑定到元素后发生。只发生一次。
+        inserted - 元素插入父 DOM 后发生。
+        update - 当元素更新，但子元素尚未更新时，将调用此钩子。
+        componentUpdated - 一旦组件和子级被更新，就会调用这个钩子。
+        unbind - 一旦指令被移除，就会调用这个钩子。也只调用一次。
+
+    
+    然而，在 Vue 3 中，我们为自定义指令创建了一个更具凝聚力的 API。正如你所看到的，它们与我们的组件生命周期方法有很大的不同，
+    即使我们正与类似的事件钩子，我们现在把它们统一起来了：
+
+    bind → beforeMount
+    inserted → mounted
+    beforeUpdate：新的！这是在元素本身更新之前调用的，很像组件生命周期钩子。
+    update → 移除！有太多的相似之处要更新，所以这是多余的，请改用 updated。
+    componentUpdated → updated
+    beforeUnmount：新的！与组件生命周期钩子类似，它将在卸载元素之前调用。
+    unbind -> unmounted
+
+
+*/ 
+
+
+const app =Vue.createApp({
+    data(){
+        return{
+
+        }
+    },
+    setup(){
+
+    },
+     // 自定义指令
+     directives:{
+        highlight:{
+            beforeMount(el, binding, vnode, prevVnode) {
+                console.log(binding)
+                el.style.backgroundColor = binding.value
+            },
+            mounted() {},
+            beforeUpdate() {},
+            updated() {},
+            beforeUnmount() {}, // 新
+            unmounted() {}
+        }
+    },
+    // props 可以是数组或对象，用于接收来自父组件的数据
+    props:[],
+
+    // Vue 实例将会在实例化时调用 watch()，遍历 watch 对象的每一个 property。
+    watch:{},
+
+    // 计算属性
+    computed:{},
+
+    // 方法;
+    methods:{},
+
+    // 在挂载开始之前被调用：相关的 render 函数首次被调用。
+    beforeMount () {},
+
+    // 实例被挂载后调用
+    mounted() {},
+
+})
+// 组件
+app.component({})
+
+app.mount("#app")
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/* 在IE8下要设置 不然适应 文本框于文字居中  */
+		input{vertical-align: middle;} 
+		ul li{width: 100px;height: 30px;border:1px solid red;
+			/* li中内容超过长度后以省略号显示  所有浏览器都支持  */
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				-o-text-overflow:ellipsis;
+				overflow: hidden;
+
+		}
+	</style>
+</head>
+<body>
+		<span>userName:</span><input type="text">
+		<ul>
+			<li>1sdfsdfsdfssdseegawrfdf</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	<script type="text/javascript">
+		window.onload=function(){
+			var input=document.getElementsByTagName('input')[0];
+			input.style.height='60px';
+			input.style.width="180px";
+		}
+
+
+	</script>
+</body>
+</html>
