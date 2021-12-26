@@ -3,12 +3,13 @@
 </template>
 
 <script>
+import {testHand,testHand2} from "@/utils/test.js"
 export default {
     created () {
-        
+        // testHand();
     },
     mounted () {
-        
+        testHand2();
     },
     asyncData(){
         

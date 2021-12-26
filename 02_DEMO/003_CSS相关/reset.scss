@@ -1,0 +1,588 @@
+/*  所有元素的盒模型 */
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-size: 24px;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height:normal;
+    margin: 0 auto;
+    max-width: 750px;
+    min-width: 320px;
+    min-height: 100%;
+    color: #333333;
+  }
+  /* 表单元素不继承 font-size font-family属性*/
+  form {
+    /*font-size: 14px;*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  table {border-collapse: collapse;}
+  em,i {font-style: normal;}
+  strong {font-weight: normal;}
+  ol,ul {list-style: none;}
+  input,textarea {
+    border: none;
+    /*去掉默认的边框*/
+    outline: none;
+    resize: none;
+    -webkit-appearance: none;
+  }
+  a {
+    color: #333333;
+    text-decoration: none;
+  }
+  /* 图片自适应 */
+  img {
+    border: none;
+    vertical-align: middle;
+    height: auto;
+    max-width: 100%;
+    width: auto;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+    line-height:1;
+  }
+  /*清除浮动*/
+  .clearfix:before,.clearfix:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+  }
+  .clearfix {zoom: 1;}
+  /*  定位  */
+  .posr {position: relative;}
+  .posa {position: absolute;}
+  .posf{position: fixed;}
+  /* 浮动 */
+  .fl {float: left;}
+  .fr {float: right;}
+  /* 定位居中 */
+  .all_center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+  }
+  /* 垂直居中   */
+  .y_center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+  }
+  /* 水平居中 */
+  .x_center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+  }
+  
+  /* 文字超出省略 */
+  .ellipsis_2{
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp:2;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+  }
+  /* 文字超出省略;适用于flex布局中 white-space: nowrap; 导致 省略无效 */
+  .ellipsis_2f{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+    overflow: hidden;
+  }
+  
+  .ellipsis_1{
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      -webkit-line-clamp:1;
+  }
+  .textHide_1{
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .textHide_1f{
+    display:-webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp:2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  /* 设置为flex布局后子元素的float、clear和vertical-align将失效 */
+  /* 父元素-横向排列（主轴） 左到右*/
+  
+  .flex_r {
+      /*定义一个伸缩盒子*/
+      display: -webkit-flex;
+      display: flex;
+      /* 09版 */               
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      /* 12版 */
+      -webkit-flex-direction: row;  
+      -ms-flex-direction: row;
+      flex-direction: row;
+  }
+  /* 横向从右到左 */
+  .flex_r_back {
+      /*定义一个伸缩盒子*/
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+  
+      -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse;
+      -webkit-box-pack: end
+  }
+  /* ================================== */
+  
+  /* 纵向排列（主轴）从上到下 */  
+  .flex_c {
+      display: -webkit-flex;
+      display: flex;   
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+  }
+  
+  /* 主轴设置横向就是水平方向；或者设置为竖直就是垂直方向(在主轴上的对齐方式;) */
+  /* （定义了在主轴上的对齐方式） */
+  .f_jc_s{
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start
+  }
+  .f_jc_c{
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center
+  }
+  /* 两端对齐 */
+  .f_jc_b{
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+  }
+  /* 每个项目之间距离都相等; 只有12版标准版;*/
+  .f_jc_a{
+      -webkit-justify-content: space-around;
+      justify-content: space-around;
+  }
+  .f_jc_e{
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+  }
+  /* ================================= */
+  /* (定义了项目在交叉轴上的对齐方式) */
+  .f_ai_s{
+      -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+  }
+  .f_ai_c{
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+  }
+  /*  基线对齐 */
+  .f_ai_b{
+       -webkit-box-align: baseline;
+      -webkit-align-items: baseline;
+      -ms-flex-align: baseline;
+      align-items: baseline;
+  }
+  .f_ai_e{
+      -webkit-box-align: end;
+      -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+  }
+  /* 上下对齐铺满 */
+  .f_ai_s{
+      -webkit-box-align: stretch;
+      -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+      align-items: stretch ;
+  }
+  /* ============================*/
+  /*多跟主轴的对齐方式;*/
+  .flex_ac{
+      -webkit-align-content: center;
+      -o-align-content: center;
+      align-content: center;
+  }
+  /* 子元素超出父元素后不压缩 子元素，父元素滚动显示*/
+  .f_shk0{
+    flex-shrink: 0;
+  }
+  /* 允许换行 */
+  .flex_wrap{
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+  }
+  
+  /*================================================== */
+  .flex1 {
+      -webkit-flex: 1;   
+      -ms-flex: 1;       
+      flex:1;            
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+  }
+  .flex2 {
+      -webkit-flex: 2;   
+      -ms-flex: 2;    
+      flex:2;            
+      -webkit-box-flex: 2;
+      -moz-box-flex: 2;
+  }
+  /* 单个属性和其他项目的对齐方式 */
+  .flex_self{
+      -webkit-align-self:flex-end;
+      align-self: flex-end;
+  }
+  
+  /*  盒子模型 */
+  .box_border{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .box_content{
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+  }
+  .mask03 {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .3);
+      left: 0px;
+      top: 0px;
+  }
+  .mask05 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    left: 0px;
+    top: 0px;
+}
+  /* 基础样式类 end  */
+  
+  /* 公共样式类 start */
+  .mauto{margin-left:auto;margin-right:auto;}
+  .main1200{width:1200px;margin-left:auto;margin-right:auto;}
+  .main1170{width: 1170px;margin-left: auto;margin-right: auto;}
+  
+  .w100{width:100%;}
+  .w90{width: 90%;}
+  .w88{width: 88%;}
+  .w75{width: 75%;}
+  .w50{width: 50%;}
+  .w33{width: 33.3%}
+  .w25{width: 25%;}
+  .w20{width: 20%;}
+  .w15{width: 15%;}
+  .w10{width: 10%;}  
+  
+  .over_h{overflow:hidden;}
+  .over_a{overflow:auto;}
+  .over_x_a{overflow-x:auto;}
+  .over_x_h{overflow-x:hidden;}
+  .over_y_a{overflow-y:auto;}
+  .over_y_h{overflow-y:hidden;}
+  
+  .dis_b{display:block;}
+  .dis_n{display:none;}
+  .dis_i{display:inline-block;}
+  
+  .fw400{font-weight:400;}
+  .fw500{font-weight:500;}
+  .fw600{font-weight:600;}
+  .fw_b{font-weight: bold;}
+  
+  /*贯穿线*/
+  .td_line{text-decoration:line-through;}
+  /*文本下的一条线*/
+  .td_under{text-decoration:underline;}
+  
+  /*上划线*/
+  .td_over{text-decoration:overline;}
+  
+  /*设置线的颜色*/
+  .td_color_red{text-decoration-color:red;}
+  
+  /*下划线设置为波浪线*/
+  .td_style_wavy{text-decoration-style:wavy;}
+  
+  /*把此元素放置在父元素的中部。*/
+  .ver_m{vertical-align:middle;}
+  
+  /*元素放置在父元素的基线上*/
+  .ver_b{vertical-align:baseline;}
+  
+  /*垂直对齐文本的下标。*/
+  .ver_s{vertical-align:sub;}
+  
+  /*垂直对齐文本的上标*/
+  .ver_super{vertical-align:super;}
+  
+  /*把元素的顶端与行中最高元素的顶端对齐*/
+  .ver_top{vertical-align:top;}
+  
+  /*把元素的顶端与父元素字体的顶端对齐*/
+  .ver_text_top{vertical-align:text-top;}
+  
+  /*手形*/
+  .cur_p{cursor:pointer;}
+  
+  /*光标呈为十字线*/
+  .cur_c{cursor:crosshair;}
+  
+  /*此光标指示某对象可被移动*/
+  .cur_m{cursor:move;}
+  
+  /*指示文本*/
+  .cur_t{cursor:text;}
+  
+  /*此光标指示程序正忙*/
+  .cur_wait{cursor:wait;}
+  
+  /*此光标指示可用的帮助（通常是一个问号或一个气球)*/
+  .cur_help{cursor:help;}
+  
+  .ti_2{text-indent:2em;}
+  
+  .tc{text-align:center;}
+  .tl{text-align:left;}
+  .tr{text-align:right;}
+  
+  /*内容透明*/
+  .opacity6{opacity:0.6;filter:alpha(opacity=60);}
+  
+  /*设置字符间距 字母和汉字*/
+  .t_ls10{letter-spacing:10px;}
+  /*保留文字中的空白*/
+  .t_ws_p{white-space:pre;}
+  
+  
+  
+  /* 背景色 */
+  .bg_333{background-color:#333;}
+  .bg_666{background-color:#666;}
+  .bg_999{background-color:#999;}
+  .bg_000{background-color: #000;}
+  .bg_fff{background-color: #ffffff;}
+  .bg_black{background-color:black;}
+  .bg_white{background-color:white;}
+  .bg_red{background-color:red;}
+  .bg_green{background-color:green;}
+  .bg_blue{background-color: blue;}
+  .bg_deeppink{background-color:deeppink;}
+  .bg_yellow{background-color: yellow;}
+  .bg_F7F1F0{background-color:#F7F1F0}
+  .bg_394154{background-color:#394154;}
+  .bg_fb4176{background-color:#fb4176;}
+  .bg_394154{background-color: #394154;}
+  .bg_fafafa{background-color:#fafafa}
+  .bg_e53f3f{background-color:#e53f3f}
+  .bg_df5456{background-color:#df5456}
+  .bg_bec5d1{background-color:#bec5d1}
+  .bg_E53D3E{background-color:#E53D3E}
+  
+  
+  /*  颜色 */
+  .cr_333{color:#333;}
+  .cr_666{color:#666;}
+  .cr_999{color:#999;}
+  .cr_fff{color: #ffffff;}
+  .cr_000{color: #000000;}
+  .cr_white{color:white;}
+  .cr_black{color:black;}
+  .cr_red{color:red;}
+  .cr_green{color: green;}
+  .cr_blue{color: blue;}
+  .cr_pink{color: pink;}
+  .cr_yellow{color: yellow;}
+  .cr_9A2929{color:#9A2929;}
+  .cr_1A1A1A{color: #1A1A1A;}
+  .cr_99A8C3{color:#99A8C3;}
+  .cr_959ba7{color:#959ba7}
+  .cr_B3B3B3{color:#B3B3B3}
+  .cr_DEE3ED{color:#DEE3ED}
+  .cr_FEFEFE{color:#FEFEFE}
+  .cr_844419{color:#844419}
+  .cr_18191A{color:#18191A}
+  .cr_FB4176{color:#FB4176}
+  .cr_18191A{color:#18191A}
+  .cr_A0B5D9{color:#A0B5D9}
+  .cr_77CFD4{color:#77CFD4}
+  .cr_4ACF68{color:#4ACF68}
+  .cr_FD6953{color:#FD6953}
+  .cr_B2B2B2{color:#B2B2B2}
+  .cr_d4d4d4{color:#d4d4d4}
+  .cr_FD7562{color:#FD7562}
+  .cr_777{color:#777777}
+  .cr_C1C1C1{color: #C1C1C1}
+  .cr_E15051{color:#E15051}
+  .cr_DF5557{color:#DF5557}
+  
+  /* 边框 */
+  .br_1_333{border: 1px solid #333;}
+  .br_1_666{border: 1px solid #666;}
+  .br_1_999{border: 1px solid #999;}
+  .br_1_000{border: 1px solid #000000;}
+  .br_1_e6e6e6 {border: 1px solid #e6e6e6;}
+  
+  
+  .br_t_1_333{border-top: 1px solid #333;}
+  .br_t_1_666{border-top: 1px solid #666;}
+  .br_t_1_999{border-top: 1px solid #999;}
+  .br_t_1_000{border-top: 1px solid #000000;}
+  
+  .br_b_1_333{border-bottom: 1px solid #333;}
+  .br_b_1_666{border-bottom: 1px solid #666;}
+  .br_b_1_999{border-bottom: 1px solid #999;}
+  .br_b_1_000{border-bottom: 1px solid #000000;}
+  
+  .br_l_1_333{border-left: 1px solid #333;}
+  .br_l_1_666{border-left: 1px solid #666;}
+  .br_l_1_999{border-left: 1px solid #999;}
+  .br_l_1_000{border-left: 1px solid #000000;}
+  
+  .br_r_1_333{border-right: 1px solid #333;}
+  .br_r_1_666{border-right: 1px solid #666;}
+  .br_r_1_999{border-right: 1px solid #999;}
+  .br_r_1_000{border-right: 1px solid #000000;}
+  
+
+  
+  /* 背景渐变 */
+  /* 镜像渐变 */
+  .radial_gradient{
+      background: -webkit-radial-gradient(red, green, blue); /* Safari 5.1 - 6.0 */
+      background: -o-radial-gradient(red, green, blue);   /* Opera 11.6 - 12.0 */
+      background: -moz-radial-gradient(red, green, blue);   /* Firefox 3.6 - 15 */
+      background: radial-gradient(red, green, blue);  /* 标准的语法（必须放在最后） */
+  }
+  /* 线性背景渐变 */
+  .linear_gradient{
+      background-image: -webkit-linear-gradient(to bottom, #e6e6e6, #fff);
+      background-image: -o-linear-gradient(to bottom, #e6e6e6, #fff);
+      background-image: linear-gradient(to bottom, #e6e6e6, #fff);
+  }
+  /* 动画 */
+  @keyframes mydeom{
+    from {left: 0px;}
+    to{left:500px;}
+  }
+  /* 使用自定义动画  添加动画 元素名称 */
+  .use_keyframes {
+    position: relative;
+    animation: mydeom 5s infinite;
+    -webkit-animation: mydeom 5s infinite;
+  }
+  
+  /* 过渡 */
+  .transition_attr {
+    transition: width 2s;
+    -webkit-transition: width 2s;    /* Safari */
+  }
+  
+  /* 2d */
+  /* 放大1.8倍 */
+  .scale_18 {
+    transform: scale(1.8, 1.8);
+    -ms-transform: scale(1.8, 1.8);
+    -webkit-transform: scale(1.8, 1.8);
+  }
+  
+  /* 旋转180度 */
+  .rotate_180deg {
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+  
+  /* 沿着 X 轴移动元素。*/
+  .translateX_100px {
+    transform: translateX(100px);    /*沿着 X 轴移动元素。*/
+    -ms-transform: translateX(100px);
+    -webkit-transform: translateX(100px);
+  }
+  .translateY_100px {
+    transform: translateY(100px);    /*沿着 X 轴移动元素。*/
+    -ms-transform: translateY(100px);
+    -webkit-transform: translateY(100px);
+  }
+  
+  /* 计算函数 */
+  .cale_function{
+    width: cale(900px - 100px);
+  }
+  /* 行高 */   
+  @for $i from 20 through 100{
+    .lh#{$i}{line-height: $i+px;}
+  }
+  /* 圆角 */
+  .brs_max{border-radius:90000px}
+  @for $i from 1 through 100 {
+    .brs_#{$i} {border-radius: $i+px;}
+  }
+  /*  字体  */
+  @for $i from 1 through 100 {
+    .fs#{$i} {font-size: $i+px;}
+  }
+  /* padding 内边距*/
+  @for $i from 1 through 120{
+      .pt#{$i}{padding-top:$i+px;}
+      .pb#{$i}{padding-bottom:$i+px;}
+      .pl#{$i}{padding-left:$i+px;}
+      .pr#{$i}{padding-right:$i+px;}
+  }
+  /* margin 外边距 */
+  @for $i from 1 through 120{
+    .mt#{$i}{margin-top:$i+px;}
+    .mb#{$i}{margin-bottom:$i+px;}
+    .ml#{$i}{margin-left:$i+px;}
+    .mr#{$i}{margin-right:$i+px;}
+  }
