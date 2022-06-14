@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="font-size:30px;"> 123 </div>
+    <script>
+        
+        const data = {name:"kgwei"};
+        const obj = new Proxy(data,{
+            get(target,key){
+                console.log("取值");
+                return target[key];
+            },
+            set(target,key,value){
+                target[key] = value;
+                effect();
+                console.log("设置值");
+                return true;
+            }
+        });
+        function effect(){
+            document.querySelector("div").innerText = obj.name;
+        }
+        effect();
+        setTimeout(() => {
+            obj.name = "test"
+        }, 2000);
+    </script>
+</body>
+</html>

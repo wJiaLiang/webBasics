@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            @keyframes myani {
+                0% {
+                    background: red;
+                }
+                25% {
+                    background: yellow;
+                }
+                50% {
+                    background: blue;
+                }
+                100% {
+                    background: green;
+                }
+            }
+            div {
+                animation: myani 5s;
+                position: relative;
+                left:200px;
+                top:200px;
+                width: 200px;
+                height: 200px;
+                background-color: black;
+                color: white;
+                transform: skew(10deg,20deg);
+            }
+        </style>
+    </head>
+    <body>
+
+        <div> 盒子 </div>
+
+    </body>
+</html>

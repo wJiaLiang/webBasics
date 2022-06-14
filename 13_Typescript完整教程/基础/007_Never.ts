@@ -12,3 +12,4 @@ function error(message: string): never {
 }
 
 error('test');
+let af:number = error('test');

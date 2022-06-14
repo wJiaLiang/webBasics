@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="http://cdn.staticfile.org/moment.js/2.24.0/moment.js"></script> -->
+    <script src="http://cdn.staticfile.org/moment.js/2.24.0/moment-with-locales.js"></script>
+</head>
+<body>
+    <section>
+
+
+    </section>
+
+    <script>
+      moment.locale('zh-cn');
+       console.log(moment().format()); 
+       console.log(moment());
+       console.log(moment({}))
+       console.log(moment([]))
+       console.log(moment("2022-10-1 20:20:36"));
+       let day = moment("2022-10-1 20:20:36");
+       
+       console.log(day.weekday()) //6
+        
+       let sObj = moment().startOf('year');
+       console.log(sObj.get("month"));
+       console.log(sObj.get("date"));
+       console.log(sObj.get("day"));
+       console.log(sObj.get("hours"));
+        console.log("====================")
+      let obj = moment().endOf("year");
+      console.log(obj.get("date"));
+      console.log(obj.get("month"));
+      console.log(obj.get("hours"));
+      console.log(obj.get("minutes"));
+
+       console.log(moment([2020, 0, 29]).toNow(true))
+
+    </script>
+</body>
+</html>

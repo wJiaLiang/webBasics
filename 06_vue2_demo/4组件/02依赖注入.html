@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style> </style>
+    <style> 
+    .box{color:yellowgreen;font-size: 16px;}
+    </style>
 </head>
 <body>
     <div id="app">
-        <cust-ele name="呵呵"> 
+        <div>
+            <div v-bind="objectAttribute">test v-bind object</div>
+            <cust-ele name="呵呵"> 
 
-            <child-ele name="name"> </child-ele>
+                <child-ele name="name"> </child-ele>
 
-        </cust-ele>
+            </cust-ele>
+        </div>
     </div>
 </body>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -65,7 +70,7 @@ Vue.component('cust-ele',{
 new Vue({
     el:'#app',
     data:{
-
+        objectAttribute:{class:"box",id:"id"}
     },
     provide:function(){
         return{
