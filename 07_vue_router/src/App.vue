@@ -106,7 +106,7 @@ export default {
  :to="index"   变量，定义在data中;
  :to="{path:'/home'}" 对象形式
   tag = 'li'  router-link 默认生成的标签;
-  active-class  设置 链接激活时使用的 CSS 类名。默认值可以通过路由的构造选项 linkActiveClass 来全局配置。
+  active-class  设置 链接激活时使用的 CSS 类名。默认值可以通过路由的构造选项 linkActiveClass 类名 来全局配置。
   router-view 中设置的类名,会把这类名设置到匹配到的组件的根节点中去;
   router-link 生成的标签默认监听的是点击事件; event  == 
   exact 精确的匹配模式;

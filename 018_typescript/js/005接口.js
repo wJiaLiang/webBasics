@@ -28,6 +28,7 @@ console.log(md5('name', 'zs'));
 var arr5 = ["aaa", "bbb"];
 console.log(arr5[0]);
 var arr6 = { name: "33", age: "88" };
+// 通过 implements 关键字 实现 Animal7 这个接口
 class dog7 {
     constructor(name) {
         this.name = name;

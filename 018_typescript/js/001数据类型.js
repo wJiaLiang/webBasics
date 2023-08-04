@@ -74,6 +74,7 @@ function run() {
 }
 // never 类型：是其他类型 （包括 null 和 undefined）的子类型，表示从不出现的值
 // 声明 never 的变量只能被never类型所赋值;
+// 一个总是会抛出错误的函数（如：function foo() { throw new Error('Not Implemented') }，foo 的返回类型是 never）；
 var c4;
 c4 = undefined;
 var c5;

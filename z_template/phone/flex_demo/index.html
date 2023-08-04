@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./base.css">
+    <style type="text/css">
+        .box1 li{
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            margin-right: 10px;
+        }
+        .box1 li:last-child{margin-right: 0px;}
+
+
+        ol li{margin-top: 20px;}
+        ol li:nth-child(3){margin-right:0px !important;}
+    </style>
+</head>
+    <div class="">
+        
+        <ul class="box1 flex_r f_jc_c">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="box1 flex_r f_jc_c mt20">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+
+    <!--  要这样一排的话 没有办法换行的 -->
+    <div class="mt80">
+        <ol class="box1 flex_r  f_jc_c flex_wrap">
+            <li> </li>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+        </ol>
+
+    </div>
+
+<body>
+    
+</body>
+</html>

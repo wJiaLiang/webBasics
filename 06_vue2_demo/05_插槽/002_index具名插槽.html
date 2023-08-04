@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p style="border:1px solid red" @click="setList">{{mesages}}</p>
+        <com1>
+            <!--  <template> + v-slot指令(2.6.0+)，或<slot> + name属性  -->
+            <com2 slot="head"></com2>
+            <template v-slot:footer>
+                <com3></com3>
+            </template>
+        </com1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script>
+    <script>
+        /*
+        父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。
+        1、匿名插槽
+        2、具名插槽
+        3、作用域插槽
+        4、动态插槽
+        */ 
+        /*
+        具名插槽 写法   v-slot:header 可以被简写为 #header
+        <template> + v-slot指令(2.6.0+)，或<slot> + name属性
+        
+        */   
+        var com1 = Vue.component("com1",{
+            template:`<div style='border:1px solid blue'>
+                <p> com1 组件 </p>
+                <slot name="head"></slot>
+                <slot name="footer"></slot>
+            </div>`,
+            methods:{
+            },
+            created(){
+                console.log("com1")
+            }
+        })
+        var com2 = Vue.component("com2",{
+            template:`<p> com2组件, {{name}}</p>`,
+            data(){
+                return {
+                    name:"com2的子组件"
+                }
+            },
+        })
+        var com3 = Vue.component("com3",{
+            template:`<p> com3组件, {{name}}</p>`,
+            data(){
+                return {
+                    name:"com3的子组件"
+                }
+            },
+        })
+        let app = new Vue({
+            el:"#app",
+            data:{
+                mesages:"最新组件"
+            },
+            created () {
+                console.log("app")
+            },
+            methods: {
+                setList(){
+                    console.log(this.mesages);
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

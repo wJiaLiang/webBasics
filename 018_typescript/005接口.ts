@@ -31,9 +31,8 @@ prName({
 })
 
 // 2。函数类型接口：对方法传入的 参数以及返回值 进行约束
-
 interface encrypt{
-    (key:string,value:string):string;
+    (key:string,value:string):string; //前面参数，后面返回值
 }
 // 通过接口，实现一个加密类型的函数
 let md5:encrypt = function(key:string,value:string):string{
@@ -49,6 +48,7 @@ interface UserArr{
 }
 var arr5:UserArr = ["aaa","bbb"];
 console.log(arr5[0]);
+
 // 对对象的约束
 interface UserObj{
     [index:string]:string
@@ -60,6 +60,7 @@ interface Animal7{
     name:string;
     eat(name:string):void
 }
+// 通过 implements 关键字 实现 Animal7 这个接口
 class dog7 implements Animal7{
     name:string
     constructor(name:string){

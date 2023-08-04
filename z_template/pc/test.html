@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <style type="text/css" media="screen">
+        .cale_function1{ width: calc(60% - 100px); }
+        .dome{display: inline-block;width: 200px;height: 200px;background-color:blue;color: white;font-size: 30px;text-align: center;}
+        .arrtoub{ width: 40px;height: 50px;background-color:red;}
+        .ddd{width:100px;height: auto;border: 1px solid blue;}
+        #Totop{width: 100px;height: 60px;border: 1px solid darkolivegreen;position: absolute;bottom: 10px;right:10px;cursor: pointer;}
+        .main{height: 1200px;}
+    </style>
+</head>
+<body>
+    <div class="main posr">
+    <div class=" td_under td_style_wavy">
+        下画线文字测试     并且设置为波浪
+    </div>
+    <div class="fl mr40 ">
+        文字 <i class="arrtoub dis_i ver_m">s</i>
+    </div>
+    
+    <div class="dome">
+        dome
+    </div>
+
+    <div class="ddd all_center">css居中一个元素</div>
+
+
+    <div class="clearfix">
+        <div id="Totop">返回头部</div>
+    </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.js"></script>
+<script type="text/javascript" src="./base.js"></script>
+<script type="text/javascript">
+    var result = webapp.js_center('.dome');
+    webapp.js_Scroll('#Totop');
+
+    console.log(result);
+
+
+</script>
+
+
+</html>

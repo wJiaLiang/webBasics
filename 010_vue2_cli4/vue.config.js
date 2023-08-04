@@ -36,6 +36,8 @@ module.exports  = {
         },
 
     },
+    // 转换成rem;
+    /**
     css: {
         loaderOptions: {
           postcss: {
@@ -56,6 +58,7 @@ module.exports  = {
           }
         }
       }
+      */ 
 
 
 

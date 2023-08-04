@@ -57,7 +57,7 @@ function loggingIdentity<T extends Lengthwise>(arg: T): T {
     return arg;
 }
 
-loggingIdentity("abc");
+loggingIdentity({length:88});
 
 // 3. 泛型接口
 

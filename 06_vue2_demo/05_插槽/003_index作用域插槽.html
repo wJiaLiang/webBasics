@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p style="border:1px solid red" @click="setList">{{mesages}}</p>
+        <com1>
+            <!-- v-slot:demo1="{data}"  表示解构插槽 Prop      -->
+            <template v-slot:demo1="{data}">
+                <com3 :name2="data.name"></com3>
+               data:b==> {{data.b}}
+            </template>
+
+            <com2  slot="demo2" slot-scope="someProps">
+                <div>data.a ==> {{someProps.data.a}}</div>
+            </com2>
+        </com1>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"> </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"> </script>
+    <script>
+        /*
+        父级模板里的所有内容都是在父级作用域中编译的；子模板里的所有内容都是在子作用域中编译的。
+        1、匿名插槽
+        2、具名插槽
+        3、作用域插槽
+        4、动态插槽
+        */ 
+
+        /*
+        v-slot:header 可以被简写为 #header
+        作用域插槽 写法
+        这个插槽可以访问到子组件中的数据，为内容分发实现更多可能性
+        推荐v-slot:slotName="slotProps"的写法，替代了slot + slot-scope
+
+
+        1、slot 和 slot-scope 在 Vue 2.x 版本仍被支持，但已被官方废弃且不出现在 Vue 3，推荐使用v-slot指令
+        2、v-slot 指令只能加在template 或 自定义组件 上
+        3、插槽 name 一致的 v-slot 会 覆盖 
+        4、插槽 name 一致的插槽内容，后者覆盖前者
+        5、插槽编译作用域： 编译作用域
+            父级模板里的所有内容都是在父级作用域中编译的;
+            子模板里的所有内容都是在子作用域中编译的
+        */
+        var com1 = Vue.component("com1",{
+            template:`<div style='border:1px solid blue'>
+                <p> com1 组件</p>
+                <slot name="demo1" :data="listdata"></slot>
+                <slot name="demo2" :data="listdata"></slot>
+            </div>`,
+            methods:{
+            },
+            data(){
+                return {
+                    listdata:{a:1,b:2,name:"插槽数据"}
+                }
+            },
+        })
+        var com2 = Vue.component("com2",{
+            template:`<div style="border:5px solid">
+                        com2组件, {{name}} 
+                        <slot></slot>
+                    </div>`,
+            data(){
+                return {
+                    name:"com2的子组件"
+                }
+            },
+        })
+
+        var com3 = Vue.component("com3",{
+            template:`<p> com3组件, {{name}}, {{name2}}</p>`,
+            props:{
+                name2:{
+                    type:String,
+                    value:"",
+                }
+            },
+            data(){
+                return {
+                    name:"com3的组件"
+                }
+            },
+        })
+        let app = new Vue({
+            el:"#app",
+            data:{
+                mesages:"最新组件"
+            },
+            created () {
+                console.log("app")
+            },
+            methods: {
+                setList(){
+                    console.log(this.mesages);
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>

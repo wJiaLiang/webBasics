@@ -7,14 +7,19 @@
 
 */ 
 
-// 1.泛型函数
-// T 表示泛型，具体什么类型是调用方法的时候决定的
+/**
+  一.泛型函数
+    T 表示泛型，具体什么类型是调用方法的时候决定的
+
+ */ 
 function getData<T>(value:T):T{
     return value
 }
 getData<number>(666) //去前面的number 表示传入的参数必须是number 类型
 
-// 2. 泛型 类
+/*
+    二、 泛型 类
+*/ 
 class MinClass<T>{
     list:T[] = []
     add(value:T){
