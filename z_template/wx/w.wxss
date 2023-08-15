@@ -103,6 +103,13 @@ page{
     overflow: hidden;
     white-space: nowrap; /*文本不会换行*/
 }
+.ellipsis_1f{
+    display: -webkit-box;
+    -webkit-line-clamp:1;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 /* 文字超出省略;适用于flex布局中 white-space: nowrap; 导致 省略无效 */
 .ellipsis_2{
     display: -webkit-box;
