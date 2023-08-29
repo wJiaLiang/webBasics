@@ -51,6 +51,7 @@ textarea {
 	outline: none;
 	resize: none;
 	-webkit-appearance: none;
+    appearance:none;
 }
 
 a {
@@ -153,7 +154,8 @@ h6 {
     overflow: hidden;
     white-space: nowrap; /*文本不会换行*/
   }
-  /* 多行超出省略*/
+
+/* 多行超出省略*/
 .ellipsis_2f{
     display: -webkit-box;
     -webkit-line-clamp:2;
