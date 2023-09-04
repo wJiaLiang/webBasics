@@ -148,7 +148,7 @@ h6 {
 	-o-transform: translateX(-50%);
 }
 
-/* 文字超出省略 */
+/* 文字超出省略 */ 
 .ellipsis_1f{
     text-overflow: ellipsis; /*文本溢出显示省略号*/
     overflow: hidden;
