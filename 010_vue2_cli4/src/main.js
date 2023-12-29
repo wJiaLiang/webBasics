@@ -16,6 +16,7 @@ Vue.config.productionTip = false
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import "@/assets/css/base.css"
+import "leaflet/dist/leaflet.css"
 Vue.use(ElementUI);
 Vue.use(VueAwesomeSwiper);
 

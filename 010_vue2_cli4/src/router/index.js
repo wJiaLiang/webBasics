@@ -6,6 +6,11 @@ Vue.use(VueRouter)
 
 const routes = [
     {
+        path: '/Decimal',
+        name: 'Decimal',
+        component: () => import('../views/decimal.vue')
+    },
+    {
         path: '/',
         name: 'Index',
         component: () => import('../views/index.vue')
@@ -17,7 +22,9 @@ const routes = [
     {
         path: '/detail', name: 'Detail', component: () => import('../views/detail.vue')
     },
-
+    {
+        path: '/leaflet', name: 'leaflet', component: () => import('../views/leafletMap.vue')
+    },
     {
         path: '/home',
         name: 'Home',

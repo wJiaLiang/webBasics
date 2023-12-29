@@ -1,7 +1,7 @@
 <template>
     <div style="font-size:18px;">
         <section>
-            <h2> vue-cli4.xxx 的一些配置 测试项目 </h2>
+            <p> vue-cli4.xxx 的一些配置 测试项目 </p>
             <p> 主要测试 vue-cli 的 多环境配置,多页面配置,proxy 代理跨域设置</p>
             <a href="https://zhuanlan.zhihu.com/p/109952157"> 参考资料 </a>
             <br>
@@ -12,18 +12,16 @@
         </div>
         <!-- ********************************************************************************************* -->
 
-        <div style="width:600px;border:1px solid pink;" class="mauto">
+        <div v-if="false" style="width:600px;border:1px solid pink;" class="mauto">
             <section>
                 <div style="width: 600px; height: 500px" class="over_h">
                     <swiper @slideChange="slideChange" class="swiper gallery-top" :options="swiperOptionTop" ref="mySwiper">
-                        <template v-for="(i,index) in imgList">
-                            <swiper-slide :key="index" >
-                                <img style="object-fit: cover;" :src="i" alt="" />
-                                <!--  <img v-else style="width: 100%; height: 100%"-->
-                                <!--     src="@/assets/images/picture_default.png"-->
-                                <!--     alt=""/>-->
-                            </swiper-slide>
-                        </template>
+                        <swiper-slide v-for="(i,index) in imgList" :key="index">
+                            <img style="object-fit: cover;" :src="i" alt="" />
+                            <!--  <img v-else style="width: 100%; height: 100%"-->
+                            <!--     src="@/assets/images/picture_default.png"-->
+                            <!--     alt=""/>-->
+                        </swiper-slide>
                     </swiper>
                     <div class="posr swiper-pagination-custom">
                         <div style="width:500px;height:80px;overflow:hidden;" class="mauto">
