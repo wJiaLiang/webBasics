@@ -1,27 +1,2 @@
 # vue3_cli
-## Project 
-
-vue3模板 语法测试;
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+vue3模板 语法测试; 弃用删除 vue3 全部使用 021_vite_vue3

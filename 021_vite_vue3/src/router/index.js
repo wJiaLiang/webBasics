@@ -22,6 +22,24 @@ const router = createRouter({
       name: "test1",
       component: () => import("@/components/custom/test1.vue"),
     },
+    {
+      path:'/setup',
+      name:'setup',
+      component:()=> import("../views/setup.vue"),
+      meta: {
+        keepAlive:true
+       }
+    },
+    {
+      path:'/ref',
+      name:'ref',
+      component:()=> import("../views/ref.vue")
+    },
+    {
+      path:'/toRaw',
+      name:'toRaw',
+      component:()=> import("../views/toRaw.vue")
+    }
   ],
 });
 
