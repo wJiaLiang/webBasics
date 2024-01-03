@@ -1,10 +1,9 @@
 <template>
-	<div>
+	<div class="pt40">
 		<header class="pb10 tc fs20">组合API</header>
 		<div>
 			<p>{{ count }}</p>
 			<button @click="myFunc">按钮</button>
-
 			<form action="">
 				<input
 					class="br_1_000 pt5 pb5"
@@ -36,7 +35,7 @@
 	</div>
 </template>
 <script>
-import { ref, reac, reactive } from "vue";
+import { ref, reactive } from "vue";
 
 // 抽离成一个独立的函数  解决数据与逻辑分离的情况; 还可以抽离到其他文件中
 let useRemoveStudent = () => {
@@ -83,7 +82,7 @@ let useAddStudent = (state) => {
 };
 
 export default {
-	name: "",
+	name: "setup",
 	data() {
 		return {};
 	},

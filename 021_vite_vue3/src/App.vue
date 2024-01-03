@@ -1,24 +1,31 @@
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-
-console.log("import.meta", import.meta.hot);
-console.log("env", import.meta.env);
-</script>
-
 <template>
+  <section>
   <header>
     <div style="width:100%">
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/test1">test1</RouterLink>
+        <RouterLink to="/setup">setup</RouterLink>
+        <RouterLink to="/ref">ref</RouterLink>
+        <RouterLink to="/toRaw">toRaw</RouterLink>
       </nav>
     </div>
   </header>
   <div class="main82_5">
     <RouterView />
   </div>
+</section>
 </template>
+
+
+<script setup>
+import { RouterLink, RouterView } from "vue-router";
+console.log("import.meta", import.meta.hot);
+console.log("env", import.meta.env);
+
+
+</script>
 
 <style scoped>
 header {
