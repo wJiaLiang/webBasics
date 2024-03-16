@@ -1,42 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <style></style>
-    </head>
-    <body>
-        <div id="app"></div>
-    </body>
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="./001utils.js"></script>
-    <script src="./calendar.js"></script>
-    <script>
-        new Vue({
-            el: "#app",
-            data: {},
-            methods: {
-               
-            },
-            beforeMount() {
-                // var d = Date.now();
-                // console.log(typeof (d + ""));
 
-                // let value = app.dateFormat(d + "");
-                // console.log("value", value);
-            },
-            mounted() {
-                var v = datepicker.getMonthData(2020,11)
-                console.log(v);
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .flex_r {
+            /*定义一个伸缩盒子*/
+            display: -webkit-flex;
+            display: flex;
+            /* 09版 */
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            /* 12版 */
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
 
-            },
-            computed: {},
-            watch: {},
-        });
+        /* 横向从右到左 */
+        .flex_r_back {
+            /*定义一个伸缩盒子*/
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: reverse;
+
+            -webkit-flex-direction: row-reverse;
+            -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+            -webkit-box-pack: end
+        }
+
+        /* ================================== */
+
+        /* 纵向排列（主轴）从上到下 */
+        .flex_c {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        /* 主轴设置横向就是水平方向；或者设置为竖直就是垂直方向(在主轴上的对齐方式;) */
+
+        /* （定义了在主轴上的对齐方式） */
+        .f_jc_s {
+            -webkit-box-pack: start;
+            -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+            justify-content: flex-start
+        }
+
+        .f_jc_c {
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center
+        }
+
+        /* 两端对齐 */
+        .f_jc_b {
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        /* 每个项目之间距离都相等; 只有12版标准版;*/
+        .f_jc_a {
+            -webkit-justify-content: space-around;
+            justify-content: space-around;
+        }
+
+        .f_jc_e {
+            -webkit-box-pack: end;
+            -webkit-justify-content: flex-end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+        }
+
+        /* ================================= */
+
+        /* (定义了项目在交叉轴上的对齐方式) */
+        .f_ai_s {
+            -webkit-box-align: start;
+            -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+            align-items: flex-start;
+        }
+
+        .f_ai_c {
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        /*  基线对齐 */
+        .f_ai_b {
+            -webkit-box-align: baseline;
+            -webkit-align-items: baseline;
+            -ms-flex-align: baseline;
+            align-items: baseline;
+        }
+
+        .f_ai_e {
+            -webkit-box-align: end;
+            -webkit-align-items: flex-end;
+            -ms-flex-align: end;
+            align-items: flex-end;
+        }
+
+        /* 上下对齐铺满 */
+        .f_ai_s {
+            -webkit-box-align: stretch;
+            -webkit-align-items: stretch;
+            -ms-flex-align: stretch;
+            align-items: stretch;
+        }
+
+        /* ============================*/
+
+        /*多跟主轴的对齐方式;*/
+        .flex_ac {
+            -webkit-align-content: center;
+            -o-align-content: center;
+            align-content: center;
+        }
+
+        /* 允许换行 */
+        .flex_wrap {
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        /* 子元素超出父元素后不压缩 子元素，父元素滚动显示*/
+        .f_shk0 {
+            flex-shrink: 0;
+        }
+
+        /*================================================== */
+        .flex1 {
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+        }
+
+        .flex2 {
+            -webkit-flex: 2;
+            -ms-flex: 2;
+            flex: 2;
+            -webkit-box-flex: 2;
+            -moz-box-flex: 2;
+        }
+
+        /* 单个属性和其他项目的对齐方式 */
+        .flex_self {
+            -webkit-align-self: flex-end;
+            align-self: flex-end;
+        }
+
+        .flex_start {
+            align-self: flex-start;
+        }
+
+        /* 元素位于容器的基线上。 */
+        .flex_bl {
+            align-self: baseline;
+        }
+
+        .flex_center {
+            align-self: center;
+        }
+
+        /* 元素被拉伸以适应容器。*/
+        .flex_sh {
+            align-self: stretch;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div style="width: 720px;margin-left:auto;margin-right:auto;" class="flex_r f_ai_c  flex_wrap">
+            <div v-for="(item,index) in date" :key="index" class="f_shk0">
+                <div style="border:1px solid pink;display:inline-block;width:100px;"> {{item.allDate}} </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./calendar.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            date: [],
+        },
+        methods: {
+
+        },
+        beforeMount() {
+            // var d = Date.now();
+            // console.log(typeof (d + ""));
+
+            // let value = app.dateFormat(d + "");
+            // console.log("value", value);
+        },
+        mounted() {
+            var v = datepicker.getMonthData(2020, 11)
+            console.log(v);
+            this.date = v;
+        },
+        computed: {},
+        watch: {},
+    });
 
 
 
-    </script>
+</script>
+
 </html>
