@@ -1,4 +1,4 @@
-/*
+`
 一、 TypeScript 的编译
 JavaScript 的运行环境（浏览器和 Node.js）不认识 TypeScript 代码。
 所以，TypeScript 项目要想运行，必须先转为 JavaScript 代码，这个代码转换的过程就叫做“编译”（compile）。
@@ -28,7 +28,8 @@ ts-node script.ts
 要退出这个 REPL 环境，可以按下 Ctrl + d，或者输入.exit。
 
 
-*/
-
 // npm install -g typescript
 // npm install -g ts-node
+
+
+`

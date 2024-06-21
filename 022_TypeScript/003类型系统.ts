@@ -1,4 +1,5 @@
-/*
+/**
+ * 
 一、基础类型
 
 boolean
@@ -14,8 +15,9 @@ TypeScript 继承了 JavaScript 的类型设计，以上8种类型可以看作 T
 上面所有类型的名称都是小写字母，首字母大写的Number、Boolean等在 JavaScript 语言中都是内置对象，而不是类型名称。
 这8种基本类型是 TypeScript 类型系统的基础，复杂类型由它们组合而成。
 
+ */ 
 
-*/
+
 
 // 1、 bigint 类型 bigint 类型包含所有的大整数。
 const x0:bigint = 123n;
@@ -34,7 +36,10 @@ let x3:undefined = undefined;
 const y3:null = null;
 
 
-/*
+/**
+ * 
+ * 
+
 二、包装对象的概念
     JavaScript 中，所有基本类型（除了 null 和 undefined）都有一个对应的包装对象。
     上面这五种原始类型的值，都有对应的包装对象（wrapper object）。所谓“包装对象”，指的是这些值在需要时，会自动产生的对象。
@@ -59,10 +64,12 @@ Math.abs(n1) // 1
 Math.abs(n2) // 报错
 
 
-*/ 
+*/
 
 
-/*
+
+
+/* 
 
 三、Object 类型与 object 类型
 
@@ -93,11 +100,12 @@ o2.toString() // 正确
 o2.foo // 报错
 如何描述对象的自定义属性，详见《对象类型》一章。
 
+*/
 
-*/ 
 
 
-/*
+/* 
+
 四、undefined 和 null 的特殊性 
 
 undefined和null既是值，又是类型。
@@ -106,11 +114,11 @@ let age:number = 24;
 age = null;      // 正确
 age = undefined; // 正确
 
+*/
 
-*/ 
 
 
-/*
+/* 
 五、值类型
 
 TypeScript 规定，单个值也是一种类型，称为“值类型”。
@@ -127,11 +135,12 @@ const x = { foo: 1 };
 变量x没有被推断为值类型，而是推断属性foo的类型是number。这是因为 JavaScript 里面，const变量赋值为对象时，属性值是可以改变的。
 
 
+ */
 
-*/ 
 
 
-/*
+/* 
+
 六、联合类型
 
 联合类型（union types）指的是多个类型组成的一个新类型，使用符号|表示。
@@ -145,12 +154,10 @@ let setting:true|false;
 let gender:'male'|'female';
 let rainbowColor:'赤'|'橙'|'黄'|'绿'|'青'|'蓝'|'紫';
 
+ */
 
+/* 
 
-
-*/
-
-/*
 七、交叉类型
 交叉类型（intersection types）指的多个类型组成的一个新类型，使用符号&表示。
 
@@ -161,33 +168,28 @@ let x:number&string;
 交叉类型的主要用途是表示对象的合成。
 交叉类型常常用来为对象类型添加新属性。
 
+ */
 
 
-*/ 
-
-
-/*
-
+/* 
 八、type 命令
 type命令用来定义一个类型的别名。
 type Age = number;
 let age:Age = 55;
 
 别名的作用域是块级作用域。这意味着，代码块内部定义的别名，影响不到外部。
-
 别名支持使用表达式，也可以在定义一个别名时，使用另一个别名，即别名允许嵌套。
-type World = "world";
-type Greeting = `hello ${World}`;
-上面示例中，别名Greeting使用了模板字符串，读取另一个别名World。
 
+type World = "world";
+type Greeting = \`hello ${World}\`
+
+上面示例中，别名Greeting使用了模板字符串，读取另一个别名World。
 type命令属于类型相关的代码，编译成 JavaScript 的时候，会被全部删除。
 
-
-*/ 
-
+ */
 
 
-/*
+/* 
 
 九、typeof
 JavaScript 语言中，typeof 运算符是一个一元运算符，返回一个字符串，代表操作数的类型。
@@ -207,13 +209,10 @@ TypeScript 将typeof运算符移植到了类型运算，它的操作数依然是
 由于编译时不会进行 JavaScript 的值运算，所以TypeScript 规定，typeof 的参数只能是标识符，不能是需要运算的表达式。
 let b:typeof a; // 错误
 
+ */
 
 
-*/ 
-
-
-/*
-
+/* 
 十、块级类型声明
 
 TypeScript 支持块级类型声明，即类型可以声明在代码块（用大括号表示）里面，并且只在当前代码块有效。
@@ -226,14 +225,11 @@ if (true) {
 }
 存在两个代码块，其中分别有一个类型T的声明。这两个声明都只在自己的代码块内部有效，在代码块外部无效。
 
-
-
-*/ 
-
+ */
 
 
 
-/*
+/* 
 
 十一、类型的兼容 
 变量a和b的类型是不一样的，但是变量a赋值给变量b并不会报错。这时，我们就认为，b的类型兼容a的类型。
@@ -242,7 +238,4 @@ let a:number = 1;
 let b:T = a;
 TypeScript 的一个规则是，凡是可以使用父类型的地方，都可以使用子类型，但是反过来不行。
 
-
-
-
-*/ 
+ */
