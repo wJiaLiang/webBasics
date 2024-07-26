@@ -15,6 +15,8 @@ const hello:(txt:string) => void
 = function (txt) {
   console.log('hello ' + txt);
 };
-
+写法二有两个地方需要注意。
+首先，函数的参数要放在圆括号里面，不放会报错。
+类型里面的参数名（本例是txt）是必须的
 
 */ 
