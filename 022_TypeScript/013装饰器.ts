@@ -24,7 +24,9 @@ function simpleDecorator(
   @simpleDecorator
   class A {} // "hi, this is class A"
 
+*/
 
+/* 
 二、装饰器的结构
 type Decorator = (
   value: DecoratedValue,
@@ -62,10 +64,10 @@ context对象的属性，根据所装饰对象的不同而不同，其中只有�
 （5）static：布尔值，表示所装饰的对象是否为类的静态成员。
 （6）access：一个对象，包含了某个值的 get 和 set 方法。
 
+*/
 
-
+/*
 三、类装饰器 
-
 type ClassDecorator = (
   value: Function,
   context: {
@@ -117,7 +119,9 @@ inst1.count // 1
 
 类装饰器也可以返回一个新的类，替代原来所装饰的类。
 
+*/
 
+/*
 四、方法装饰器 
 type ClassMethodDecorator = (
   value: Function,
@@ -156,7 +160,10 @@ class C {
    
 如果方法装饰器返回一个新的函数，就会替代所装饰的原始函数。
 
+*/
 
+
+/*
 五、属性装饰器
 属性装饰器用来装饰定义在类顶部的属性（field）。它的类型描述如下。
 type ClassFieldDecorator = (
@@ -177,7 +184,9 @@ type ClassFieldDecorator = (
 属性装饰器要么不返回值，要么返回一个函数，该函数会自动执行，用来对所装饰属性进行初始化。
 该函数的参数是所装饰属性的初始值，该函数的返回值是该属性的最终值。
 
+*/ 
 
+/*
 六、getter 装饰器，setter 装饰器
 getter 装饰器和 setter 装饰器，是分别针对类的取值器（getter）和存值器（setter）的装饰器。它们的类型描述如下。
 
@@ -185,11 +194,16 @@ getter 装饰器的上下文对象context的access属性，只包含get()方法�
 这两个装饰器要么不返回值，要么返回一个函数，取代原来的取值器或存值器。
 下面的例子是将取值器的结果，保存为一个属性，加快后面的读取。
 
+*/
 
+
+/*
 七、accessor 装饰器
 装饰器语法引入了一个新的属性修饰符accessor。
 
+*/
 
+/*
 
 八、装饰器的执行顺序
 装饰器的执行分为两个阶段。
@@ -218,8 +232,6 @@ class Person {
   }
 }
 上面示例中，greet()有两个装饰器，内层的@log先执行，外层的@bound针对得到的结果再执行。
-
-
 
 */ 
 
