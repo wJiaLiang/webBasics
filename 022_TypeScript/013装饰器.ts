@@ -12,19 +12,17 @@
 大家只要理解，类A在执行前会先执行装饰器simpleDecorator()，并且会向装饰器自动传入参数就可以了。
 装饰器有多种形式，基本上只要在@符号后面添加表达式都是可以的。下面都是合法的装饰器。
 
-相比使用子类改变父类，装饰器更加简洁优雅，缺点是不那么直观，功能也受到一些限制。所以，装饰器一般只用来为类添加某种特定行为。
-function simpleDecorator(
-    value:any,
-    context:any
-  ) {
-    console.log(`hi, this is ${context.kind} ${context.name}`);
-    return value;
-  }
-  
-  @simpleDecorator
-  class A {} // "hi, this is class A"
-
 */
+`相比使用子类改变父类，装饰器更加简洁优雅，缺点是不那么直观，功能也受到一些限制。所以，装饰器一般只用来为类添加某种特定行为。`
+function simpleDecorator(value:any,context:any) {
+  console.log(`hi, this is ${context.kind} ${context.name}`);
+  return value;
+}
+@simpleDecorator
+class A {} // "hi, this is class A"
+
+
+
 
 /* 
 二、装饰器的结构
@@ -78,22 +76,8 @@ type ClassDecorator = (
 ) => Function | void;
 类装饰器接受两个参数：value（当前类本身）和context（上下文对象）。其中，context对象的kind属性固定为字符串class。
 类装饰器一般用来对类进行操作，可以不返回任何值，请看下面的例子。
+例子1
 
-function Greeter(value, context) {
-  if (context.kind === 'class') {
-    value.prototype.greet = function () {
-      console.log('你好');
-    };
-  }
-}
-
-@Greeter
-class User {}
-
-let u = new User();
-u.greet(); // "你好"
-
-上面示例中，类装饰器@Greeter在类User的原型对象上，添加了一个greet()方法，实例就可以直接使用该方法。
 
 类装饰器可以返回一个函数，替代当前类的构造方法。
 function countInstances(value:any, context:any) {
@@ -120,6 +104,26 @@ inst1.count // 1
 类装饰器也可以返回一个新的类，替代原来所装饰的类。
 
 */
+// 例子1
+function Greeter(value:any, context:any) {
+  if (context.kind === 'class') {
+    value.prototype.greet = function () {
+      console.log('你好');
+    };
+  }
+}
+interface User {
+  greet(): void; 
+}
+@Greeter
+class User {}
+
+let u = new User();
+u.greet(); // "你好"
+
+// 上面示例中，类装饰器@Greeter在类User的原型对象上，添加了一个greet()方法，实例就可以直接使用该方法。
+
+
 
 /*
 四、方法装饰器 
@@ -158,9 +162,10 @@ class C {
 // `@trace` 等同于
 // C.prototype.toString = trace(C.prototype.toString);
    
-如果方法装饰器返回一个新的函数，就会替代所装饰的原始函数。
+如果方法装饰器返回一个新的函数，就会替代 所装饰的原始函数。
 
 */
+
 
 
 /*
@@ -184,7 +189,7 @@ type ClassFieldDecorator = (
 属性装饰器要么不返回值，要么返回一个函数，该函数会自动执行，用来对所装饰属性进行初始化。
 该函数的参数是所装饰属性的初始值，该函数的返回值是该属性的最终值。
 
-*/ 
+*/
 
 /*
 六、getter 装饰器，setter 装饰器
@@ -233,31 +238,31 @@ class Person {
 }
 上面示例中，greet()有两个装饰器，内层的@log先执行，外层的@bound针对得到的结果再执行。
 
-*/ 
+*/
 
-function d(str:string) {
-    console.log(`评估 @d(): ${str}`);
-    return (
-      value:any, context:any
-    ) => console.log(`应用 @d(): ${str}`);
-  }
-  
-  function log(str:string) {
-    console.log(str);
-    return str;
-  }
-  
-  @d('类装饰器')
-  class T {
-    @d('静态属性装饰器')
-    static staticField = log('静态属性值');
-  
-    @d('原型方法')
-    [log('计算方法名')]() {}
-  
-    @d('实例属性')
-    instanceField = log('实例属性值');
-  
-    @d('静态方法装饰器')
-    static fn(){}
-  }
+function d(str: string) {
+  console.log(`评估 @d(): ${str}`);
+  return (
+    value: any, context: any
+  ) => console.log(`应用 @d(): ${str}`);
+}
+
+function log(str: string) {
+  console.log(str);
+  return str;
+}
+
+@d('类装饰器')
+class T {
+  @d('静态属性装饰器')
+  static staticField = log('静态属性值');
+
+  @d('原型方法')
+  [log('计算方法名')]() { }
+
+  @d('实例属性')
+  instanceField = log('实例属性值');
+
+  @d('静态方法装饰器')
+  static fn() { }
+}
