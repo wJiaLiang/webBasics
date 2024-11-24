@@ -197,3 +197,5 @@ console.log(http6.api) // xxxx;
     属性> 方法> 方法参数>类
     如果有多个相同的装饰器，它会先执行后面的;
 */ 
+
+export default{}

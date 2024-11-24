@@ -91,3 +91,6 @@ c4=undefined;
 
 var c5:null;
 c5=null;
+
+
+export default{}

@@ -153,3 +153,6 @@ var a1 = new ArticleCate({
 });
 let  db3 = new MysqlDB2<ArticleCate>();
 db3.add(a1);
+
+
+export default{}

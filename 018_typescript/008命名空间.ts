@@ -33,3 +33,5 @@ console.log(BB.name);
 let aPerson = AA.Person;
 let men = new aPerson("zs");
 men.eat();
+
+export default{}

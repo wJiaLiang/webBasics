@@ -60,3 +60,5 @@ function get1(name:any,age?:any):any{
         return "z"+name
     }
 }
+
+export default{}

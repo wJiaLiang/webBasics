@@ -55,11 +55,12 @@ unknown类型跟any类型的不同之处在于，它不能直接使用
 只能进行比较运算（运算符==、===、!=、!==、||、&&、?）、取反运算（运算符!）、typeof运算符和instanceof运算符这几种
 
 */ 
+
 let v:unknown = 123;
-let v1:boolean = v; // 报错
+// let v1:boolean = v; // 报错
 
 let v2:unknown = { foo: 123 };
-v2.foo  // 报错
+// v2.foo  // 报错
 
 
 
@@ -82,3 +83,5 @@ TypeScript 把这种情况称为“底层类型”（bottom type）。
 
 
 */ 
+
+export {}

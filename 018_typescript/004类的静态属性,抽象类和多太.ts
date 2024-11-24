@@ -17,3 +17,5 @@ class Animal23 {
   }
   let aAnimal = new Animal23('Jack');
   
+
+  export default{}

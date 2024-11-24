@@ -97,4 +97,5 @@ class pics8 implements Person8{
 let PP = new pics8("lisi")
 PP.eat();
 
-//  
+
+export default{}

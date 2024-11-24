@@ -119,3 +119,5 @@ declare module 'my-plugin-*' {
 
 
 */ 
+
+export {}

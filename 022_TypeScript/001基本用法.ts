@@ -1,4 +1,7 @@
-`
+
+/**
+
+
 一、 TypeScript 的编译
 JavaScript 的运行环境（浏览器和 Node.js）不认识 TypeScript 代码。
 所以，TypeScript 项目要想运行，必须先转为 JavaScript 代码，这个代码转换的过程就叫做“编译”（compile）。
@@ -31,5 +34,8 @@ ts-node script.ts
 // npm install -g typescript
 // npm install -g ts-node
 
+*/
 
-`
+
+
+export {}

@@ -343,3 +343,5 @@ TypeScript 允许在类的定义前面，加上关键字 abstract，表示该类
 
 
 */ 
+
+export {}

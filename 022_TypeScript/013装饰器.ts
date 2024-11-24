@@ -266,3 +266,5 @@ class T {
   @d('静态方法装饰器')
   static fn() { }
 }
+
+export {}

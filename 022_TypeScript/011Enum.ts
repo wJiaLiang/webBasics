@@ -88,3 +88,5 @@ console.log(Weekdays[3]) // Wednesday
 
 
 */ 
+
+export {}

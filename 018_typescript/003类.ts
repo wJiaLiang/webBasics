@@ -160,3 +160,6 @@ class Dog6 extends Animal6{
 }
 var Pdog6 = new Dog6("狗")
 Pdog6.eat();
+
+
+export default{}
