@@ -127,7 +127,7 @@ interface ErrorConstructor {
 interface 可以继承其他类型，主要有下面几种情况。
 
 1、interface 继承 interface # 
-interface 可以使用extends关键字，继承其他 interface。
+interface 可以使用 extends 关键字，继承其他 interface。
 interface Shape {
   name: string;
 }
@@ -367,5 +367,13 @@ type AorBwithName = AorB & {
 
 
 */ 
+
+
+
+
+
+
+
+
 
 export {}

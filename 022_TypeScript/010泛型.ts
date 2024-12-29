@@ -131,5 +131,65 @@ TypeParameter表示类型参数，extends是关键字，这是必须的，Constr
 
 */ 
 
+// 例子
+
+function swap<T,U>(tuple:[T,U]):[U,T]{
+  return [tuple[1],tuple[0]]
+}
+
+let result = swap(['STRING',123]);
+console.log(result[0]) //123
+
+
+
+
+//使用接口 约束 泛型参数
+interface Iw{
+  length:number
+}
+
+function echoWhite<T extends Iw >(arg: T) :T{
+  console.log(arg.length) // arg 参数没有这个 length 属性就会报错，所以用接口约束
+  return arg
+}
+
+const str = echoWhite('str');
+const obj = echoWhite({a:'123',b:123,length:3})
+const arr = echoWhite([1,2,3]);
+
+
+// 泛型类，泛型对类的改造，使类更灵活;
+class Queue<T>{
+  private data:T[] = [];
+  push(item:T){
+    return this.data.push(item);
+  }
+  pop(){
+    return this.data.shift()
+  }
+}
+const queue = new Queue<number>();
+queue.push(2);
+const poped = queue.pop();
+if(poped){
+  poped.toFixed() //
+}
+
+
+// interface 接口泛型改造
+interface KeyPair<T,U>{
+  key:T,
+  value:U
+}
+
+let kp1:KeyPair<number,string> = {key:1,value:'str'}
+let kp2:KeyPair<string,number> = {key:'str',value:22}
+
+
+
+
+
+
+
 
 export {}
