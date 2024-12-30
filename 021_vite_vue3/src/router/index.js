@@ -39,6 +39,11 @@ const router = createRouter({
       path:'/toRaw',
       name:'toRaw',
       component:()=> import("../views/toRaw.vue")
+    },
+    {
+      path:'/option',
+      name:'option',
+      component:()=> import("../views/option.vue")
     }
   ],
 });
