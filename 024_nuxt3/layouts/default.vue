@@ -1,6 +1,10 @@
 <template>
     <div>
-        layouts
+        <AppHeader></AppHeader>
+        
+        <slot></slot>
+
+        <AppFooter></AppFooter>
     </div>
 </template>
 <script setup>

@@ -5,7 +5,13 @@ export default defineNuxtConfig({
 
   // 全局样式引入
   css:[
-    "~/assets/css/base.css"
-  ]
+    "~/assets/css/base.css",
+  ],
+  modules: [
+    '@ant-design-vue/nuxt'
+  ],
+  antd:{
+    // Options
+  }
   
 })
