@@ -1,26 +1,43 @@
 {
-  "name": "021_vite_vue3",
+  "name": "z-travelmap",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
+    "devB": "vite --mode devbuild",
     "build": "vite build",
+    "build:dev": "vite build --mode devbuild",
+    "build:pro": "vite build --mode production",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "axios": "^1.2.1",
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "@ant-design/icons-vue": "^6.1.0",
+    "ant-design-vue": "^3.2.15",
+    "leaflet": "^1.9.4",
     "pinia": "^2.0.28",
+    "terser": "^5.16.1",
+    "vant": "^4.9.1",
+    "vconsole": "^3.15.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
+    "@vitejs/plugin-legacy": "^3.0.1",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
     "prettier": "^2.7.1",
-    "vite": "^4.0.0"
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "vite": "^4.0.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-imagemin": "^0.6.1"
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
   }
 }

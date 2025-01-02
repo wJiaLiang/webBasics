@@ -1,50 +1,34 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-
+console.log("环境", import.meta.env);
+console.log("路由", createWebHistory(import.meta.env.VITE_APP_BASE_URL));
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL), //设置根路径
+  /**
+   base 参数，该参数用于指定应用程序部署在服务器上的基础URL
+   base 参数允许你指定应用程序的基础URL。 如果未提供 base 参数，它的默认值通常是 '/'，表示应用程序被部署在服务器的根目录下。
+  
+  */
+  history: createWebHistory(import.meta.env.VITE_APP_BASE_URL),
   routes: [
+    {
+      path: "/amap",
+      name: "amapIndex",
+      component: () => import("../views/amap/index/index.vue"),
+    },
+    {
+      path: "/leaflet",
+      name: "leaflet",
+      component: () => import("../views/leaflet/index.vue"),
+    },
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: () => import("../views/home/index.vue"),
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("../views/AboutView.vue"),
+      path: "/my",
+      name: "my",
+      component: () => import("../views/my/index.vue"),
     },
-    {
-      path: "/test1",
-      name: "test1",
-      component: () => import("@/components/custom/test1.vue"),
-    },
-    {
-      path:'/setup',
-      name:'setup',
-      component:()=> import("../views/setup.vue"),
-      meta: {
-        keepAlive:true
-       }
-    },
-    {
-      path:'/ref',
-      name:'ref',
-      component:()=> import("../views/ref.vue")
-    },
-    {
-      path:'/toRaw',
-      name:'toRaw',
-      component:()=> import("../views/toRaw.vue")
-    },
-    {
-      path:'/option',
-      name:'option',
-      component:()=> import("../views/option.vue")
-    }
   ],
 });
 

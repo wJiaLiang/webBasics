@@ -1,6 +1,7 @@
 /* eslint-env node */
 require("@rushstack/eslint-patch/modern-module-resolution");
-
+/**
+ * 项目总注释掉 禁用掉eslint，然后在vscode中或开发工具中也禁用;
 module.exports = {
   root: true,
   extends: [
@@ -11,8 +12,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
   },
-  //  关闭这个规则
-  rules: {
-    "vue/multi-word-component-names": "off",
+  globals: {
+    process: true,
   },
 };
+*/ 

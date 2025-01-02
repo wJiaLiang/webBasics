@@ -1,8 +1,6 @@
-# 021_vite_vue3
+# z_travelMap
 
 This template should help get you started developing with Vue 3 in Vite.
-
-https://cn.vitejs.dev/guide/build.html
 
 ## Recommended IDE Setup
 

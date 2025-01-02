@@ -1,32 +1,16 @@
-<template>
-  <section>
-  <header>
-    <div style="width:100%">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/test1">test1</RouterLink>
-        <RouterLink to="/setup">setup</RouterLink>
-        <RouterLink to="/ref">ref</RouterLink>
-        <RouterLink to="/toRaw">toRaw</RouterLink>
-        <RouterLink to="/option">选项试组件</RouterLink>
-      </nav>
-    </div>
-  </header>
-  <div class="main82_5">
-    <RouterView />
-  </div>
-</section>
-</template>
-
-
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
-console.log("import.meta", import.meta.hot);
-console.log("env", import.meta.env);
-
-
+// import { RouterLink, RouterView } from 'vue-router'
+import zhCN from "ant-design-vue/es/locale/zh_CN";
+import en_GB from "ant-design-vue/es/locale/en_GB";
+// let locale = zhCN;
+let locale = en_GB;
 </script>
+
+<template>
+  <a-config-provider :locale="locale">
+    <RouterView />
+  </a-config-provider>
+</template>
 
 <style scoped>
 header {
@@ -41,7 +25,7 @@ header {
 
 nav {
   width: 100%;
-  font-size: 15px;
+  font-size: 12px;
   text-align: center;
   margin-top: 2rem;
 }
@@ -64,7 +48,6 @@ nav a:first-of-type {
   border: 0;
 }
 
-/*
 @media (min-width: 1024px) {
   header {
     display: flex;
@@ -91,5 +74,4 @@ nav a:first-of-type {
     margin-top: 1rem;
   }
 }
-*/
 </style>
