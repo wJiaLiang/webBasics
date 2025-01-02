@@ -9,6 +9,7 @@
         <RouterLink to="/setup">setup</RouterLink>
         <RouterLink to="/ref">ref</RouterLink>
         <RouterLink to="/toRaw">toRaw</RouterLink>
+        <RouterLink to="/option">选项试组件</RouterLink>
       </nav>
     </div>
   </header>
