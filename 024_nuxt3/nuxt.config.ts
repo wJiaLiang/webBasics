@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@ant-design-vue/nuxt'
   ],
   antd:{
-    // Options
+    extractStyle: true
   }
   
 })
