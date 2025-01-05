@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
 
-  // 全局样式引入
+   // 全局样式引入
   css:[
     "~/assets/css/base.css",
   ],
@@ -12,6 +12,11 @@ export default defineNuxtConfig({
   ],
   antd:{
     extractStyle: true
+  },
+
+  runtimeConfig:{
+    isServer:true,
   }
+
   
 })

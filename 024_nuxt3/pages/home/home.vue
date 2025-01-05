@@ -1,6 +1,8 @@
 <template>
-    <div class="fs15 cr_red">
+    <div class="main1200">
+        <div class="fs15 cr_red">
             home/home页面
+        </div>
     </div>
 </template>
 <script setup>

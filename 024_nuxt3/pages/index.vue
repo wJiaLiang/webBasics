@@ -3,7 +3,7 @@
         <div class="fs20">
             {{ data.page }}
         </div>
-        <a-space wrap>
+        <a-space class="flex_c f_ai_s">
             <a-button type="primary">Primary Button</a-button>
             <a-button>Default Button</a-button>
             <a-button type="dashed">Dashed Button</a-button>
