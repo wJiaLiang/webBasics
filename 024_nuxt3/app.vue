@@ -13,6 +13,7 @@
   </div>
 </template>
 
+
 <script setup>
 console.log('app.vue')
 const config = useRuntimeConfig()

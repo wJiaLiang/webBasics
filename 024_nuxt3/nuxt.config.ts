@@ -17,16 +17,20 @@ export default defineNuxtConfig({
   antd:{
     extractStyle: true
   },
+  plugins:[
+    '~/plugins/ofetch.js'
+  ],
 
   runtimeConfig:{
     isServer:true,
+    isClient:true,
     public:{
       // baseURL 用于配置 API 请求的基础路径
       // 在 runtimeConfig.public 中定义的配置可以在客户端和服务端都能访问
       // 如果设置为相对路径 '/api'，请求会基于当前域名拼接，如: http://localhost:3000/api/xxx
       // 如果设置为绝对路径 'http://example.com/api'，则直接使用完整的URL进行请求
       // 绝对路径通常用于跨域请求或指定特定的API服务器
-      baseURL:'http://example.com/api',
+      baseURL:'http://devhome.sou96.com/api/',
     }
   },
   app:{
