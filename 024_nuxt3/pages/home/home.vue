@@ -7,20 +7,16 @@
     </div>
 </template>
 <script setup>
-import { reactive, onMounted } from 'vue';
+import { reactive, onMounted, } from 'vue';
+
 let data = reactive({
     info:"",
 })
 
 onMounted(async () => {
-    if (import.meta.client) {
-    console.log('$http',$http)
-        const res = await $http.get('/ofa-admin/open-api/webpageapp/config')
-        console.log(res)
-        data.info = res.data
-    }
+    console.log('isClient', import.meta.client)
+
 })
 
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

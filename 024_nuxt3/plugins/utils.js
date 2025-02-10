@@ -1,5 +1,5 @@
 export default defineNuxtPlugin((nuxtApp) => {
-  console.log('vue实例',nuxtApp.vueApp)
+//   console.log('vue实例',nuxtApp.vueApp)
 
     return {
         // 注入工具函数   全局方法
