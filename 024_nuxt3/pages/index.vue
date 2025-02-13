@@ -16,16 +16,26 @@
     </div>
 </template>
 <script setup>
+import { onMounted } from 'vue'
+const config = useRuntimeConfig()
+
 let data = reactive({
     page: "首页"
 })
-onMounted(()=>{
-    
-
+onMounted(() => {
+    if(import.meta.client){
+        init()
+    }
 })
-if(import.meta.client){
-    let res = await useFetch("/ofa-admin/open-api/webpageapp/config",{});
-    console.log("res",res);
+const init = async () => {
+    console.log("config", config.public);
+    let baseURL = config.public.baseURL;
+    let url = "/system-service/open-api/config/1873658569976037378";
+    const { data: apiData } = await useFetch(baseURL + url, {
+        method: "get",
+        headers: { appid: '1873658569976037378' }
+    });
+    console.log("result", apiData.value);
 }
 
 

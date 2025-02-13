@@ -15,7 +15,6 @@
 
 
 <script setup>
-console.log('app.vue')
 const config = useRuntimeConfig()
 // 第一种方法  判断是服务端还是客户端
 if(config.isServer){
