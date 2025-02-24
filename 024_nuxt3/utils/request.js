@@ -1,25 +1,23 @@
 import { message } from 'ant-design-vue';
 
-// 创建自定义 fetch 实例
-  const config = useRuntimeConfig();
-  const token = useCookie('token')||"";
-
-  // 全局配置
- export const fetchConfig = {
-    // 基础URL
-    baseURL: config.public.baseURL,
-    // 请求头
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
-      appId: '1423218348394991618'
-    },
-    // 超时时间
-    timeout: 30000
-  };
-
   // 封装请求方法
   const $request = async (url, options = {}) => {
+    const config = useRuntimeConfig();
+    const token = useCookie('token')||"";
+    const fetchConfig = {
+      // 基础URL
+      baseURL: config.public.baseURL,
+      // 请求头
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+        appId: '1423218348394991618'
+      },
+      // 超时时间
+      timeout: 30000
+    };
+
+
     try {
       const response = await $fetch(url, {
         ...fetchConfig,
@@ -42,7 +40,7 @@ import { message } from 'ant-design-vue';
   };
 
   // 封装常用请求方法
-  export const $http = {
+  export const request = {
     get: (url, params = {}) => {
       return $request(url, {
         method: 'GET',

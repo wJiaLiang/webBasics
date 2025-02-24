@@ -27,8 +27,8 @@ export default defineNuxtConfig({
     isClient: true,
     public: {
       // 在 runtimeConfig.public 中定义的配置可以在客户端和服务端都能访问
-      baseURL: process.env.API_URL,
-      apiUrl: process.env.API_URL,
+      baseURL: process.env.NUXT_PUBLIC_API_BASE,
+      hostbaseURL: process.env.NUXT_PUBLIC_API_BASE_A,
     }
   },
   app: {
@@ -49,10 +49,10 @@ export default defineNuxtConfig({
   vite: {
     server: {
       proxy: {
-        '/api': {
-          target: 'http://10.10.10.180:18080',
+        '/dev-api/': {
+          target: 'https://diandan.sou96.com/prod-api',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
+          rewrite: (path) => path.replace(/^\/dev-api/, ''),
         }
       }
     }
@@ -60,8 +60,8 @@ export default defineNuxtConfig({
   // nitro(ssr可以工作但是客户端无法工作，只适合开发环境） nitro 没有重写路径
   nitro: {
     devProxy: {
-      '/api': {
-        target: 'http://10.10.10.180:18080',
+      '/prod-api/': {
+        target: 'https://diandan.sou96.com',
         changeOrigin: true,
         prependPath: true,
       },
@@ -69,7 +69,7 @@ export default defineNuxtConfig({
     // routeRules(ssr和客户端都可用) ** 表是匹配所有
     // routeRules: {
     //   '/api/**': {
-    //     proxy:'http://10.10.10.180:18080', // 代理后台接口请求
+    //     proxy:'https://diandan.sou96.com/prod-api', // 代理后台接口请求
     //     ssr:true,
     //   }
     // }
