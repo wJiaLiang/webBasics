@@ -1,73 +1,42 @@
-import { message } from 'ant-design-vue';
+import { message } from "ant-design-vue";
 
-  // 封装请求方法
-  const $request = async (url, options = {}) => {
-    const config = useRuntimeConfig();
-    const token = useCookie('token')||"";
-    const fetchConfig = {
-      // 基础URL
-      baseURL: config.public.baseURL,
-      // 请求头
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-        appId: '1423218348394991618'
-      },
-      // 超时时间
-      timeout: 30000
-    };
-
-
-    try {
-      const response = await $fetch(url, {
-        ...fetchConfig,
-        ...options
-      });
-      return response;
-    } catch (error) {
-      // 错误处理
-      const errMsg = error.response?._data?.message || error.message || '请求失败';
-
-      // 使用 message 组件提示错误
+// 封装请求方法
+export const $request = (url, options = {}) => {
+  const config = useRuntimeConfig();
+  let token = useCookie("token") || "aaa";
+  console.log("token", token.value);
+  let fetchConfig = {
+    ...options,
+    baseURL:config.public.baseURL,
+    // 请求头
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+      appId: "1423218348394991618",
+    },
+    timeout: 30000,
+  };
+  return $fetch(url, {
+    ...fetchConfig,
+    onRequest({ request, options }) {
+      console.log("请求前处理:", request, options);
+    },
+    onRequestError({ request, options, error }) {
+      console.log("请求错误处理:", request, options, error);
+    },
+    onResponse({ request, response, options }) {
+      console.log("请求成功处理:", request, response, options);
+    },
+    onResponseError({ request, response, options }) {
+      console.log("请求失败处理:", request, response, options);
+      let errMsg = "";
+      if (request.status == 404) {
+        errMsg = response?.statusText || "服务端错误";
+      }
       message.error({
         content: errMsg,
-        duration: 3
-      });
-
-      // 抛出错误,让调用方可以继续处理
-      throw error;
-    }
-  };
-
-  // 封装常用请求方法
-  export const request = {
-    get: (url, params = {}) => {
-      return $request(url, {
-        method: 'GET',
-        params
+        duration: 3,
       });
     },
-
-    post: (url, data = {}) => {
-      return $request(url, {
-        method: 'POST',
-        body: data
-      });
-    },
-
-    put: (url, data = {}) => {
-      return $request(url, {
-        method: 'PUT',
-        body: data
-      });
-    },
-
-    delete: (url, data = {}) => {
-      return $request(url, {
-        method: 'DELETE',
-        body: data
-      });
-    }
-  };
-
- 
+  });
+};

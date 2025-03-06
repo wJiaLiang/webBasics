@@ -23,10 +23,10 @@ export default defineNuxtConfig({
   ],
 
   runtimeConfig: {
+    // 只在服务端能访问的配置
     isServer: false,
-    isClient: true,
+     // 在 runtimeConfig.public 中定义的配置可以在客户端和服务端都能访问
     public: {
-      // 在 runtimeConfig.public 中定义的配置可以在客户端和服务端都能访问
       baseURL: process.env.NUXT_PUBLIC_API_BASE,
       hostbaseURL: process.env.NUXT_PUBLIC_API_BASE_A,
     }

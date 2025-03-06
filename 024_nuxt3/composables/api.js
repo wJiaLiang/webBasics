@@ -6,7 +6,8 @@ let baseUrl = undefined;
   1.Nuxt 应用实例可能还没有完全初始化
   2.无法访问到正确的应用上下文
   3.可能会导致响应式系统的异常
-*/ 
+  不能包一层 Promise 返回 ueseFetch,回破坏useFetch特性;
+*/
 export const useApi = (URL, opt) => {
   const config = useRuntimeConfig();
   console.log("import.meta.server", import.meta.server);
@@ -15,53 +16,62 @@ export const useApi = (URL, opt) => {
   } else {
     baseUrl = config.public.baseURL;
   }
-
-  return new Promise((resolve, reject) => {
-    return useFetch(URL, {
-      method: opt.method,
-      baseURL: baseUrl,
-      headers: opt.headers,
-      body: opt.data || null,
-      query: opt.query||null,
-      timeout: 6000,
-      onRequest({ request, options }) {
-        options.headers.set("Authorization", "123456");
-      },
-      onRequestError({ request, options, error }) {
-        console.log("request errors",request,options,error);
-      },
-      onResponse({ request, response, options }) {
-        console.log("response", response);
-        resolve(response._data);
-        if (import.meta.client) {
-          localStorage.setItem("token", response._data.token);
-        }
-      },
-      onResponseError({ request, response, options }) {
-        console.log("Handle the response errors");
-        reject(response);
-      },
-    });
+  return useFetch(URL, {
+    // method: opt.method,
+    // headers: opt.headers,
+    // body: opt.data || null,
+    // query: opt.query||null,
+    ...opt,
+    key: URL + "key=" + Math.random(),
+    baseURL: baseUrl,
+    timeout: 6000,
+    server: import.meta.server ? true : false,
+    onRequest({ request, options }) {
+      // console.log("request", request, options);
+      options.headers.set("Authorization", "123456");
+    },
+    onRequestError({ request, options, error }) {
+      console.log("request errors", request, options, error);
+    },
+    onResponse({ request, response, options }) {
+      if (import.meta.client) {
+        localStorage.setItem("token", response.url);
+        useCookie("token", response.url);
+      }
+    },
+    onResponseError({ request, response, options }) {
+      console.log("response errors", response);
+    },
+    transform: (data) => {
+      return data;
+    },
   });
 };
 
-export const $http={
-  get:(url,query,headers)=>{
-    return useApi(url,{method:"get",query,headers})
+export const $http = {
+  get: (url, opt={}) => {
+    opt = {
+      ...opt,
+      method: "get",
+    };
+    return useApi(url, opt);
   },
-  post:(url,data,headers)=>{
-    return useApi(url,{method:"post",data,headers})
+  post: (url, opt = {}) => {
+    return useApi(url, opt);
   },
-  put:(url,data,headers)=>{
-    return useApi(url,{method:"put",data,headers})
+  put: (url, opt = {}) => {
+    return useApi(url, opt);
   },
-  delete:(url,data,headers)=>{
-    return useApi(url,{method:"delete",data,headers})
+  delete: (url, opt = {}) => {
+    return useApi(url, opt);
   },
-}
+};
 
-export const getApi = (url, query, headers) => {
+// 直接使用 useFetch 请求;
+export const getFetch = (url) => {
   const config = useRuntimeConfig();
-  const currentBaseUrl = import.meta.server ? config.public.hostbaseURL : config.public.baseURL;
-    return useApi(url, { method: "get", query, headers });
+  const currentBaseUrl = import.meta.server
+    ? config.public.hostbaseURL
+    : config.public.baseURL;
+  return useFetch(currentBaseUrl + url, { key: url });
 };

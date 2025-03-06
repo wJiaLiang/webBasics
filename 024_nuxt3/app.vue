@@ -16,19 +16,10 @@
 
 <script setup>
 const config = useRuntimeConfig()
-// 第一种方法  判断是服务端还是客户端
-if(config.isServer){
-  console.log('server')
+if(import.meta.server){
+  console.log(config.isServer)
 }else{
-  console.log('client')
-}
-
-// 第二种方法  判断是服务端还是客户端
-if(import.meta.client){
-  console.log('2==>client')
-  console.log(import.meta)
-}else{
-  console.log('2==> server')
+  console.log('客户端')
 }
 
 
