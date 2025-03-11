@@ -43,7 +43,7 @@ const convertHttpsToHttp = (url) => {
 // data.imgs = gdata.value.rows;
 
 
-let { data: res } = await $http.get("/frontend/bannerV2/list", {query:{id:"banner"}});
+let { data: res } = await $http.get("/frontend/bannerV2/list", {key:'banner',query:{id:"123"}});
 console.log('srr-res', res.value);
 data.imgs = res&&res.value.rows||[];
 

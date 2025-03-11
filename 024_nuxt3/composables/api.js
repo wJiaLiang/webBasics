@@ -22,7 +22,6 @@ export const useApi = (URL, opt) => {
     // body: opt.data || null,
     // query: opt.query||null,
     ...opt,
-    key: URL + "key=" + Math.random(),
     baseURL: baseUrl,
     timeout: 6000,
     server: import.meta.server ? true : false,

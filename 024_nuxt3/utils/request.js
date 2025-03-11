@@ -7,7 +7,7 @@ export const $request = (url, options = {}) => {
   console.log("token", token.value);
   let fetchConfig = {
     ...options,
-    baseURL:config.public.baseURL,
+    baseURL: config.public.baseURL,
     // 请求头
     headers: {
       "Content-Type": "application/json",
@@ -26,6 +26,9 @@ export const $request = (url, options = {}) => {
     },
     onResponse({ request, response, options }) {
       console.log("请求成功处理:", request, response, options);
+      if (response._data.code == 200) {
+        useCookie("token", "token123456");
+      }
     },
     onResponseError({ request, response, options }) {
       console.log("请求失败处理:", request, response, options);
