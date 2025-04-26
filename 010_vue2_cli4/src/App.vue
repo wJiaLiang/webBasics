@@ -1,11 +1,12 @@
 <template>
     <div id="app">
-        <div id="nav" class="fs18 flex_r f_ai_c f_jc_s main1200">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>|
-            <router-link to="/el-upload">el-upload</router-link>|
-            <router-link to="/leaflet">leaflet</router-link>|
-            <router-link to="/Decimal">Decimal</router-link>
+        <div id="nav" class="fs18 flex_r f_ai_c f_jc_s main1200 br_b_1_999">
+            <router-link class="pl20 pr20" to="/">Home</router-link> |
+            <router-link class="pl20 pr20" to="/about">About</router-link>|
+            <router-link class="pl20 pr20" to="/el-upload">el-upload</router-link>|
+            <router-link class="pl20 pr20" to="/leaflet">leaflet</router-link>|
+            <router-link class="pl20 pr20" to="/Decimal">Decimal</router-link>|
+            <router-link class="pl20 pr20" to="/vuex">vuex</router-link>
         </div>
         <router-view />
         <div class="bg_red">

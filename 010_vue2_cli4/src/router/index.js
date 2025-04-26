@@ -47,6 +47,11 @@ const routes = [
         path:"/el-upload",
         name:"/el-upload",
         component:()=>import('../components/index.vue')
+    },
+    {
+        path:"/vuex",
+        name:"/vuex",
+        component:()=>import('../views/vuex/index.vue')
     }
 ]
 
