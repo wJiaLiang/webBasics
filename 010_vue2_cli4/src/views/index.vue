@@ -3,12 +3,14 @@
         <section>
             <p> vue-cli4.xxx 的一些配置 测试项目 </p>
             <p> 主要测试 vue-cli 的 多环境配置,多页面配置,proxy 代理跨域设置</p>
+            <br>
             <a href="https://zhuanlan.zhihu.com/p/109952157"> 参考资料 </a>
             <br>
             <a href="https://github.com/staven630/vue-cli4-config"> github 地址 </a>
+            <br>
+            <router-link to="/list"> list 页面 </router-link>
         </section>
         <div>
-            <router-link to="/list"> list 页面 </router-link>
         </div>
         <!-- ********************************************************************************************* -->
 
