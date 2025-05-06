@@ -7,6 +7,7 @@
             <router-link class="pl20 pr20" to="/leaflet">leaflet</router-link>|
             <router-link class="pl20 pr20" to="/Decimal">Decimal</router-link>|
             <router-link class="pl20 pr20" to="/vuex">vuex</router-link>
+            <router-link class="pl20 pr20" to="/dialog">dialog</router-link>
         </div>
         <router-view />
         <div class="bg_red">

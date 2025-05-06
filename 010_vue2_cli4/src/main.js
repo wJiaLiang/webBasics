@@ -6,6 +6,9 @@ import appfunc from './utils/hp.js'
 import 'amfe-flexible'
 // require("./mock")
 
+// 引入自定义消息框插件
+import MyMessage from './plugins/mymessage'
+
 // 引入 elementUi
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -19,6 +22,7 @@ import "@/assets/css/base.css"
 import "leaflet/dist/leaflet.css"
 Vue.use(ElementUI);
 Vue.use(VueAwesomeSwiper);
+Vue.use(MyMessage);
 
 
 new Vue({

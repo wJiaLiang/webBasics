@@ -3,11 +3,11 @@
     <div class="flex_r f_ai_c f_jc_a pl20 pr20 pt10 pb10">
         <div class="tc">home</div>
     </div>
-
-
-    <div class="homePage" v-if="false">
-      <div class="mt20 pt30 pb30" style="box-shadow: 0px 0px 5px hsla(0, 0%, 60%, 0.5)"></div>
+    <div>
+      <router-link to="/dialog">弹框</router-link>
     </div>
+
+
     
     <Tabbar :active="0"></Tabbar>
   </div>
