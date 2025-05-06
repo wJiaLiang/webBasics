@@ -1,4 +1,5 @@
 import { createApp } from "vue";
+import myDialog from "./plugins/myDialog";
 import { createPinia } from "pinia";
 
 import App from "./App.vue";
@@ -23,7 +24,8 @@ app.use(router);
 app.use(Antd);
 app.use(icons);
 app.use(Vant);
-app.use(utils)
+app.use(utils);
+app.use(myDialog)
 for (const i in icons) {
   app.component(i, icons[i]);
 }

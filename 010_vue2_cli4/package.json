@@ -13,7 +13,7 @@
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "decimal.js": "^10.4.3",
-    "element-ui": "^2.15.13",
+    "element-ui": "^2.15.14",
     "leaflet": "^1.9.4",
     "swiper": "5.4.1",
     "vue": "^2.6.11",

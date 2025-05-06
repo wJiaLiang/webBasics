@@ -19,6 +19,7 @@
             </div>
             <div class="mb20">
                 <button @click="setHand" class="btn mr10">实例上方法切换加载状态</button>
+                
             </div>
 
             <h3 class="mt20">User模块状态</h3>
