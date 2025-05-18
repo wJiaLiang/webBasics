@@ -10,6 +10,7 @@ import "vant/lib/index.css";
 import "./assets/main.css";
 import "ant-design-vue/dist/antd.css";
 import Antd from "ant-design-vue";
+
 import * as icons from "@ant-design/icons-vue";
 import Vant from 'vant';
 
@@ -32,6 +33,6 @@ for (const i in icons) {
 // 判断环境显示;
 // console.log("a",import.meta.env.MODE ==="" || "porduction");
 if (import.meta.env.MODE === "development") {
-  const vConsole = new VConsole({ theme: "light" });
+  // const vConsole = new VConsole({ theme: "light" });
 }
 app.mount("#app");

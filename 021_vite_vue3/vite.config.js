@@ -89,7 +89,7 @@ export default defineConfig(({ command, mode }) => {
     },
     server: {
       open: false,
-      port: 3006,
+      port: null,
       host: "0.0.0.0",
       // proxy: {
       //   "/api": {

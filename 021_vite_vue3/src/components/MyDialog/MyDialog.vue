@@ -14,9 +14,27 @@
 </template>
 
 <script setup>
-import { ref, defineExpose } from 'vue';
+import { ref, defineExpose,defineProps } from 'vue';
 import {  Modal as AModal, Button as AButton } from 'ant-design-vue'
 
+let props = defineProps({
+    message: {
+        type: String,
+        default: ''
+    },
+    title: {
+        type: String,
+        default: '提示'
+    },
+    type: {
+        type: String,
+        default: 'primary'
+    },
+    width: {
+        type: String,
+        default: '30%'
+    }
+})
 
 // 组件状态
 const dialogVisible = ref(false);
@@ -38,7 +56,7 @@ const okHand = () => {
 };
 
 // 关闭处理
-const handleClose = () => {
+const handleClose = () => { 
     dialogVisible.value = false;
     if (resolvePromise) {
         resolvePromise({ success: false, canceled: true });
