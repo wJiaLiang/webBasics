@@ -1,3 +1,6 @@
+/* 引入字体文件 */
+@import './fonts.css';
+
 *,
 ::before,
 ::after {
