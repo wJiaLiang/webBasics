@@ -34,6 +34,11 @@ const router = createRouter({
       name: "dialog",
       component: () => import("../views/dialog/index.vue"),
     },
+    {
+      path: "/deepseek",
+      name: "deepseek",
+      component: () => import("../views/deepseek/index.vue"),
+    }
   ],
 });
 

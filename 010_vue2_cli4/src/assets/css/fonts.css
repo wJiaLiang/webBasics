@@ -1,0 +1,31 @@
+
+/* 阿里妈妈粗黑体字体引入 */
+@font-face {
+  font-family: 'myailmamafonts';
+  src: url('../fonts/AlimamaShuHeiTi-Bold/AlimamaShuHeiTi-Bold.woff2') format('woff2'),
+       url('../fonts/AlimamaShuHeiTi-Bold/AlimamaShuHeiTi-Bold.woff') format('woff'),
+       url('../fonts/AlimamaShuHeiTi-Bold/AlimamaShuHeiTi-Bold.ttf') format('truetype'),
+       url('../fonts/AlimamaShuHeiTi-Bold/AlimamaShuHeiTi-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 字体类名定义 */
+.font-alimama {
+  font-family: 'myailmamafonts', 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 不同字重的字体类 */
+.font-alimama-thin {
+  font-family: 'myailmamafonts', 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 100;
+}
+
+/* 粗黑体字体类 */
+.font-alimama-bold {
+  font-family: 'myailmamafonts';
+  font-weight: 700;
+} 
+
+

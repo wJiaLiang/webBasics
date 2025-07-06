@@ -1,10 +1,11 @@
 <template>
-  <div>
-    <div class="flex_r f_ai_c f_jc_a pl20 pr20 pt10 pb10">
+  <div class="pl30 pr30 pt30 pb30">
+    <div class="flex_r f_ai_c f_jc_a">
         <div class="tc">home</div>
     </div>
-    <div>
-      <router-link to="/dialog">弹框</router-link>
+    <div class="">
+      <router-link class="pl10 pr10" to="/dialog">弹框</router-link>
+      <router-link class="pl10 pr10" to="/deepseek"> deepseek </router-link>
     </div>
 
 
