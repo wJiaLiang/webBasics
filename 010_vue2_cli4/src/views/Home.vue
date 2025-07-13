@@ -20,6 +20,18 @@
         <p><img :src="item.photo" alt=""></p>
       </li>
     </ul>
+    <!-- 字体展示区域 -->
+      <div class="font-demo-section">
+            <h2 class="font-alimama-bold">成都加粗</h2>
+            <h2 class="font-alimama">使用阿里妈妈字体的标题</h2>
+            <p class="font-alimama-thin">这是使用阿里妈妈字体（细体）的段落文字</p>
+            <p class="font-alimama">这是使用阿里妈妈字体的普通段落文字</p>
+            <div class="font-comparison">
+                <p class="default-font">默认字体效果</p>
+                <p class="font-alimama">阿里妈妈字体效果</p>
+            </div>
+      </div>
+
   </div>
 </template>
 

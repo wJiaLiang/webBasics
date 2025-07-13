@@ -9,12 +9,21 @@
     "pre": "vue-cli-service build --mode pre"
   },
   "dependencies": {
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^1.0.2",
     "amfe-flexible": "^2.2.1",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "decimal.js": "^10.4.3",
     "element-ui": "^2.15.14",
     "leaflet": "^1.9.4",
+    "markdown-it": "^12.3.2",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-emoji": "^3.0.0",
+    "markdown-it-highlightjs": "^4.2.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "marked": "4.3.0",
+    "openai": "4.0.0",
     "swiper": "5.4.1",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "4.1.1",
@@ -35,6 +44,8 @@
     "less-loader": "^5.0.0",
     "mockjs": "^1.1.0",
     "postcss-pxtorem": "^5.1.1",
+    "sass": "^1.89.2",
+    "sass-loader": "10.1.1",
     "vue-template-compiler": "^2.6.11"
   }
 }

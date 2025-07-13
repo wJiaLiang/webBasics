@@ -35,14 +35,6 @@
       border-collapse: collapse;
   }
   
-  em,
-  i {
-      font-style: normal;
-  }
-  
-  strong {
-      font-weight: normal;
-  }
   ol,
   ul {
       list-style: none;
@@ -57,10 +49,7 @@
       -webkit-appearance: none;
   }
   
-  a {
-      color: #333333;
-      text-decoration: none;
-  }
+  
   
   /* 图片自适应 */
   /*img {*/
@@ -71,15 +60,6 @@
   /*	width: auto;*/
   /*}*/
   
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-      font-weight: normal;
-      line-height: 1;
-  }
   
   /*清除浮动*/
   .clearfix:before,

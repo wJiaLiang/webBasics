@@ -57,6 +57,21 @@ const routes = [
         path:"/dialog",
         name:"/dialog",
         component:()=>import('../views/dialog/index.vue')
+    },
+    {
+        path: '/deepseek',
+        name: 'DeepseekChat',
+        component: () => import('@/views/deepseek/index.vue')
+    },
+    {
+        path: '/deepseek2',
+        name: 'DeepseekChat2',
+        component: () => import('@/views/deepseek/deepseek2.vue')
+    },
+    {
+        path: '/deepseek3',
+        name: 'DeepseekChat3',
+        component: () => import('@/views/deepseek/deep3.vue')
     }
 ]
 

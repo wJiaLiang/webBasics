@@ -8,23 +8,11 @@
             <router-link class="pl20 pr20" to="/Decimal">Decimal</router-link>|
             <router-link class="pl20 pr20" to="/vuex">vuex</router-link>
             <router-link class="pl20 pr20" to="/dialog">dialog</router-link>
+            <router-link class="pl20 pr20" to="/deepseek">deepseek</router-link>
+            <router-link class="pl20 pr20" to="/deepseek2">deepseek2</router-link>
+            <router-link class="pl20 pr20" to="/deepseek3">deepseek3</router-link>
         </div>
         <router-view />
-        
-        <!-- 字体展示区域 -->
-        <div class="font-demo-section">
-            <h2 class="font-alimama-bold">成都加粗</h2>
-            <h2 class="font-alimama">使用阿里妈妈字体的标题</h2>
-            <p class="font-alimama-thin">这是使用阿里妈妈字体（细体）的段落文字</p>
-            <p class="font-alimama">这是使用阿里妈妈字体的普通段落文字</p>
-            <div class="font-comparison">
-                <p class="default-font">默认字体效果</p>
-                <p class="font-alimama">阿里妈妈字体效果</p>
-            </div>
-        </div>
-        
-        <div class="bg_red">
-        </div>
     </div>
 </template>
 <script>
@@ -33,31 +21,16 @@ export default {
         return {
         }
     },
-    methods: {
-
-    },
-    watch: {
-
-    },
-
-    created() {
-
-    },
 
 }
 </script>
 
 <style lang="less">
-
-
 #app {
     font-family: 'AlimamaFangYuanTiVF', Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
 }
-
 #nav {
     padding: 30px;
 
