@@ -1,0 +1,1 @@
+### 基于 https://ts.xcatliu.com/basics/type-of-function.html 

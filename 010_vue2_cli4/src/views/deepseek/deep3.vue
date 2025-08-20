@@ -23,7 +23,7 @@
     <div class="right-panel">
       <div class="editor-container">
         <!-- wangEditor组件 -->
-        <div style="border: 1px solid #ccc;">
+        <div style="border:none">
           <Toolbar
             style="border-bottom: 1px solid #ccc"
             :editor="editor"
@@ -121,7 +121,8 @@ export default Vue.extend({
     this.md = new MarkdownIt({
       html: true,
       breaks: true,
-      linkify: true
+      linkify: true,
+      table: true,
     });
     
     // 应用所有插件
