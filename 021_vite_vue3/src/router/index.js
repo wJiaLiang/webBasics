@@ -38,6 +38,11 @@ const router = createRouter({
       path: "/deepseek",
       name: "deepseek",
       component: () => import("../views/deepseek/index.vue"),
+    },
+    {
+      path: "/pinia",
+      name: "pinia",
+      component: () => import("../views/pinia/index.vue"),
     }
   ],
 });

@@ -6,6 +6,7 @@
     <div class="">
       <router-link class="pl10 pr10" to="/dialog">弹框</router-link>
       <router-link class="pl10 pr10" to="/deepseek"> deepseek </router-link>
+      <router-link class="pl10 pr10" to="/pinia">  pinia 类似vuex </router-link>
     </div>
 
 
