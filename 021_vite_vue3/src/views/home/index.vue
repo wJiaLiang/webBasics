@@ -1,17 +1,19 @@
 <template>
   <div class="pl30 pr30 pt30 pb30">
     <div class="flex_r f_ai_c f_jc_a">
-        <div class="tc">home</div>
+        <div class="tc">home 页面</div>
     </div>
-    <div class="">
+    <div class="pt20 pb20 pl20 pr20" style="border:1px solid burlywood;">
       <router-link class="pl10 pr10" to="/dialog">弹框</router-link>
       <router-link class="pl10 pr10" to="/deepseek"> deepseek </router-link>
-      <router-link class="pl10 pr10" to="/pinia">  pinia 类似vuex </router-link>
+      <router-link class="pl10 pr10" to="/pinia"> pinia </router-link>
+      <router-link class="pl10 pr10" to="/composable"> composable组合式API </router-link>
     </div>
 
 
     
     <Tabbar :active="0"></Tabbar>
+
   </div>
 </template>
 <script lang="js">

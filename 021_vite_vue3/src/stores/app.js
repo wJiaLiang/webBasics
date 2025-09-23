@@ -56,7 +56,8 @@ export const useAppStore = defineStore('app', () => {
   }
   
   function updateHobby(name){
-    userInfo.value.hobby.class3.push(name||'新爱好')
+    if(!name) return false;
+    userInfo.value.hobby.class3.push(name)
   }
 
   // actions - 相当于 Vuex 的 actions (异步操作)
@@ -96,6 +97,7 @@ export const useAppStore = defineStore('app', () => {
   
   // 重置状态
   function resetState() {
+    console.log('重置状态,resetState')
     userInfo.value = {
       name: '张三',
       age: 25,

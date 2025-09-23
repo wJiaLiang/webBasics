@@ -34,9 +34,9 @@
       <div>
         <p>爱好: {{ appStore.hobby }}</p>
         <ul>
-          <li v-for="value in appStore.userInfo.hobby.class3" :key="value">{{ value }}</li>
+          <li v-for="value in appStore.userInfo?.hobby?.class3" :key="value">{{ value }}</li>
         </ul>
-        <button @click="appStore.updateHobby()">更新爱好</button>
+        <button @click="appStore.updateHobby()">新增爱好</button>
       </div>
 
     </div>
