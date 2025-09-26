@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "基本农田" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [104.07,30.57],
+            [104.07,30.58],
+            [104.08,30.58],
+            [104.08,30.57],
+            [104.07,30.57]
+          ]
+        ]
+      }
+    }
+  ]
+}
