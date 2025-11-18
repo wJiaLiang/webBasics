@@ -19,6 +19,8 @@ function getLocalIp() {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  // 全局路由上加一个API前缀;
+  app.setGlobalPrefix('api');
   const server = await app.listen(3000);
   const localIps = getLocalIp();
   const port = 3000;
