@@ -2,7 +2,7 @@
 ## 一、简介
 ### interface 是对象的模板，可以看作是一种类型约定，中文译为“接口”。使用了某个模板的对象，就拥有了指定的类型结构。
 ```ts
-interface Person {s
+interface Person {
   firstName: string;
   lastName: string;
   age: number;
@@ -191,7 +191,6 @@ CountryWithPop继承了type命令定义的Country对象，并且新增了一个p
 interface 还可以继承 class，即继承该类的所有成员。
 class A {
   x:string = '';
-
   y():boolean {
     return true;
   }
